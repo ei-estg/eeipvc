@@ -1,7 +1,22 @@
 const { Command } = require('discord.js-commando')
 const fetch = require('node-fetch')
+const { CronJob } = require('cron')
+const moment = require('moment')
 
-const defaultEmbed = require('../../defaults/embed')
+const { sasEmbed } = require('../../defaults/embed')
+
+const MEAL_TYPES = {
+    LUNCH: 'Almoço',
+    DINNER: 'Jantar',
+}
+
+const getCurrentDate = () => moment().format('DD-MM-YYYY')
+
+const convertToMachineFormat = (date) =>
+    moment(date, 'DD-MM-YYYY').format('YYYY-MM-DD')
+
+const convertToHumanFormat = (date) =>
+    moment(date, 'YYYY-MM-DD').format('DD-MM-YYYY')
 
 module.exports = class MealsCommand extends Command {
     constructor(client) {
@@ -16,18 +31,40 @@ module.exports = class MealsCommand extends Command {
                     key: 'day',
                     type: 'string',
                     prompt: 'Qual é o dia para pesquisar?',
-                    default: new Date().toISOString().split('T')[0],
+                    default: getCurrentDate(),
                 },
                 {
-                    key: 'time',
+                    key: 'mealType',
                     type: 'string',
                     prompt: 'Qual o tipo da refeição?',
-                    default: 'Almoço',
+                    oneOf: ['Almoço', 'Jantar'],
+                    default: MEAL_TYPES.LUNCH,
                 },
             ],
         })
-    }
 
+        const announcement = async () => {
+            let currDate = moment()
+            let day = convertToMachineFormat(currDate)
+
+            let meals = await MealsCommand.getFilteredMeals(
+                day,
+                currDate.format('H') === '9'
+                    ? MEAL_TYPES.LUNCH
+                    : MEAL_TYPES.DINNER
+            )
+            let mealsEmbed = MealsCommand.createMealsEmbed(
+                meals,
+                convertToHumanFormat(day)
+            )
+            client.channels.cache
+                .get('772155762239471657')
+                .send({ embed: mealsEmbed })
+        }
+        client.once('ready', () =>
+            new CronJob('45 9,18 * * *', announcement).start()
+        )
+    }
     static async getMeals(startDate, endDate) {
         let req = await fetch(
             `http://apps.sas.ipvc.pt/sas-ws/mobileV2/obtempordata4.php?datai=${startDate}&dataf=${
@@ -45,20 +82,29 @@ module.exports = class MealsCommand extends Command {
         )
     }
 
-    async run(message, { day, time }) {
-        console.log(time)
-        let filteredMeals = await MealsCommand.getFilteredMeals(day, time)
+    async run(message, { day, mealType }) {
+        let machineDay = convertToMachineFormat(day)
+
+        let filteredMeals = await MealsCommand.getFilteredMeals(
+            machineDay,
+            mealType
+        )
         if (!filteredMeals) {
-            await message.channel.send(`Sem ementas para o dia ${day}`)
+            await message.channel.send(
+                `Sem ementas para o dia ${convertToHumanFormat(machineDay)}`
+            )
         } else {
             await message.channel.send({
-                embed: MealsCommand.createMealsEmbed(filteredMeals, day),
+                embed: MealsCommand.createMealsEmbed(
+                    filteredMeals,
+                    convertToHumanFormat(machineDay)
+                ),
             })
         }
     }
 
     static createMealsEmbed(meals, currentDate) {
-        return defaultEmbed()
+        return sasEmbed()
             .setTitle(`Ementa dia ${currentDate}`)
             .addFields(
                 {

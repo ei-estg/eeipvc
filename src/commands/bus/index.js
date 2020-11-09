@@ -1,7 +1,7 @@
 const { Command } = require('discord.js-commando')
 const fetch = require('node-fetch')
 
-const defaultEmbed = require('../../defaults/embed')
+const { sasEmbed } = require('../../defaults/embed')
 
 module.exports = class BusCommand extends Command {
     constructor(client) {
@@ -28,9 +28,7 @@ module.exports = class BusCommand extends Command {
     }
 
     static createBusStopsEmbed(stops) {
-        const busStopsEmbed = defaultEmbed().setTitle(
-            '🚌 Paragens Bus Académico'
-        )
+        const busStopsEmbed = sasEmbed().setTitle('🚌 Paragens Bus Académico')
 
         stops.forEach((stop) => {
             busStopsEmbed.addFields({

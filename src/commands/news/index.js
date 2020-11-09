@@ -2,7 +2,7 @@ const { Command } = require('discord.js-commando')
 const fetch = require('node-fetch')
 const xmlParser = require('fast-xml-parser')
 
-const defaultEmbed = require('../../defaults/embed')
+const { sasEmbed } = require('../../defaults/embed')
 
 module.exports = class NewsCommand extends Command {
     constructor(client) {
@@ -29,7 +29,7 @@ module.exports = class NewsCommand extends Command {
     }
 
     static createNewsEmbed(news) {
-        const newsEmbed = defaultEmbed().setTitle('📰 Notícias')
+        const newsEmbed = sasEmbed.setTitle('📰 Notícias')
 
         news.forEach((item) => {
             newsEmbed.addFields({
