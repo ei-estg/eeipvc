@@ -22,14 +22,15 @@ module.exports = class BusCommand extends Command {
 
     async run(message) {
         let stops = await BusCommand.getBusStops()
-
         await message.channel.send({
             embed: BusCommand.createBusStopsEmbed(stops),
         })
     }
 
     static createBusStopsEmbed(stops) {
-        const busStopsEmbed = defaultEmbed.setTitle('🚌 Paragens Bus Académico')
+        const busStopsEmbed = defaultEmbed().setTitle(
+            '🚌 Paragens Bus Académico'
+        )
 
         stops.forEach((stop) => {
             busStopsEmbed.addFields({

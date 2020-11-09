@@ -29,7 +29,7 @@ module.exports = class NewsCommand extends Command {
     }
 
     static createNewsEmbed(news) {
-        const newsEmbed = defaultEmbed.setTitle('📰 Notícias')
+        const newsEmbed = defaultEmbed().setTitle('📰 Notícias')
 
         news.forEach((item) => {
             newsEmbed.addFields({
