@@ -1,13 +1,16 @@
+const { Command } = require('discord.js-commando')
 const fetch = require('node-fetch')
 
-const Activity = require('../Activity')
 const defaultEmbed = require('../../defaults/embed')
 
-class BusActivity extends Activity {
-    constructor(bot) {
-        super(bot)
-
-        this.bot.on('message', this.onMessage.bind(this))
+module.exports = class BusCommand extends Command {
+    constructor(client) {
+        super(client, {
+            name: 'paragens',
+            memberName: 'bus-stops',
+            group: 'sas',
+            description: '🚌 Paragens do BUS Académico',
+        })
     }
 
     static async getBusStops() {
@@ -17,14 +20,11 @@ class BusActivity extends Activity {
         return await req.json()
     }
 
-    async onMessage(msg) {
-        const { wasCalled } = this.getCommand('paragens', msg.content)
-        if (!wasCalled) return
+    async run(message) {
+        let stops = await BusCommand.getBusStops()
 
-        let stops = await BusActivity.getBusStops()
-
-        await msg.channel.send({
-            embed: BusActivity.createBusStopsEmbed(stops),
+        await message.channel.send({
+            embed: BusCommand.createBusStopsEmbed(stops),
         })
     }
 
@@ -41,5 +41,3 @@ class BusActivity extends Activity {
         return busStopsEmbed
     }
 }
-
-module.exports = BusActivity

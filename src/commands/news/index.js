@@ -1,14 +1,17 @@
+const { Command } = require('discord.js-commando')
 const fetch = require('node-fetch')
 const xmlParser = require('fast-xml-parser')
 
-const Activity = require('../Activity')
 const defaultEmbed = require('../../defaults/embed')
 
-class NewsActivity extends Activity {
-    constructor(bot) {
-        super(bot)
-
-        this.bot.on('message', this.onMessage.bind(this))
+module.exports = class NewsCommand extends Command {
+    constructor(client) {
+        super(client, {
+            name: 'noticias',
+            memberName: 'news',
+            group: 'sas',
+            description: 'Últimas Notícias do IPVC',
+        })
     }
 
     static async getNews() {
@@ -17,13 +20,11 @@ class NewsActivity extends Activity {
         return xmlParser.parse(text)
     }
 
-    async onMessage(msg) {
-        const { wasCalled } = this.getCommand('noticias', msg.content)
-        if (!wasCalled) return
-
-        let news = await NewsActivity.getNews()
-        await msg.channel.send({
-            embed: NewsActivity.createNewsEmbed(news.rss.channel.item),
+    async run(message) {
+        let news = await NewsCommand.getNews()
+        if (news.length > 5) news.slice(0, 5)
+        await message.channel.send({
+            embed: NewsCommand.createNewsEmbed(news.rss.channel.item),
         })
     }
 
@@ -39,5 +40,3 @@ class NewsActivity extends Activity {
         return newsEmbed
     }
 }
-
-module.exports = NewsActivity
