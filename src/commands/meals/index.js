@@ -49,7 +49,7 @@ module.exports = class MealsCommand extends Command {
 
             let meals = await MealsCommand.getFilteredMeals(
                 day,
-                currDate.format('H') === '9'
+                currDate.format('H') === '8'
                     ? MEAL_TYPES.LUNCH
                     : MEAL_TYPES.DINNER
             )
@@ -62,7 +62,7 @@ module.exports = class MealsCommand extends Command {
                 .send({ embed: mealsEmbed })
         }
         client.once('ready', () =>
-            new CronJob('45 9,18 * * *', announcement).start()
+            new CronJob('0 8 * * 0-5', announcement).start()
         )
     }
     static async getMeals(startDate, endDate) {
