@@ -6,7 +6,8 @@
     "scripts": {
         "dev": "concurrently \"tsc --watch -p .\" \"nodemon build/src/bot.js\"",
         "test": "jest",
-        "start": "tsc -p . && node build/src/bot.js"
+        "build": "tsc -p . ",
+        "start": "node build/src/bot.js"
     },
     "author": "André Sousa <andrematodesousa@gmail.com>",
     "license": "MIT",
