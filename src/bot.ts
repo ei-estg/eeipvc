@@ -43,9 +43,13 @@ class BotClient extends Client {
 
 const bot = new BotClient({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] })
 
-bot.on('ready', async () => {
-    const guild = await bot.guilds.fetch(botConfig.guild.id)
-    bot.user?.setActivity(`${guild.memberCount} pessoas.`, { type: 'WATCHING' })
+bot.on('ready', () => {
+    setInterval(async () => {
+        const guild = await bot.guilds.fetch(botConfig.guild.id)
+        bot.user?.setActivity(`Membros: ${guild.memberCount}`, {
+            type: 'CUSTOM_STATUS',
+        })
+    }, 15 * 60 * 1000)
 })
 
 // Commands
