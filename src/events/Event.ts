@@ -1,7 +1,8 @@
-import { Client, Message, PermissionFlags, MessageEmbed } from 'discord.js'
+import { Message, PermissionFlags, MessageEmbed } from 'discord.js'
 
 export interface EventArgument {
     text: string
+    example?: string
     optional?: boolean
 
     parse?(data: any): any

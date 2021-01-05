@@ -48,6 +48,8 @@ export class CommandHandler {
     }
 
     handle(message: Message) {
+        if (message.author.bot) return ;
+
         const { prefix, command, args } = messageParser(message.content)
         if (prefix !== this.prefix) return
 
@@ -56,12 +58,18 @@ export class CommandHandler {
                 let eventArgs = {}
 
                 if (
-                    !event.args ||
+                    event.args &&
                     args.length != Object.keys(event.args).length
-                )
-                    return
+                ) {
+                    let messageStr = `${prefix}${event.name}`
+                    Object.values(event.args).forEach(arg => {
+                        let examplePart =  arg.example ? ` (e.g. ${arg.example})` : ''
+                        messageStr += ` ${arg.optional ? '[' :''}<${arg.text}${examplePart}>${arg.optional ? ']' :''}`
+                    })
+                    return await message.channel.send(`Argumentos incorretos, a sintaxe correta é: \`${messageStr}\``)
+                }
 
-                Object.keys(event.args).forEach((arg, idx) => {
+                Object.keys(event.args || []).forEach((arg, idx) => {
                     eventArgs[arg] = args[idx]
                 })
 

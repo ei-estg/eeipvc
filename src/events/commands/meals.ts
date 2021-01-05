@@ -11,6 +11,7 @@ export const mealsEvent: Event = {
         date: {
             text: 'data',
             check: () => true,
+            example: '2020-10-12',
             // TODO
             // Implement checks and help command on different number or wrong arguments
         },

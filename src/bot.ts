@@ -43,13 +43,16 @@ class BotClient extends Client {
 
 const bot = new BotClient({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] })
 
-bot.on('ready', () => {
-    setInterval(async () => {
+bot.on('ready', async () => {
+    // Status update
+    const statusUpdate = async () => {
         const guild = await bot.guilds.fetch(botConfig.guild.id)
         bot.user?.setActivity(`Membros: ${guild.memberCount}`, {
             type: 'CUSTOM_STATUS',
         })
-    }, 15 * 60 * 1000)
+    }
+    await statusUpdate()
+    setInterval(statusUpdate, 15 * 60 * 1000)
 })
 
 // Commands
@@ -68,7 +71,22 @@ bot.timmerHandler.addTimmers({
 })
 
 // Reactions
-bot.reactHandler.giveRole(...botConfig.reacts)
+bot.reactHandler.giveRole(botConfig.reacts)
+
+// Add first reactions
+bot.on('ready', async () => {
+    let tasks: Array<Promise<void>> = []
+    for (const react of bot.reactHandler.reacts) {
+        const task = async () => {
+            const channel = await bot.channels.fetch(react.channelId) as TextChannel
+            const message = await channel.messages.fetch(react.messageId)
+
+            await message.react(react.emojiId || react.emoji);
+        }
+        tasks.push(task())
+    }
+    await Promise.all(tasks)
+})
 
 bot.login(process.env.DISCORD_BOT_TOKEN)
     .then(() => console.log('Bot running'))
