@@ -1,9 +1,10 @@
-import { Event } from '../Event'
+import { Command } from './Command'
 import { getMeals } from '../requests/sas'
 import { sasEmbed } from '../defaults/embed'
-import { getISODate } from '../../utils/time'
+import { getISODate } from '../utils/time'
+import { normalize } from '../utils/string'
 
-export const mealsEvent: Event = {
+export const mealsCommand: Command = {
     name: 'ementas',
     description: 'Ementas do SAS',
 
@@ -37,8 +38,7 @@ export const mealsEvent: Event = {
             lunchMeals.forEach((meal) => {
                 mealsEmbed.addFields({
                     name: meal.type,
-                    value:
-                        meal.name.charAt(0) + meal.name.slice(1).toLowerCase(),
+                    value: normalize(meal.name),
                 })
             })
             return mealsEmbed

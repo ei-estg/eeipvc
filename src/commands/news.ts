@@ -1,8 +1,8 @@
-import { Event } from '../Event'
+import { Command } from './Command'
 import { getNews } from '../requests/sas'
 import { sasEmbed } from '../defaults/embed'
 
-export const newsEvent: Event = {
+export const newsCommand: Command = {
     name: 'noticias',
     description: 'As últimas noticias do IPVC',
 

@@ -8,10 +8,10 @@ export const sasEmbed = () =>
             'https://cdn.discordapp.com/avatars/771442069432434758/3647fc1e2487d8613ee822918dd362b5.png?size=256',
         )
 
-export const onEmbed = () =>
+export const eiEmbed = () =>
     new MessageEmbed()
-        .setColor(2126508)
+        .setColor(15903794)
         .setAuthor(
-            'ON IPVC',
-            'https://on.ipvc.pt/oncore/internal/images/favicon/favicon-32x32.png',
+            'EI',
+            'https://cdn.discordapp.com/avatars/771442069432434758/6a9fda17eb8851bdfe7719ad3b4d367b.png?size=256',
         )
