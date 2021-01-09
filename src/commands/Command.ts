@@ -10,7 +10,7 @@ export interface EventArgument {
     check(content: string): boolean
 }
 
-export interface Event {
+export interface Command {
     name: string
     alias?: string[]
     description: string

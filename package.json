@@ -4,6 +4,7 @@
     "version": "2.0.0-alpha",
     "description": "",
     "scripts": {
+        "lint": "prettier --write src/**/*.ts",
         "dev": "concurrently \"tsc --watch -p .\" \"nodemon build/src/bot.js\"",
         "test": "jest",
         "build": "tsc -p . ",

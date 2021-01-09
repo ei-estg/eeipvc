@@ -33,14 +33,16 @@ export class ReactHandler {
                 if (!(options instanceof Array)) {
                     options = [options]
                 }
-                this.reacts.push(...options.map(option => ({
-                    channelId: channelId,
-                    messageId: messageId,
-                    emoji: option.emoji,
-                    emojiId: option.emojiId,
-                    roleId: option.roleId,
-                    group: option.group
-                })))
+                this.reacts.push(
+                    ...options.map((option) => ({
+                        channelId: channelId,
+                        messageId: messageId,
+                        emoji: option.emoji,
+                        emojiId: option.emojiId,
+                        roleId: option.roleId,
+                        group: option.group,
+                    })),
+                )
             })
         })
     }

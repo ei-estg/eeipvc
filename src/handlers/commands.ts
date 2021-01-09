@@ -1,6 +1,7 @@
 import { Message, MessageEmbed } from 'discord.js'
+import { eiEmbed } from '../defaults/embed'
 
-import { Event } from '../events/Event'
+import { Command } from '../commands/Command'
 
 export const isPrefixChar = (char: string) => {
     const charCode = char.charCodeAt(0)
@@ -41,14 +42,38 @@ export const messageParser = (content: string) => {
 
 export class CommandHandler {
     private prefix = '!'
-    private commands: Event[] = []
+    private commands: Command[] = []
 
-    addCommand(...commands: Event[]) {
+    constructor() {
+        this.addCommand(this.getHelpCommand())
+    }
+
+    private getHelpCommand() {
+        const helpEvent: Command = {
+            name: 'ajuda',
+            description: 'Lista de comandos',
+            run: async () => {
+                const helpEmbed = eiEmbed().setTitle('Comandos')
+
+                this.commands.forEach((command) => {
+                    helpEmbed.addFields({
+                        name: this.prefix + command.name,
+                        value: command.description,
+                    })
+                })
+                return helpEmbed
+            },
+        }
+
+        return helpEvent
+    }
+
+    addCommand(...commands: Command[]) {
         this.commands.push(...commands)
     }
 
     handle(message: Message) {
-        if (message.author.bot) return ;
+        if (message.author.bot) return
 
         const { prefix, command, args } = messageParser(message.content)
         if (prefix !== this.prefix) return
@@ -56,17 +81,22 @@ export class CommandHandler {
         this.commands.forEach(async (event) => {
             if (event.name == command || event.alias?.includes(command)) {
                 let eventArgs = {}
-
                 if (
                     event.args &&
                     args.length != Object.keys(event.args).length
                 ) {
                     let messageStr = `${prefix}${event.name}`
-                    Object.values(event.args).forEach(arg => {
-                        let examplePart =  arg.example ? ` (e.g. ${arg.example})` : ''
-                        messageStr += ` ${arg.optional ? '[' :''}<${arg.text}${examplePart}>${arg.optional ? ']' :''}`
+                    Object.values(event.args).forEach((arg) => {
+                        let examplePart = arg.example
+                            ? ` (e.g. ${arg.example})`
+                            : ''
+                        messageStr += ` ${arg.optional ? '[' : ''}<${
+                            arg.text
+                        }${examplePart}>${arg.optional ? ']' : ''}`
                     })
-                    return await message.channel.send(`Argumentos incorretos, a sintaxe correta é: \`${messageStr}\``)
+                    return await message.channel.send(
+                        `Argumentos incorretos, a sintaxe correta é: \`${messageStr}\``,
+                    )
                 }
 
                 Object.keys(event.args || []).forEach((arg, idx) => {

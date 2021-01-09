@@ -4,7 +4,7 @@ import { MessageEmbed, TextChannel } from 'discord.js'
 interface Timmer {
     cronTime: string
     channel: Promise<TextChannel | undefined> | any
-    handler: Promise<string | MessageEmbed | undefined>
+    handler: () => Promise<string | MessageEmbed | undefined>
 }
 
 export class TimmerHandler {
@@ -17,7 +17,7 @@ export class TimmerHandler {
     startAll() {
         this.timmers.forEach((timmer) =>
             new CronJob(timmer.cronTime, async () => {
-                const handler = await timmer.handler
+                const handler = await timmer.handler()
                 const channel = await timmer.channel()
                 try {
                     if (typeof handler == 'string') {

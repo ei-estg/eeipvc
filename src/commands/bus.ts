@@ -1,8 +1,8 @@
-import { Event } from '../Event'
+import { Command } from './Command'
 import { getBusStops } from '../requests/sas'
 import { sasEmbed } from '../defaults/embed'
 
-export const busEvent: Event = {
+export const busCommand: Command = {
     name: 'paragens',
     description: 'Paragens do BUS Académico',
 

@@ -4,14 +4,16 @@ import { CommandHandler } from './handlers/commands'
 import { TimmerHandler } from './handlers/timmers'
 import { ReactHandler } from './handlers/reacts'
 
-import { busEvent } from './events/commands/bus'
-import { newsEvent } from './events/commands/news'
-import { mealsEvent } from './events/commands/meals'
-import { getISODate } from './utils/time'
+import { busCommand } from './commands/bus'
+import { newsCommand } from './commands/news'
+import { mealsCommand } from './commands/meals'
+import { pingCommand } from './commands/ping'
+import { calendarCommand } from './commands/calendar'
+import { subjectsCommand } from './commands/subjects'
 
 import botConfig from './botConfig.json'
 
-class BotClient extends Client {
+export class BotClient extends Client {
     public commandHandler = new CommandHandler()
     public timmerHandler = new TimmerHandler()
     public reactHandler = new ReactHandler()
@@ -56,7 +58,14 @@ bot.on('ready', async () => {
 })
 
 // Commands
-bot.commandHandler.addCommand(busEvent, newsEvent, mealsEvent)
+bot.commandHandler.addCommand(
+    busCommand,
+    newsCommand,
+    mealsCommand,
+    pingCommand,
+    calendarCommand,
+    subjectsCommand,
+)
 
 // CronJobs
 bot.timmerHandler.addTimmers({
@@ -67,7 +76,7 @@ bot.timmerHandler.addTimmers({
             botConfig.timmers.meals.channelId,
         ) as TextChannel
     },
-    handler: mealsEvent.run(undefined, { date: getISODate() }),
+    handler: () => mealsCommand.run(undefined, {}),
 })
 
 // Reactions
@@ -78,10 +87,12 @@ bot.on('ready', async () => {
     let tasks: Array<Promise<void>> = []
     for (const react of bot.reactHandler.reacts) {
         const task = async () => {
-            const channel = await bot.channels.fetch(react.channelId) as TextChannel
+            const channel = (await bot.channels.fetch(
+                react.channelId,
+            )) as TextChannel
             const message = await channel.messages.fetch(react.messageId)
 
-            await message.react(react.emojiId || react.emoji);
+            await message.react(react.emojiId || react.emoji)
         }
         tasks.push(task())
     }
