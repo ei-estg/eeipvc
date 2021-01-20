@@ -34,7 +34,7 @@ export const covidCommand: Command = {
                     : '🟢')} ${count.zone} → ${count.count} casos ativos`,
                 value: `${
                     count.count - previousReport.counts[i].count
-                } novos casos | ${percentage >= 0 ? '+' : '-'}${Math.abs(
+                } novos casos | *${percentage >= 0 ? '+' : '-'}${Math.abs(
                     percentage,
                 ).toFixed(2)}%*`,
             })
