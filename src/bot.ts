@@ -9,6 +9,7 @@ import { newsCommand } from './commands/news'
 import { mealsCommand } from './commands/meals'
 import { pingCommand } from './commands/ping'
 import { calendarCommand } from './commands/calendar'
+import { covidCommand } from './commands/covid'
 import { subjectsCommand } from './commands/subjects'
 
 import botConfig from './botConfig.json'
@@ -64,6 +65,7 @@ bot.commandHandler.addCommand(
     mealsCommand,
     pingCommand,
     calendarCommand,
+    covidCommand,
     subjectsCommand,
 )
 
