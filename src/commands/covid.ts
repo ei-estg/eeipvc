@@ -1,7 +1,7 @@
-import { Message } from 'discord.js'
-import { Command } from './Command'
+import {Message} from 'discord.js'
+import {Command} from './Command'
 import IPVCCovidCases from '../../data/ipvc-covid-cases.json'
-import { eiEmbed } from '../defaults/embed'
+import {eiEmbed} from '../defaults/embed'
 
 export const covidCommand: Command = {
     name: 'covid',
@@ -15,8 +15,7 @@ export const covidCommand: Command = {
         },
     },
 
-    async run(message: Message, { school }) {
-        console.log(school)
+    async run(message: Message, {school}) {
         const cases = IPVCCovidCases.covidCases
         const currentReport = cases[cases.length - 1]
         const previousReport = cases[cases.length - 2]
@@ -28,7 +27,6 @@ export const covidCommand: Command = {
         let totalCount = 0
         currentReport.counts.forEach((count, i) => {
             if (!school || count.zone == school) {
-
                 totalCount += count.count
 
                 percentage =
