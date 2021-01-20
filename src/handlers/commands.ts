@@ -72,6 +72,7 @@ export class CommandHandler {
         this.commands.push(...commands)
     }
 
+
     handle(message: Message) {
         if (message.author.bot) return
 
@@ -81,9 +82,13 @@ export class CommandHandler {
         this.commands.forEach(async (event) => {
             if (event.name == command || event.alias?.includes(command)) {
                 let eventArgs = {}
+
+                let allArgs = Object.values(event.args || {})
+                let optionalArgs = allArgs.filter(arg => arg.optional)
+
                 if (
                     event.args &&
-                    args.length != Object.keys(event.args).length
+                    (args.length < allArgs.length - optionalArgs.length || args.length > allArgs.length)
                 ) {
                     let messageStr = `${prefix}${event.name}`
                     Object.values(event.args).forEach((arg) => {
