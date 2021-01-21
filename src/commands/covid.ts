@@ -43,16 +43,16 @@ export const covidCommand: Command = {
                             : '🟢')} ${count.zone} → ${count.count} casos ativos`,
                     value: `${
                         count.count - previousReport.counts[i].count
-                    } novos casos* | ${percentage >= 0 ? '+' : '-'}${Math.abs(
+                    } novos casos | ${percentage >= 0 ? '+' : '-'}${Math.abs(
                         percentage,
-                    ).toFixed(2)}%*`,
+                    ).toFixed(2)}%`,
                 })
             }
         })
 
         covidEmbed.addFields({
             name: 'Total de casos na comunidade',
-            value: '⚠️ ' + `**${totalCount}** casos`,
+            value: '⚠ ' + `**${totalCount}** casos`,
         })
 
         return covidEmbed
