@@ -1,8 +1,4 @@
-import { Client, TextChannel } from 'discord.js'
-
-import { CommandHandler } from './handlers/commands'
-import { TimmerHandler } from './handlers/timmers'
-import { ReactHandler } from './handlers/reacts'
+import { TextChannel } from 'discord.js'
 
 import { busCommand } from './commands/bus'
 import { newsCommand } from './commands/news'
@@ -13,36 +9,7 @@ import { covidCommand } from './commands/covid'
 import { subjectsCommand } from './commands/subjects'
 
 import botConfig from './botConfig.json'
-
-export class BotClient extends Client {
-    public commandHandler = new CommandHandler()
-    public timmerHandler = new TimmerHandler()
-    public reactHandler = new ReactHandler()
-
-    login(token?: string): Promise<string> {
-        let login = super.login(token)
-
-        // Commands
-        this.on('message', this.commandHandler.handle.bind(this.commandHandler))
-
-        // CronJobs
-        this.on('ready', () => {
-            this.timmerHandler.startAll()
-        })
-
-        // Reactions
-        this.on(
-            'messageReactionAdd',
-            this.reactHandler.handleAdd.bind(this.reactHandler),
-        )
-        this.on(
-            'messageReactionRemove',
-            this.reactHandler.handleRemove.bind(this.reactHandler),
-        )
-
-        return login
-    }
-}
+import { BotClient } from './client'
 
 const bot = new BotClient({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] })
 
@@ -59,7 +26,7 @@ bot.on('ready', async () => {
 })
 
 // Commands
-bot.commandHandler.addCommand(
+bot.handlers.commands.register(
     busCommand,
     newsCommand,
     mealsCommand,
@@ -70,7 +37,7 @@ bot.commandHandler.addCommand(
 )
 
 // CronJobs
-bot.timmerHandler.addTimmers({
+bot.handlers.timers.register({
     cronTime: botConfig.timmers.meals.cronTime,
     channel: async () => {
         const guild = await bot.guilds.fetch(botConfig.guild.id)
@@ -82,24 +49,7 @@ bot.timmerHandler.addTimmers({
 })
 
 // Reactions
-bot.reactHandler.giveRole(botConfig.reacts)
-
-// Add first reactions
-bot.on('ready', async () => {
-    let tasks: Array<Promise<void>> = []
-    for (const react of bot.reactHandler.reacts) {
-        const task = async () => {
-            const channel = (await bot.channels.fetch(
-                react.channelId,
-            )) as TextChannel
-            const message = await channel.messages.fetch(react.messageId)
-
-            await message.react(react.emojiId || react.emoji)
-        }
-        tasks.push(task())
-    }
-    await Promise.all(tasks)
-})
+bot.handlers.reacts.giveRoles(botConfig.reacts)
 
 bot.login(process.env.DISCORD_BOT_TOKEN)
     .then(() => console.log('Bot running'))

@@ -12,6 +12,7 @@ export const mealsCommand: Command = {
         date: {
             text: 'data',
             check: () => true,
+            optional: true,
             example: '2020-10-12',
             // TODO
             // Implement checks and help command on different number or wrong arguments

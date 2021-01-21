@@ -1,4 +1,12 @@
-import { MessageReaction, PartialUser, Snowflake, User } from 'discord.js'
+import {
+    Client,
+    MessageReaction,
+    PartialUser,
+    Snowflake,
+    TextChannel,
+    User,
+} from 'discord.js'
+import { BotClient } from '../client'
 
 interface FileReacts {
     [channelId: string]: FileReactsMessages
@@ -24,10 +32,10 @@ interface React {
     group?: string
 }
 
-export class ReactHandler {
+export class ReactsHandler {
     public reacts: Array<React> = []
 
-    giveRole(react: FileReacts) {
+    giveRoles(react: FileReacts) {
         Object.entries(react).forEach(([channelId, channel]) => {
             Object.entries(channel).forEach(([messageId, options]) => {
                 if (!(options instanceof Array)) {
@@ -45,6 +53,22 @@ export class ReactHandler {
                 )
             })
         })
+    }
+
+    async onReady(bot: BotClient) {
+        let tasks: Array<Promise<void>> = []
+        for (const react of bot.handlers.reacts.reacts) {
+            const task = async () => {
+                const channel = (await bot.channels.fetch(
+                    react.channelId,
+                )) as TextChannel
+                const message = await channel.messages.fetch(react.messageId)
+
+                await message.react(react.emojiId || react.emoji)
+            }
+            tasks.push(task())
+        }
+        await Promise.all(tasks)
     }
 
     private async handleCheck(
@@ -77,7 +101,7 @@ export class ReactHandler {
         }
     }
 
-    async handleAdd(reaction: MessageReaction, user: User | PartialUser) {
+    async onReactAdd(reaction: MessageReaction, user: User | PartialUser) {
         if (user.bot) return
         let check
         try {
@@ -90,7 +114,10 @@ export class ReactHandler {
         }
     }
 
-    async handleRemove(reaction: MessageReaction, user: User | PartialUser) {
+    async onReactionRemove(
+        reaction: MessageReaction,
+        user: User | PartialUser,
+    ) {
         let check
         try {
             if ((check = await this.handleCheck(reaction, user))) {

@@ -40,12 +40,12 @@ export const messageParser = (content: string) => {
     }
 }
 
-export class CommandHandler {
+export class CommandsHandler {
     private prefix = '!'
     private commands: Command[] = []
 
     constructor() {
-        this.addCommand(this.getHelpCommand())
+        this.register(this.getHelpCommand())
     }
 
     private getHelpCommand() {
@@ -68,12 +68,22 @@ export class CommandHandler {
         return helpEvent
     }
 
-    addCommand(...commands: Command[]) {
+    register(...commands: Command[]) {
         this.commands.push(...commands)
     }
 
+    static areArgumentsRight(
+        commandArgsLength: number,
+        allArgsLength: number,
+        optionalArgsLength: number,
+    ) {
+        return (
+            commandArgsLength >= allArgsLength - optionalArgsLength &&
+            commandArgsLength <= allArgsLength
+        )
+    }
 
-    handle(message: Message) {
+    onMessage(message: Message) {
         if (message.author.bot) return
 
         const { prefix, command, args } = messageParser(message.content)
@@ -84,14 +94,17 @@ export class CommandHandler {
                 let eventArgs = {}
 
                 let allArgs = Object.values(event.args || {})
-                let optionalArgs = allArgs.filter(arg => arg.optional)
+                let optionalArgs = allArgs.filter((arg) => arg.optional)
 
                 if (
-                    event.args &&
-                    (args.length < allArgs.length - optionalArgs.length || args.length > allArgs.length)
+                    !CommandsHandler.areArgumentsRight(
+                        args.length,
+                        allArgs.length,
+                        optionalArgs.length,
+                    )
                 ) {
                     let messageStr = `${prefix}${event.name}`
-                    Object.values(event.args).forEach((arg) => {
+                    allArgs.forEach((arg) => {
                         let examplePart = arg.example
                             ? ` (e.g. ${arg.example})`
                             : ''

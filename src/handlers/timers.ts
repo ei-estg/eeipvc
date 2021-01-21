@@ -7,15 +7,15 @@ interface Timmer {
     handler: () => Promise<string | MessageEmbed | undefined>
 }
 
-export class TimmerHandler {
-    private timmers: Array<Timmer> = []
+export class TimersHandler {
+    private timer: Array<Timmer> = []
 
-    addTimmers(...timmers: Timmer[]) {
-        this.timmers.push(...timmers)
+    register(...timers: Timmer[]) {
+        this.timer.push(...timers)
     }
 
-    startAll() {
-        this.timmers.forEach((timmer) =>
+    onReady() {
+        this.timer.forEach((timmer) =>
             new CronJob(timmer.cronTime, async () => {
                 const handler = await timmer.handler()
                 const channel = await timmer.channel()
