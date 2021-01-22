@@ -37,9 +37,9 @@ export const subjectsCommand: Command = {
             half.uc.forEach((u) => {
                 semestersEmbed.addFields({
                     name: `${u.longName} (${u.name})`,
-                    value: u.workHours
+                    value: `${u.workHours
                         .map((h) => `${h.name}: ${h.hours}`)
-                        .join(' | '),
+                        .join(' | ')} | ETC: ${u.etc}`,
                     inline: true,
                 })
             })
