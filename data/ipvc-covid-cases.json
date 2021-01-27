@@ -258,6 +258,43 @@
                     "count":1
                 }
             ]
+        },
+        {
+            "date":"26/01/2021",
+            "counts":[
+                {
+                    "zone":"ESE",
+                    "count":8
+                },
+                {
+                    "zone":"ESA",
+                    "count":6
+                },
+                {
+                    "zone":"ESTG",
+                    "count":31
+                },
+                {
+                    "zone":"ESCE",
+                    "count":7
+                },
+                {
+                    "zone":"ESS",
+                    "count":2
+                },
+                {
+                    "zone":"ESDL",
+                    "count":9
+                },
+                {
+                    "zone":"SC",
+                    "count":1
+                },
+                {
+                    "zone":"SAS",
+                    "count":1
+                }
+            ]
         }
     ]
 }
