@@ -26,7 +26,7 @@ export const covidCommand: Command = {
         let percentage: number
         let totalCount = 0
         currentReport.counts.forEach((count, i) => {
-            if (!school || count.zone == school) {
+            if (!school || count.zone == school.toUpperCase()) {
                 totalCount += count.count
 
                 percentage =
