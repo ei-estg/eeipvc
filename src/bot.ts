@@ -7,7 +7,12 @@ import { pingCommand } from './commands/ping'
 import { calendarCommand } from './commands/calendar'
 import { covidCommand } from './commands/covid'
 import { subjectsCommand } from './commands/subjects'
-import { playCommand, stopCommand, pauseCommand, resumeCommand } from './commands/music'
+import {
+    playCommand,
+    stopCommand,
+    pauseCommand,
+    resumeCommand,
+} from './commands/music'
 
 import botConfig from './botConfig.json'
 import { BotClient } from './client'
@@ -38,7 +43,7 @@ bot.handlers.commands.register(
     playCommand,
     stopCommand,
     pauseCommand,
-    resumeCommand
+    resumeCommand,
 )
 
 // CronJobs

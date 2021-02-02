@@ -1,4 +1,4 @@
-import { Message, PermissionFlags, MessageEmbed } from 'discord.js'
+import { Message, MessageEmbed, PermissionString } from 'discord.js'
 
 export interface EventArgument {
     text: string
@@ -14,7 +14,7 @@ export interface Command {
     name: string
     alias?: string[]
     description: string
-    permissions?: PermissionFlags[]
+    permissions?: PermissionString[]
 
     args?: {
         [key: string]: EventArgument

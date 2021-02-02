@@ -1,7 +1,7 @@
-import {Message} from 'discord.js'
-import {Command} from './Command'
+import { Message } from 'discord.js'
+import { Command } from './Command'
 import IPVCCovidCases from '../../data/ipvc-covid-cases.json'
-import {eiEmbed} from '../defaults/embed'
+import { eiEmbed } from '../defaults/embed'
 
 export const covidCommand: Command = {
     name: 'covid',
@@ -11,11 +11,11 @@ export const covidCommand: Command = {
         school: {
             text: 'escola',
             optional: true,
-            check: () => true
+            check: () => true,
         },
     },
 
-    async run(message: Message, {school}) {
+    async run(message: Message, { school }) {
         const cases = IPVCCovidCases.covidCases
         const currentReport = cases[cases.length - 1]
         const previousReport = cases[cases.length - 2]
@@ -32,15 +32,13 @@ export const covidCommand: Command = {
                 percentage =
                     previousReport.counts[i].count != 0
                         ? ((count.count - previousReport.counts[i].count) /
-                        previousReport.counts[i].count) *
-                        100
+                              previousReport.counts[i].count) *
+                          100
                         : 100
                 covidEmbed.addFields({
-                    name: `${(percentage == 0
-                        ? '🟡'
-                        : percentage > 0
-                            ? '🔴'
-                            : '🟢')} ${count.zone} → ${count.count} casos ativos`,
+                    name: `${
+                        percentage == 0 ? '🟡' : percentage > 0 ? '🔴' : '🟢'
+                    } ${count.zone} → ${count.count} casos ativos`,
                     value: `${
                         count.count - previousReport.counts[i].count
                     } novos casos | ${percentage >= 0 ? '+' : '-'}${Math.abs(
