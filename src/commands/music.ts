@@ -23,7 +23,7 @@ export const playCommand: Command = {
         let connection = await channel.join()
 
         currSong = await connection.play(
-            ytdl(musicLink, { filter: 'audioonly' }),
+            ytdl(musicLink, { filter: 'audioonly', requestOptions: { headers: { cookie: process.env.YTDL_COOKIE }} }),
         )
         currSong.on('finish', () => connection.disconnect())
 
