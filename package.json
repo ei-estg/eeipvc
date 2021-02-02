@@ -13,12 +13,15 @@
     "author": "André Sousa <andrematodesousa@gmail.com>",
     "license": "MIT",
     "dependencies": {
+        "@discordjs/opus": "^0.4.0",
         "cron": "^1.8.2",
         "discord.js": "^12.4.1",
         "fast-xml-parser": "^3.17.4",
+        "ffmpeg-static": "^4.2.7",
         "moment": "^2.29.1",
         "node-fetch": "^2.6.1",
-        "nodemon": "^2.0.6"
+        "nodemon": "^2.0.6",
+        "ytdl-core": "^4.4.5"
     },
     "devDependencies": {
         "@types/jest": "^26.0.19",
