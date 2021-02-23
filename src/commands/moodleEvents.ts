@@ -2,6 +2,7 @@ import { Command } from './Command'
 import { getMoodleCalendarEvents } from '../requests/moodle'
 import { eiEmbed } from '../defaults/embed'
 import moment from 'moment'
+moment.locale('pt-pt')
 
 export const moodleEventsCommand: Command = {
     name: 'eventos',
@@ -11,16 +12,25 @@ export const moodleEventsCommand: Command = {
         let events = await getMoodleCalendarEvents()
         const eventsEmbed = eiEmbed()
 
-        eventsEmbed.setTitle('Calendário')
+        eventsEmbed.setDescription(`🕐 **Atualizado às ${moment().format('HH:mm')}**`)
+
+        eventsEmbed.setTitle('Eventos Moodle')
         events.forEach((event) =>
             eventsEmbed.addFields({
-                name: `${event.name}  ${moment
-                    .unix(event.maxTimestamp)
-                    .format('DD-MM-YYYY HH:mm')}`,
-                value: event.url,
-            }),
+                name: `${event.name}`,
+                value: `🕐 ${moment.unix(event.maxTimestamp).format('DD-MM-YYYY HH:mm')}`,
+                inline: true
+            },
+            {
+                name: `📅 **${moment.unix(event.maxTimestamp).fromNow()}**`,
+                value: `🌐 [Aceder ao Moodle](${event.url})`,
+                inline: true
+            },
+            {
+                name: `💻 ${event.course.name}`,
+                value: '⠀'
+            })
         )
-
         return eventsEmbed
     },
 }
