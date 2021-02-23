@@ -13,10 +13,11 @@ import {
     pauseCommand,
     resumeCommand,
 } from './commands/music'
+import { covidPortugalCommand } from './commands/covidPortugal'
+import { moodleEventsCommand } from './commands/moodleEvents'
 
 import botConfig from './botConfig.json'
 import { BotClient } from './client'
-import { covidPortugalCommand } from './commands/covidPortugal'
 
 const bot = new BotClient({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] })
 
@@ -46,6 +47,7 @@ bot.handlers.commands.register(
     pauseCommand,
     resumeCommand,
     covidPortugalCommand,
+    moodleEventsCommand,
 )
 
 // CronJobs
