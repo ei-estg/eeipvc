@@ -1,5 +1,4 @@
 import { TextChannel } from 'discord.js'
-
 import { busCommand } from './commands/bus'
 import { newsCommand } from './commands/news'
 import { mealsCommand } from './commands/meals'
@@ -15,6 +14,8 @@ import {
 } from './commands/music'
 import { covidPortugalCommand } from './commands/covidPortugal'
 import { moodleEventsCommand } from './commands/moodleEvents'
+import { scheduleCommand } from './commands/schedule'
+
 
 import botConfig from './botConfig.json'
 import { BotClient } from './client'
@@ -48,6 +49,7 @@ bot.handlers.commands.register(
     resumeCommand,
     covidPortugalCommand,
     moodleEventsCommand,
+    scheduleCommand
 )
 
 // CronJobs
