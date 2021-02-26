@@ -27,17 +27,24 @@ export const scheduleCommand: Command = {
     async run(message: Message, { classroom, day }) {
         const scheduleEmbed = eiEmbed()
 
-        message.member?.roles.cache.forEach((role) => {
-            if (role.id == '766286599641890896') {
-                classroom = 'A'
-            } else if (role.id == '766286620084273152') {
-                classroom = 'B'
-            } else if (role.id == '766286336113639454') {
-                classroom = 'C'
-            } else if (role.id == '766286641295130654') {
-                classroom = 'D'
-            }
-        })
+        if (!classroom) {
+            message.member?.roles.cache.forEach((role) => {
+                if (role.id == '766286599641890896') {
+                    classroom = 'A'
+                    return
+                } else if (role.id == '766286620084273152') {
+                    classroom = 'B'
+                    return
+                } else if (role.id == '766286336113639454') {
+                    classroom = 'C'
+                    return
+                } else if (role.id == '766286641295130654') {
+                    classroom = 'D'
+                    return
+                }
+            })
+        }
+
         scheduleEmbed.setTitle(`🔍 Horário da turma ${classroom}`)
 
         if (!classroom) {
