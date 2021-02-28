@@ -1,6 +1,6 @@
 import { Message } from 'discord.js'
-import { Command } from './Command'
-import { eiEmbed } from '../defaults/embed'
+import { Command } from '../Command'
+import { eiEmbed } from '../../defaults/embed'
 import ytdl from 'ytdl-core'
 
 let currSong: any
