@@ -15,6 +15,7 @@ export interface Command {
     alias?: string[]
     description: string
     permissions?: PermissionString[]
+    configuration?: any
 
     args?: {
         [key: string]: EventArgument
@@ -23,5 +24,5 @@ export interface Command {
     run(
         message?: Message,
         args?: any,
-    ): Promise<MessageEmbed | string | undefined>
+    ): Promise<MessageEmbed | string | undefined> | AsyncGenerator<MessageEmbed | string | undefined>
 }

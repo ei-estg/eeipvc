@@ -1,6 +1,6 @@
-import { Command } from './Command'
-import { getBusStops } from '../requests/sas'
-import { sasEmbed } from '../defaults/embed'
+import { Command } from '../Command'
+import { getBusStops } from '../../requests/sas'
+import { sasEmbed } from '../../defaults/embed'
 
 export const busCommand: Command = {
     name: 'paragens',

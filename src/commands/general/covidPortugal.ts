@@ -1,6 +1,6 @@
-import { Command } from './Command'
-import { getCovidInPortugalForDate } from '../requests/utils'
-import { eiEmbed } from '../defaults/embed'
+import { Command } from '../Command'
+import { getCovidInPortugalForDate } from '../../requests/utils'
+import { eiEmbed } from '../../defaults/embed'
 import moment from 'moment'
 
 const DATE_FORMAT = 'DD-MM-YYYY'

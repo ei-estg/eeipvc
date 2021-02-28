@@ -1,12 +1,14 @@
 import { Message } from 'discord.js'
-import { Command } from './Command'
-import { eiEmbed } from '../defaults/embed'
+import { Command } from '../Command'
+import { eiEmbed } from '../../defaults/embed'
 import moment from 'moment'
 import { login } from 'on-ipvc'
+
 moment.locale('pt-pt')
 
 export const scheduleCommand: Command = {
-    name: 'horario',
+    name: 'schedule',
+    alias: ['horario'],
     description: 'Horário de cada turma',
 
     args: {
@@ -29,27 +31,18 @@ export const scheduleCommand: Command = {
 
         if (!classroom) {
             message.member?.roles.cache.forEach((role) => {
-                if (role.id == '766286599641890896') {
-                    classroom = 'A'
-                    return
-                } else if (role.id == '766286620084273152') {
-                    classroom = 'B'
-                    return
-                } else if (role.id == '766286336113639454') {
-                    classroom = 'C'
-                    return
-                } else if (role.id == '766286641295130654') {
-                    classroom = 'D'
-                    return
-                }
+                this.configuration['class'].forEach((classRole) => {
+                    if (role.id == classRole.roleId) {
+                        classroom = classRole.content
+                    }
+                })
             })
         }
-
-        scheduleEmbed.setTitle(`🔍 Horário da turma ${classroom}`)
-
         if (!classroom) {
             return 'Turma não encontrada para este utilizador.'
         }
+
+        scheduleEmbed.setTitle(`🔍 Horário da turma ${classroom}`)
 
         const currentDay = moment().format('DD')
         const currentMonth = moment().format('MM')

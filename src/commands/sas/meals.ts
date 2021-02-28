@@ -1,8 +1,8 @@
-import { Command } from './Command'
-import { getMeals } from '../requests/sas'
-import { sasEmbed } from '../defaults/embed'
-import { getISODate } from '../utils/time'
-import { normalize } from '../utils/string'
+import { Command } from '../Command'
+import { getMeals } from '../../requests/sas'
+import { sasEmbed } from '../../defaults/embed'
+import { getISODate } from '../../utils/time'
+import { normalize } from '../../utils/string'
 
 export const mealsCommand: Command = {
     name: 'ementas',

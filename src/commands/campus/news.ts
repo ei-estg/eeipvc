@@ -1,6 +1,6 @@
-import { Command } from './Command'
-import { getNews } from '../requests/sas'
-import { sasEmbed } from '../defaults/embed'
+import { Command } from '../Command'
+import { getNews } from '../../requests/sas'
+import { sasEmbed } from '../../defaults/embed'
 
 export const newsCommand: Command = {
     name: 'noticias',

@@ -1,15 +1,25 @@
-import { Client } from 'discord.js'
+import { Client, ClientOptions } from 'discord.js'
 
 import { CommandsHandler } from './handlers/commands'
 import { TimersHandler } from './handlers/timers'
 import { ReactsHandler } from './handlers/reacts'
 
 export class BotClient extends Client {
-    public handlers = {
-        commands: new CommandsHandler(),
-        timers: new TimersHandler(),
-        reacts: new ReactsHandler(),
+    private config: any
+    public handlers: {[key: string]: any}
+
+    constructor(botConfig: any, options?: ClientOptions) {
+        super(options);
+
+        this.config = botConfig
+        this.handlers = {
+            commands: new CommandsHandler(this.config.commands),
+            timers: new TimersHandler(),
+            reacts: new ReactsHandler(),
+        }
     }
+
+
 
     login(token?: string): Promise<string> {
         let login = super.login(token)

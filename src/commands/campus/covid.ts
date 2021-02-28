@@ -1,7 +1,7 @@
 import { Message } from 'discord.js'
-import { Command } from './Command'
-import IPVCCovidCases from '../../data/ipvc-covid-cases.json'
-import { eiEmbed } from '../defaults/embed'
+import { Command } from '../Command'
+import IPVCCovidCases from '../../../data/ipvc-covid-cases.json'
+import { eiEmbed } from '../../defaults/embed'
 
 export const covidCommand: Command = {
     name: 'covid',

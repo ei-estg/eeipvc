@@ -43,14 +43,21 @@ export const messageParser = (content: string) => {
 export class CommandsHandler {
     private prefix = '!'
     private commands: Command[] = []
+    private readonly configuration: any
 
-    constructor() {
+    constructor(configuration: any) {
+        this.configuration = configuration
         this.register(this.getHelpCommand())
+    }
+
+    private getCommandConfig(command: string) {
+        return this.configuration[command]
     }
 
     private getHelpCommand() {
         const helpEvent: Command = {
-            name: 'ajuda',
+            name: 'help',
+            alias: ['ajuda'],
             description: 'Lista de comandos',
             run: async () => {
                 const helpEmbed = eiEmbed().setTitle('Comandos')

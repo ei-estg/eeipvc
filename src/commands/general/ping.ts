@@ -1,5 +1,5 @@
 import { Message } from 'discord.js'
-import { Command } from './Command'
+import { Command } from '../Command'
 
 export const pingCommand: Command = {
     name: 'ping',

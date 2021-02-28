@@ -1,7 +1,7 @@
-import { Command } from './Command'
-import IPVCCalendar from '../../data/ipvc-calendar.json'
-import { eiEmbed } from '../defaults/embed'
-import { normalize } from '../utils/string'
+import { Command } from '../Command'
+import IPVCCalendar from '../../../data/ipvc-calendar.json'
+import { eiEmbed } from '../../defaults/embed'
+import { normalize } from '../../utils/string'
 
 export const calendarCommand: Command = {
     name: 'calendario',

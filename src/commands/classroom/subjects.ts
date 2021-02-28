@@ -1,8 +1,8 @@
 import { Message } from 'discord.js'
-import { eiEmbed } from '../defaults/embed'
-import { Command } from './Command'
+import { eiEmbed } from '../../defaults/embed'
+import { Command } from '../Command'
 
-import IPVCUCList from '../../data/ipvc-uc-list.json'
+import IPVCUCList from '../../../data/ipvc-uc-list.json'
 
 export const subjectsCommand: Command = {
     name: 'disciplinas',

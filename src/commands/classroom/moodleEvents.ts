@@ -1,6 +1,6 @@
-import { Command } from './Command'
-import { getMoodleCalendarEvents } from '../requests/moodle'
-import { eiEmbed } from '../defaults/embed'
+import { Command } from '../Command'
+import { getMoodleCalendarEvents } from '../../requests/moodle'
+import { eiEmbed } from '../../defaults/embed'
 import moment from 'moment'
 moment.locale('pt-pt')
 

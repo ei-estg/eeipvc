@@ -1,26 +1,26 @@
 import { TextChannel } from 'discord.js'
-import { busCommand } from './commands/bus'
-import { newsCommand } from './commands/news'
-import { mealsCommand } from './commands/meals'
-import { pingCommand } from './commands/ping'
-import { calendarCommand } from './commands/calendar'
-import { covidCommand } from './commands/covid'
-import { subjectsCommand } from './commands/subjects'
+import { busCommand } from './commands/sas/bus'
+import { newsCommand } from './commands/campus/news'
+import { mealsCommand } from './commands/sas/meals'
+import { pingCommand } from './commands/general/ping'
+import { calendarCommand } from './commands/classroom/calendar'
+import { covidCommand } from './commands/campus/covid'
+import { subjectsCommand } from './commands/classroom/subjects'
 import {
     playCommand,
     stopCommand,
     pauseCommand,
     resumeCommand,
-} from './commands/music'
-import { covidPortugalCommand } from './commands/covidPortugal'
-import { moodleEventsCommand } from './commands/moodleEvents'
-import { scheduleCommand } from './commands/schedule'
+} from './commands/fun/music'
+import { covidPortugalCommand } from './commands/general/covidPortugal'
+import { moodleEventsCommand } from './commands/classroom/moodleEvents'
+import { scheduleCommand } from './commands/classroom/schedule'
 
 
 import botConfig from './botConfig.json'
 import { BotClient } from './client'
 
-const bot = new BotClient({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] })
+const bot = new BotClient(botConfig, { partials: ['MESSAGE', 'CHANNEL', 'REACTION'] })
 
 bot.on('ready', async () => {
     // Status update
