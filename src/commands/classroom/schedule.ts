@@ -41,6 +41,7 @@ export const scheduleCommand: Command = {
         if (!classroom) {
             return 'Turma não encontrada para este utilizador.'
         }
+        classroom = classroom.toUpperCase()
 
         scheduleEmbed.setTitle(`🔍 Horário da turma ${classroom}`)
 
