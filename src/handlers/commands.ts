@@ -129,6 +129,7 @@ export class CommandsHandler {
                 })
 
                 try {
+                    event.configuration = this.getCommandConfig(event.name)
                     const r = await event.run(message, eventArgs)
                     if (typeof r == 'string') {
                         await message.channel.send(r)
