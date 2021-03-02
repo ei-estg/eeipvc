@@ -8,6 +8,24 @@ import IPVCUcZoomLinks from '../../../data/ipvc-uc-zoom-links.json'
 
 moment.locale('pt-pt')
 
+const getZoomLink = (scheduleItem: any, classroom: string): undefined | string => {
+    if (!(scheduleItem.id in IPVCUcZoomLinks)) {
+        return
+    }
+
+    if (!('zoom' in IPVCUcZoomLinks[scheduleItem.id])) {
+        return
+    }
+
+
+    return IPVCUcZoomLinks[scheduleItem.id].zoom.find((item) => {
+            return (!item.types || item.types.includes(scheduleItem.lesson.type)) &&
+                (!item.shifts || item.shifts.includes(classroom))
+        }
+    )?.link
+}
+
+
 export const scheduleCommand: Command = {
     name: 'schedule',
     alias: ['horario'],
@@ -56,7 +74,6 @@ export const scheduleCommand: Command = {
         )
 
         let schedule: any
-
         if (day) {
             schedule = await user.getScheduleByDate(
                 '202021',
@@ -77,45 +94,37 @@ export const scheduleCommand: Command = {
             )
         }
 
-        //console.log(schedule)
-
         if (schedule.length == 0) {
             return 'Sem horário disponível para o dia selecionado.'
-        } else {
-            schedule.forEach((item) =>{
-                scheduleEmbed.addFields(
-                    {
-                        name: `${item.lesson.name}`,
-                        value: `${item.lesson.shortName}`,
-                        inline: true,
-                    },
-                    {
-                        name: `🕐 ${moment
-                            .unix(item.start)
-                            .format('HH:mm')}h às ${moment
-                            .unix(item.end)
-                            .format('HH:mm')}h`,
-                        value: `${item.lesson.classRoom} | ${item.lesson.type}`,
-                        inline: true,
-                    },
-                    {
-                        name: `${item.teacher}`,
-                        value: `🌐 [Aceder ao moodle](${IPVCUcZoomLinks[item.id].url.moodle})`
-                    }
-                );
+        }
 
-                IPVCUcZoomLinks[item.id].url.zoom.map(zoomLink => {
-                    scheduleEmbed.addFields(
-                        {
-                            name: `${zoomLink.desc}`,
-                            value: `🌐 [Aceder ao zoom](${zoomLink.link})`
-                        }
-                    );
-                });
+        schedule.forEach((item) => {
+            let zoomLink = getZoomLink(item, classroom)
 
-                scheduleEmbed.addFields({ name: '\u200B', value: '\u200B' })
-            })
-            return scheduleEmbed
-        } 
+            scheduleEmbed.addFields(
+                {
+                    name: `${item.lesson.name}`,
+                    value: `${item.lesson.shortName}`,
+                    inline: true,
+                },
+                {
+                    name: `🕐 ${moment
+                        .unix(item.start)
+                        .format('HH:mm')}h às ${moment
+                        .unix(item.end)
+                        .format('HH:mm')}h`,
+                    value: `${item.lesson.classRoom} | ${item.lesson.type}`,
+                    inline: true,
+                },
+                {
+                    name: `${item.teacher}`,
+                    value: `**Links:** [Moodle](${IPVCUcZoomLinks[item.id].moodle}) ${zoomLink ? `| [Zoom](${zoomLink})`: ''}`,
+                },
+            )
+
+        })
+
+        scheduleEmbed.setFooter('Se existir algum link errado podem culpar o Marco.')
+        return scheduleEmbed
     },
 }
