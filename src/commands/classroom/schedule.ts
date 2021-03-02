@@ -4,6 +4,8 @@ import { eiEmbed } from '../../defaults/embed'
 import moment from 'moment'
 import { login } from 'on-ipvc'
 
+import IPVCUcZoomLinks from '../../../data/ipvc-uc-zoom-links.json'
+
 moment.locale('pt-pt')
 
 export const scheduleCommand: Command = {
@@ -75,10 +77,12 @@ export const scheduleCommand: Command = {
             )
         }
 
+        //console.log(schedule)
+
         if (schedule.length == 0) {
             return 'Sem horário disponível para o dia selecionado.'
         } else {
-            schedule.forEach((item) =>
+            schedule.forEach((item) =>{
                 scheduleEmbed.addFields(
                     {
                         name: `${item.lesson.name}`,
@@ -96,11 +100,22 @@ export const scheduleCommand: Command = {
                     },
                     {
                         name: `${item.teacher}`,
-                        value: '⠀',
-                    },
-                ),
-            )
+                        value: `🌐 [Aceder ao moodle](${IPVCUcZoomLinks[item.id].url.moodle})`
+                    }
+                );
+
+                IPVCUcZoomLinks[item.id].url.zoom.map(zoomLink => {
+                    scheduleEmbed.addFields(
+                        {
+                            name: `${zoomLink.desc}`,
+                            value: `🌐 [Aceder ao zoom](${zoomLink.link})`
+                        }
+                    );
+                });
+
+                scheduleEmbed.addFields({ name: '\u200B', value: '\u200B' })
+            })
             return scheduleEmbed
-        }
+        } 
     },
 }
