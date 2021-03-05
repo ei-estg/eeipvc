@@ -3633,8 +3633,8 @@ object.pick@^1.3.0:
     isobject "^3.0.1"
 
 "on-ipvc@git+https://github.com/marco-porto/on-ipvc-scrapper":
-  version "1.0.0"
-  resolved "git+https://github.com/marco-porto/on-ipvc-scrapper#321ffc37f620baeb0e418ba3548bbfc69805e134"
+  version "1.0.1"
+  resolved "git+https://github.com/marco-porto/on-ipvc-scrapper#fab30b3272bd7651b0329f04c3434c6305cfcd9e"
   dependencies:
     dotenv "^8.2.0"
     form-data "^3.0.0"
