@@ -23,7 +23,7 @@ export const playCommand: Command = {
         let connection = await channel.join()
 
         currSong = await connection.play(
-            ytdl(musicLink, { filter: 'audioonly', requestOptions: { headers: { cookie: process.env.YTDL_COOKIE }} }),
+            ytdl(musicLink, { filter: 'audio', requestOptions: { headers: { cookie: process.env.YTDL_COOKIE }} }),
         )
         currSong.on('finish', () => connection.disconnect())
 
@@ -33,7 +33,6 @@ export const playCommand: Command = {
             artist:  songInfo.videoDetails.media.artist,
             thumbnails: songInfo.videoDetails.thumbnails
         };
-        console.log(songInfo.videoDetails)
 
         const playEmbed = eiEmbed()
         playEmbed.setThumbnail(song.thumbnails[0].url)
