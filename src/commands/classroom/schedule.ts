@@ -101,24 +101,30 @@ export const scheduleCommand: Command = {
         schedule.forEach((item) => {
             let zoomLink = getZoomLink(item, classroom)
 
+            let isCanceled = ['REPLACED', 'CANCELED'].includes(item.status)
+            let strike = ''
+            if (isCanceled) {
+                strike = '~~'
+            }
+
             scheduleEmbed.addFields(
                 {
                     name: `${item.lesson.name}`,
-                    value: `${item.lesson.shortName}`,
+                    value: `${item.lesson.shortName}${isCanceled ? ' - **Anulada/Substituida**' : ''}`,
                     inline: true,
                 },
                 {
-                    name: `🕐 ${moment
+                    name: `${strike}🕐 ${moment
                         .unix(item.start)
                         .format('HH:mm')}h às ${moment
                         .unix(item.end)
-                        .format('HH:mm')}h`,
+                        .format('HH:mm')}h${strike}`,
                     value: `${item.lesson.classRoom} | ${item.lesson.type}`,
                     inline: true,
                 },
                 {
                     name: `${item.teacher}`,
-                    value: `**Links:** [Moodle](${IPVCUcZoomLinks[item.id].moodle}) ${zoomLink ? `| [Zoom](${zoomLink})`: ''}`,
+                    value: `${strike}**Links:** [Moodle](${IPVCUcZoomLinks[item.id].moodle}) ${zoomLink ? `| [Zoom](${zoomLink})`: ''}${strike}`,
                 },
             )
 
