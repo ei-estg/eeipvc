@@ -15,7 +15,7 @@ import {
 import { covidPortugalCommand } from './commands/general/covidPortugal'
 import { moodleEventsCommand } from './commands/classroom/moodleEvents'
 import { scheduleCommand } from './commands/classroom/schedule'
-
+import { examsCommand } from './commands/classroom/exams'
 
 import botConfig from './botConfig.json'
 import { BotClient } from './client'
@@ -49,7 +49,8 @@ bot.handlers.commands.register(
     resumeCommand,
     covidPortugalCommand,
     moodleEventsCommand,
-    scheduleCommand
+    scheduleCommand,
+    examsCommand
 )
 
 // CronJobs
