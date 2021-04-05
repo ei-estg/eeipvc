@@ -40,17 +40,18 @@ export const examsCommand: Command = {
           })
         }
 
-        if (data.exams){
-          examsEmbed.addFields({
-            name: "📘 Exames",
-            value: data.exams,
-          })
-        }
-
         if (data.work){
           examsEmbed.addFields({
             name: "📁 Trabalhos",
             value: data.work,
+          })
+        }
+
+        /*
+        if (data.exams){
+          examsEmbed.addFields({
+            name: "📘 Exames",
+            value: data.exams,
           })
         }
 
@@ -60,7 +61,7 @@ export const examsCommand: Command = {
             value: data.resource,
           })
         }
-
+        */
         examsEmbed.setFooter("🚨 As datas apresentadas requerem confirmação!")
         return examsEmbed
       }
@@ -85,7 +86,7 @@ export const examsCommand: Command = {
           value: value.work
         })
       }
-
+      /*
       if (value.exams){
         examsEmbed.addFields({
           name: "📘 Exames",
@@ -99,7 +100,7 @@ export const examsCommand: Command = {
           value: value.resource
         })
       }
-
+      */
       examsEmbed.addFields({
         name: "‏‏‎🏳️ " + value.name,
         value: "〰️"
