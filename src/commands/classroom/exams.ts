@@ -6,7 +6,7 @@ import ExamsDates from '../../../data/exams-dates.json'
 
 export const examsCommand: Command = {
   name: 'exams',
-  alias: ['exames'],
+  alias: ['exames', 'testes', 'frequencias'],
   description: 'Datas de exames e frequências',
 
   args: {
