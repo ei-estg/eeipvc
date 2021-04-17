@@ -20,13 +20,13 @@ import { examsCommand } from './commands/classroom/exams'
 import botConfig from './botConfig.json'
 import { BotClient } from './client'
 
-const bot = new BotClient(botConfig, { partials: ['MESSAGE', 'CHANNEL', 'REACTION'] })
+const bot = new BotClient(botConfig, { partials: ['MESSAGE', 'CHANNEL', 'REACTION', 'GUILD_MEMBER'] })
 
 let guildMembersCount = 0
 
 const updateStatus = async () => {
-    bot.user?.setActivity(`Membros: ${guildMembersCount}`, {
-        type: 'CUSTOM_STATUS',
+    await bot.user?.setActivity(`Membros: ${guildMembersCount}`, {
+        type: 'WATCHING',
     })
 }
 
@@ -43,6 +43,7 @@ bot.on('guildMemberAdd', async () => {
 })
 
 bot.on('guildMemberRemove', async () => {
+    console.log('bye')
     guildMembersCount--
     await updateStatus()
 })
