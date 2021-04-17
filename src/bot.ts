@@ -22,16 +22,29 @@ import { BotClient } from './client'
 
 const bot = new BotClient(botConfig, { partials: ['MESSAGE', 'CHANNEL', 'REACTION'] })
 
+let guildMembersCount = 0
+
+const updateStatus = async () => {
+    bot.user?.setActivity(`Membros: ${guildMembersCount}`, {
+        type: 'CUSTOM_STATUS',
+    })
+}
+
 bot.on('ready', async () => {
-    // Status update
-    const statusUpdate = async () => {
-        const guild = await bot.guilds.fetch(botConfig.guild.id)
-        bot.user?.setActivity(`Membros: ${guild.memberCount}`, {
-            type: 'CUSTOM_STATUS',
-        })
-    }
-    await statusUpdate()
-    setInterval(statusUpdate, 15 * 60 * 1000)
+    const guild = await bot.guilds.fetch(botConfig.guild.id)
+    guildMembersCount = guild.memberCount
+    await updateStatus()
+})
+
+bot.on('guildMemberAdd', async () => {
+    guildMembersCount++
+    await updateStatus()
+
+})
+
+bot.on('guildMemberRemove', async () => {
+    guildMembersCount--
+    await updateStatus()
 })
 
 // Commands
