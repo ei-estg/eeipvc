@@ -25,7 +25,7 @@ export const playCommand: Command = {
         currSong = await connection.play(
             ytdl(musicLink, { filter: 'audio', requestOptions: { headers: { cookie: process.env.YTDL_COOKIE }} }),
         )
-        currSong.on('finish', () => connection.disconnect())
+        // currSong.on('finish', () => connection.disconnect())
 
         const songInfo = await ytdl.getInfo(musicLink);
         const song = {
