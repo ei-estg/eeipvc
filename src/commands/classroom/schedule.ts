@@ -129,7 +129,6 @@ export const scheduleCommand: Command = {
             )
 
         })
-
         scheduleEmbed.setFooter('Se existir algum link errado podem culpar o Marco.')
         return scheduleEmbed
     },
