@@ -19,6 +19,7 @@ import { examsCommand } from './commands/classroom/exams'
 
 import botConfig from './botConfig.json'
 import { BotClient } from './client'
+import { answerCommand } from './commands/fun/answer'
 
 const bot = new BotClient(botConfig, { partials: ['MESSAGE', 'CHANNEL', 'REACTION', 'GUILD_MEMBER'] })
 
@@ -64,7 +65,8 @@ bot.handlers.commands.register(
     covidPortugalCommand,
     moodleEventsCommand,
     scheduleCommand,
-    examsCommand
+    examsCommand,
+    answerCommand
 )
 
 // CronJobs
