@@ -16,8 +16,10 @@ export const answerCommand: Command = {
         }
     },
     async run(message: Message, { shift }) {
-        let role = (message.channel as GuildChannel).guild.roles.cache.find(role => role.name == 'Turma ' + shift)
+        let roles = await (message.channel as GuildChannel).guild.roles.fetch()
+        let role = await (message.channel as GuildChannel).roles.cache.find(role => role.name == 'Turma ' + shift)
         if (!role) return 'Turma não existe'
+        if (!role.members) return 'Sem utilizadores encontrados'
         return `${role.members.random()} é a tua vez de responder :D`
 
     },
