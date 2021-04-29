@@ -26,8 +26,8 @@ const bot = new BotClient(botConfig, { partials: ['MESSAGE', 'CHANNEL', 'REACTIO
 let guildMembersCount = 0
 
 const updateStatus = async () => {
-    await bot.user?.setActivity(`Membros: ${guildMembersCount}`, {
-        type: 'WATCHING',
+    await bot.user?.setActivity(`all ${guildMembersCount} members`, {
+        type: 'LISTENING',
     })
 }
 
