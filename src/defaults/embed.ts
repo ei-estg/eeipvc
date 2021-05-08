@@ -5,7 +5,7 @@ export const sasEmbed = () =>
         .setColor(16777215)
         .setAuthor(
             'SAS IPVC',
-            'https://cdn.discordapp.com/avatars/771442069432434758/3647fc1e2487d8613ee822918dd362b5.png?size=256',
+            'https://cdn.discordapp.com/attachments/795686232700878858/840518374801932288/untitled.png?size=256',
         )
 
 export const eiEmbed = () =>
