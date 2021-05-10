@@ -21,7 +21,7 @@ import botConfig from './botConfig.json'
 import { BotClient } from './client'
 import { answerCommand } from './commands/fun/answer'
 import { onlyfansCommand } from './commands/fun/onlyfans'
-
+import { dogecoin } from './commands/fun/dogecoin'
 
 const bot = new BotClient(botConfig, { partials: ['MESSAGE', 'CHANNEL', 'REACTION', 'GUILD_MEMBER'] })
 
@@ -69,7 +69,8 @@ bot.handlers.commands.register(
     scheduleCommand,
     examsCommand,
     answerCommand,
-    onlyfansCommand
+    onlyfansCommand,
+    dogecoin
 )
 
 // CronJobs
