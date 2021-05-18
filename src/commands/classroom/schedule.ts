@@ -69,8 +69,8 @@ export const scheduleCommand: Command = {
         const currentMonth = moment().format('MM')
 
         let user = await login(
-            process.env.ON_AUTH_USERNAME,
-            process.env.ON_AUTH_PASSWORD,
+            process.env.ON_AUTH_USERNAME || '',
+            process.env.ON_AUTH_PASSWORD || '',
         )
 
         let schedule: any
