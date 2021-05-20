@@ -63,10 +63,12 @@ export class CommandsHandler {
                 const helpEmbed = eiEmbed().setTitle('Comandos')
 
                 this.commands.forEach((command) => {
-                    helpEmbed.addFields({
-                        name: this.prefix + command.name,
-                        value: command.description,
-                    })
+                    if (command.name != 'help')
+                        helpEmbed.addFields({
+                            name: this.prefix + command.name,
+                            value: command.description,
+                            inline: true,
+                        })
                 })
                 return helpEmbed
             },
