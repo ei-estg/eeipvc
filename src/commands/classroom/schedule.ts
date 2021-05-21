@@ -122,7 +122,11 @@ export const scheduleCommand: Command = {
             if (isCanceled) {
                 strike = '~~'
             }
+            let links = ''
 
+            if (IPVCUcZoomLinks[item.id]) {
+                links = `${strike}**Links:** [Moodle](${IPVCUcZoomLinks[item.id].moodle}) ${zoomLink ? `| [Zoom](${zoomLink})`: ''}${strike}`
+            }
             scheduleEmbed.addFields(
                 {
                     name: `${item.lesson.name}`,
@@ -137,14 +141,13 @@ export const scheduleCommand: Command = {
                         .format('HH:mm')}h${strike}`,
                     value: `${item.lesson.classRoom} | ${item.lesson.type}`,
                     inline: true,
+                },
+                {
+                    name: `${item.teacher}`,
+                    value: links,
                 }
             )
-            if (IPVCUcZoomLinks[item.id]) {
-                scheduleEmbed.addFields({
-                    name: `${item.teacher}`,
-                        value: `${strike}**Links:** [Moodle](${IPVCUcZoomLinks[item.id].moodle}) ${zoomLink ? `| [Zoom](${zoomLink})`: ''}${strike}`,
-                })
-            }
+
 
         })
         scheduleEmbed.setFooter('Se existir algum link errado podem culpar o Marco.')
