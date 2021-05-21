@@ -34,7 +34,7 @@ export const scheduleCommand: Command = {
     args: {
         classroom: {
             text: 'turma',
-            example: 'A',
+            example: 'A-1',
             check: () => true,
             optional: true,
         },
@@ -48,6 +48,19 @@ export const scheduleCommand: Command = {
 
     async run(message: Message, { classroom, day }) {
         const scheduleEmbed = eiEmbed()
+        let year: string
+
+        [classroom, year] = classroom ? classroom.split('-') : []
+        if (!year) {
+            message.member?.roles.cache.forEach((role) => {
+                this.configuration.year.forEach((yearRole) => {
+                    console.log(role.id, yearRole.roleId, role.id == yearRole.roleId)
+                    if (role.id == yearRole.roleId) {
+                        year = yearRole.content
+                    }
+                })
+            })
+        }
 
         if (!classroom) {
             message.member?.roles.cache.forEach((role) => {
@@ -58,12 +71,12 @@ export const scheduleCommand: Command = {
                 })
             })
         }
-        if (!classroom) {
-            return 'Turma não encontrada para este utilizador.'
+        if (!classroom || !year) {
+            return 'Turma ou ano não encontrada para este utilizador.'
         }
         classroom = classroom.toUpperCase()
 
-        scheduleEmbed.setTitle(`🔍 Horário da turma ${classroom}`)
+        scheduleEmbed.setTitle(`🔍 Horário da turma ${classroom} do ${year}º ano`)
 
         const currentDay = moment().format('DD')
         const currentMonth = moment().format('MM')
@@ -78,7 +91,7 @@ export const scheduleCommand: Command = {
             schedule = await user.getScheduleByDate(
                 '202021',
                 'S2',
-                `EI-1-${classroom}`,
+                `EI-${year}-${classroom}`,
                 '2021',
                 currentMonth,
                 day,
@@ -87,13 +100,16 @@ export const scheduleCommand: Command = {
             schedule = await user.getScheduleByDate(
                 '202021',
                 'S2',
-                `EI-1-${classroom}`,
+                `EI-${year}-${classroom}`,
                 '2021',
                 currentMonth,
                 currentDay,
             )
         }
 
+        if (!schedule) {
+            return 'A combinação turma/ano não existe.'
+        }
         if (schedule.length == 0) {
             return 'Sem horário disponível para o dia selecionado.'
         }
@@ -121,12 +137,14 @@ export const scheduleCommand: Command = {
                         .format('HH:mm')}h${strike}`,
                     value: `${item.lesson.classRoom} | ${item.lesson.type}`,
                     inline: true,
-                },
-                {
-                    name: `${item.teacher}`,
-                    value: `${strike}**Links:** [Moodle](${IPVCUcZoomLinks[item.id].moodle}) ${zoomLink ? `| [Zoom](${zoomLink})`: ''}${strike}`,
-                },
+                }
             )
+            if (IPVCUcZoomLinks[item.id]) {
+                scheduleEmbed.addFields({
+                    name: `${item.teacher}`,
+                        value: `${strike}**Links:** [Moodle](${IPVCUcZoomLinks[item.id].moodle}) ${zoomLink ? `| [Zoom](${zoomLink})`: ''}${strike}`,
+                })
+            }
 
         })
         scheduleEmbed.setFooter('Se existir algum link errado podem culpar o Marco.')
