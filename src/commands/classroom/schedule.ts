@@ -54,7 +54,6 @@ export const scheduleCommand: Command = {
         if (!year) {
             message.member?.roles.cache.forEach((role) => {
                 this.configuration.year.forEach((yearRole) => {
-                    console.log(role.id, yearRole.roleId, role.id == yearRole.roleId)
                     if (role.id == yearRole.roleId) {
                         year = yearRole.content
                     }
@@ -122,7 +121,7 @@ export const scheduleCommand: Command = {
             if (isCanceled) {
                 strike = '~~'
             }
-            let links = ''
+            let links = '⠀'
 
             if (IPVCUcZoomLinks[item.id]) {
                 links = `${strike}**Links:** [Moodle](${IPVCUcZoomLinks[item.id].moodle}) ${zoomLink ? `| [Zoom](${zoomLink})`: ''}${strike}`
