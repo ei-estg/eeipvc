@@ -95,7 +95,8 @@ export class CommandsHandler {
     onMessage(message: Message) {
         if (message.author.bot) return
 
-        const { prefix, command, args } = messageParser(message.content)
+        let { prefix, command, args } = messageParser(message.content)
+        command = command.toLowerCase()
         if (prefix !== this.prefix) return
 
         this.commands.forEach(async (event) => {
