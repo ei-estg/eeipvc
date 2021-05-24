@@ -23,6 +23,7 @@ import { answerCommand } from './commands/fun/answer'
 import { onlyfansCommand } from './commands/fun/onlyfans'
 import { dogecoin } from './commands/fun/dogecoin'
 import { verifyCommand } from './commands/security/verify'
+import moment from 'moment'
 
 const bot = new BotClient(botConfig, { partials: ['MESSAGE', 'CHANNEL', 'REACTION', 'GUILD_MEMBER'] })
 
@@ -84,7 +85,9 @@ bot.handlers.timers.register({
             botConfig.timmers.meals.channelId,
         ) as TextChannel
     },
-    handler: () => mealsCommand.run(undefined, {}),
+    handler: () => mealsCommand.run(undefined, {
+        date: moment().add(1, 'day').format('YYYY-MM-DD')
+    }),
 })
 
 // Reactions
