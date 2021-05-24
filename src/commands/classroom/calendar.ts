@@ -12,7 +12,7 @@ export const calendarCommand: Command = {
         IPVCCalendar.half.forEach((half) => {
             calendarEmbed.addFields({
                 name: '⠀',
-                value: `**${half.id}º Sementre** (de ${half.begin} a ${half.end})`,
+                value: `**${half.id}º Semestre** (de ${half.begin} a ${half.end})`,
             })
 
             half.interruptions.forEach((int) => {
