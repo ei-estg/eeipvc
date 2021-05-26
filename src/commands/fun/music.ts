@@ -42,7 +42,7 @@ export const playCommand: Command = {
         })
         playEmbed.addFields({
             name: "Artista ",
-            value: song.artist
+            value: song.artist ? song.artist : 'Desconhecido'
         })
         return playEmbed
     },
