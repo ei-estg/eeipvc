@@ -2,7 +2,7 @@ import { Message } from 'discord.js'
 import { Command } from '../Command'
 import { eiEmbed } from '../../defaults/embed'
 import moment from 'moment'
-import { login } from 'on-ipvc'
+import { login } from '../../../lib/on-ipvc'
 
 import IPVCUcZoomLinks from '../../../data/ipvc-uc-zoom-links.json'
 
