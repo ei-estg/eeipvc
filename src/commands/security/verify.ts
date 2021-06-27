@@ -1,5 +1,5 @@
-import { DMChannel, Message } from 'discord.js'
-import { login } from '../../../lib/on-academicos'
+import { Message } from 'discord.js'
+import { login } from '../../../lib/academicos-ipvc'
 import { Command } from '../Command'
 import { eiEmbed } from '../../defaults/embed'
 
@@ -48,10 +48,9 @@ export const verifyCommand: Command = {
         const role = await guild.roles.fetch(roleId)
 
         if (!role) return;
-        if (!(message.channel instanceof DMChannel)) return ;
         const guildMember = await guild.members.fetch(message.channel.recipient)
 
-        guildMember.roles.add(role)
+        guildMember.roles?.add(role)
         
         return embed
     },
