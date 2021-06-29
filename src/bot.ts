@@ -17,6 +17,7 @@ import { moodleEventsCommand } from './commands/classroom/moodleEvents'
 import { scheduleCommand } from './commands/classroom/schedule'
 import { examsCommand } from './commands/classroom/exams'
 import { ribasCommand } from './commands/fun/ribeiro'
+import { rodaEsse } from './commands/fun/rodaesse'
 
 import botConfig from './botConfig.json'
 import { BotClient } from './client'
@@ -75,6 +76,7 @@ bot.handlers.commands.register(
     onlyfansCommand,
     dogecoin,
 	ribasCommand,
+    rodaEsse,
     verifyCommand
 )
 
