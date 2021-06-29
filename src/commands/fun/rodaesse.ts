@@ -6,7 +6,7 @@ export const rodaEsse: Command = {
 	description: 'Envia um charuto virtual para os que precisam descomprimir, ou para depois das aualas do Ribeiro.',
 
 	async run(message: Message) {
-		await message.channel.send( ['../../data/joint.mp4'])
+		await message.channel.send({ files:['../../data/joint.mp4']})
 		
 		return undefined
 	}
