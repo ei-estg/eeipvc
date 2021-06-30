@@ -1,9 +1,8 @@
 import { Message } from 'discord.js'
-
 import { Command } from '../Command'
-const fs = require('fs');
+
 export const roastCoder: Command = {
-	name: 'roastCoder',
+	name: 'roastcoder',
 	description: 'Da roast a um Eng. cada vez que fizer asneiras.',
 
 	async run(message: Message) {

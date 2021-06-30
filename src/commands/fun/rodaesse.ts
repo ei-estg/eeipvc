@@ -1,7 +1,7 @@
 import { Message,MessageAttachment } from 'discord.js'
 
 import { Command } from '../Command'
-const fs = require('fs');
+
 export const rodaEsse: Command = {
 	name: 'rodaesse',
 	description: 'Envia um charuto virtual para os que precisam descomprimir, ou para depois das aulas do Ribeiro.',
