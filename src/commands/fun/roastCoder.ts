@@ -19,11 +19,11 @@ export const roastCoder: Command = {
 'Your coding practice is to programming what homeopathy is to medicine.',
 'Your code is so bad, Kyle Reese was sent back in time to submit your resume to Cyberdyne Systems.',
 'Your code is so dangerous, Deep Mind, Elon Musk and over 1000 industry experts have signed a pledge not to weaponize it.',
-'Yo code is so bad that the only way it runs is inside of a PHP sandbox explicitly named "Spaghetti Bowl"',
+'Yo code is so bad that the only way it runs is inside of a PHP sandbox explicitly named \"Spaghetti Bowl\"',
 'Your code is so bad that Microsoft won\'t even change it.'
 ]
 		
-		await message.channel.send(urlPool[Math.floor(Math.random() * urlPool.length)])
+		await message.channel.send("teste")
 		
 		return undefined
 	}
