@@ -22,7 +22,7 @@ export const roastCoder: Command = {
 'Your code is so bad that Microsoft won\'t even change it.'
 ]
 		
-		await message.channel.send("teste")
+		await message.channel.send(urlPool[Math.floor(Math.random() * urlPool.length)])
 		
 		return undefined
 	}
