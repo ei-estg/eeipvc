@@ -19,7 +19,15 @@ export const roastCoder: Command = {
 'Your code is so bad, Kyle Reese was sent back in time to submit your resume to Cyberdyne Systems.',
 'Your code is so dangerous, Deep Mind, Elon Musk and over 1000 industry experts have signed a pledge not to weaponize it.',
 'Yo code is so bad that the only way it runs is inside of a PHP sandbox explicitly named \"Spaghetti Bowl\"',
-'Your code is so bad that Microsoft won\'t even change it.'
+'Your code is so bad that Microsoft won\'t even change it.',
+'Your code is so bad that even Ribeiro can\'t use it',
+'Your code is so bad that the editor didn\'t even know which language you were writing...',
+'Your assembly is so bad that it was mistaken for IKEA furniture.',
+`public void OpTrysToGetGirlfriend()
+{
+    throw new TooUglyException()
+}`,
+
 ]
 		
 		await message.channel.send(urlPool[Math.floor(Math.random() * urlPool.length)])
