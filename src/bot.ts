@@ -18,7 +18,7 @@ import { scheduleCommand } from './commands/classroom/schedule'
 import { examsCommand } from './commands/classroom/exams'
 import { ribasCommand } from './commands/fun/ribeiro'
 import { rodaEsse } from './commands/fun/rodaesse'
-
+import { roastCoder } from './commands/fun/roastCoder'
 import botConfig from './botConfig.json'
 import { BotClient } from './client'
 import { answerCommand } from './commands/fun/answer'
@@ -77,6 +77,7 @@ bot.handlers.commands.register(
     dogecoin,
 	ribasCommand,
     rodaEsse,
+    roastCoder,
     verifyCommand
 )
 
