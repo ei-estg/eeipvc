@@ -15,7 +15,7 @@ export const moviesTimmerHander = async (channel: TextChannel) => {
         embed.setTitle(movie.name)
         embed.addFields({
             name: 'Horários',
-            value: movie.dateTimes.map(dateTime => `${moment(dateTime.date, 'YYYY-MM-DD').format('DD-MM-YYYY')} - ${dateTime.times.join(' | ')}`),
+            value: movie.dateTimes.map(dateTime => `${moment(dateTime.date, 'YYYY-MM-DD').format('DD MMM')} - ${dateTime.times.join(' | ')}`),
         })
         channel.send({ embed })
     })
