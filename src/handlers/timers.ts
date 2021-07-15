@@ -22,7 +22,7 @@ export class TimersHandler {
                 try {
                     if (typeof handler == 'string') {
                         await channel.send(handler)
-                    } else {
+                    } else if (handler instanceof MessageEmbed) {
                         await channel.send({ embed: handler })
                     }
                 } catch (err) {

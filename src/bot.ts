@@ -27,6 +27,7 @@ import { onlyfansCommand } from './commands/fun/onlyfans'
 import { dogecoin } from './commands/fun/dogecoin'
 import { verifyCommand } from './commands/security/verify'
 import moment from 'moment'
+import { moviesTimmerHander } from './private/movies_timmer_handler'
 
 const bot = new BotClient(botConfig, { partials: ['MESSAGE', 'CHANNEL', 'REACTION', 'GUILD_MEMBER'] })
 
@@ -76,24 +77,36 @@ bot.handlers.commands.register(
     answerCommand,
     onlyfansCommand,
     dogecoin,
-	ribasCommand,
+    ribasCommand,
     rodaEsse,
     roastCoder,
-    verifyCommand
+    verifyCommand,
 )
+
+const getChannelById = async (guildId: string, channelId: string) => {
+    const guild = await bot.guilds.fetch(guildId)
+    return guild.channels.cache.get(
+        channelId,
+    ) as TextChannel
+}
 
 // CronJobs
 bot.handlers.timers.register({
     cronTime: botConfig.timmers.meals.cronTime,
-    channel: async () => {
-        const guild = await bot.guilds.fetch(botConfig.guild.id)
-        return guild.channels.cache.get(
-            botConfig.timmers.meals.channelId,
-        ) as TextChannel
-    },
+    channel: () => getChannelById(botConfig.guild.id, botConfig.timmers.cineplace.channelId),
     handler: () => mealsCommand.run(undefined, {
-        date: moment().add(1, 'day').format('YYYY-MM-DD')
+        date: moment().add(1, 'day').format('YYYY-MM-DD'),
     }),
+})
+
+bot.handlers.timers.register({
+    cronTime: botConfig.timmers.cineplace.cronTime,
+    channel: () => getChannelById(botConfig.guild.id, botConfig.timmers.cineplace.channelId),
+    handler: async () => {
+        return moviesTimmerHander(
+            await getChannelById(botConfig.guild.id, botConfig.timmers.cineplace.channelId)
+        )
+    },
 })
 
 // Reactions
