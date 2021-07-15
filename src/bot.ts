@@ -93,7 +93,7 @@ const getChannelById = async (guildId: string, channelId: string) => {
 // CronJobs
 bot.handlers.timers.register({
     cronTime: botConfig.timmers.meals.cronTime,
-    channel: () => getChannelById(botConfig.guild.id, botConfig.timmers.cineplace.channelId),
+    channel: () => getChannelById(botConfig.guild.id, botConfig.timmers.meals.channelId),
     handler: () => mealsCommand.run(undefined, {
         date: moment().add(1, 'day').format('YYYY-MM-DD'),
     }),
