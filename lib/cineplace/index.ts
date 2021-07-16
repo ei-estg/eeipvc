@@ -6,6 +6,7 @@ export enum Cinema {EstacaoViana = 20}
 
 export const BASE_URL = 'https://cineplace.pt/wp-admin/admin-ajax.php'
 
+const getUserAgent = () => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36'
 
 export class Movie {
     constructor(public name: string, public imageUrl: string, public times: string[], public dateTimes: DateTime[]) {
@@ -24,10 +25,17 @@ export const getMoviesByLocation = async (cinema: Cinema): Promise<Movie[]> => {
 
     while (true) {
         const formattedDate = date.format('YYYY-MM-DD')
-        const req = await fetch(`${BASE_URL}?action=get_movies&cinema_id=${cinema}&date=${formattedDate}`)
+        const req = await fetch(`${BASE_URL}?action=get_movies&cinema_id=${cinema}&date=${formattedDate}`, {
+            headers: {
+                'User-Agent': getUserAgent()
+            }
+        })
 
         const data = await req.json()
-        if (data.times.length < 1) return movies
+        if (data.times.length < 1) {
+            console.warn('Movies data: ', data)
+            return movies
+        }
         const $ = cheerio.load(data.contents)
 
         $('.movie').each((i, movieElement: NodeWithChildren) => {
