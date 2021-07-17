@@ -30,8 +30,12 @@ export const getMoviesByLocation = async (cinema: Cinema): Promise<Movie[]> => {
                 'User-Agent': getUserAgent()
             }
         })
-
+        
         const data = await req.json()
+       
+        console.log(`request url: ${BASE_URL}?action=get_movies&cinema_id=${cinema}&date=${formattedDate}`)
+        console.log(`request data: ${data}`)
+        
         if (data.times.length < 1) {
             console.warn('Movies data: ', data)
             return movies
