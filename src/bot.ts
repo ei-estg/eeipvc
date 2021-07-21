@@ -28,6 +28,7 @@ import { dogecoin } from './commands/fun/dogecoin'
 import { verifyCommand } from './commands/security/verify'
 import moment from 'moment'
 import { moviesTimmerHander } from './private/movies_timmer_handler'
+import { minecraftCommand } from './commands/fun/minecraft'
 
 const bot = new BotClient(botConfig, { partials: ['MESSAGE', 'CHANNEL', 'REACTION', 'GUILD_MEMBER'] })
 
@@ -81,6 +82,7 @@ bot.handlers.commands.register(
     rodaEsse,
     roastCoder,
     verifyCommand,
+    minecraftCommand
 )
 
 const getChannelById = async (guildId: string, channelId: string) => {
