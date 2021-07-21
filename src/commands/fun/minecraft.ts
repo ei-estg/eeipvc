@@ -1,0 +1,22 @@
+import { Command } from '../Command'
+import { eiEmbed } from '../../defaults/embed'
+import minecraft from 'minecraft-server-util'
+
+export const minecraftCommand: Command = {
+    name: 'minecraft',
+    description: 'Verifica o estado atual do servidor de minecraft',
+
+    async run() {
+        const embed = eiEmbed()
+        const data = await minecraft.status('ipvc.apexmc.co')
+        embed.setTitle('Servidor Minecraft')
+        embed.addFields({
+            name: 'Servidor',
+            value: `${data.host}:${data.port}`
+        }, {
+            name: 'Utilizadores',
+            value: `Online: ${data.onlinePlayers}`
+        })
+        return embed
+    },
+}
