@@ -1,6 +1,6 @@
 import { Command } from '../Command'
 import { eiEmbed } from '../../defaults/embed'
-import minecraft from 'minecraft-server-util'
+import { getMinecraftServerData } from '../../requests/minecraft'
 
 export const minecraftCommand: Command = {
     name: 'minecraft',
@@ -8,7 +8,7 @@ export const minecraftCommand: Command = {
 
     async run() {
         const embed = eiEmbed()
-        const data = await minecraft.status('ipvc.apexmc.co')
+        const data = await getMinecraftServerData()
         embed.setTitle('Servidor Minecraft')
         embed.addFields({
             name: 'Servidor',

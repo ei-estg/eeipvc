@@ -29,6 +29,7 @@ import { verifyCommand } from './commands/security/verify'
 import moment from 'moment'
 import { moviesTimmerHander } from './private/movies_timmer_handler'
 import { minecraftCommand } from './commands/fun/minecraft'
+import { minecraftTimmerHandler } from './private/minecraft_timmer_handler'
 
 const bot = new BotClient(botConfig, { partials: ['MESSAGE', 'CHANNEL', 'REACTION', 'GUILD_MEMBER'] })
 
@@ -109,6 +110,16 @@ bot.handlers.timers.register({
             await getChannelById(botConfig.guild.id, botConfig.timmers.cineplace.channelId)
         )
     },
+})
+
+bot.handlers.timers.register({
+    cronTime: botConfig.timmers.minecraft.cronTime,
+    channel: () => getChannelById(botConfig.guild.id, botConfig.timmers.minecraft.channelId),
+    handler: async () => {
+        return minecraftTimmerHandler(
+            await getChannelById(botConfig.guild.id, botConfig.timmers.minecraft.channelId)
+        )
+    }
 })
 
 // Reactions

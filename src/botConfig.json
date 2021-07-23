@@ -9,8 +9,11 @@
         },
         "cineplace": {
             "cronTime": "0 4 * * *",
-            "channelId": "865240499861454888",
-            "messageId": "859892341430550558"
+            "channelId": "865240499861454888"
+        },
+        "minecraft": {
+            "cronTime": "* * * * *",
+            "channelId": "855197188678221844"
         }
     },
     "reacts": {
