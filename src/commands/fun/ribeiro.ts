@@ -6,9 +6,9 @@ export const ribasCommand: Command = {
 	description: 'Envia os 3 emojis do Ribeiro em sequência de evolução, CSI style.',
 
 	async run(message: Message) {
-		await message.channel.send("<:ribeiro1:855147832998887426>")
-		await message.channel.send("<:ribeiro2:855147873426210816>")
-		await message.channel.send("<:ribeiro3:855147982110457877>")
+		await message.channel.send("https://imgur.com/AU3VHzp")
+		await message.channel.send("https://imgur.com/q6jFAic")
+		await message.channel.send("https://imgur.com/OGDmDMr")
 		return undefined
 	}
 }
