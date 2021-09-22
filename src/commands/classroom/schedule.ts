@@ -97,8 +97,8 @@ export const scheduleCommand: Command = {
             )
         } else {
             schedule = await user.getScheduleByDate(
-                '202021',
-                'S2',
+                '202122',
+                'S1',
                 `EI-${year}-${classroom}`,
                 '2021',
                 currentMonth,
