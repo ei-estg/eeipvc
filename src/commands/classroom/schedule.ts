@@ -107,7 +107,7 @@ export const scheduleCommand: Command = {
         }
 
         if (!schedule) {
-            return 'A combinação turma/ano não existe.'
+            return 'A combinação turma/ano não existe. Ex: !horario A-2 27'
         }
         if (schedule.length == 0) {
             return 'Sem horário disponível para o dia selecionado.'
