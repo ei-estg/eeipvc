@@ -12,8 +12,8 @@ export const pisoCommand: Command = {
         },
     },
 
-    async run(message: Message, {floor}) {
-        await message.channel.send("Piso ***",{floor},"***. Não te percas novamente :D (Roda o telemovel)")
+    async run(message: Message, { floor }) {
+        await message.channel.send("Piso ***${floor}***. Não te percas novamente :D (Roda o telemovel)")
         if (floor == 1) {
             await message.channel.send("https://i.imgur.com/8ZkWMat.png")
         }
@@ -26,7 +26,7 @@ export const pisoCommand: Command = {
         else {
             await message.channel.send("Comando inválido. Ex: !piso 2")
         }
-    
+
         return undefined
     }
 }
