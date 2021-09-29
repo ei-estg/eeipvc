@@ -103,12 +103,17 @@
                     "emojiId": "C_:779372136736620564",
                     "emoji": "C_",
                     "roleId": "766286336113639454",
-                        "group": "class"
+                    "group": "class"
                 },
                 {
                     "emojiId": "D_:779372169020833802",
                     "emoji": "D_",
                     "roleId": "766286641295130654",
+                    "group": "class"
+                },
+                {
+                    "emoji": "\uD83C\uDDF2",
+                    "roleId": "890741027697201212",
                     "group": "class"
                 }
             ]
