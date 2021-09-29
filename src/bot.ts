@@ -84,7 +84,8 @@ bot.handlers.commands.register(
     rodaEsse,
     roastCoder,
     verifyCommand,
-    minecraftCommand
+    minecraftCommand,
+    pisosCommand
 )
 
 const getChannelById = async (guildId: string, channelId: string) => {
