@@ -88,6 +88,11 @@
                     "group": "year"
                 },
                 {
+                    "emoji": "\uD83C\uDDF2",
+                    "roleId": "890741027697201212",
+                    "group": "class"
+                },
+                {
                     "emojiId": "A_:779372095721177109",
                     "emoji": "A_",
                     "roleId": "766286599641890896",
@@ -109,11 +114,6 @@
                     "emojiId": "D_:779372169020833802",
                     "emoji": "D_",
                     "roleId": "766286641295130654",
-                    "group": "class"
-                },
-                {
-                    "emoji": "\uD83C\uDDF2",
-                    "roleId": "890741027697201212",
                     "group": "class"
                 }
             ]
