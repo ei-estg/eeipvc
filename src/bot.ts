@@ -16,7 +16,7 @@ import { covidPortugalCommand } from './commands/general/covidPortugal'
 import { moodleEventsCommand } from './commands/classroom/moodleEvents'
 import { scheduleCommand } from './commands/classroom/schedule'
 import { examsCommand } from './commands/classroom/exams'
-import { pisosCommand } from './commands/classroom/pisos'
+import { pisoCommand } from './commands/classroom/piso'
 import { ribasCommand } from './commands/fun/ribeiro'
 import { rodaEsse } from './commands/fun/rodaesse'
 import { roastCoder } from './commands/fun/roastCoder'
@@ -85,7 +85,7 @@ bot.handlers.commands.register(
     roastCoder,
     verifyCommand,
     minecraftCommand,
-    pisosCommand
+    pisoCommand
 )
 
 const getChannelById = async (guildId: string, channelId: string) => {
