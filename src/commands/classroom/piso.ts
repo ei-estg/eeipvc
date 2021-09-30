@@ -12,29 +12,49 @@ export const pisoCommand: Command = {
             check: () => true,
         },
     },
-//"https://i.imgur.com/8ZkWMat.png"
     async run(message: Message, { floor }) {
         if (floor > 0 && floor <= 3) {
             await message.channel.send(
-                `Piso ***${floor}***. Não te percas novamente :D (Roda o telemovel)`,
+                `Piso ***${floor}***. Não te percas novamente :D (Roda o telemóvel)`,
             )
             if (floor == 1) {
                 await message.channel.send({
                     files: [
                         {
-                            attachment: path.resolve('assets/floor_1_blueprint.png'),
-                            name: 'floor1.jpg',
+                            attachment: path.resolve(
+                                'assets/floor_1_blueprint.png',
+                            ),
+                            name: 'floor1.png',
                         },
                     ],
                 })
             } else if (floor == 2) {
-                await message.channel.send('https://i.imgur.com/ohD8429.png')
+                await message.channel.send({
+                    files: [
+                        {
+                            attachment: path.resolve(
+                                'assets/floor_2_blueprint.png',
+                            ),
+                            name: 'floor2.png',
+                        },
+                    ],
+                })
             } else {
-                await message.channel.send('https://i.imgur.com/zrrdvcP.png')
+                await message.channel.send({
+                    files: [
+                        {
+                            attachment: path.resolve(
+                                'assets/floor_3_blueprint.png',
+                            ),
+                            name: 'floor3.png',
+                        },
+                    ],
+                })
             }
         } else {
-            await message.channel.send('Piso inexistente. Ex: !piso 1-2-3')
+            await message.channel.send('Piso inexistente. Ex: !piso 1')
         }
         return undefined
     },
 }
+//Old imgs floor 1: https://i.imgur.com/8ZkWMat.png floor 2: https://i.imgur.com/ohD8429.png floor 3: https://i.imgur.com/zrrdvcP.png
