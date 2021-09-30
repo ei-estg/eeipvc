@@ -21,7 +21,7 @@ export const pisoCommand: Command = {
                 await message.channel.send({
                     files: [
                         {
-                            attachment: '../../../assets/floor_1_blueprint.png',
+                            attachment: './../../../assets/floor_1_blueprint.png',
                             name: 'file.jpg',
                         },
                     ],
