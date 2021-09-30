@@ -22,6 +22,7 @@ export const rodaEsse: Command = {
             'https://c.tenor.com/GGsZ7_cG2bAAAAAM/smoke-cigarettes.gif',
             'https://c.tenor.com/8LSToAJJFSsAAAAM/smoke-weed.gif',
             'https://c.tenor.com/hqpfoL3c5WwAAAAM/puss-pass.gif',
+            'https://cdn.discordapp.com/attachments/853981264355786762/893126689410924544/Screenshot_20210930_142612.jpg'
         ]
         const attachment = new MessageAttachment(
             urlPool[Math.floor(Math.random() * urlPool.length)],
