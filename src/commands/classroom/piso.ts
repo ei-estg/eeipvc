@@ -1,5 +1,6 @@
 import { Message } from 'discord.js'
 import { Command } from '../Command'
+const path = require('path')
 
 export const pisoCommand: Command = {
     name: 'piso',
@@ -21,8 +22,8 @@ export const pisoCommand: Command = {
                 await message.channel.send({
                     files: [
                         {
-                            attachment: './../../../assets/floor_1_blueprint.png',
-                            name: 'file.jpg',
+                            attachment: path.resolve('assets/floor_1_blueprint.png'),
+                            name: 'floor1.jpg',
                         },
                     ],
                 })
