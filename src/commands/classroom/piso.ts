@@ -11,22 +11,29 @@ export const pisoCommand: Command = {
             check: () => true,
         },
     },
-
-    async run(message: Message, { floor }) { 
-        if(floor > 0 && floor <=3){
-            await message.channel.send(`Piso ***${floor}***. Não te percas novamente :D (Roda o telemovel)`)             
-            if (floor == 1) {                       
-            await message.channel.send("https://i.imgur.com/8ZkWMat.png")
-               }
-            else if (floor == 2) {            
-            await message.channel.send("https://i.imgur.com/ohD8429.png")
-               }
-            else {            
-            await message.channel.send("https://i.imgur.com/zrrdvcP.png")
-               }            
+//"https://i.imgur.com/8ZkWMat.png"
+    async run(message: Message, { floor }) {
+        if (floor > 0 && floor <= 3) {
+            await message.channel.send(
+                `Piso ***${floor}***. Não te percas novamente :D (Roda o telemovel)`,
+            )
+            if (floor == 1) {
+                await message.channel.send({
+                    files: [
+                        {
+                            attachment: '../../../assets/floor_1_blueprint.png',
+                            name: 'file.jpg',
+                        },
+                    ],
+                })
+            } else if (floor == 2) {
+                await message.channel.send('https://i.imgur.com/ohD8429.png')
+            } else {
+                await message.channel.send('https://i.imgur.com/zrrdvcP.png')
+            }
         } else {
-            await message.channel.send("Piso inexistente. Ex: !piso 1-2-3")
+            await message.channel.send('Piso inexistente. Ex: !piso 1-2-3')
         }
         return undefined
-    }
+    },
 }
