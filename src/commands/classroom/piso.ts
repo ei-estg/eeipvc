@@ -1,8 +1,6 @@
 import { Message } from 'discord.js'
 import { Command } from '../Command'
 
-const floor1Img = require('../../../assets/floor_1_blueprint.png') 
-
 export const pisoCommand: Command = {
     name: 'piso',
     description: 'Envia a planta com as salas de cada piso da ESTG.',
