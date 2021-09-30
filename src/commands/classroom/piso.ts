@@ -12,21 +12,21 @@ export const pisoCommand: Command = {
         },
     },
 
-    async run(message: Message, { floor }) {
-        await message.channel.send(`Piso ***${floor}***. Não te percas novamente :D (Roda o telemovel)`)
-        if (floor == 1) {
+    async run(message: Message, { floor }) { 
+        if(floor > 0 && floor <=3){
+            await message.channel.send(`Piso ***${floor}***. Não te percas novamente :D (Roda o telemovel)`)             
+            if (floor == 1) {                       
             await message.channel.send("https://i.imgur.com/8ZkWMat.png")
+               }
+            else if (floor == 2) {            
+            await message.channel.send("https://i.imgur.com/ohD8429.png")
+               }
+            else {            
+            await message.channel.send("https://i.imgur.com/zrrdvcP.png")
+               }            
+        } else {
+            await message.channel.send("Piso inexistente. Ex: !piso 1-2-3")
         }
-        else if (floor == 2) {
-        await message.channel.send("https://i.imgur.com/ohD8429.png")
-        }
-        else if (floor == 3) {
-        await message.channel.send("https://i.imgur.com/zrrdvcP.png")
-        }
-        else {
-            await message.channel.send("Comando inválido. Ex: !piso 2")
-        }
-
         return undefined
     }
 }
