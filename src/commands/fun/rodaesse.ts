@@ -5,7 +5,7 @@ import { Command } from '../Command'
 export const rodaEsse: Command = {
     name: 'rodaesse',
     description:
-        'Envia um charuto virtual para os que precisam descomprimir, ou para depois das aulas do Ribeiro.',
+        'Envia um charuto virtual para os que precisam descomprimir.',
 
     async run(message: Message) {
         const urlPool = [

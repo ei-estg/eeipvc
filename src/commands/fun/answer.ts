@@ -8,7 +8,7 @@ export const answerCommand: Command = {
         'desgraçado',
         'sacrificado'
     ],
-    description: 'Seleciona uma pessoa aleatóriamente para responder ao Professor Doutor e Engenheiro Vitor',
+    description: 'Seleciona uma pessoa aleatóriamente para responder',
     args: {
         shift: {
             text: 'turno',
