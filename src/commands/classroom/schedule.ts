@@ -4,27 +4,7 @@ import { eiEmbed } from '../../defaults/embed'
 import moment from 'moment'
 import { login } from '../../../lib/on-ipvc'
 
-import IPVCUcZoomLinks from '../../../data/ipvc-uc-zoom-links.json'
-
 moment.locale('pt-pt')
-
-const getZoomLink = (scheduleItem: any, classroom: string): undefined | string => {
-    if (!(scheduleItem.id in IPVCUcZoomLinks)) {
-        return
-    }
-
-    if (!('zoom' in IPVCUcZoomLinks[scheduleItem.id])) {
-        return
-    }
-
-
-    return IPVCUcZoomLinks[scheduleItem.id].zoom.find((item) => {
-            return (!item.types || item.types.includes(scheduleItem.lesson.type)) &&
-                (!item.shifts || item.shifts.includes(classroom))
-        }
-    )?.link
-}
-
 
 export const scheduleCommand: Command = {
     name: 'schedule',
@@ -50,7 +30,7 @@ export const scheduleCommand: Command = {
         const scheduleEmbed = eiEmbed()
         let year: string
 
-        [classroom, year] = classroom ? classroom.split('-') : []
+        ;[classroom, year] = classroom ? classroom.split('-') : []
         if (!year) {
             message.member?.roles.cache.forEach((role) => {
                 this.configuration.year.forEach((yearRole) => {
@@ -75,7 +55,9 @@ export const scheduleCommand: Command = {
         }
         classroom = classroom.toUpperCase()
 
-        scheduleEmbed.setTitle(`🔍 Horário da turma ${classroom} do ${year}º ano`)
+        scheduleEmbed.setTitle(
+            `🔍 Horário da turma ${classroom} do ${year}º ano`,
+        )
 
         const currentDay = moment().format('DD')
         const currentMonth = moment().format('MM')
@@ -114,22 +96,18 @@ export const scheduleCommand: Command = {
         }
 
         schedule.forEach((item) => {
-            let zoomLink = getZoomLink(item, classroom)
-
             let isCanceled = ['REPLACED', 'CANCELED'].includes(item.status)
             let strike = ''
             if (isCanceled) {
                 strike = '~~'
             }
-            let links = '⠀'
 
-            if (IPVCUcZoomLinks[item.id]) {
-                links = `${strike}**Links:** [Moodle](${IPVCUcZoomLinks[item.id].moodle}) ${zoomLink ? `| [Zoom](${zoomLink})`: ''}${strike}`
-            }
             scheduleEmbed.addFields(
                 {
                     name: `${item.lesson.name}`,
-                    value: `${item.lesson.shortName}${isCanceled ? ' - **Anulada/Substituida**' : ''}`,
+                    value: `${item.lesson.shortName}${
+                        isCanceled ? ' - **Anulada/Substituida**' : ''
+                    }`,
                     inline: true,
                 },
                 {
@@ -142,12 +120,10 @@ export const scheduleCommand: Command = {
                     inline: true,
                 },
                 {
-                    name: `${item.teacher}`,
-                    value: links,
-                }
+                    name: item.teacher,
+                    value: 'ㅤ',
+                },
             )
-
-
         })
         return scheduleEmbed
     },
