@@ -88,6 +88,11 @@ bot.handlers.commands.register(
     pisoCommand
 )
 
+bot.on("guildMemberAdd", async (member) => {
+  const welcomeChannel = member.guild.channels.cache.find(channel => channel.id == '766278332500803610');
+  welcomeChannel.send(`${member.user} acabou de entrar.`);  
+});
+
 const getChannelById = async (guildId: string, channelId: string) => {
     const guild = await bot.guilds.fetch(guildId)
     return guild.channels.cache.get(
