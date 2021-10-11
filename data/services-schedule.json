@@ -1,0 +1,33 @@
+{
+    "service":[
+        {
+            "name":"Gabinete de Apoio aos Cursos",
+            "schedule":["Segunda-Feira - 14h30 às 16h30",
+                        "Terça-Feira - 14h30 às 16h30 e 17h às 19h",
+                        "Quarta-Feira - 10h às 12h",
+                        "Quinta-Feira - 14h30 às 16h30 às 17h às 19h",
+                        "Sexta-Feira - 10h às 12h"]
+        },
+        {
+            "name":"Serviços Informáticos",
+            "schedule":["Segunda-Feira - 10h às 12h e 14h  às 16h",
+                        "Terça-Feira - 9h às 12h ",
+                        "Quarta-Feira - 10h às 11h",
+                        "Quinta-Feira - 9h às 13h e 14h às 17h",
+                        "Sexta-Feira - 9h às 13h"]
+        },        
+        {
+            "name":"Balcão Único",
+            "schedule":["Segunda-Feira - 14h30 às 16h30",
+                        "Terça-Feira - 14h30 às 16h30 e 17h às 19h",
+                        "Quarta-Feira - 10h às 12h",
+                        "Quinta-Feira - 14h30 às 16h30 às 17h às 19h",
+                        "Sexta-Feira - 10h às 12h"]
+        },
+        {
+            "name":"Serviços Académicos",
+            "schedule":["Terça-Feira - 17h às 19h",
+                        "Quinta-Feira - 17h às 19h"]
+        }
+    ]
+}
