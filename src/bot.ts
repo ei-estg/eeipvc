@@ -20,6 +20,7 @@ import { pisoCommand } from './commands/classroom/piso'
 import { ribasCommand } from './commands/fun/ribeiro'
 import { rodaEsse } from './commands/fun/rodaesse'
 import { roastCoder } from './commands/fun/roastCoder'
+import { servicesCommand } from './commands/classroom/servicesSchedule'
 
 import botConfig from './botConfig.json'
 import { BotClient } from './client'
@@ -87,6 +88,7 @@ bot.handlers.commands.register(
     verifyCommand,
     minecraftCommand,
     pisoCommand,
+    servicesCommand,
 )
 
 bot.on('guildMemberAdd', async (member: any) => {
