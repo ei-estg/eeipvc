@@ -4,7 +4,6 @@ import { newsCommand } from './commands/campus/news'
 import { mealsCommand } from './commands/sas/meals'
 import { pingCommand } from './commands/general/ping'
 import { calendarCommand } from './commands/classroom/calendar'
-import { covidCommand } from './commands/campus/covid'
 import { subjectsCommand } from './commands/classroom/subjects'
 import {
     playCommand,
@@ -69,7 +68,6 @@ bot.handlers.commands.register(
     mealsCommand,
     pingCommand,
     calendarCommand,
-    covidCommand,
     subjectsCommand,
     playCommand,
     stopCommand,
