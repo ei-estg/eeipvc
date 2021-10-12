@@ -1,33 +1,41 @@
 {
-    "service":[
+    "service": [
         {
-            "name":"Gabinete de Apoio aos Cursos",
-            "schedule":["Segunda-Feira - 14h30 às 16h30",
-                        "Terça-Feira - 14h30 às 16h30 e 17h às 19h",
-                        "Quarta-Feira - 10h às 12h",
-                        "Quinta-Feira - 14h30 às 16h30 e 17h às 19h",
-                        "Sexta-Feira - 10h às 12h"]
+            "name": "Gabinete de Apoio aos Cursos",
+            "schedule": [
+                "Segunda - 14h30 às 16h30",
+                "Terça - 14h30 às 16h30 e 17h às 19h",
+                "Quarta - 10h às 12h",
+                "Quinta - 14h30 às 16h30 e 17h às 19h",
+                "Sexta - 10h às 12h"
+            ]
         },
         {
-            "name":"Serviços Informáticos",
-            "schedule":["Segunda-Feira - 10h às 12h e 14h  às 16h",
-                        "Terça-Feira - 9h às 12h ",
-                        "Quarta-Feira - 10h às 11h",
-                        "Quinta-Feira - 9h às 13h e 14h às 17h",
-                        "Sexta-Feira - 9h às 13h"]
-        },        
-        {
-            "name":"Balcão Único",
-            "schedule":["Segunda-Feira - 14h30 às 16h30",
-                        "Terça-Feira - 14h30 às 16h30 e 17h às 19h",
-                        "Quarta-Feira - 10h às 12h",
-                        "Quinta-Feira - 14h30 às 16h30 e 17h às 19h",
-                        "Sexta-Feira - 10h às 12h"]
+            "name": "Serviços Informáticos",
+            "schedule": [
+                "Segunda - 10h às 12h e 14h  às 16h",
+                "Terça - 9h às 12h ",
+                "Quarta - 10h às 11h",
+                "Quinta - 9h às 13h e 14h às 17h",
+                "Sexta - 9h às 13h"
+            ]
         },
         {
-            "name":"Serviços Académicos",
-            "schedule":["Terça-Feira - 17h às 19h",
-                        "Quinta-Feira - 17h às 19h"]
+            "name": "Balcão Único",
+            "schedule": [
+                "Segunda - 14h30 às 16h30",
+                "Terça - 14h30 às 16h30 e 17h às 19h",
+                "Quarta - 10h às 12h",
+                "Quinta - 14h30 às 16h30 e 17h às 19h",
+                "Sexta - 10h às 12h"
+            ]
+        },
+        {
+            "name": "Serviços Académicos",
+            "schedule": [
+                "Terça - 17h às 19h",
+                "Quinta - 17h às 19h"
+            ]
         }
     ]
 }
