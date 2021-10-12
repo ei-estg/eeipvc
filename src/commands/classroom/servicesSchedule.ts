@@ -3,7 +3,7 @@ import ServicesSchedule from '../../../data/services-schedule.json'
 import { eiEmbed } from '../../defaults/embed'
 
 export const servicesCommand: Command = {
-    name: 'serviços',
+    name: 'servicos',
     alias: ['servicos'],
     description: 'Horário dos vários serviços no IPVC',
     async run() {
