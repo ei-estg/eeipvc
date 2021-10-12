@@ -104,6 +104,15 @@ bot.on('guildMemberAdd', async (member: any) => {
     )
 })
 
+bot.on('guildMemberRemove', async (member: any) => {
+    const channel = member.guild.channels.cache.find(
+        (channel) => channel.id == '766278332500803610',
+    )
+    channel.send(
+        `${member.user} abandonou a nossa jangada ⛵️. Seguimos com ${guildMembersCount} marujos <:FeelsBadMan:766306313663283241> `,
+    )
+})
+
 const getChannelById = async (guildId: string, channelId: string) => {
     const guild = await bot.guilds.fetch(guildId)
     return guild.channels.cache.get(channelId) as TextChannel
