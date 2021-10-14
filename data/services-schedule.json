@@ -8,7 +8,9 @@
                 "Quarta - 10h às 12h",
                 "Quinta - 14h30 às 16h30 e 17h às 19h",
                 "Sexta - 10h às 12h"
-            ]
+            ],
+            "phone":"258 819 700",
+            "email":"gac@estg.ipvc.pt"
         },
         {
             "name": "Serviços Informáticos",
@@ -18,7 +20,9 @@
                 "Quarta - 10h às 11h",
                 "Quinta - 9h às 13h e 14h às 17h",
                 "Sexta - 9h às 13h"
-            ]
+            ],
+            "phone":"258 819 700",
+            "email":"si@estg.ipvc.pt"
         },
         {
             "name": "Balcão Único",
@@ -28,14 +32,18 @@
                 "Quarta - 10h às 12h",
                 "Quinta - 14h30 às 16h30 e 17h às 19h",
                 "Sexta - 10h às 12h"
-            ]
+            ],
+            "phone":"258 819 700",
+            "email":"bu@estg.ipvc.pt"
         },
         {
             "name": "Serviços Académicos",
             "schedule": [
                 "Terça - 17h às 19h",
                 "Quinta - 17h às 19h"
-            ]
+            ],
+            "phone":"258 819 700 / 712",           
+            "email":"academicos@estg.ipvc.pt"
         }
     ]
 }
