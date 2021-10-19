@@ -21,7 +21,7 @@ export const servicesCommand: Command = {
                 }`,
             })
         })
-        servicesEmbed.setFooter('Poderá ocorrer alterações nos hórarios')
+        servicesEmbed.setFooter('Poderão ocorrer alterações nos hórarios')
         return servicesEmbed
     },
 }
