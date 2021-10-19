@@ -31,6 +31,7 @@ import moment from 'moment'
 import { moviesTimmerHander } from './private/movies_timmer_handler'
 import { minecraftCommand } from './commands/fun/minecraft'
 import { minecraftTimmerHandler } from './private/minecraft_timmer_handler'
+import { instagramTimerHandler } from './private/instagram_timer_handler'
 
 const bot = new BotClient(botConfig, {
     partials: ['MESSAGE', 'CHANNEL', 'REACTION', 'GUILD_MEMBER'],
@@ -159,6 +160,24 @@ bot.handlers.timers.register({
                 botConfig.guild.id,
                 botConfig.timmers.minecraft.channelId,
             ),
+        )
+    },
+})
+
+bot.handlers.timers.register({
+    cronTime: botConfig.timmers.vitenoipvc.cronTime,
+    channel: () =>
+        getChannelById(
+            botConfig.guild.id,
+            botConfig.timmers.vitenoipvc.channelId,
+        ),
+    handler: async () => {
+        return instagramTimerHandler(
+            await getChannelById(
+                botConfig.guild.id,
+                botConfig.timmers.vitenoipvc.channelId,
+            ),
+            botConfig.timmers.vitenoipvc.instagramAccount,
         )
     },
 })
