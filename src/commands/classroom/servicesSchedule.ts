@@ -7,16 +7,17 @@ export const servicesCommand: Command = {
     alias: ['servicos'],
     description: 'Horário dos vários serviços no IPVC',
     async run() {
-        const servicesEmbed = eiEmbed().setTitle('⏰ Horários dos Serviços IPVC')
+        const servicesEmbed = eiEmbed().setTitle(
+            '⏰ Horários dos Serviços IPVC',
+        )
 
-         ServicesSchedule.service.forEach((service) => {
-            servicesEmbed.addFields({  
-                name: `**${service.name}**`,              
-                value: service.schedule,
-            })            
+        ServicesSchedule.service.forEach((service) => {
+            servicesEmbed.addFields({
+                name: `**${service.name}**`,
+                value: `${service.schedule} \n email: ${service.email}`,
+            })
         })
-        servicesEmbed.setFooter("Poderá ocorrer alterações nos hórarios")
+        servicesEmbed.setFooter('Poderá ocorrer alterações nos hórarios')
         return servicesEmbed
     },
-
 }
