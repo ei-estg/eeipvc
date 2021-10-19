@@ -14,9 +14,9 @@ export const servicesCommand: Command = {
         ServicesSchedule.service.forEach((service) => {
             servicesEmbed.addFields({
                 name: `**${service.name}**`,
-                value: `${service.schedule.toString()}\n Email: ${
-                    service.email
-                } \n Telefone: ${service.phone}`,
+                value: `${service.schedule.map((item) => {
+                    return item
+                })}\n Email: ${service.email} \n Telefone: ${service.phone}`,
             })
         })
         servicesEmbed.setFooter('Poderá ocorrer alterações nos hórarios')
