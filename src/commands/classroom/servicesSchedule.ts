@@ -14,7 +14,7 @@ export const servicesCommand: Command = {
         ServicesSchedule.service.forEach((service) => {
             servicesEmbed.addFields({
                 name: `**${service.name}**`,
-                value: `${service.schedule.join('')}\n Email: ${
+                value: `${service.schedule.join('')}\n **Contactos**\n Email: ${
                     service.email
                 } \n Telefone: ${service.phone}`,
             })
