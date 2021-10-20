@@ -20,6 +20,7 @@ import { ribasCommand } from './commands/fun/ribeiro'
 import { rodaEsse } from './commands/fun/rodaesse'
 import { roastCoder } from './commands/fun/roastCoder'
 import { servicesCommand } from './commands/classroom/servicesSchedule'
+import { dadJoke } from './commands/fun/dadJokes'
 
 import botConfig from './botConfig.json'
 import { BotClient } from './client'
@@ -32,7 +33,7 @@ import { moviesTimmerHander } from './private/movies_timmer_handler'
 import { minecraftCommand } from './commands/fun/minecraft'
 import { minecraftTimmerHandler } from './private/minecraft_timmer_handler'
 import { instagramTimerHandler } from './private/instagram_timer_handler'
-
+import 'dotenv/config'
 const bot = new BotClient(botConfig, {
     partials: ['MESSAGE', 'CHANNEL', 'REACTION', 'GUILD_MEMBER'],
 })
@@ -87,6 +88,7 @@ bot.handlers.commands.register(
     verifyCommand,
     minecraftCommand,
     pisoCommand,
+    dadJoke,
     servicesCommand,
 )
 
