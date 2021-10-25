@@ -2,9 +2,14 @@ import { TextChannel } from 'discord.js'
 import { getMinecraftServerData } from '../requests/minecraft'
 
 export const minecraftTimmerHandler = async (channel: TextChannel) => {
-    const data = await getMinecraftServerData()
+    try {
+        const data = await getMinecraftServerData()
 
-    await channel.edit({
-        topic: `Servidor: ${data.host}:${data.port} | Jogadores online: ${data.onlinePlayers}`
-    })
+        await channel.edit({
+            topic: `Servidor: ${data.host}:${data.port} | Jogadores online: ${data.onlinePlayers}`
+        })
+    } catch (error) {
+
+    }
+
 }
