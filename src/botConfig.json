@@ -16,7 +16,7 @@
             "channelId": "855197188678221844"
         },
         "vitenoipvc": {
-            "cronTime": "* * * * *",
+            "cronTime": "0 * * * *",
             "channelId": "899951187632193546",
             "instagramAccount": "vitenoipvc2021_2022"
         }
