@@ -3,7 +3,7 @@
     {
       "name": "MD2",
       "fullname": "Matemática Discreta 2",
-      "frequencies": ["28 de abril ✔", "16 de junho"],
+      "frequencies": ["3 de dezembro", "21 de janeiro"],
       "resource": ["É no recurso que se faz o curso!"]
     },
     {
@@ -36,6 +36,28 @@
       "name": "SO",
       "fullname": "Sistemas Operativos",
       "frequencies": ["29 de maio 🖕"]
+    },
+    {
+      "name": "IO",
+      "fullname": "Investigação Operacional",
+      "frequencies": ["16 dezembro \n23 de novembro às 13:30h [TP2] 🖕","17 de janeiro às 15h [TP1]\n18 de janeiro às 13:30h [TP2]"]
+    },
+    {
+      "name": "SIR",
+      "fullname": "Sistemas de Informação em Rede",
+      "frequencies": ["22 de Novembro às 15h [TP1]"],
+      "work": ["1º Trabalho prático: \nEntrega: 16 de dezembro \nApresentação: nas aulas a seguir \n","2º Trabalho prátrico: \nEntrega: 13 de janeiro \nApresentação: nas aulas a seguir"]
+    },
+    {
+      "name": "IEOP",
+      "fullname": "Integração de Empresa",
+      "work": ["Relatório: \nEntrega: 16 de janeiro \nApresentação: 17 de janeiro "]
+    },
+    {
+      "name": "ALGA",
+      "fullname": "Algebra Linear e Geometria Analitica 😭😭",
+      "frequencies": ["9 de Novembro\n","10 de janeiro"],
+      "work": ["Relatório: \nEntrega: 16 de janeiro \nApresentação: 17 de janeiro "]
     }
   ]    
 }
