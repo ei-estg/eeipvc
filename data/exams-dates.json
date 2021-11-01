@@ -1,236 +1,248 @@
 {
-  "1": {
-      "semesters": {
-          "1": {
-              "subjects": [
-                {
-                  "name": "ALGA",
-      "fullname": "Algebra Linear e Geometria Analitica 😭😭",
-      "frequencies": ["9 de Novembro","10 de janeiro\n","Prática: 14 de dezembro"]
-                },
-                {          
-                  "name": "MD",
-                  "fullname": "Matemática Discreta",
-                  "frequencies": ["3 de dezembro", "21 de janeiro"],
-                  "resource": ["É no recurso que se faz o curso!"]
-                },
-                {          
-                  "name": "AM",
-                  "fullname": "Análise Matemática",
-                  "frequencies": ["-", "-"],
-                  "resource": ["-"]
-                },
-                {          
-                  "name": "ASC",
-                  "fullname": "Arquitetura e Sistemas de Computadores",
-                  "frequencies": ["-","-"],
-                  "resourse": ["-"]
-                },
-                {           
-                  "name": "AED",
-                  "fullname": "Algoritmos e Estruturas de Dados",
-                  "frequencies": ["-","-"],
-                  "resource": ["-"],
-                  "work": ["-"]
-                }
-              ]
-          },
-          "2": {
-              "subjects": [
-                {
-                  "name": "PROG1",
-                  "fullname": "Progamação 1",
-                  "frequencies": ["-", "-"],
-                  "resource": ["-"]     
-                },
-                {          
-                  "name": "MD2",
-                  "fullname": "Matemática Discreta 2",
-                  "frequencies": ["-", "-"],
-                  "resource": ["-"]
-                },
-                {          
-                  "name": "EST",
-                  "fullname": "Estatística",
-                  "frequencies": ["-", "-"],
-                  "resource": ["-"]
-                },
-                {          
-                  "name": "SO",
-                  "fullname": "Sistemas Operativos",
-                  "frequencies": ["-","-"],
-                  "resourse": ["-"]
-                },
-                {           
-                  "name": "PGE",
-                  "fullname": "Princípios de Gestão Empresarial",
-                  "frequencies": ["-","-"],
-                  "resource": ["-"],
-                  "work": ["-"]
-                },
-                {           
-                  "name": "TE",
-                  "fullname": "Technical English",
-                  "frequencies": ["-","-"],
-                  "resource": ["-"],
-                  "work": ["-"]
-                }
-              ]
-          }
-      }
-  },
-  "2": {
-      "semesters": {
-          "1": {
-              "subjects": [
-                {
-                  "name": "IO",
-                  "fullname": "Investigação Operacional",
-                  "frequencies": ["22 novembro [TP1] // 23 novembro [TP2]", "17 janeiro [TP1] // 18 janeiro [TP2]"],
-                  "resource": ["-"]     
-                },
-                {          
-                  "name": "PROG2",
-                  "fullname": "Programação 2",
-                  "frequencies": ["16 novembro", "11 janeiro"],
-                  "resource": ["-"],
-                  "work":["18 ou 25 de janeiro"]
-                },
-                {          
-                  "name": "PROJ1",
-                  "fullname": "Projecto 1",
-                  "frequencies": ["-", "-"],
-                  "resource": ["-"]
-                },
-                {          
-                  "name": "ES1",
-                  "fullname": "Engenharia de Software 1",
-                  "frequencies": ["25/26 novembro","13/16 dezembro"],
-                  "resourse": ["-"]
-                },
-                {           
-                  "name": "BD",
-                  "fullname": "Base de Dados",
-                  "frequencies": ["17 de Novembro","5 de Janeiro"],
-                  "resource": ["-"],
-                  "work": ["8 janeiro"]
-                },
-                {          
-                  "name": "RC",
-                  "fullname": "Redes de Computadores",
-                  "frequencies": ["26 janeiro"],
-                  "resourse": ["-"]
-                }
-              ]
-          },
-          "2": {
-              "subjects": [
-                {
-                  "name": "ABD",
-                  "fullname": "Administração Bases de Dados",
-                  "frequencies": ["-", "-"],
-                  "resource": ["-"]     
-                },
-                {          
-                  "name": "TM",
-                  "fullname": "Tecnologias Multimédia",
-                  "frequencies": ["-", "-"],
-                  "resource": ["-"]
-                },
-                {          
-                  "name": "IHM",
-                  "fullname": "Interacção Homem Máquina",
-                  "frequencies": ["-", "-"],
-                  "resource": ["-"]
-                },
-                {          
-                  "name": "IA",
-                  "fullname": "Inteligência Artificial",
-                  "frequencies": ["-","-"],
-                  "resourse": ["-"]
-                },
-                {           
-                  "name": "ES2",
-                  "fullname": "Engenharia de Software 2",
-                  "frequencies": ["-","-"],
-                  "resource": ["-"],
-                  "work": ["-"]
-                },
-                {          
-                  "name": "PROJ2",
-                  "fullname": "Projecto 2",
-                  "frequencies": ["-","-"],
-                  "resourse": ["-"]
-                }
-              ]
-          }
-      }
-  },
-  "3": {
-      "semesters": {
-          "1": {
-              "subjects": [
-                {
-                  "name": "SIR",
-      "fullname": "Sistemas de Informação em Rede",
-      "frequencies": ["22 de Novembro às 15h [TP1]"],
-      "work": ["1º Trabalho prático: \nEntrega: 16 de dezembro \nApresentação: nas aulas a seguir \n","2º Trabalho prátrico: \nEntrega: 13 de janeiro \nApresentação: nas aulas a seguir"]    
-                },
-                {          
-                  "name": "IS",
-                  "fullname": "Integração de Sistemas",
-                  "frequencies": ["-", "-"],
-                  "resource": ["-"]
-                },
-                {          
-                  "name": "IEOP",
-                  "fullname": "Integração de Empresa",
-                  "work": ["Relatório: \nEntrega: 16 de janeiro \nApresentação: 17 de janeiro "]
-                },
-                {          
-                  "name": "PROJ3",
-                  "fullname": "Projecto 3",
-                  "frequencies": ["-","-"],
-                  "resourse": ["-"]
-                },
-                {           
-                  "name": "GP",
-                  "fullname": "Gestão de Projectos",
-                  "frequencies": ["-","-"],
-                  "resource": ["-"],
-                  "work": ["-"]
-                },
-                {
-                  "name": "SIR",
-                  "fullname": "Sistemas de Informação em Rede",
-                  "frequencies": ["-", "-"],
-                  "resource": ["-"]     
-                }
-              ]
-          },
-          "2": {
-              "subjects": [              
-                {          
-                  "name": "IS",
-                  "fullname": "Integração de Sistemas",
-                  "frequencies": ["-", "-"],
-                  "resource": ["-"]
-                },              
-                {          
-                  "name": "PROJ4",
-                  "fullname": "Projecto 3",
-                  "frequencies": ["-","-"],
-                  "resourse": ["-"]
-                },
-                {           
-                  "name": "GP",
-                  "fullname": "Gestão de Projectos",
-                  "frequencies": ["-","-"],
-                  "resource": ["-"],
-                  "work": ["-"]
-                }
-              ]
-          }
-      }
-  }
+    "779478593641250836": {
+        "semesters": {
+            "1": {
+                "subjects": [
+                    {
+                        "name": "ALGA",
+                        "fullname": "Algebra Linear e Geometria Analitica 😭😭",
+                        "frequencies": [
+                            "9 de Novembro",
+                            "10 de janeiro\n",
+                            "Prática: 14 de dezembro"
+                        ]
+                    },
+                    {
+                        "name": "MD",
+                        "fullname": "Matemática Discreta",
+                        "frequencies": ["3 de dezembro", "21 de janeiro"],
+                        "resource": ["É no recurso que se faz o curso!"]
+                    },
+                    {
+                        "name": "AM",
+                        "fullname": "Análise Matemática",
+                        "frequencies": ["-", "-"],
+                        "resource": ["-"]
+                    },
+                    {
+                        "name": "ASC",
+                        "fullname": "Arquitetura e Sistemas de Computadores",
+                        "frequencies": ["-", "-"],
+                        "resourse": ["-"]
+                    },
+                    {
+                        "name": "AED",
+                        "fullname": "Algoritmos e Estruturas de Dados",
+                        "frequencies": ["-", "-"],
+                        "resource": ["-"],
+                        "work": ["-"]
+                    }
+                ]
+            },
+            "2": {
+                "subjects": [
+                    {
+                        "name": "PROG1",
+                        "fullname": "Progamação 1",
+                        "frequencies": ["-", "-"],
+                        "resource": ["-"]
+                    },
+                    {
+                        "name": "MD2",
+                        "fullname": "Matemática Discreta 2",
+                        "frequencies": ["-", "-"],
+                        "resource": ["-"]
+                    },
+                    {
+                        "name": "EST",
+                        "fullname": "Estatística",
+                        "frequencies": ["-", "-"],
+                        "resource": ["-"]
+                    },
+                    {
+                        "name": "SO",
+                        "fullname": "Sistemas Operativos",
+                        "frequencies": ["-", "-"],
+                        "resourse": ["-"]
+                    },
+                    {
+                        "name": "PGE",
+                        "fullname": "Princípios de Gestão Empresarial",
+                        "frequencies": ["-", "-"],
+                        "resource": ["-"],
+                        "work": ["-"]
+                    },
+                    {
+                        "name": "TE",
+                        "fullname": "Technical English",
+                        "frequencies": ["-", "-"],
+                        "resource": ["-"],
+                        "work": ["-"]
+                    }
+                ]
+            }
+        }
+    },
+    "779478680702287922": {
+        "semesters": {
+            "1": {
+                "subjects": [
+                    {
+                        "name": "IO",
+                        "fullname": "Investigação Operacional",
+                        "frequencies": [
+                            "22 novembro [TP1] // 23 novembro [TP2]",
+                            "17 janeiro [TP1] // 18 janeiro [TP2]"
+                        ],
+                        "resource": ["-"]
+                    },
+                    {
+                        "name": "PROG2",
+                        "fullname": "Programação 2",
+                        "frequencies": ["16 novembro", "11 janeiro"],
+                        "resource": ["-"],
+                        "work": ["18 ou 25 de janeiro"]
+                    },
+                    {
+                        "name": "PROJ1",
+                        "fullname": "Projecto 1",
+                        "frequencies": ["-", "-"],
+                        "resource": ["-"]
+                    },
+                    {
+                        "name": "ES1",
+                        "fullname": "Engenharia de Software 1",
+                        "frequencies": ["25/26 novembro", "13/16 dezembro"],
+                        "resourse": ["-"]
+                    },
+                    {
+                        "name": "BD",
+                        "fullname": "Base de Dados",
+                        "frequencies": ["17 de Novembro", "5 de Janeiro"],
+                        "resource": ["-"],
+                        "work": ["8 janeiro"]
+                    },
+                    {
+                        "name": "RC",
+                        "fullname": "Redes de Computadores",
+                        "frequencies": ["26 janeiro"],
+                        "resourse": ["-"]
+                    }
+                ]
+            },
+            "2": {
+                "subjects": [
+                    {
+                        "name": "ABD",
+                        "fullname": "Administração Bases de Dados",
+                        "frequencies": ["-", "-"],
+                        "resource": ["-"]
+                    },
+                    {
+                        "name": "TM",
+                        "fullname": "Tecnologias Multimédia",
+                        "frequencies": ["-", "-"],
+                        "resource": ["-"]
+                    },
+                    {
+                        "name": "IHM",
+                        "fullname": "Interacção Homem Máquina",
+                        "frequencies": ["-", "-"],
+                        "resource": ["-"]
+                    },
+                    {
+                        "name": "IA",
+                        "fullname": "Inteligência Artificial",
+                        "frequencies": ["-", "-"],
+                        "resourse": ["-"]
+                    },
+                    {
+                        "name": "ES2",
+                        "fullname": "Engenharia de Software 2",
+                        "frequencies": ["-", "-"],
+                        "resource": ["-"],
+                        "work": ["-"]
+                    },
+                    {
+                        "name": "PROJ2",
+                        "fullname": "Projecto 2",
+                        "frequencies": ["-", "-"],
+                        "resourse": ["-"]
+                    }
+                ]
+            }
+        }
+    },
+    "779478818552414268": {
+        "semesters": {
+            "1": {
+                "subjects": [
+                    {
+                        "name": "SIR",
+                        "fullname": "Sistemas de Informação em Rede",
+                        "frequencies": ["22 de Novembro às 15h [TP1]"],
+                        "work": [
+                            "1º Trabalho prático: \nEntrega: 16 de dezembro \nApresentação: nas aulas a seguir \n",
+                            "2º Trabalho prátrico: \nEntrega: 13 de janeiro \nApresentação: nas aulas a seguir"
+                        ]
+                    },
+                    {
+                        "name": "IS",
+                        "fullname": "Integração de Sistemas",
+                        "frequencies": ["-", "-"],
+                        "resource": ["-"]
+                    },
+                    {
+                        "name": "IEOP",
+                        "fullname": "Integração de Empresa",
+                        "work": [
+                            "Relatório: \nEntrega: 16 de janeiro \nApresentação: 17 de janeiro "
+                        ]
+                    },
+                    {
+                        "name": "PROJ3",
+                        "fullname": "Projecto 3",
+                        "frequencies": ["-", "-"],
+                        "resourse": ["-"]
+                    },
+                    {
+                        "name": "GP",
+                        "fullname": "Gestão de Projectos",
+                        "frequencies": ["-", "-"],
+                        "resource": ["-"],
+                        "work": ["-"]
+                    },
+                    {
+                        "name": "SIR",
+                        "fullname": "Sistemas de Informação em Rede",
+                        "frequencies": ["-", "-"],
+                        "resource": ["-"]
+                    }
+                ]
+            },
+            "2": {
+                "subjects": [
+                    {
+                        "name": "IS",
+                        "fullname": "Integração de Sistemas",
+                        "frequencies": ["-", "-"],
+                        "resource": ["-"]
+                    },
+                    {
+                        "name": "PROJ4",
+                        "fullname": "Projecto 3",
+                        "frequencies": ["-", "-"],
+                        "resourse": ["-"]
+                    },
+                    {
+                        "name": "GP",
+                        "fullname": "Gestão de Projectos",
+                        "frequencies": ["-", "-"],
+                        "resource": ["-"],
+                        "work": ["-"]
+                    }
+                ]
+            }
+        }
+    }
 }
