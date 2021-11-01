@@ -7,37 +7,6 @@
       "resource": ["É no recurso que se faz o curso!"]
     },
     {
-      "name": "PROG1",
-      "fullname": "Programação 1",
-      "frequencies": ["19 de abril ✔","7 de junho"],
-      "work": ["6 de junho"]
-    },
-    {
-      "name": "PGE",
-      "fullname": "Princípios de Gestão Empresarial",
-      "frequencies": [
-        "26 de abril (C e D) e 27 de abril (A e B) ✔",
-        "31 de maio / 1 de junho"
-      ],
-      "work": ["1º Estudo de caso: \nEntrega: 28 de maio \nApresentação: 7/8 de junho \n","2º estudo de caso: \nEntrega: 28 de maio \nApresentação: 15/16 de junho"]
-    },
-    {
-      "name": "TE",
-      "fullname": "Technical English",
-      "frequencies": ["22 de abril ✔","17 de junho"],
-      "work": ["TP2: 15 e 22 de junho", "TP1: 16 e 23 de junho"]
-    },
-    {
-      "name": "EST",
-      "fullname": "Estatística",
-      "frequencies": ["21 de abril ✔","9 de junho"]
-    },
-    {
-      "name": "SO",
-      "fullname": "Sistemas Operativos",
-      "frequencies": ["29 de maio 🖕"]
-    },
-    {
       "name": "IO",
       "fullname": "Investigação Operacional",
       "frequencies": ["16 dezembro \n23 de novembro às 13:30h [TP2] 🖕","17 de janeiro às 15h [TP1]\n18 de janeiro às 13:30h [TP2]"]
