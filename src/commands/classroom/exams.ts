@@ -10,19 +10,29 @@ export const examsCommand: Command = {
   description: 'Datas de exames e frequências',
 
   args: {
-    subject: {
-      text: 'disciplina',
-      example: 'md2',
+    year: {
+      text: 'ano',
+      example: '1',
       check: () => true,
-      optional: true
-    }
+      optional: true     
+    }    
   },
 
-  async run(message: Message, { subject }) {
+  async run(message: Message, {year}) {
     const examsEmbed = eiEmbed().setTitle('📚 Datas de exames e frequências')
 
-    if (subject){
-      let data = ExamsDates.data.find((value) => value.name == subject.toUpperCase())
+    if (!year) {
+      message.member?.roles.cache.forEach((role) => {
+        this.configuration.year.forEach((yearRole) => {
+            if (role.id == yearRole.roleId) {
+                year = yearRole.content
+            }
+        })
+      })
+    }      
+   
+    if (year){
+      let data = ExamsDates..find((value) => value.name == subject.toUpperCase())
 
       if (!data) {
         return 'Não foi encontrada a disciplina pretendida!'
