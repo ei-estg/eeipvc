@@ -9,7 +9,7 @@
                         "frequencies": [
                             "● 8 de Novembro \n",
                             "● 14 de Dezembro \n",
-                            "● 10 de Janeiro \n"                            
+                            "● 10 de Janeiro"                            
                         ]
                     },
                     {
@@ -33,7 +33,7 @@
                     {
                         "name": "AED",
                         "fullname": "Algoritmos e Estruturas de Dados",
-                        "frequencies": ["26 de Novembro \n", "7 de Janeiro"],
+                        "frequencies": ["26 de Novembro", "7 de Janeiro"],
                         "resource": ["-"],
                         "work": ["17 de Dezembro"]
                     }
