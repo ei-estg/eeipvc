@@ -91,41 +91,41 @@
                         "name": "IO",
                         "fullname": "Investigação Operacional",
                         "frequencies": [
-                            "22 novembro [TP1] // 23 novembro [TP2] \n",
-                            "17 janeiro [TP1] // 18 janeiro [TP2]"
+                            "22/23 de Novembro [TP1]/[TP2] \n",
+                            "17/18 de Janeiro [TP1]/[TP2]"
                         ],
                         "resource": ["-"]
                     },
                     {
                         "name": "PROG2",
                         "fullname": "Programação 2",
-                        "frequencies": ["16 novembro \n", "11 janeiro"],
+                        "frequencies": ["16 de Novembro", "11 de Janeiro"],
                         "resource": ["-"],
-                        "work": ["18 ou 25 de janeiro"]
+                        "work": ["18 ou 25 de Janeiro"]
                     },
                     {
                         "name": "PROJ1",
                         "fullname": "Projecto 1",
-                        "frequencies": ["- \n", "-"],
-                        "resource": ["-"]
+                        "resource": ["-"],
+                        "work":[""]
                     },
                     {
                         "name": "ES1",
                         "fullname": "Engenharia de Software 1",
-                        "frequencies": ["25/26 novembro \n", "13/16 dezembro"],
+                        "frequencies": ["25/26 de Novembro \n", "13/16 de Dezembro"],
                         "resourse": ["-"]
                     },
                     {
                         "name": "BD",
                         "fullname": "Base de Dados",
-                        "frequencies": ["17 de Novembro \n", "5 de Janeiro"],
+                        "frequencies": ["17 de Novembro", "5 de Janeiro"],
                         "resource": ["-"],
-                        "work": ["8 janeiro"]
+                        "work": ["8 de Janeiro"]
                     },
                     {
                         "name": "RC",
                         "fullname": "Redes de Computadores",
-                        "frequencies": ["26 janeiro"],
+                        "frequencies": ["26 de Janeiro"],
                         "resourse": ["-"]
                     }
                 ]
@@ -182,15 +182,16 @@
                         "fullname": "Sistemas de Informação em Rede",
                         "frequencies": ["22 de Novembro às 15h [TP1]"],
                         "work": [
-                            "1º Trabalho prático: \nEntrega: 16 de dezembro \nApresentação: nas aulas a seguir \n",
-                            "2º Trabalho prátrico: \nEntrega: 13 de janeiro \nApresentação: nas aulas a seguir"
+                            "1º TP: Entrega: 16 de dezembro \n",
+                            "2º TP: Entrega: 13 de janeiro \n",
+                            "Apresentação: nas aulas a seguir"
                         ]
                     },
                     {
                         "name": "IS",
-                        "fullname": "Integração de Sistemas",
-                        "frequencies": ["- \n", "-"],
-                        "resource": ["-"]
+                        "fullname": "Integração de Sistemas",                        
+                        "resource": ["-"],
+                        "work": ["19/22 de Novembro"]
                     },
                     {
                         "name": "IEOP",
@@ -201,42 +202,47 @@
                     },
                     {
                         "name": "PROJ3",
-                        "fullname": "Projecto 3",
-                        "frequencies": ["- \n", "-"],
-                        "resourse": ["-"]
+                        "fullname": "Projecto 3",                        
+                        "resourse": ["-"],
+                        "work":["9 de Dezembro \n","13 de Janeiro"]
                     },
                     {
                         "name": "GP",
                         "fullname": "Gestão de Projectos",
-                        "frequencies": ["- \n", "-"],
                         "resource": ["-"],
-                        "work": ["-"]
-                    },
-                    {
-                        "name": "SIR",
-                        "fullname": "Sistemas de Informação em Rede",
-                        "frequencies": ["- \n", "-"],
-                        "resource": ["-"]
-                    }
+                        "work": ["14 de Janeiro"]
+                    }                    
                 ]
             },
             "2": {
                 "subjects": [
                     {
-                        "name": "IS",
-                        "fullname": "Integração de Sistemas",
+                        "name": "EDP",
+                        "fullname": "Etica e Deontologia Profissional",
                         "frequencies": ["- \n", "-"],
                         "resource": ["-"]
                     },
                     {
                         "name": "PROJ4",
-                        "fullname": "Projecto 3",
+                        "fullname": "Projecto 4",
                         "frequencies": ["- \n", "-"],
                         "resourse": ["-"]
                     },
                     {
-                        "name": "GP",
-                        "fullname": "Gestão de Projectos",
+                        "name": "CM",
+                        "fullname": "Computaçãpo Movel",
+                        "frequencies": ["- \n", "-"],
+                        "resourse": ["-"]
+                    },
+                    {
+                        "name": "SRS",
+                        "fullname": "Segurança de Redes e Sistemas",
+                        "frequencies": ["- \n", "-"],
+                        "resourse": ["-"]
+                    },
+                    {
+                        "name": "AOOP",
+                        "fullname": "Aprendizagem Organizacional",
                         "frequencies": ["- \n", "-"],
                         "resource": ["-"],
                         "work": ["-"]
