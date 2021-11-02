@@ -61,7 +61,7 @@ export const examsCommand: Command = {
             if (value.frequencies && !value.work) {
                 examsEmbed.addFields({
                     name: '📋 Frequências',
-                    value: value.frequencies + "\n〰️",
+                    value: `${value.frequencies.join('',)} \n〰️`,
                 })
             }
             
@@ -75,7 +75,7 @@ export const examsCommand: Command = {
             if (value.work) {
                 examsEmbed.addFields({
                     name: '📁 Trabalhos',
-                    value: value.work + "\n〰️",
+                    value: `${value.work.join('',)} \n〰️`,
                 })
             }
             /*
