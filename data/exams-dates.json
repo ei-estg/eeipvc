@@ -7,35 +7,35 @@
                         "name": "ALGA",
                         "fullname": "Algebra Linear e Geometria Analitica 😭😭",
                         "frequencies": [
-                            "9 de Novembro \n",
-                            "10 de janeiro \n",
-                            "Prática: 14 de dezembro"
+                            "● 8 de Novembro \n",
+                            "● 14 de Dezembro \n",
+                            "● 10 de Janeiro \n"                            
                         ]
                     },
                     {
                         "name": "MD",
                         "fullname": "Matemática Discreta",
-                        "frequencies": ["3 de dezembro \n", "21 de janeiro"],
+                        "frequencies": ["● 3 de dezembro \n", "● 21 de janeiro"],
                         "resource": ["É no recurso que se faz o curso!"]
                     },
                     {
                         "name": "AM",
                         "fullname": "Análise Matemática",
-                        "frequencies": ["- \n", "-"],
+                        "frequencies": ["29 de Novembro \n", "18 de Janeiro"],
                         "resource": ["-"]
                     },
                     {
                         "name": "ASC",
                         "fullname": "Arquitetura e Sistemas de Computadores",
-                        "frequencies": ["- \n", "-"],
+                        "frequencies": ["5 de Janeiro"],
                         "resourse": ["-"]
                     },
                     {
                         "name": "AED",
                         "fullname": "Algoritmos e Estruturas de Dados",
-                        "frequencies": ["- \n", "-"],
+                        "frequencies": ["26 de Novembro \n", "7 de Janeiro"],
                         "resource": ["-"],
-                        "work": ["-"]
+                        "work": ["17 de Dezembro"]
                     }
                 ]
             },
