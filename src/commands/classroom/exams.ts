@@ -54,7 +54,7 @@ export const examsCommand: Command = {
         }
         ExamsDates[newYear].semesters[semester].subjects.forEach((value) => {
             examsEmbed.addFields({
-                name: '🎓 Disciplina ➜ ' +value.name,
+                name: '🎓 Disciplina ➜ ' + value.name,
                 value: value.fullname,
             })
 
@@ -87,7 +87,8 @@ export const examsCommand: Command = {
           }
           */
             examsEmbed.addFields({
-          value: "〰️"
+                name: '‏‏‎🏳️ ' + value.name,
+                value: '〰️',
             })
         })
 
