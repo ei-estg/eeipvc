@@ -50,29 +50,28 @@ export const examsCommand: Command = {
         let data = ExamsDates[newYear]
 
         if (!data) {
-            return 'Não foi encontrada a disciplina pretendida!'
-        } else {
-            ExamsDates[newYear].semesters[semester].subjects.forEach(
-                (value) => {
-                    examsEmbed.addFields({
-                        name: '🎓 Disciplina',
-                        value: value.fullname,
-                    })
+            return 'Não foi encontrada o ano pretendido!'
+        }
+        ExamsDates[newYear].semesters[semester].subjects.forEach((value) => {
+            examsEmbed.addFields({
+                name: '🎓 Disciplina',
+                value: value.fullname,
+            })
 
-                    if (value.frequencies) {
-                        examsEmbed.addFields({
-                            name: '📋 Frequências',
-                            value: value.frequencies,
-                        })
-                    }
+            if (value.frequencies) {
+                examsEmbed.addFields({
+                    name: '📋 Frequências',
+                    value: value.frequencies,
+                })
+            }
 
-                    if (value.work) {
-                        examsEmbed.addFields({
-                            name: '📁 Trabalhos',
-                            value: value.work,
-                        })
-                    }
-                    /*
+            if (value.work) {
+                examsEmbed.addFields({
+                    name: '📁 Trabalhos',
+                    value: value.work,
+                })
+            }
+            /*
           if (value.exams){
             examsEmbed.addFields({
               name: "📘 Exames",
@@ -87,17 +86,13 @@ export const examsCommand: Command = {
             })
           }
           */
-                    examsEmbed.addFields({
-                        name: '‏‏‎🏳️ ' + value.name,
-                        value: '〰️',
-                    })
-                },
-            )
+            examsEmbed.addFields({
+                name: '‏‏‎🏳️ ' + value.name,
+                value: '〰️',
+            })
+        })
 
-            examsEmbed.setFooter(
-                '🚨 As datas apresentadas requerem confirmação!',
-            )
-            return examsEmbed
-        }
+        examsEmbed.setFooter('🚨 As datas apresentadas requerem confirmação!')
+        return examsEmbed
     },
 }
