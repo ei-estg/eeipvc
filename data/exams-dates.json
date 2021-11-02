@@ -21,19 +21,19 @@
                     {
                         "name": "AM",
                         "fullname": "Análise Matemática",
-                        "frequencies": ["29 de Novembro \n", "18 de Janeiro"],
+                        "frequencies": ["● 29 de Novembro \n", "● 18 de Janeiro"],
                         "resource": ["-"]
                     },
                     {
                         "name": "ASC",
                         "fullname": "Arquitetura e Sistemas de Computadores",
-                        "frequencies": ["5 de Janeiro"],
+                        "frequencies": ["● 5 de Janeiro"],
                         "resourse": ["-"]
                     },
                     {
                         "name": "AED",
                         "fullname": "Algoritmos e Estruturas de Dados",
-                        "frequencies": ["26 de Novembro", "7 de Janeiro"],
+                        "frequencies": ["● 26 de Novembro", "● 7 de Janeiro"],
                         "resource": ["-"],
                         "work": ["17 de Dezembro"]
                     }
@@ -91,15 +91,15 @@
                         "name": "IO",
                         "fullname": "Investigação Operacional",
                         "frequencies": [
-                            "22/23 de Novembro [TP1]/[TP2] \n",
-                            "17/18 de Janeiro [TP1]/[TP2]"
+                            "● 22/23 de Novembro [TP1]/[TP2] \n",
+                            "● 17/18 de Janeiro [TP1]/[TP2]"
                         ],
                         "resource": ["-"]
                     },
                     {
                         "name": "PROG2",
                         "fullname": "Programação 2",
-                        "frequencies": ["16 de Novembro", "11 de Janeiro"],
+                        "frequencies": ["● 16 de Novembro", "● 11 de Janeiro"],
                         "resource": ["-"],
                         "work": ["18 ou 25 de Janeiro"]
                     },
@@ -112,20 +112,20 @@
                     {
                         "name": "ES1",
                         "fullname": "Engenharia de Software 1",
-                        "frequencies": ["25/26 de Novembro \n", "13/16 de Dezembro"],
+                        "frequencies": ["● 25/26 de Novembro \n", "● 13/16 de Dezembro"],
                         "resourse": ["-"]
                     },
                     {
                         "name": "BD",
                         "fullname": "Base de Dados",
-                        "frequencies": ["17 de Novembro", "5 de Janeiro"],
+                        "frequencies": ["● 17 de Novembro", "● 5 de Janeiro"],
                         "resource": ["-"],
                         "work": ["8 de Janeiro"]
                     },
                     {
                         "name": "RC",
                         "fullname": "Redes de Computadores",
-                        "frequencies": ["26 de Janeiro"],
+                        "frequencies": ["● 26 de Janeiro"],
                         "resourse": ["-"]
                     }
                 ]
@@ -180,7 +180,7 @@
                     {
                         "name": "SIR",
                         "fullname": "Sistemas de Informação em Rede",
-                        "frequencies": ["22 de Novembro às 15h [TP1]"],
+                        "frequencies": ["● 22 de Novembro às 15h [TP1]"],
                         "work": [
                             "1º TP: Entrega: 16 de dezembro \n",
                             "2º TP: Entrega: 13 de janeiro \n",
