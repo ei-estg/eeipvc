@@ -29,6 +29,7 @@ export const examsCommand: Command = {
             '2': '779478680702287922',
             '3': '779478818552414268',
         }
+        const semester = 1
         const examsEmbed = eiEmbed().setTitle(
             '📚 Datas de exames e frequências',
         )
@@ -45,14 +46,14 @@ export const examsCommand: Command = {
         } else {
             newYear = dic[year]
         }
-        if (newYear) {
-            let data = ExamsDates[newYear]
-            console.log(data)
 
-            if (!data) {
-                return 'Não foi encontrada a disciplina pretendida!'
-            } else {
-                ExamsDates[newYear].semesters[1].subjects.forEach((value) => {
+        let data = ExamsDates[newYear]
+
+        if (!data) {
+            return 'Não foi encontrada a disciplina pretendida!'
+        } else {
+            ExamsDates[newYear].semesters[semester].subjects.forEach(
+                (value) => {
                     examsEmbed.addFields({
                         name: '🎓 Disciplina',
                         value: value.fullname,
@@ -90,55 +91,13 @@ export const examsCommand: Command = {
                         name: '‏‏‎🏳️ ' + value.name,
                         value: '〰️',
                     })
-                })
+                },
+            )
 
-                examsEmbed.setFooter(
-                    '🚨 As datas apresentadas requerem confirmação!',
-                )
-                return examsEmbed
-            }
+            examsEmbed.setFooter(
+                '🚨 As datas apresentadas requerem confirmação!',
+            )
+            return examsEmbed
         }
-        ExamsDates[newYear].semesters[1].subjects.forEach((value) => {
-            examsEmbed.addFields({
-                name: '🎓 Disciplina',
-                value: value.fullname,
-            })
-
-            if (value.frequencies) {
-                examsEmbed.addFields({
-                    name: '📋 Frequências',
-                    value: value.frequencies,
-                })
-            }
-
-            if (value.work) {
-                examsEmbed.addFields({
-                    name: '📁 Trabalhos',
-                    value: value.work,
-                })
-            }
-            /*
-      if (value.exams){
-        examsEmbed.addFields({
-          name: "📘 Exames",
-          value: value.exams
-        })
-      }
-
-      if (value.resource){
-        examsEmbed.addFields({
-          name: "🆘 Recurso",
-          value: value.resource
-        })
-      }
-      */
-            examsEmbed.addFields({
-                name: '‏‏‎🏳️ ' + value.name,
-                value: '〰️',
-            })
-        })
-
-        examsEmbed.setFooter('🚨 As datas apresentadas requerem confirmação!')
-        return examsEmbed
     },
 }
