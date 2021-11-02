@@ -58,24 +58,17 @@ export const examsCommand: Command = {
                 value: value.fullname,
             })
 
-           if (value.frequencies && !value.work) {
+            if (value.frequencies) {
                 examsEmbed.addFields({
                     name: '📋 Frequências',
-                    value: value.frequencies + '\n〰️',
+                    value: value.frequencies,
                 })
             }
-            
-            if (value.frequencies) {
-              examsEmbed.addFields({
-                  name: '📋 Frequências',
-                  value: value.frequencies,
-              })
-          }
 
             if (value.work) {
                 examsEmbed.addFields({
                     name: '📁 Trabalhos',
-                    value: value.work + '\n〰️',
+                    value: value.work,
                 })
             }
             /*
