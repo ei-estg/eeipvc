@@ -7,12 +7,10 @@ export const dadJoke: Command = {
 
     async run() {
         const embed = eiEmbed()
-        console.log('hey')
         const data = await fetch(
             'https://jokes.guyliangilsing.me/retrieveJokes.php?type=dadjoke',
         )
         const joke = await data.json()
-        console.log(joke.joke)
         embed.setTitle('Dad Jokes')
         embed.addFields({
             name: 'Joke',

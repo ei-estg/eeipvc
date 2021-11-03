@@ -1,9 +1,9 @@
 import { Command } from '../Command'
 import { eiEmbed } from '../../defaults/embed'
-import userss from '../../../data/bd.json'
-import { Message } from 'discord.js'
+import userss from '../../../data/data.json'
 const fs = require('fs')
 const path = require('path')
+
 export const lvl: Command = {
     name: 'lead',
     description:
@@ -14,22 +14,21 @@ export const lvl: Command = {
         embed.setTitle('Leaderboard')
         const users = JSON.parse(
             fs.readFileSync(
-                path.join(__dirname, '../../../data', 'bd.json'),
+                path.join(__dirname, '../../../data', 'data.json'),
                 'utf8',
             ),
         )
         let string = '```ml\n'
+        Object.entries(users).sort(
+            (a: any, b: any) => b.experience - a.experience,
+        )
+        let counter = 0
         Object.entries(users).forEach((user: any) => {
-            const newUser = user.sort((a: any, b: any) => {
-                return a.experience - b.experience
-            })
-            console.log(newUser)
-            for (let i = 0; i < 10; i++) {
-                if (newUser[i].name) {
-                    string =
-                        string +
-                        `${newUser[i].name} - ${newUser[i].level} - ${newUser[i].experience} \n`
-                }
+            counter++
+            if (user[1].name && counter < 10) {
+                string =
+                    string +
+                    `${user[1].name} - ${user[1].level} - ${user[1].experience} \n`
             }
         })
         string = string + '```'
