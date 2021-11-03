@@ -36,7 +36,7 @@ import { instagramTimerHandler } from './private/instagram_timer_handler'
 const fs = require('fs')
 import 'dotenv/config'
 const path = require('path')
-import users from '../data/users.json'
+import users from '../data/bd.json'
 
 const bot = new BotClient(botConfig, {
     partials: ['MESSAGE', 'CHANNEL', 'REACTION', 'GUILD_MEMBER'],
@@ -97,11 +97,11 @@ bot.handlers.commands.register(
     lvl,
 )
 const updateData = (users, user) => {
-    if (!users[user.id]) {
-        users[user.id] = {}
-        users[user.id].experience = 0
-        users[user.id].level = 1
-        users[user.id].name = user.username
+    if (!users[user.author.id]) {
+        users[user.author.id] = {}
+        users[user.author.id].experience = 0
+        users[user.author.id].level = 1
+        users[user.author.id].name = user.member?.nickname
     }
 }
 const addExperience = (users, user, exp) => {
@@ -124,11 +124,11 @@ bot.on('guildMemberAdd', async (member: any) => {
         (channel) => channel.id == '766278332500803610',
     )
     const users = JSON.parse(
-        fs.readFileSync(path.join(__dirname, '../data', 'data.json'), 'utf8'),
+        fs.readFileSync(path.join(__dirname, '../data', 'bd.json'), 'utf8'),
     )
     updateData(users, member)
     fs.writeFileSync(
-        path.join(__dirname, '../data', 'data.json'),
+        path.join(__dirname, '../data', 'bd.json'),
         JSON.stringify(users),
         'utf-8',
     )
@@ -148,16 +148,15 @@ bot.on('message', async (message) => {
         if (message.author.id !== '771442069432434758') {
             const users = JSON.parse(
                 fs.readFileSync(
-                    path.join(__dirname, '../data', 'data.json'),
+                    path.join(__dirname, '../data', 'bd.json'),
                     'utf8',
                 ),
             )
-
-            updateData(users, message.author)
+            updateData(users, message)
             addExperience(users, message.author, 5)
             levelUp(users, message.author, message.channel, message)
             fs.writeFileSync(
-                path.join(__dirname, '../data', 'data.json'),
+                path.join(__dirname, '../data', 'bd.json'),
                 JSON.stringify(users),
                 'utf-8',
             )
