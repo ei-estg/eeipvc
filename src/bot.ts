@@ -245,6 +245,6 @@ bot.handlers.timers.register({
 // Reactions
 bot.handlers.reacts.giveRoles(botConfig.reacts)
 
-bot.login('NzcxNDQyMDY5NDMyNDM0NzU4.X5sLag.WRu5Yv5rmOwSOMpqNbe7-lmASZc')
+bot.login(process.env.DISCORD_BOT_TOKEN)
     .then(() => console.log('Bot running'))
     .catch((err) => console.error(err))
