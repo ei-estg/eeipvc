@@ -1,11 +1,11 @@
 import { Command } from '../Command'
 import { eiEmbed } from '../../defaults/embed'
-import userss from '../../../data/users.json'
+import userss from '../../../data/bd.json'
 import { Message } from 'discord.js'
 const fs = require('fs')
 const path = require('path')
 export const lvl: Command = {
-    name: 'leaderboard',
+    name: 'lead',
     description:
         'Leaderboard! Confere o nivel do pessoal, será que consegues chegar ao topo?',
 
@@ -14,19 +14,23 @@ export const lvl: Command = {
         embed.setTitle('Leaderboard')
         const users = JSON.parse(
             fs.readFileSync(
-                path.join(__dirname, '../../../data', 'data.json'),
+                path.join(__dirname, '../../../data', 'bd.json'),
                 'utf8',
             ),
         )
         let string = '```ml\n'
         Object.entries(users).forEach((user: any) => {
-            user.forEach((element) => {
-                if (element.name) {
+            const newUser = user.sort((a: any, b: any) => {
+                return a.experience - b.experience
+            })
+            console.log(newUser)
+            for (let i = 0; i < 10; i++) {
+                if (newUser[i].name) {
                     string =
                         string +
-                        `${element.name} - ${element.level} - ${element.experience} \n`
+                        `${newUser[i].name} - ${newUser[i].level} - ${newUser[i].experience} \n`
                 }
-            })
+            }
         })
         string = string + '```'
         embed.addFields({
