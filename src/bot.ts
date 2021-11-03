@@ -33,7 +33,9 @@ import { moviesTimmerHander } from './private/movies_timmer_handler'
 import { minecraftCommand } from './commands/fun/minecraft'
 import { minecraftTimmerHandler } from './private/minecraft_timmer_handler'
 import { instagramTimerHandler } from './private/instagram_timer_handler'
+const fs = require('fs')
 import 'dotenv/config'
+const path = require('path')
 const bot = new BotClient(botConfig, {
     partials: ['MESSAGE', 'CHANNEL', 'REACTION', 'GUILD_MEMBER'],
 })
@@ -91,10 +93,42 @@ bot.handlers.commands.register(
     dadJoke,
     servicesCommand,
 )
+const updateData = (users, user) => {
+    console.log('add')
+    if (!users[user.id]) {
+        users[user.id] = {}
+        users[user.id].experience = 0
+        users[user.id].level = 1
+    }
+}
+const addExperience = (users, user, exp) => {
+    users[user.id].experience += exp
+}
+
+const levelUp = async (users, user, channel, message) => {
+    const experience = users[user.id].experience
+    const lvlStart = users[user.id].level
+    const lvlEnd = Math.floor(experience ** (1 / 4))
+    console.log(lvlStart, lvlEnd)
+
+    if (lvlStart < lvlEnd) {
+        users[user.id].level = lvlEnd
+        await message.channel.send(`${user} reached a new level ${lvlEnd} 🎉`)
+    }
+}
 
 bot.on('guildMemberAdd', async (member: any) => {
     const channel = member.guild.channels.cache.find(
         (channel) => channel.id == '766278332500803610',
+    )
+    const users = JSON.parse(
+        fs.readFileSync(path.join(__dirname, '../data', 'users.json'), 'utf8'),
+    )
+    updateData(users, member)
+    fs.writeFileSync(
+        path.join(__dirname, '../data', 'users.json'),
+        JSON.stringify(users),
+        'utf-8',
     )
     channel.send(
         `Boas ${
@@ -105,6 +139,30 @@ bot.on('guildMemberAdd', async (member: any) => {
             .get('779491420079259659')
             .toString()} para ficares a conhecer as regras e ainda acederes a diferentes áreas do servidor.`,
     )
+})
+
+bot.on('message', async (message) => {
+    try {
+        if (message.author.id !== '771442069432434758') {
+            const users = JSON.parse(
+                fs.readFileSync(
+                    path.join(__dirname, '../data', 'users.json'),
+                    'utf8',
+                ),
+            )
+
+            updateData(users, message.author)
+            addExperience(users, message.author, 5)
+            levelUp(users, message.author, message.channel, message)
+            fs.writeFileSync(
+                path.join(__dirname, '../data', 'users.json'),
+                JSON.stringify(users),
+                'utf-8',
+            )
+        }
+    } catch (error) {
+        console.log(error)
+    }
 })
 
 bot.on('guildMemberRemove', async (member: any) => {
@@ -187,6 +245,6 @@ bot.handlers.timers.register({
 // Reactions
 bot.handlers.reacts.giveRoles(botConfig.reacts)
 
-bot.login(process.env.DISCORD_BOT_TOKEN)
+bot.login('NzcxNDQyMDY5NDMyNDM0NzU4.X5sLag.WRu5Yv5rmOwSOMpqNbe7-lmASZc')
     .then(() => console.log('Bot running'))
     .catch((err) => console.error(err))
