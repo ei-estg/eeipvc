@@ -14,14 +14,15 @@ export const stockCommand: Command = {
         },
     },
 
-
-    async run(message, { symbol }) {
+    async run(message: Message, { symbol }): Promise<any> {
         try {
             let stock = await getStock(symbol)
             console.log(stock)
 
             if (!stock) {
-                return message.channel.send('Este stock não existe!. Ex: !stock AAPL')
+                return message.channel.send(
+                    'Este stock não existe!. Ex: !stock AAPL',
+                )
             }
 
             return message.channel.send(stock.toString())
