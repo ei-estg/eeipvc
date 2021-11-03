@@ -97,11 +97,11 @@ bot.handlers.commands.register(
     lvl,
 )
 const updateData = (users, user) => {
-    console.log('add')
     if (!users[user.id]) {
         users[user.id] = {}
         users[user.id].experience = 0
         users[user.id].level = 1
+        users[user.id].name = user.username
     }
 }
 const addExperience = (users, user, exp) => {
