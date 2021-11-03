@@ -124,11 +124,11 @@ bot.on('guildMemberAdd', async (member: any) => {
         (channel) => channel.id == '766278332500803610',
     )
     const users = JSON.parse(
-        fs.readFileSync(path.join(__dirname, '../data', 'users.json'), 'utf8'),
+        fs.readFileSync(path.join(__dirname, '../data', 'data.json'), 'utf8'),
     )
     updateData(users, member)
     fs.writeFileSync(
-        path.join(__dirname, '../data', 'users.json'),
+        path.join(__dirname, '../data', 'data.json'),
         JSON.stringify(users),
         'utf-8',
     )
@@ -148,7 +148,7 @@ bot.on('message', async (message) => {
         if (message.author.id !== '771442069432434758') {
             const users = JSON.parse(
                 fs.readFileSync(
-                    path.join(__dirname, '../data', 'users.json'),
+                    path.join(__dirname, '../data', 'data.json'),
                     'utf8',
                 ),
             )
@@ -157,7 +157,7 @@ bot.on('message', async (message) => {
             addExperience(users, message.author, 5)
             levelUp(users, message.author, message.channel, message)
             fs.writeFileSync(
-                path.join(__dirname, '../data', 'users.json'),
+                path.join(__dirname, '../data', 'data.json'),
                 JSON.stringify(users),
                 'utf-8',
             )

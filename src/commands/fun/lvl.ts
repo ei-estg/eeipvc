@@ -9,17 +9,17 @@ export const lvl: Command = {
     description:
         'Leaderboard! Confere o nivel do pessoal, será que consegues chegar ao topo?',
 
-    async run(message: Message) {
-        const dogecoinEmbed = eiEmbed()
+    async run() {
+        const embed = eiEmbed()
+        embed.setTitle('Leaderboard')
         const users = JSON.parse(
             fs.readFileSync(
-                path.join(__dirname, '../../../data', 'users.json'),
+                path.join(__dirname, '../../../data', 'data.json'),
                 'utf8',
             ),
         )
         let string = '```ml\n'
         Object.entries(users).forEach((user: any) => {
-            dogecoinEmbed.setTitle('Leaderboard')
             user.forEach((element) => {
                 if (element.name) {
                     string =
@@ -29,13 +29,13 @@ export const lvl: Command = {
             })
         })
         string = string + '```'
-        dogecoinEmbed.addFields({
+        embed.addFields({
             name: 'Nome    Nivel \tXP',
             value: string,
         })
 
         // dogecoinEmbed.setImage('https://i.imgur.com/fxCT4mY.gif')
-        dogecoinEmbed.setFooter('Força nisso! 🧨')
-        return dogecoinEmbed
+        embed.setFooter('Força nisso! 🧨')
+        return embed
     },
 }
