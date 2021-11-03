@@ -11,7 +11,7 @@ export const myLvl: Command = {
 
     async run(message: Message) {
         const embed = eiEmbed()
-        embed.setTitle('Nivel alcaçado')
+        embed.setTitle('Nivel atual')
         const users = JSON.parse(
             fs.readFileSync(
                 path.join(__dirname, '../../../data', 'data.json'),
