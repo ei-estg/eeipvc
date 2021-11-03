@@ -110,11 +110,10 @@ const levelUp = async (users, user, channel, message) => {
     const experience = users[user.id].experience
     const lvlStart = users[user.id].level
     const lvlEnd = Math.floor(experience ** (1 / 4))
-    console.log(lvlStart, lvlEnd)
 
     if (lvlStart < lvlEnd) {
         users[user.id].level = lvlEnd
-        await message.channel.send(`${user} chegou ao nivel ${lvlEnd} 🎉`)
+        //  await message.channel.send(`${user} chegou ao nivel ${lvlEnd} 🎉`)
     }
 }
 
