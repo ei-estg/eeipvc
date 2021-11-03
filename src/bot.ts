@@ -1,3 +1,4 @@
+import { lvl } from './commands/fun/lvl'
 import { TextChannel } from 'discord.js'
 import { busCommand } from './commands/sas/bus'
 import { newsCommand } from './commands/campus/news'
@@ -93,6 +94,7 @@ bot.handlers.commands.register(
     pisoCommand,
     dadJoke,
     servicesCommand,
+    lvl,
 )
 const updateData = (users, user) => {
     console.log('add')
