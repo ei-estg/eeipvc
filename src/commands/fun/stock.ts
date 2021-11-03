@@ -1,15 +1,15 @@
 import { Command } from '../Command'
 import { getStock } from '../../requests/stock'
+import { Message } from 'discord.js'
 
-export const stock: Command = {
+export const stockCommand: Command = {
     name: 'stock',
     description: 'Preço atual de uma ação',
 
     args: {
         symbol: {
-            text: 'symbol',
+            text: 'stock',
             check: () => true,
-            optional: true,
             example: 'AAPL',
         },
     },
@@ -21,10 +21,10 @@ export const stock: Command = {
             console.log(stock)
 
             if (!stock) {
-                return 'Este stock não existe!'
+                return message.channel.send('Este stock não existe!. Ex: !stock AAPL')
             }
 
-            return stock
+            return message.channel.send(stock.toString())
         } catch (err) {
             console.error(err)
         }
