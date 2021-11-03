@@ -21,7 +21,6 @@ import { rodaEsse } from './commands/fun/rodaesse'
 import { roastCoder } from './commands/fun/roastCoder'
 import { servicesCommand } from './commands/classroom/servicesSchedule'
 import { dadJoke } from './commands/fun/dadJokes'
-
 import botConfig from './botConfig.json'
 import { BotClient } from './client'
 import { answerCommand } from './commands/fun/answer'
@@ -36,6 +35,8 @@ import { instagramTimerHandler } from './private/instagram_timer_handler'
 const fs = require('fs')
 import 'dotenv/config'
 const path = require('path')
+import users from '../data/users.json'
+
 const bot = new BotClient(botConfig, {
     partials: ['MESSAGE', 'CHANNEL', 'REACTION', 'GUILD_MEMBER'],
 })
@@ -113,7 +114,7 @@ const levelUp = async (users, user, channel, message) => {
 
     if (lvlStart < lvlEnd) {
         users[user.id].level = lvlEnd
-        await message.channel.send(`${user} reached a new level ${lvlEnd} 🎉`)
+        await message.channel.send(`${user} chegou ao nivel ${lvlEnd} 🎉`)
     }
 }
 
