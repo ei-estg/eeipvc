@@ -38,7 +38,6 @@ const fs = require('fs')
 import 'dotenv/config'
 const path = require('path')
 import users from '../data/data.json'
-import { profileEnd } from 'console'
 
 const bot = new BotClient(botConfig, {
     partials: ['MESSAGE', 'CHANNEL', 'REACTION', 'GUILD_MEMBER'],
