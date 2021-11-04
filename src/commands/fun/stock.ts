@@ -30,6 +30,11 @@ export const stockCommand: Command = {
                 inline: true,
             })
             embed.addFields({
+                name: "",
+                value: "",
+                inline: true,
+            })
+            embed.addFields({
                 name: 'Market Cap',
                 value: stock.marketCap,
                 inline: true,
