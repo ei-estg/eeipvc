@@ -25,7 +25,7 @@ export const stockCommand: Command = {
                 )
             }
 
-            return message.channel.send(stock.toString())
+            return message.channel.send("Última preço da "+stock.displayName+": "+stock.price+" "+stock.currency);
         } catch (err) {
             console.error(err)
         }
