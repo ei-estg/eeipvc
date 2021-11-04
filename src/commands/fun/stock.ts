@@ -8,7 +8,7 @@ export const stockCommand: Command = {
 
     args: {
         symbol: {
-            text: 'stock',
+            text: 'symbol',
             check: () => true,
             example: 'AAPL',
         },
