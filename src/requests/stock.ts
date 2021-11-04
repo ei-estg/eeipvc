@@ -19,12 +19,7 @@ export const getStock = async (stockTicker: string) => {
     let response = await req.json()
     let reData: Stock[] = []
 
-    response.data.quoteResponse.result[0].forEach((v) => {
-        reData.push({
-            symbol: v.symbol,
-            displayName: v.displayName,
-            regularMarketPrice: v.regularMarketPrice,
-        })
-    })
+    reData.push(response.quoteResponse.result[0])
+    
     return reData
 }
