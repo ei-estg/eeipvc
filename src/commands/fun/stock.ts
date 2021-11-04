@@ -24,7 +24,7 @@ export const stockCommand: Command = {
                 )
             }
             const stockEmbed = eiEmbed().setTitle(stock.displayName);
-            stockEmbed.setFooter(`Ultima preço: ${stock.regularMarketPrice} ${stock.currency}`)
+            stockEmbed.setFooter(`Ultimo preço: ${stock.regularMarketPrice} ${stock.currency}`)
 
             return stockEmbed;
         } catch (err) {
