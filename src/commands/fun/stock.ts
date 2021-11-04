@@ -23,20 +23,20 @@ export const stockCommand: Command = {
                     'Este stock não existe!. Ex: !stock AAPL',
                 )
             }
-            const embed = stockEmbed().setTitle("📈 "+stock.longName));
+            const embed = stockEmbed().setTitle('📈 ' + stock.longName)
             embed.addFields({
                 name: `Último Preço - ${stock.currency}`,
                 value: stock.regularMarketPrice,
-                inline: true
+                inline: true,
             })
             embed.addFields({
                 name: 'Market Cap',
                 value: stock.marketCap,
-                inline: true
+                inline: true,
             })
             embed.setFooter('To the moon! 🚀')
 
-            return embed;
+            return embed
         } catch (err) {
             console.error(err)
         }
