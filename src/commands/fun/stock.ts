@@ -1,7 +1,7 @@
 import { Command } from '../Command'
 import { getStock } from '../../requests/stock'
 import { Message } from 'discord.js'
-import { eiEmbed } from '../../defaults/embed'
+import { stockEmbed } from '../../defaults/embed'
 
 export const stockCommand: Command = {
     name: 'stock',
@@ -23,20 +23,20 @@ export const stockCommand: Command = {
                     'Este stock não existe!. Ex: !stock AAPL',
                 )
             }
-            const stockEmbed = eiEmbed().setTitle("📈 "+stock.longName));
-            stockEmbed.addFields({
+            const embed = stockEmbed().setTitle("📈 "+stock.longName));
+            embed.addFields({
                 name: `Último Preço - ${stock.currency}`,
                 value: stock.regularMarketPrice,
                 inline: true
             })
-            stockEmbed.addFields({
+            embed.addFields({
                 name: 'Market Cap',
                 value: stock.marketCap,
                 inline: true
             })
-            stockEmbed.setFooter('To the moon! 🚀')
+            embed.setFooter('To the moon! 🚀')
 
-            return stockEmbed;
+            return embed;
         } catch (err) {
             console.error(err)
         }

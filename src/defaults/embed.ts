@@ -15,3 +15,11 @@ export const eiEmbed = () =>
             'EI',
             'https://cdn.discordapp.com/avatars/771442069432434758/6a9fda17eb8851bdfe7719ad3b4d367b.png?size=256',
         )
+
+export const stockEmbed = () =>
+    new MessageEmbed()
+        .setColor(15903794)
+        .setAuthor(
+            'STONKS',
+            'https://styles.redditmedia.com/t5_3nimn/styles/communityIcon_cho9chd8ug431.jpg',
+        )
