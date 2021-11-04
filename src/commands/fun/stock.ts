@@ -31,7 +31,7 @@ export const stockCommand: Command = {
             })
             embed.addFields({
                 name: "",
-                value: "",
+                value: " ",
                 inline: true,
             })
             embed.addFields({
