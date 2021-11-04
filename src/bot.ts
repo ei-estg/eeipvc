@@ -26,6 +26,7 @@ import { dadJoke } from './commands/fun/dadJokes'
 import botConfig from './botConfig.json'
 import { BotClient } from './client'
 import { answerCommand } from './commands/fun/answer'
+import { stockCommand } from './commands/fun/stock'
 import { onlyfansCommand } from './commands/fun/onlyfans'
 import { dogecoin } from './commands/fun/dogecoin'
 import { verifyCommand } from './commands/security/verify'
@@ -97,6 +98,7 @@ bot.handlers.commands.register(
     servicesCommand,
     lvl,
     myLvl,
+    stockCommand,
 )
 const updateData = (users, user) => {
     if (!users[user.author.id]) {
