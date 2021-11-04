@@ -13,17 +13,21 @@ export const stockCommand: Command = {
             check: () => true,
             example: 'AAPL',
         },
-    },
+    },       
 
     async run(message: Message, { symbol }): Promise<any> {
         try {
             let stock = await getStock(symbol)
+
             if (!stock) {
                 return message.channel.send(
                     'Este stock não existe!. Ex: !stock AAPL',
                 )
             }
+            // Formatar Numero com virgulas
+            var marketCap = stock.marketCap.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
             const embed = stockEmbed().setTitle(`📈 ${stock.longName}`)
+            
             embed.addFields({
                 name: `Último Preço - ${stock.currency}`,
                 value: stock.regularMarketPrice,
@@ -31,7 +35,7 @@ export const stockCommand: Command = {
             })
             embed.addFields({
                 name: 'Market Cap',
-                value: stock.marketCap,
+                value: marketCap,
                 inline: true,
             })
             embed.setFooter('To the moon! 🚀')
@@ -41,4 +45,8 @@ export const stockCommand: Command = {
             console.error(err)
         }
     },
+}
+
+const formatNumber = (num: number): string => {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
