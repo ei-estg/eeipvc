@@ -23,7 +23,7 @@ export const stockCommand: Command = {
                     'Este stock não existe!. Ex: !stock AAPL',
                 )
             }
-            const embed = stockEmbed().setTitle('📈 ' + stock.longName)
+            const embed = stockEmbed().setTitle(`📈 ${stock.longName}`)
             embed.addFields({
                 name: `Último Preço - ${stock.currency}`,
                 value: stock.regularMarketPrice,
