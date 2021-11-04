@@ -1,5 +1,5 @@
-import { lvl } from './commands/fun/lvl'
-import { myLvl } from './commands/fun/myLvl'
+// import { lvl } from './commands/fun/lvl'
+// import { myLvl } from './commands/fun/myLvl'
 import { TextChannel } from 'discord.js'
 import { busCommand } from './commands/sas/bus'
 import { newsCommand } from './commands/campus/news'
@@ -35,10 +35,10 @@ import { moviesTimmerHander } from './private/movies_timmer_handler'
 import { minecraftCommand } from './commands/fun/minecraft'
 import { minecraftTimmerHandler } from './private/minecraft_timmer_handler'
 import { instagramTimerHandler } from './private/instagram_timer_handler'
-const fs = require('fs')
+// const fs = require('fs')
 import 'dotenv/config'
-const path = require('path')
-import users from '../data/data.json'
+// const path = require('path')
+// import users from '../data/data.json'
 
 const bot = new BotClient(botConfig, {
     partials: ['MESSAGE', 'CHANNEL', 'REACTION', 'GUILD_MEMBER'],
@@ -96,8 +96,8 @@ bot.handlers.commands.register(
     pisoCommand,
     dadJoke,
     servicesCommand,
-    lvl,
-    myLvl,
+    // lvl,
+    // myLvl,
     stockCommand,
 )
 const updateData = (users, user) => {
@@ -109,38 +109,38 @@ const updateData = (users, user) => {
             user.member?.nickname || user.author.username
     }
 }
-const addExperience = (users, user, exp) => {
-    users[user.id].experience += exp
-}
+// const addExperience = (users, user, exp) => {
+//     users[user.id].experience += exp
+// }
 
-const levelUp = async (users, user, channel, message) => {
-    const experience = users[user.id].experience
-    const lvlStart = users[user.id].level
-    const lvlEnd = Math.floor(experience ** (1 / 4))
+// const levelUp = async (users, user, channel, message) => {
+//     const experience = users[user.id].experience
+//     const lvlStart = users[user.id].level
+//     const lvlEnd = Math.floor(experience ** (1 / 4))
 
-    if (lvlStart < lvlEnd) {
-        users[user.id].level = lvlEnd
-        //  await message.channel.send(`${user} chegou ao nivel ${lvlEnd} 🎉`)
-    }
-}
+//     if (lvlStart < lvlEnd) {
+//         users[user.id].level = lvlEnd
+//         //  await message.channel.send(`${user} chegou ao nivel ${lvlEnd} 🎉`)
+//     }
+// }
 
-const add = (member) => {
-    const users = JSON.parse(
-        fs.readFileSync(path.join(__dirname, '../data', 'data.json'), 'utf8'),
-    )
-    updateData(users, member)
-    fs.writeFileSync(
-        path.join(__dirname, '../data', 'data.json'),
-        JSON.stringify(users),
-        'utf-8',
-    )
-}
+// const add = (member) => {
+//     const users = JSON.parse(
+//         fs.readFileSync(path.join(__dirname, '../data', 'data.json'), 'utf8'),
+//     )
+//     updateData(users, member)
+//     fs.writeFileSync(
+//         path.join(__dirname, '../data', 'data.json'),
+//         JSON.stringify(users),
+//         'utf-8',
+//     )
+// }
 
 bot.on('guildMemberAdd', async (member: any) => {
     const channel = member.guild.channels.cache.find(
         (channel) => channel.id == '766278332500803610',
     )
-    add(member)
+    // add(member)
 
     channel.send(
         `Boas ${
@@ -153,28 +153,28 @@ bot.on('guildMemberAdd', async (member: any) => {
     )
 })
 
-bot.on('message', async (message) => {
-    try {
-        if (message.author.id !== '771442069432434758') {
-            const users = JSON.parse(
-                fs.readFileSync(
-                    path.join(__dirname, '../data', 'data.json'),
-                    'utf8',
-                ),
-            )
-            updateData(users, message)
-            addExperience(users, message.author, 5)
-            levelUp(users, message.author, message.channel, message)
-            fs.writeFileSync(
-                path.join(__dirname, '../data', 'data.json'),
-                JSON.stringify(users),
-                'utf-8',
-            )
-        }
-    } catch (error) {
-        console.log(error)
-    }
-})
+// bot.on('message', async (message) => {
+//     try {
+//         if (message.author.id !== '771442069432434758') {
+//             // const users = JSON.parse(
+//             //     fs.readFileSync(
+//             //         path.join(__dirname, '../data', 'data.json'),
+//             //         'utf8',
+//             //     ),
+//             // )
+//             // updateData(users, message)
+//             // addExperience(users, message.author, 5)
+//             // levelUp(users, message.author, message.channel, message)
+//             // fs.writeFileSync(
+//             //     path.join(__dirname, '../data', 'data.json'),
+//             //     JSON.stringify(users),
+//             //     'utf-8',
+//             // )
+//         }
+//     } catch (error) {
+//         console.log(error)
+//     }
+// })
 
 bot.on('guildMemberRemove', async (member: any) => {
     const channel = member.guild.channels.cache.find(
