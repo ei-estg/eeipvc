@@ -23,8 +23,18 @@ export const stockCommand: Command = {
                     'Este stock não existe!. Ex: !stock AAPL',
                 )
             }
-            const stockEmbed = eiEmbed().setTitle(stock.displayName);
-            stockEmbed.setFooter(`Ultimo preço: ${stock.regularMarketPrice} ${stock.currency}`)
+            const stockEmbed = eiEmbed().setTitle("📈 "+stock.longName));
+            stockEmbed.addFields({
+                name: `Último Preço - ${stock.currency}`,
+                value: stock.regularMarketPrice,
+                inline: true
+            })
+            stockEmbed.addFields({
+                name: 'Market Cap',
+                value: stock.marketCap,
+                inline: true
+            })
+            stockEmbed.setFooter('To the moon! 🚀')
 
             return stockEmbed;
         } catch (err) {
