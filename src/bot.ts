@@ -124,11 +124,8 @@ const levelUp = async (users, user, channel, message) => {
     }
 }
 
-bot.on('guildMemberAdd', async (member: any) => {
-    const channel = member.guild.channels.cache.find(
-        (channel) => channel.id == '766278332500803610',
-    )
-  /*  const users = JSON.parse(
+const add = (member) => {
+    const users = JSON.parse(
         fs.readFileSync(path.join(__dirname, '../data', 'data.json'), 'utf8'),
     )
     updateData(users, member)
@@ -136,7 +133,15 @@ bot.on('guildMemberAdd', async (member: any) => {
         path.join(__dirname, '../data', 'data.json'),
         JSON.stringify(users),
         'utf-8',
-    )*/
+    )
+}
+
+bot.on('guildMemberAdd', async (member: any) => {
+    const channel = member.guild.channels.cache.find(
+        (channel) => channel.id == '766278332500803610',
+    )
+    add(member)
+
     channel.send(
         `Boas ${
             member.user
