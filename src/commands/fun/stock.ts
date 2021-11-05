@@ -61,11 +61,7 @@ export const stockCommand: Command = {
                 })
 
                 if(stock.trailingAnnualDividendRate != null) {
-                    embed.addFields({
-                        name: 'Dividend Date',
-                        value: formatTimestamp(stock.dividendDate),
-                        inline: true,
-                    },
+                    embed.addFields(
                     {
                         name: 'Trailing Annual Dividend Yield',
                         value: `${stock.trailingAnnualDividendYield * 100}%`,
@@ -80,16 +76,4 @@ export const stockCommand: Command = {
             console.error(err)
         }
     },
-}
-
-const formatNumber = (num: number): string => {
-    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-}
-
-const formatTimestamp = (timestamp: number): string => {
-    const date = new Date(timestamp)
-    
-    if(date == null) return 'N/A'
-
-    return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
 }
