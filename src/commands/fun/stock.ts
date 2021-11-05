@@ -1,5 +1,5 @@
 import { Command } from '../Command'
-import { getStock } from '../../requests/stock'
+import { getStock, Stock } from '../../requests/stock'
 import { Message } from 'discord.js'
 import { stockEmbed } from '../../defaults/embed'
 
@@ -27,17 +27,52 @@ export const stockCommand: Command = {
             // Formatar Numero com virgulas
             var marketCap = stock.marketCap.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
             const embed = stockEmbed().setTitle(`📈 ${stock.longName}`)
-            
-            embed.addFields({
+
+            embed.addFields(
+                {
                 name: `Último Preço - ${stock.currency}`,
                 value: stock.regularMarketPrice,
                 inline: true,
-            })
-            embed.addFields({
+                }, 
+                {
                 name: 'Market Cap',
                 value: marketCap,
                 inline: true,
-            })
+                },
+                {
+                name: "Trailing Price-To-Earnings",
+                value: stock.trailingPE,
+                inline: true,
+                }, 
+                {            
+                name: 'Earnings Per Share (TTM)',
+                value: stock.epsTrailingTwelveMonths,
+                inline: true,
+                }, 
+                {
+                name: "Price-To-Book (P/B Ratio)",
+                value: stock.priceToBook,
+                inline: true
+                },
+                {
+                name: "Avarage Analyst Rating",
+                value: stock.averageAnalystRating,
+                inline: true,
+                })
+
+                if(stock.trailingAnnualDividendRate != null) {
+                    embed.addFields({
+                        name: 'Dividend Date',
+                        value: formatTimestamp(stock.dividendDate),
+                        inline: true,
+                    },
+                    {
+                        name: 'Trailing Annual Dividend Yield',
+                        value: `${stock.trailingAnnualDividendYield}%`,
+                        inline: true,
+                    })
+                }
+
             embed.setFooter('To the moon! 🚀')
 
             return embed
@@ -49,4 +84,9 @@ export const stockCommand: Command = {
 
 const formatNumber = (num: number): string => {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+}
+
+const formatTimestamp = (timestamp: number): string => {
+    const date = new Date(timestamp)
+    return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
 }
