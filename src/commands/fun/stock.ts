@@ -68,7 +68,7 @@ export const stockCommand: Command = {
                     },
                     {
                         name: 'Trailing Annual Dividend Yield',
-                        value: `${stock.trailingAnnualDividendYield}%`,
+                        value: `${stock.trailingAnnualDividendYield * 100}%`,
                         inline: true,
                     })
                 }
@@ -88,5 +88,8 @@ const formatNumber = (num: number): string => {
 
 const formatTimestamp = (timestamp: number): string => {
     const date = new Date(timestamp)
+    
+    if(date == null) return 'N/A'
+
     return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
 }
