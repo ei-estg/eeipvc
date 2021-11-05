@@ -64,7 +64,7 @@ export const stockCommand: Command = {
                     embed.addFields(
                     {
                         name: 'Trailing Annual Dividend Yield',
-                        value: `${stock.trailingAnnualDividendYield * 100}%`,
+                        value: `${(stock.trailingAnnualDividendYield * 100).toFixed(2)}%`,
                         inline: true,
                     })
                 }
