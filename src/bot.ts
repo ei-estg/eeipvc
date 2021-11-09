@@ -181,7 +181,7 @@ bot.on('guildMemberRemove', async (member: any) => {
         (channel) => channel.id == '766278332500803610',
     )
     channel.send(
-        `${member.user} abandonou a nossa jangada ⛵️. Seguimos com ${guildMembersCount} marujos <:FeelsBadMan:766306313663283241> `,
+        `${member.user}, '${member.displayName}' abandonou a nossa jangada ⛵️. Seguimos com ${guildMembersCount} marujos <:FeelsBadMan:766306313663283241> `,
     )
 })
 
