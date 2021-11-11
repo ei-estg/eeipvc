@@ -16,7 +16,7 @@ export const weatherForecastCommand: Command = {
 
     async run(message: Message, { locality }): Promise<any> {
         try {
-            await message.channel.send(encodeURI(`https://zemo-ws.herokuapp.com/${locality}`))
+            await message.channel.send(encodeURI(`https://zemo-ws.herokuapp.com/${locality.replace('-',' ')}`))
         } catch (err) {
             console.error(err)
         }
