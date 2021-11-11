@@ -11,5 +11,6 @@ export const weatherForecastCommand: Command = {
         } catch (err) {
             console.error(err)
         }
-    },
+        return undefined
+    }
 }
