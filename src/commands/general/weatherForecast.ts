@@ -1,23 +1,13 @@
-import { Message, MessageAttachment } from 'discord.js'
+import { Message } from 'discord.js'
 import { Command } from '../Command'
 
 
 export const weatherForecastCommand: Command = {
-    name: 'meteo',
-    description: 'Meterologia',
-
-    args: {
-        locality: {
-            text: 'locality',
-            check: () => true,
-            example: 'london',
-        },
-    },       
-
-    async run(message: Message, { locality }): Promise<any> {
-        console.log(encodeURI(`https://zemo-ws.herokuapp.com/${locality.replaceAll('-',' ')}`))
+    name: 'meteorologia',
+    description: 'Meterologia - Viana do Castelo',
+    async run(message: Message) {
         try {
-            await message.channel.send(encodeURI(`https://zemo-ws.herokuapp.com/${locality.replaceAll('-',' ')}`))
+            await message.channel.send('https://zemo-ws.herokuapp.com/viana%20do%20castelo')
         } catch (err) {
             console.error(err)
         }
