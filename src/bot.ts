@@ -35,6 +35,8 @@ import { moviesTimmerHander } from './private/movies_timmer_handler'
 import { minecraftCommand } from './commands/fun/minecraft'
 import { minecraftTimmerHandler } from './private/minecraft_timmer_handler'
 import { instagramTimerHandler } from './private/instagram_timer_handler'
+import { weatherForecastCommand } from './commands/general/weatherForecast'
+
 // const fs = require('fs')
 import 'dotenv/config'
 // const path = require('path')
@@ -99,6 +101,7 @@ bot.handlers.commands.register(
     // lvl,
     // myLvl,
     stockCommand,
+    weatherForecastCommand
 )
 const updateData = (users, user) => {
     if (!users[user.author.id]) {
@@ -185,7 +188,7 @@ bot.on('guildMemberRemove', async (member: any) => {
     )
    
     channel.send(
-        `${member.user} abandonou a nossa jangada ⛵️. Seguimos com ${guildMembersCount} marujos <:FeelsBadMan:766306313663283241> `,
+        `${member.user}, '${member.displayName}' abandonou a nossa jangada ⛵️. Seguimos com ${guildMembersCount} marujos <:FeelsBadMan:766306313663283241> `,
     )
 })
 
