@@ -141,9 +141,12 @@ bot.on('guildMemberAdd', async (member: any) => {
         (channel) => channel.id == '766278332500803610',
     )
     // add(member)
-
+    let string=""
+    if(guildMembersCount===200){
+        string="Parabéns és o membro nº200 a ingressar no servidor."
+    }
     channel.send(
-        `Boas ${
+        `${string}Boas ${
             member.user
         }. Dá uma olhadela nas salas ${member.guild.channels.cache
             .get('779437283966189618')
@@ -180,6 +183,7 @@ bot.on('guildMemberRemove', async (member: any) => {
     const channel = member.guild.channels.cache.find(
         (channel) => channel.id == '766278332500803610',
     )
+   
     channel.send(
         `${member.user} abandonou a nossa jangada ⛵️. Seguimos com ${guildMembersCount} marujos <:FeelsBadMan:766306313663283241> `,
     )
