@@ -39,6 +39,7 @@ import { weatherForecastCommand } from './commands/general/weatherForecast'
 
 // const fs = require('fs')
 import 'dotenv/config'
+import { AdventOfCodeCommand } from './commands/fun/adventOfCode'
 // const path = require('path')
 // import users from '../data/data.json'
 
@@ -101,7 +102,8 @@ bot.handlers.commands.register(
     // lvl,
     // myLvl,
     stockCommand,
-    weatherForecastCommand
+    weatherForecastCommand,
+    AdventOfCodeCommand
 )
 const updateData = (users, user) => {
     if (!users[user.author.id]) {
@@ -186,7 +188,7 @@ bot.on('guildMemberRemove', async (member: any) => {
     const channel = member.guild.channels.cache.find(
         (channel) => channel.id == '766278332500803610',
     )
-   
+
     channel.send(
         `${member.user}, '${member.displayName}' abandonou a nossa jangada ⛵️. Seguimos com ${guildMembersCount} marujos <:FeelsBadMan:766306313663283241> `,
     )
