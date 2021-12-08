@@ -16,11 +16,11 @@ export const AdventOfCodeCommand: Command = {
         embed.setTitle(
             'Advent of Code Leaderboard',
         )
-
+        
         aocData.forEach((participant) => {
            embed.addFields({
                name: participant.name,
-               value: `Stars: ${participant.stars}`
+               value: `⭐ ${participant.stars}`
            })
         })
 
