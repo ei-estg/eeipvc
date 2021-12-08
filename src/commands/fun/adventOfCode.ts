@@ -17,7 +17,9 @@ export const AdventOfCodeCommand: Command = {
             'Advent of Code Leaderboard',
         )
         
-        aocData.forEach((participant) => {
+        aocData.sort((a,b) => {
+           return a.stars >= b.stars ? 1 : -1
+        }).forEach((participant) => {
            embed.addFields({
                name: participant.name,
                value: `⭐ ${participant.stars}`
