@@ -91,20 +91,20 @@ export const getScheduleByDate = async (
     month: string,
     day: string,
 ) => {
-    const STATIC_DATE = 355
+    const STATIC_DATE = 365
     const staticMomentTime = moment({
         year: 2021,
-        day: 28,
-        month: 9,
+        day: 6,
+        month: 11,
     })
+
     const requestTime = moment({
         year: parseInt(year),
         day: parseInt(day),
-        month: parseInt(month),
+        month: parseInt(month) - 1,
     })
 
     const scheduleWeek = requestTime.diff(staticMomentTime, 'weeks')
-
     const weekSchedule = await getSchedule(
         login,
         scheduleYear,
