@@ -40,6 +40,7 @@ import { weatherForecastCommand } from './commands/general/weatherForecast'
 // const fs = require('fs')
 import 'dotenv/config'
 import { AdventOfCodeCommand } from './commands/fun/adventOfCode'
+import { getGasPriceCommand } from './commands/general/combustiveis'
 // const path = require('path')
 // import users from '../data/data.json'
 
@@ -103,7 +104,8 @@ bot.handlers.commands.register(
     // myLvl,
     stockCommand,
     weatherForecastCommand,
-    AdventOfCodeCommand
+    AdventOfCodeCommand,
+    getGasPriceCommand,
 )
 const updateData = (users, user) => {
     if (!users[user.author.id]) {
@@ -146,9 +148,9 @@ bot.on('guildMemberAdd', async (member: any) => {
         (channel) => channel.id == '766278332500803610',
     )
     // add(member)
-    let string=""
-    if(guildMembersCount===200){
-        string="Parabéns és o membro nº200 a ingressar no servidor."
+    let string = ''
+    if (guildMembersCount === 200) {
+        string = 'Parabéns és o membro nº200 a ingressar no servidor.'
     }
     channel.send(
         `${string}Boas ${
