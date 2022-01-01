@@ -11,8 +11,8 @@ import {
     playCommand,
     stopCommand,
     pauseCommand,
-    resumeCommand,
-} from './commands/fun/music'
+    resumeCommand, queueCommand, clearCommand
+} from "./commands/fun/music";
 import { covidPortugalCommand } from './commands/general/covidPortugal'
 import { moodleEventsCommand } from './commands/classroom/moodleEvents'
 import { scheduleCommand } from './commands/classroom/schedule'
@@ -85,6 +85,8 @@ bot.handlers.commands.register(
     stopCommand,
     pauseCommand,
     resumeCommand,
+    queueCommand,
+    clearCommand,
     covidPortugalCommand,
     moodleEventsCommand,
     scheduleCommand,
