@@ -4,6 +4,7 @@ import { eiEmbed } from '../../defaults/embed'
 import ytdl from 'ytdl-core'
 
 let currSong: any
+let queue: string[] = []
 
 export const playCommand: Command = {
     name: 'play',
@@ -21,11 +22,21 @@ export const playCommand: Command = {
 
         if (!channel) return 'Erro! Enviaste uma mensagem privada!'
         let connection = await channel.join()
-
+        if (queue.length > 1) {
+            queue.push(musicLink)
+            return "Música adicionada à queue"
+        }
+        queue.push(musicLink)
         currSong = await connection.play(
-            ytdl(musicLink, { filter: 'audio', requestOptions: { headers: { cookie: process.env.YTDL_COOKIE }} }),
+          ytdl(queue[0], { filter: 'audio', requestOptions: { headers: { cookie: process.env.YTDL_COOKIE } } }),
         )
-        // currSong.on('finish', () => connection.disconnect())
+        currSong.on('finish', () => {
+            queue.shift()
+            connection.play(
+              ytdl(queue[0], { filter: 'audio', requestOptions: { headers: { cookie: process.env.YTDL_COOKIE } } }),
+            )
+        })
+
 
         const songInfo = await ytdl.getInfo(musicLink);
         const song = {
