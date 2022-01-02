@@ -33,7 +33,7 @@
                     {
                         "name": "AED",
                         "fullname": "Algoritmos e Estruturas de Dados",
-                        "frequencies": ["● 26 de Novembro", "● 7 de Janeiro"],
+                        "frequencies": ["● 26 de Novembro", "● 14 de Janeiro"],
                         "resource": ["-"],
                         "work": ["17 de Dezembro"]
                     }
@@ -118,7 +118,7 @@
                     {
                         "name": "BD",
                         "fullname": "Base de Dados",
-                        "frequencies": ["● 17 de Novembro", "● 5 de Janeiro"],
+                        "frequencies": ["● 17 de Novembro", "● 12 de Janeiro"],
                         "resource": ["-"],
                         "work": ["8 de Janeiro"]
                     },
