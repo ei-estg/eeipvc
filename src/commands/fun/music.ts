@@ -135,9 +135,7 @@ export const clearCommand: Command = {
   name: "clear",
   description: "Limpa a fila de músicas",
   async run(message: Message) {
-    while(queue.length > 1) {
-      queue.pop()
-    }
+    queue = [];
     return "Queue limpa";
   }
 };
