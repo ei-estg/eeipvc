@@ -57,7 +57,7 @@ export const examsCommand: Command = {
                 name: '🎓 Disciplina ➜ ' + value.name,
                 value: value.fullname,
             })
-
+/*
             if (value.frequencies && !value.work) {
                 examsEmbed.addFields({
                     name: '📋 Frequências',
@@ -78,21 +78,27 @@ export const examsCommand: Command = {
                     value: `${value.work.join('',)} \n〰️`,
                 })
             }
-            /*
+            
           if (value.exams){
             examsEmbed.addFields({
               name: "📘 Exames",
               value: value.exams
             })
           }
-    
+            */
           if (value.resource){
             examsEmbed.addFields({
               name: "🆘 Recurso",
-              value: value.resource
+              value: value.resource,
             })
           }
-          */
+             if (value.room){
+            examsEmbed.addFields({
+              name: "📍 Salas",
+              value: `${value.room.join('',)} \n〰️`,
+            })
+          }
+          
          })
 
         examsEmbed.setFooter('🚨 As datas apresentadas requerem confirmação!')
