@@ -32,7 +32,7 @@
                         "name": "ASC",
                         "fullname": "Arquitetura e Sistemas de Computadores",
                         "frequencies": ["● 5 de Janeiro"],
-                        "resourse": ["● 9 de Fevereiro - 11h00"],
+                        "resource": ["● 9 de Fevereiro - 11h00"],
                         "room": ["Biblioteca"]
                     },
                     {
@@ -69,7 +69,7 @@
                         "name": "SO",
                         "fullname": "Sistemas Operativos",
                         "frequencies": ["- \n", "-"],
-                        "resourse": ["-"]
+                        "resource": ["-"]
                     },
                     {
                         "name": "PGE",
@@ -122,7 +122,7 @@
                         "name": "ES1",
                         "fullname": "Engenharia de Software 1",
                         "frequencies": ["● 25/26 de Novembro \n", "● 13/16 de Dezembro"],
-                        "resourse": ["● 11 de Fevereiro - 14h00"],
+                        "resource": ["● 11 de Fevereiro - 14h00"],
                         "room": ["S1.1"]
                     },
                     {
@@ -137,7 +137,7 @@
                         "name": "RC",
                         "fullname": "Redes de Computadores",
                         "frequencies": ["● 19 de Janeiro"],
-                        "resourse": ["17 de Fevereiro - 11h00"],
+                        "resource": ["17 de Fevereiro - 11h00"],
                         "room": ["S1.1"]
                     }
                 ]
@@ -166,7 +166,7 @@
                         "name": "IA",
                         "fullname": "Inteligência Artificial",
                         "frequencies": ["- \n", "-"],
-                        "resourse": ["-"]
+                        "resource": ["-"]
                     },
                     {
                         "name": "ES2",
@@ -179,7 +179,7 @@
                         "name": "PROJ2",
                         "fullname": "Projecto 2",
                         "frequencies": ["- \n", "-"],
-                        "resourse": ["-"]
+                        "resource": ["-"]
                     }
                 ]
             }
@@ -198,7 +198,7 @@
                             "2º TP: Entrega: 13 de janeiro \n",
                             "Apresentação: nas aulas a seguir"
                         ],
-                        "resourse": ["● 10 de Fevereiro - 11h00"],
+                        "resource": ["● 10 de Fevereiro - 11h00"],
                         "room": ["S1.1"]
                     },
                     {
@@ -214,13 +214,13 @@
                         "work": [
                             "Relatório: \nEntrega: 16 de janeiro \nApresentação: 17 de janeiro "
                         ],
-                        "resourse": ["14 de Fevereiro - 16h00"],
+                        "resource": ["14 de Fevereiro - 16h00"],
                         "room": ["A2.1"]
                     },
                     {
                         "name": "PROJ3",
                         "fullname": "Projecto 3",                        
-                        "resourse": ["● 8 de Fevereiro - 14h00"],
+                        "resource": ["● 8 de Fevereiro - 14h00"],
                         "work":["9 de Dezembro \n","13 de Janeiro"],
                         "room": ["S3.5"]
                     },
@@ -245,19 +245,19 @@
                         "name": "PROJ4",
                         "fullname": "Projecto 4",
                         "frequencies": ["- \n", "-"],
-                        "resourse": ["-"]
+                        "resource": ["-"]
                     },
                     {
                         "name": "CM",
                         "fullname": "Computaçãpo Movel",
                         "frequencies": ["- \n", "-"],
-                        "resourse": ["-"]
+                        "resource": ["-"]
                     },
                     {
                         "name": "SRS",
                         "fullname": "Segurança de Redes e Sistemas",
                         "frequencies": ["- \n", "-"],
-                        "resourse": ["-"]
+                        "resource": ["-"]
                     },
                     {
                         "name": "AOOP",
