@@ -10,32 +10,38 @@
                             "● 8 de Novembro \n",
                             "● 14 de Dezembro \n",
                             "● 10 de Janeiro"                            
-                        ]
+                        ],
+                        "resource": ["● 7 de Fevereiro - 11h00"],
+                        "room": ["S1.1 / A1.1 / A2.1 / S2.9 / S2.10 / L3.4"]
                     },
                     {
                         "name": "MD",
                         "fullname": "Matemática Discreta",
                         "frequencies": ["● 3 de dezembro \n", "● 21 de janeiro"],
-                        "resource": ["É no recurso que se faz o curso!"]
+                        "resource": ["● 14 de Fevereiro - 11h00"],
+                        "room": ["A2.1 / S2.9 / S2.10"]
                     },
                     {
                         "name": "AM",
                         "fullname": "Análise Matemática",
                         "frequencies": ["● 29 de Novembro \n", "● 18 de Janeiro"],
-                        "resource": ["-"]
+                        "resource": ["● 11 de Fevereiro - 11h00"],
+                        "room": ["A1.1 / S1.1 / A2.1 / S2.10 / S2.9"]
                     },
                     {
                         "name": "ASC",
                         "fullname": "Arquitetura e Sistemas de Computadores",
                         "frequencies": ["● 5 de Janeiro"],
-                        "resourse": ["-"]
+                        "resourse": ["● 9 de Fevereiro - 11h00"],
+                        "room": ["Biblioteca"]
                     },
                     {
                         "name": "AED",
                         "fullname": "Algoritmos e Estruturas de Dados",
                         "frequencies": ["● 26 de Novembro", "● 14 de Janeiro"],
-                        "resource": ["-"],
-                        "work": ["17 de Dezembro"]
+                        "resource": ["● 16 de Fevereiro - 14h00"],
+                        "work": ["17 de Dezembro"],
+                        "room": ["Biblioteca"]
                     }
                 ]
             },
@@ -94,39 +100,45 @@
                             "● 22/23 de Novembro [TP1]/[TP2] \n",
                             "● 17/18 de Janeiro [TP1]/[TP2]"
                         ],
-                        "resource": ["-"]
+                        "resource": ["● 14 de Fevereiro - 14h00"],
+                        "room": ["A2.1"]
                     },
                     {
                         "name": "PROG2",
                         "fullname": "Programação 2",
                         "frequencies": ["● 16 de Novembro", "● 11 de Janeiro"],
-                        "resource": ["-"],
-                        "work": ["18 ou 25 de Janeiro"]
+                        "resource": ["● 7 de Fevereiro - 16h00"],
+                        "work": ["18 ou 25 de Janeiro"],
+                        "room": ["A2.1"]
                     },
                     {
                         "name": "PROJ1",
                         "fullname": "Projecto 1",
-                        "resource": ["-"],
-                        "work":[""]
+                        "resource": ["● 15 de Fevereiro - 11h00"],
+                        "work":[""],
+                        "room": ["A1.2"]
                     },
                     {
                         "name": "ES1",
                         "fullname": "Engenharia de Software 1",
                         "frequencies": ["● 25/26 de Novembro \n", "● 13/16 de Dezembro"],
-                        "resourse": ["-"]
+                        "resourse": ["● 11 de Fevereiro - 14h00"],
+                        "room": ["S1.1"]
                     },
                     {
                         "name": "BD",
                         "fullname": "Base de Dados",
                         "frequencies": ["● 17 de Novembro", "● 12 de Janeiro"],
-                        "resource": ["-"],
-                        "work": ["8 de Janeiro"]
+                        "resource": ["● 9 de Fevereiro - 14h00"],
+                        "work": ["8 de Janeiro"],
+                        "room": ["L3.4"]
                     },
                     {
                         "name": "RC",
                         "fullname": "Redes de Computadores",
                         "frequencies": ["● 19 de Janeiro"],
-                        "resourse": ["-"]
+                        "resourse": ["17 de Fevereiro - 11h00"],
+                        "room": ["S1.1"]
                     }
                 ]
             },
@@ -185,32 +197,39 @@
                             "1º TP: Entrega: 16 de dezembro \n",
                             "2º TP: Entrega: 13 de janeiro \n",
                             "Apresentação: nas aulas a seguir"
-                        ]
+                        ],
+                        "resourse": ["● 10 de Fevereiro - 11h00"],
+                        "room": ["S1.1"]
                     },
                     {
                         "name": "IS",
                         "fullname": "Integração de Sistemas",                        
-                        "resource": ["-"],
-                        "work": ["19/22 de Novembro"]
+                        "resource": ["● 11 de Fevereiro - 16h00"],
+                        "work": ["19/22 de Novembro"],
+                        "room": ["L3.4"]
                     },
                     {
                         "name": "IEOP",
                         "fullname": "Integração de Empresa",
                         "work": [
                             "Relatório: \nEntrega: 16 de janeiro \nApresentação: 17 de janeiro "
-                        ]
+                        ],
+                        "resourse": ["14 de Fevereiro - 16h00"],
+                        "room": ["A2.1"]
                     },
                     {
                         "name": "PROJ3",
                         "fullname": "Projecto 3",                        
-                        "resourse": ["-"],
-                        "work":["9 de Dezembro \n","13 de Janeiro"]
+                        "resourse": ["● 8 de Fevereiro - 14h00"],
+                        "work":["9 de Dezembro \n","13 de Janeiro"],
+                        "room": ["S3.5"]
                     },
                     {
                         "name": "GP",
                         "fullname": "Gestão de Projectos",
-                        "resource": ["-"],
-                        "work": ["14 de Janeiro"]
+                        "resource": ["● 18 de Fevereiro - 11h00"],
+                        "work": ["14 de Janeiro"],
+                        "room": ["S2.10"]
                     }                    
                 ]
             },
