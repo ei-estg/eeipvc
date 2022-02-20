@@ -91,11 +91,11 @@ export const getScheduleByDate = async (
     month: string,
     day: string,
 ) => {
-    const STATIC_DATE = 365
+    const STATIC_DATE = 376
     const staticMomentTime = moment({
-        year: 2021,
-        day: 6,
-        month: 11,
+        year: 2022,
+        day: 21,
+        month: 1,
     })
 
     const requestTime = moment({
