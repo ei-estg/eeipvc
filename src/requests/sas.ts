@@ -1,5 +1,6 @@
 import fetch from 'node-fetch'
 import { parse } from 'fast-xml-parser'
+import moment from 'moment'
 
 export interface BusStop {
     id: number
@@ -141,6 +142,9 @@ export const getMealsNew = async (date: string) => {
 
     let reData: Meals = {}
     data.data.forEach((innerMeal) => {
+        // time change
+        innerMeal.date = moment(innerMeal.date).add(1, 'h').toISOString()
+
         const date = innerMeal.date.split('T')[0]
         if (!reData[date]) {
             reData[date] = []
@@ -165,7 +169,6 @@ export const getMealsNew = async (date: string) => {
             ).price,
             stockQuantity: innerMeal.stockQuantity,
         })
-        console.log(innerMeal, '\n\n')
     })
     return reData
 }
