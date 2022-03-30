@@ -71,7 +71,7 @@ export const getSchedule = async (
             status:
                 item.color === '#7f5555'
                     ? 'REPLACED'
-                    : item.color === '#ff0000'
+                    : ['#ff0000', '#f4b7b7'].includes(item.color)
                     ? 'CANCELED'
                     : item.color === '#f0a0a0'
                     ? 'NOT_TAUGHT'
