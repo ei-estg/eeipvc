@@ -41,6 +41,7 @@ import { weatherForecastCommand } from './commands/general/weatherForecast'
 import 'dotenv/config'
 import { AdventOfCodeCommand } from './commands/fun/adventOfCode'
 import { getGasPriceCommand } from './commands/general/combustiveis'
+import { getWeatherCommand } from "./commands/general/weather";
 // const path = require('path')
 // import users from '../data/data.json'
 
@@ -108,6 +109,7 @@ bot.handlers.commands.register(
     weatherForecastCommand,
     AdventOfCodeCommand,
     getGasPriceCommand,
+  getWeatherCommand,
 )
 const updateData = (users, user) => {
     if (!users[user.author.id]) {
