@@ -41,9 +41,12 @@ export const getWeatherCommand: Command = {
       }
     });
 
-
+    function capitalize(word) {
+      const lower = word.toLowerCase();
+      return word.charAt(0).toUpperCase() + lower.slice(1);
+    }
     const embed = eiEmbed()
-    embed.setTitle('Previsão meterológica')
+    embed.setTitle('Previsão meterológica para ' + capitalize(location))
 
     embed.addField('Hoje', `${day1type}\nTemperatura ➜ ${day1.tMin}ºC ~ ${day1.tMax}ºC`)
     embed.addField('Amanhã', `${day2type}\nTemperatura ➜ ${day2.tMin}ºC~ ${day2.tMax}ºC`)
