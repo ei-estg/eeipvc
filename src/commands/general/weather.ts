@@ -48,9 +48,9 @@ export const getWeatherCommand: Command = {
     const embed = eiEmbed()
     embed.setTitle('Previsão meterológica para ' + capitalize(location))
 
-    embed.addField('Hoje', `${day1type}\nTemperatura ➜ ${day1.tMin}ºC ~ ${day1.tMax}ºC`)
-    embed.addField('Amanhã', `${day2type}\nTemperatura ➜ ${day2.tMin}ºC~ ${day2.tMax}ºC`)
-    embed.addField('Depois de amanhã', `${day3type}\nTemperatura ➜ ${day3.tMin}ºC ~ ${day3.tMax}ºC`)
+    embed.addField('Hoje', `${day1type}\nTemperatura ➜ ${day1.tMin}ºC ~ ${day1.tMax}ºC\nPrecipitação ➜ ${day1.probPrecipita}%`)
+    embed.addField('Amanhã', `${day2type}\nTemperatura ➜ ${day2.tMin}ºC~ ${day2.tMax}ºC\nPrecipitação ➜ ${day2.probPrecipita}%`)
+    embed.addField('Depois de amanhã', `${day3type}\nTemperatura ➜ ${day3.tMin}ºC ~ ${day3.tMax}ºC\nPrecipitação ➜ ${day3.probPrecipita}%`)
     return embed
   },
 }
