@@ -35,6 +35,9 @@ export const getWeatherCommand: Command = {
   },
 
   async run(_, { location }) {
+    if(location === 'japao' || location === 'japan' || location === 'japão'){
+      return "Vai te foder Bruno, não há paciência"
+    }
     const weather = await fetchWeather(location)
 
     if (weather == null) {
