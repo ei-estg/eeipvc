@@ -43,6 +43,7 @@ import { AdventOfCodeCommand } from "./commands/fun/adventOfCode";
 import { getGasPriceCommand } from "./commands/general/combustiveis";
 import { getWeatherCommand } from "./commands/general/weather";
 import { php } from "./commands/fun/killMe";
+import { java } from "./commands/fun/java";
 // const path = require('path')
 // import users from '../data/data.json'
 
@@ -111,7 +112,8 @@ bot.handlers.commands.register(
   AdventOfCodeCommand,
   getGasPriceCommand,
   getWeatherCommand,
-  php
+  php,
+  java
 );
 const updateData = (users, user) => {
   if (!users[user.author.id]) {
