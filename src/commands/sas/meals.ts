@@ -22,7 +22,6 @@ export const mealsCommand: Command = {
     async run(message, { date = getISODate() }) {
         try {
             let meals = await getMealsNew(date)
-            console.log(meals)
 
             if (!meals) {
                 return 'Erro desconhecido'
@@ -35,13 +34,26 @@ export const mealsCommand: Command = {
             let lunchMeals = meals[date].filter(
                 (meal) => meal.englishTime == 'Lunch',
             )
+            let dinnerMeals = meals[date].filter(
+                (meal) => meal.englishTime == 'Dinner',
+            )
             const mealsEmbed = sasEmbed()
-                .setTitle(`Ementa dia ${date} - Almoço`)
+                .setTitle(`Ementa dia ${date}`)
                 .addFields({
-                    name: '⠀',
+                    name: 'Almoço',
                     value: `🍴 **${lunchMeals[0].time}**`,
                 })
             lunchMeals.forEach((meal) => {
+                mealsEmbed.addFields({
+                    name: `${meal.type} - ${meal.price?.toFixed(2) ?? '--'}€`,
+                    value: normalize(meal.name),
+                })
+            })
+            mealsEmbed.addFields({
+                name: 'Jantar',
+                value: `🍴 **${dinnerMeals[0].time}**`,
+            })
+            dinnerMeals.forEach((meal) => {
                 mealsEmbed.addFields({
                     name: `${meal.type} - ${meal.price?.toFixed(2) ?? '--'}€`,
                     value: normalize(meal.name),

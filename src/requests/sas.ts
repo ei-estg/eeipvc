@@ -137,8 +137,17 @@ export const getMealsNew = async (date: string) => {
             },
         },
     )
+    const reqDinner = await fetch(
+        `https://sasocial.sas.ipvc.pt/api/alimentation/menu/service/1/menus/${date}/dinner?withRelated=taxes,file`,
+        {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        },
+    )
 
     let data = await req.json()
+    let dinnerData = await reqDinner.json()
 
     let reData: Meals = {}
     data.data.forEach((innerMeal) => {
@@ -166,6 +175,35 @@ export const getMealsNew = async (date: string) => {
             price: innerMeal.prices.find(
                 (price) =>
                     price.description == 'Preço Aluno' && price.meal == 'lunch',
+            ).price,
+            stockQuantity: innerMeal.stockQuantity,
+        })
+    })
+    dinnerData.data.forEach((innerMeal) => {
+        // time change
+        innerMeal.date = moment(innerMeal.date).add(1, 'h').toISOString()
+
+        const date = innerMeal.date.split('T')[0]
+        if (!reData[date]) {
+            reData[date] = []
+        }
+        reData[innerMeal.date.split('T')[0]].push({
+            id: innerMeal.id,
+            englishName:
+                innerMeal.translations.length > 1
+                    ? innerMeal.translations[1].name
+                    : '---',
+            name: innerMeal.translations[0].name,
+            time: innerMeal.meal == 'lunch' ? 'Almoço' : 'Jantar',
+            englishTime: innerMeal.meal == 'lunch' ? 'Lunch' : 'Dinner',
+            englishType:
+                innerMeal.dish_type_translation.length > 1
+                    ? innerMeal.dish_type_translation[1].name
+                    : '---',
+            type: innerMeal.dish_type_translation[0].name,
+            price: innerMeal.prices.find(
+                (price) =>
+                    price.description == 'Preço Aluno' && price.meal == 'dinner',
             ).price,
             stockQuantity: innerMeal.stockQuantity,
         })
