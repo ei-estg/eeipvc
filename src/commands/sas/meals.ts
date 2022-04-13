@@ -20,6 +20,9 @@ export const mealsCommand: Command = {
     },
 
     async run(message, { date = getISODate() }) {
+        if (date == 'gabs') {
+            return '<:pepesneakyevil:958133599679443014>'
+        }
         try {
             let meals = await getMealsNew(date)
 
