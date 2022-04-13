@@ -50,40 +50,41 @@
                     {
                         "name": "PROG1",
                         "fullname": "Progamação 1",
-                        "frequencies": ["- \n", "-"],
-                        "resource": ["-"]
+                        "frequencies": ["● 21 de Abril \n","● 9 de Junho"],
+                        "resource": ["-"],
+                        "work": ["● 5 de Junho"]
                     },
                     {
                         "name": "MD2",
                         "fullname": "Matemática Discreta 2",
-                        "frequencies": ["- \n", "-"],
+                        "frequencies": ["● 22 de Abril \n","● 17 de Junho"],
                         "resource": ["-"]
                     },
                     {
                         "name": "EST",
                         "fullname": "Estatística",
-                        "frequencies": ["- \n", "-"],
+                        "frequencies": ["● 2 de Maio \n","● 13 de Junho"],
                         "resource": ["-"]
                     },
                     {
                         "name": "SO",
                         "fullname": "Sistemas Operativos",
-                        "frequencies": ["- \n", "-"],
+                        "frequencies": ["● 31 de Maio \n", "● 1 de Junho"],
                         "resource": ["-"]
                     },
                     {
                         "name": "PGE",
                         "fullname": "Princípios de Gestão Empresarial",
-                        "frequencies": ["- \n", "-"],
+                        "frequencies": ["● 3 de Maio \n", "● 7 de Junho"],
                         "resource": ["-"],
-                        "work": ["-"]
+                        "work": ["● 19 de Abril (Apresent.) \n","● 26 de Abril (Apresent.)"]
                     },
                     {
                         "name": "TE",
                         "fullname": "Technical English",
-                        "frequencies": ["- \n", "-"],
+                        "frequencies": ["● 20 de Abril \n", "● 15 de Junho"],
                         "resource": ["-"],
-                        "work": ["-"]
+                        "work": ["● 14 de Junho"]
                     }
                 ]
             }
@@ -147,39 +148,43 @@
                     {
                         "name": "ABD",
                         "fullname": "Administração Bases de Dados",
-                        "frequencies": ["- \n", "-"],
-                        "resource": ["-"]
+                        "frequencies": ["● 8 de Junho],
+                        "resource": ["-"],
+                        "work": ["● 5 de Junho"]
                     },
                     {
                         "name": "TM",
                         "fullname": "Tecnologias Multimédia",
-                        "frequencies": ["- \n", "-"],
-                        "resource": ["-"]
+                        "frequencies": ["● 15 de Junho"],
+                        "resource": ["-"],
+                        "work": ["● 1 de Maio \n","● 12 de Junho"]
                     },
                     {
                         "name": "IHM",
                         "fullname": "Interacção Homem Máquina",
-                        "frequencies": ["- \n", "-"],
-                        "resource": ["-"]
+                        "frequencies": ["● 25 de Maio"],
+                        "resource": ["-"],
+                        "work": ["● 6 de Junho"]
                     },
                     {
                         "name": "IA",
                         "fullname": "Inteligência Artificial",
-                        "frequencies": ["- \n", "-"],
-                        "resource": ["-"]
+                        "frequencies": ["● 3 de Maio \n"],
+                        "resource": ["-"],
+                        "work": ["● 26 de Abril \n","● 13 de Maio \n","● 14 de Junho"]
                     },
                     {
                         "name": "ES2",
                         "fullname": "Engenharia de Software 2",
-                        "frequencies": ["- \n", "-"],
+                        "frequencies": ["● 26 de Abril"],
                         "resource": ["-"],
-                        "work": ["-"]
+                        "work": ["● 23 de Maio"]
                     },
                     {
                         "name": "PROJ2",
-                        "fullname": "Projecto 2",
-                        "frequencies": ["- \n", "-"],
-                        "resource": ["-"]
+                        "fullname": "Projecto 2",                        
+                        "resource": ["-"],
+                        "work": ["● 30 de Maio"]
                     }
                 ]
             }
@@ -238,33 +243,32 @@
                     {
                         "name": "EDP",
                         "fullname": "Etica e Deontologia Profissional",
-                        "frequencies": ["- \n", "-"],
+                        "frequencies": ["Sem Informações"],
                         "resource": ["-"]
                     },
                     {
                         "name": "PROJ4",
-                        "fullname": "Projecto 4",
-                        "frequencies": ["- \n", "-"],
-                        "resource": ["-"]
+                        "fullname": "Projecto 4",                        
+                        "resource": ["-"],
+                        "work": ["● 13 de Maio"]
                     },
                     {
                         "name": "CM",
-                        "fullname": "Computaçãpo Movel",
-                        "frequencies": ["- \n", "-"],
+                        "fullname": "Computação Móvel",
+                        "frequencies": ["● 7 de Abril \n", "● 9 de Junho"],
                         "resource": ["-"]
                     },
                     {
                         "name": "SRS",
                         "fullname": "Segurança de Redes e Sistemas",
-                        "frequencies": ["- \n", "-"],
+                        "frequencies": ["● 14 de Junho"],
                         "resource": ["-"]
                     },
                     {
                         "name": "AOOP",
-                        "fullname": "Aprendizagem Organizacional",
-                        "frequencies": ["- \n", "-"],
+                        "fullname": "Aprendizagem Organizacional",                        
                         "resource": ["-"],
-                        "work": ["-"]
+                        "work": ["● 29 de Abril \n","● 27 de Maio \n","● 3 de Junho \n","● 17 de Junho"]
                     }
                 ]
             }
