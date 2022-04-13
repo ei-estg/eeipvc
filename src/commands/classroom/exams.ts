@@ -29,7 +29,7 @@ export const examsCommand: Command = {
             '2': '779478680702287922',
             '3': '779478818552414268',
         }
-        const semester = 1
+        const semester = 2
         const examsEmbed = eiEmbed().setTitle(
             '📚 Datas de exames e frequências',
         )
@@ -57,7 +57,7 @@ export const examsCommand: Command = {
                 name: '🎓 Disciplina ➜ ' + value.name,
                 value: value.fullname,
             })
-/*
+
             if (value.frequencies && !value.work) {
                 examsEmbed.addFields({
                     name: '📋 Frequências',
@@ -78,14 +78,14 @@ export const examsCommand: Command = {
                     value: `${value.work.join('',)} \n〰️`,
                 })
             }
-            
+        /*    
           if (value.exams){
             examsEmbed.addFields({
               name: "📘 Exames",
               value: value.exams
             })
           }
-            */
+         
           if (value.resource){
             examsEmbed.addFields({
               name: "🆘 Recurso",
@@ -98,7 +98,7 @@ export const examsCommand: Command = {
               value: `${value.room.join('',)} \n〰️`,
             })
           }
-          
+          */
          })
 
         examsEmbed.setFooter('🚨 As datas apresentadas requerem confirmação!')
