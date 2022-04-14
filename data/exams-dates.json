@@ -50,7 +50,7 @@
                     {
                         "name": "PROG1",
                         "fullname": "Progamação 1",
-                        "frequencies": ["● 21 de Abril \n","● 9 de Junho"],
+                        "frequencies": ["● 21 de Abril","● 9 de Junho"],
                         "resource": ["-"],
                         "work": ["● 5 de Junho"]
                     },
@@ -63,7 +63,7 @@
                     {
                         "name": "EST",
                         "fullname": "Estatística",
-                        "frequencies": ["● 2 de Maio \n","● 13 de Junho"],
+                        "frequencies": ["● 2 de Maio","● 13 de Junho"],
                         "resource": ["-"]
                     },
                     {
@@ -82,7 +82,7 @@
                     {
                         "name": "TE",
                         "fullname": "Technical English",
-                        "frequencies": ["● 20 de Abril \n", "● 15 de Junho"],
+                        "frequencies": ["● 20 de Abril", "● 15 de Junho"],
                         "resource": ["-"],
                         "work": ["● 14 de Junho"]
                     }
