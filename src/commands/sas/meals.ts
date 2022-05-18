@@ -43,7 +43,7 @@ export const mealsCommand: Command = {
             const mealsEmbed = sasEmbed()
                 .setTitle(`Ementa dia ${date}`)
                 .addFields({
-                    name: 'Almoço',
+                    name: '',
                     value: `🍴 **${lunchMeals[0].time}**`,
                 })
             lunchMeals.forEach((meal) => {
@@ -53,7 +53,7 @@ export const mealsCommand: Command = {
                 })
             })
             mealsEmbed.addFields({
-                name: 'Jantar',
+                name: '',
                 value: `🍴 **${dinnerMeals[0].time}**`,
             })
             dinnerMeals.forEach((meal) => {
