@@ -210,6 +210,7 @@ const getChannelById = async (guildId: string, channelId: string) => {
 };
 
 // CronJobs
+/*
 bot.handlers.timers.register({
   cronTime: botConfig.timmers.meals.cronTime,
   channel: () =>
@@ -218,7 +219,7 @@ bot.handlers.timers.register({
     mealsCommand.run(undefined, {
       date: moment().add(1, "day").format("YYYY-MM-DD")
     })
-});
+});*/
 
 bot.handlers.timers.register({
   cronTime: botConfig.timmers.cineplace.cronTime,
