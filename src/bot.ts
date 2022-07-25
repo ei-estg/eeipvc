@@ -44,6 +44,7 @@ import { getGasPriceCommand } from "./commands/general/combustiveis";
 import { getWeatherCommand } from "./commands/general/weather";
 import { php } from "./commands/fun/killMe";
 import { java } from "./commands/fun/java";
+import { etron } from "./commands/fun/bestcar";
 // const path = require('path')
 // import users from '../data/data.json'
 
@@ -113,7 +114,8 @@ bot.handlers.commands.register(
   getGasPriceCommand,
   getWeatherCommand,
   php,
-  java
+  java,
+  etron
 );
 const updateData = (users, user) => {
   if (!users[user.author.id]) {
