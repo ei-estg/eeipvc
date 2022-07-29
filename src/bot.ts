@@ -45,6 +45,7 @@ import { getWeatherCommand } from "./commands/general/weather";
 import { php } from "./commands/fun/killMe";
 import { java } from "./commands/fun/java";
 import { etron } from "./commands/fun/bestcar";
+import {horoscopo} from "./commands/fun/horoscope"
 // const path = require('path')
 // import users from '../data/data.json'
 
@@ -115,7 +116,8 @@ bot.handlers.commands.register(
   getWeatherCommand,
   php,
   java,
-  etron
+  etron,
+    horoscopo
 );
 const updateData = (users, user) => {
   if (!users[user.author.id]) {
