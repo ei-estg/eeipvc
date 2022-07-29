@@ -1,5 +1,5 @@
 import fetch from 'node-fetch'
-import cheerio, { NodeWithChildren } from 'cheerio'
+import * as cheerio from "cheerio"
 import moment from 'moment'
 
 export enum Cinema {EstacaoViana = 20}
@@ -42,7 +42,7 @@ export const getMoviesByLocation = async (cinema: Cinema): Promise<Movie[]> => {
         }
         const $ = cheerio.load(data.contents)
 
-        $('.movie').each((i, movieElement: NodeWithChildren) => {
+        $('.movie').each((i, movieElement) => {
             const movieName = $(movieElement).find('h5').text()
             const movieBackgroundTag = $(movieElement).find('.movie-cover').attr().style
             const movieImageUrl = movieBackgroundTag.substring(22, movieBackgroundTag.length - 1)
