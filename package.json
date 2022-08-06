@@ -12,6 +12,9 @@
     },
     "author": "André Sousa <andrematodesousa@gmail.com>",
     "license": "MIT",
+    "engines": {
+       "node": "16.x"
+    },
     "dependencies": {
         "@discordjs/opus": "^0.8.0",
         "cheerio": "^1.0.0-rc.9",
