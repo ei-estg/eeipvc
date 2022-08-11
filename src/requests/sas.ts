@@ -203,7 +203,8 @@ export const getMealsNew = async (date: string) => {
             type: innerMeal.dish_type_translation[0].name,
             price: innerMeal.prices.find(
                 (price) =>
-                    price.description == 'Preço Aluno' && price.meal == 'dinner',
+                    price.description == 'Preço Aluno' &&
+                    price.meal == 'dinner',
             ).price,
             stockQuantity: innerMeal.stockQuantity,
         })

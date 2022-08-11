@@ -89,9 +89,10 @@ export class ReactsHandler {
                     r.emoji == reaction.emoji.name
                 ) {
                     return {
-                        guildMember: await reaction.message.guild?.members.fetch(
-                            user.id,
-                        ),
+                        guildMember:
+                            await reaction.message.guild?.members.fetch(
+                                user.id,
+                            ),
                         roleId: r.roleId,
                     }
                 }

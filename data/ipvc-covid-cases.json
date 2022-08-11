@@ -1,300 +1,300 @@
 {
-    "covidCases":[
+  "covidCases": [
+    {
+      "date": "15/12/2020",
+      "counts": [
         {
-            "date":"15/12/2020",
-            "counts":[
-                {
-                    "zone":"ESE",
-                    "count":6
-                },
-                {
-                    "zone":"ESA",
-                    "count":2
-                },
-                {
-                    "zone":"ESTG",
-                    "count":12
-                },
-                {
-                    "zone":"ESCE",
-                    "count":3
-                },
-                {
-                    "zone":"ESS",
-                    "count":2
-                },
-                {
-                    "zone":"ESDL",
-                    "count":0
-                },
-                {
-                    "zone":"SC",
-                    "count":0
-                },
-                {
-                    "zone":"SAS",
-                    "count":0
-                }
-            ]
+          "zone": "ESE",
+          "count": 6
         },
         {
-            "date":"17/12/2020",
-            "counts":[
-                {
-                    "zone":"ESE",
-                    "count":8
-                },
-                {
-                    "zone":"ESA",
-                    "count":2
-                },
-                {
-                    "zone":"ESTG",
-                    "count":13
-                },
-                {
-                    "zone":"ESCE",
-                    "count":2
-                },
-                {
-                    "zone":"ESS",
-                    "count":1
-                },
-                {
-                    "zone":"ESDL",
-                    "count":0
-                },
-                {
-                    "zone":"SC",
-                    "count":0
-                },
-                {
-                    "zone":"SAS",
-                    "count":0
-                }
-            ]
+          "zone": "ESA",
+          "count": 2
         },
         {
-            "date":"08/01/2021",
-            "counts":[
-                {
-                    "zone":"ESE",
-                    "count":4
-                },
-                {
-                    "zone":"ESA",
-                    "count":2
-                },
-                {
-                    "zone":"ESTG",
-                    "count":10
-                },
-                {
-                    "zone":"ESCE",
-                    "count":2
-                },
-                {
-                    "zone":"ESS",
-                    "count":3
-                },
-                {
-                    "zone":"ESDL",
-                    "count":0
-                },
-                {
-                    "zone":"SC",
-                    "count":0
-                },
-                {
-                    "zone":"SAS",
-                    "count":1
-                }
-            ]
+          "zone": "ESTG",
+          "count": 12
         },
         {
-            "date":"13/01/2021",
-            "counts":[
-                {
-                    "zone":"ESE",
-                    "count":4
-                },
-                {
-                    "zone":"ESA",
-                    "count":4
-                },
-                {
-                    "zone":"ESTG",
-                    "count":17
-                },
-                {
-                    "zone":"ESCE",
-                    "count":4
-                },
-                {
-                    "zone":"ESS",
-                    "count":4
-                },
-                {
-                    "zone":"ESDL",
-                    "count":1
-                },
-                {
-                    "zone":"SC",
-                    "count":0
-                },
-                {
-                    "zone":"SAS",
-                    "count":1
-                }
-            ]
+          "zone": "ESCE",
+          "count": 3
         },
         {
-            "date":"15/01/2021",
-            "counts":[
-                {
-                    "zone":"ESE",
-                    "count":4
-                },
-                {
-                    "zone":"ESA",
-                    "count":6
-                },
-                {
-                    "zone":"ESTG",
-                    "count":16
-                },
-                {
-                    "zone":"ESCE",
-                    "count":4
-                },
-                {
-                    "zone":"ESS",
-                    "count":3
-                },
-                {
-                    "zone":"ESDL",
-                    "count":1
-                },
-                {
-                    "zone":"SC",
-                    "count":0
-                },
-                {
-                    "zone":"SAS",
-                    "count":1
-                }
-            ]
+          "zone": "ESS",
+          "count": 2
         },
         {
-            "date":"19/01/2021",
-            "counts":[
-                {
-                    "zone":"ESE",
-                    "count":6
-                },
-                {
-                    "zone":"ESA",
-                    "count":4
-                },
-                {
-                    "zone":"ESTG",
-                    "count":25
-                },
-                {
-                    "zone":"ESCE",
-                    "count":3
-                },
-                {
-                    "zone":"ESS",
-                    "count":3
-                },
-                {
-                    "zone":"ESDL",
-                    "count":10
-                },
-                {
-                    "zone":"SC",
-                    "count":1
-                },
-                {
-                    "zone":"SAS",
-                    "count":1
-                }
-            ]
+          "zone": "ESDL",
+          "count": 0
         },
         {
-            "date":"21/01/2021",
-            "counts":[
-                {
-                    "zone":"ESE",
-                    "count":8
-                },
-                {
-                    "zone":"ESA",
-                    "count":10
-                },
-                {
-                    "zone":"ESTG",
-                    "count":24
-                },
-                {
-                    "zone":"ESCE",
-                    "count":3
-                },
-                {
-                    "zone":"ESS",
-                    "count":0
-                },
-                {
-                    "zone":"ESDL",
-                    "count":11
-                },
-                {
-                    "zone":"SC",
-                    "count":1
-                },
-                {
-                    "zone":"SAS",
-                    "count":1
-                }
-            ]
+          "zone": "SC",
+          "count": 0
         },
         {
-            "date":"26/01/2021",
-            "counts":[
-                {
-                    "zone":"ESE",
-                    "count":8
-                },
-                {
-                    "zone":"ESA",
-                    "count":6
-                },
-                {
-                    "zone":"ESTG",
-                    "count":31
-                },
-                {
-                    "zone":"ESCE",
-                    "count":7
-                },
-                {
-                    "zone":"ESS",
-                    "count":2
-                },
-                {
-                    "zone":"ESDL",
-                    "count":9
-                },
-                {
-                    "zone":"SC",
-                    "count":1
-                },
-                {
-                    "zone":"SAS",
-                    "count":1
-                }
-            ]
+          "zone": "SAS",
+          "count": 0
         }
-    ]
+      ]
+    },
+    {
+      "date": "17/12/2020",
+      "counts": [
+        {
+          "zone": "ESE",
+          "count": 8
+        },
+        {
+          "zone": "ESA",
+          "count": 2
+        },
+        {
+          "zone": "ESTG",
+          "count": 13
+        },
+        {
+          "zone": "ESCE",
+          "count": 2
+        },
+        {
+          "zone": "ESS",
+          "count": 1
+        },
+        {
+          "zone": "ESDL",
+          "count": 0
+        },
+        {
+          "zone": "SC",
+          "count": 0
+        },
+        {
+          "zone": "SAS",
+          "count": 0
+        }
+      ]
+    },
+    {
+      "date": "08/01/2021",
+      "counts": [
+        {
+          "zone": "ESE",
+          "count": 4
+        },
+        {
+          "zone": "ESA",
+          "count": 2
+        },
+        {
+          "zone": "ESTG",
+          "count": 10
+        },
+        {
+          "zone": "ESCE",
+          "count": 2
+        },
+        {
+          "zone": "ESS",
+          "count": 3
+        },
+        {
+          "zone": "ESDL",
+          "count": 0
+        },
+        {
+          "zone": "SC",
+          "count": 0
+        },
+        {
+          "zone": "SAS",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "date": "13/01/2021",
+      "counts": [
+        {
+          "zone": "ESE",
+          "count": 4
+        },
+        {
+          "zone": "ESA",
+          "count": 4
+        },
+        {
+          "zone": "ESTG",
+          "count": 17
+        },
+        {
+          "zone": "ESCE",
+          "count": 4
+        },
+        {
+          "zone": "ESS",
+          "count": 4
+        },
+        {
+          "zone": "ESDL",
+          "count": 1
+        },
+        {
+          "zone": "SC",
+          "count": 0
+        },
+        {
+          "zone": "SAS",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "date": "15/01/2021",
+      "counts": [
+        {
+          "zone": "ESE",
+          "count": 4
+        },
+        {
+          "zone": "ESA",
+          "count": 6
+        },
+        {
+          "zone": "ESTG",
+          "count": 16
+        },
+        {
+          "zone": "ESCE",
+          "count": 4
+        },
+        {
+          "zone": "ESS",
+          "count": 3
+        },
+        {
+          "zone": "ESDL",
+          "count": 1
+        },
+        {
+          "zone": "SC",
+          "count": 0
+        },
+        {
+          "zone": "SAS",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "date": "19/01/2021",
+      "counts": [
+        {
+          "zone": "ESE",
+          "count": 6
+        },
+        {
+          "zone": "ESA",
+          "count": 4
+        },
+        {
+          "zone": "ESTG",
+          "count": 25
+        },
+        {
+          "zone": "ESCE",
+          "count": 3
+        },
+        {
+          "zone": "ESS",
+          "count": 3
+        },
+        {
+          "zone": "ESDL",
+          "count": 10
+        },
+        {
+          "zone": "SC",
+          "count": 1
+        },
+        {
+          "zone": "SAS",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "date": "21/01/2021",
+      "counts": [
+        {
+          "zone": "ESE",
+          "count": 8
+        },
+        {
+          "zone": "ESA",
+          "count": 10
+        },
+        {
+          "zone": "ESTG",
+          "count": 24
+        },
+        {
+          "zone": "ESCE",
+          "count": 3
+        },
+        {
+          "zone": "ESS",
+          "count": 0
+        },
+        {
+          "zone": "ESDL",
+          "count": 11
+        },
+        {
+          "zone": "SC",
+          "count": 1
+        },
+        {
+          "zone": "SAS",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "date": "26/01/2021",
+      "counts": [
+        {
+          "zone": "ESE",
+          "count": 8
+        },
+        {
+          "zone": "ESA",
+          "count": 6
+        },
+        {
+          "zone": "ESTG",
+          "count": 31
+        },
+        {
+          "zone": "ESCE",
+          "count": 7
+        },
+        {
+          "zone": "ESS",
+          "count": 2
+        },
+        {
+          "zone": "ESDL",
+          "count": 9
+        },
+        {
+          "zone": "SC",
+          "count": 1
+        },
+        {
+          "zone": "SAS",
+          "count": 1
+        }
+      ]
+    }
+  ]
 }

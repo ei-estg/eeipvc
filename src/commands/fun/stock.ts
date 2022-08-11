@@ -13,7 +13,7 @@ export const stockCommand: Command = {
             check: () => true,
             example: 'AAPL',
         },
-    },       
+    },
 
     async run(message: Message, { symbol }): Promise<any> {
         try {
@@ -25,49 +25,53 @@ export const stockCommand: Command = {
                 )
             }
             // Formatar Numero com virgulas
-            var marketCap = stock.marketCap.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+            var marketCap = stock.marketCap
+                .toString()
+                .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
             const embed = stockEmbed().setTitle(`📈 ${stock.longName}`)
 
             embed.addFields(
                 {
-                name: `Último Preço - ${stock.currency}`,
-                value: stock.regularMarketPrice,
-                inline: true,
-                }, 
-                {
-                name: 'Market Cap',
-                value: marketCap,
-                inline: true,
+                    name: `Último Preço - ${stock.currency}`,
+                    value: stock.regularMarketPrice,
+                    inline: true,
                 },
                 {
-                name: "Trailing Price-To-Earnings",
-                value: stock.trailingPE,
-                inline: true,
-                }, 
-                {            
-                name: 'Earnings Per Share (TTM)',
-                value: stock.epsTrailingTwelveMonths,
-                inline: true,
-                }, 
-                {
-                name: "Price-To-Book (P/B Ratio)",
-                value: stock.priceToBook,
-                inline: true
+                    name: 'Market Cap',
+                    value: marketCap,
+                    inline: true,
                 },
                 {
-                name: "Avarage Analyst Rating",
-                value: stock.averageAnalystRating,
-                inline: true,
-                })
+                    name: 'Trailing Price-To-Earnings',
+                    value: stock.trailingPE,
+                    inline: true,
+                },
+                {
+                    name: 'Earnings Per Share (TTM)',
+                    value: stock.epsTrailingTwelveMonths,
+                    inline: true,
+                },
+                {
+                    name: 'Price-To-Book (P/B Ratio)',
+                    value: stock.priceToBook,
+                    inline: true,
+                },
+                {
+                    name: 'Avarage Analyst Rating',
+                    value: stock.averageAnalystRating,
+                    inline: true,
+                },
+            )
 
-                if(stock.trailingAnnualDividendRate != null) {
-                    embed.addFields(
-                    {
-                        name: 'Trailing Annual Dividend Yield',
-                        value: `${(stock.trailingAnnualDividendYield * 100).toFixed(2)}%`,
-                        inline: true,
-                    })
-                }
+            if (stock.trailingAnnualDividendRate != null) {
+                embed.addFields({
+                    name: 'Trailing Annual Dividend Yield',
+                    value: `${(stock.trailingAnnualDividendYield * 100).toFixed(
+                        2,
+                    )}%`,
+                    inline: true,
+                })
+            }
 
             embed.setFooter('To the moon! 🚀')
 

@@ -29,7 +29,6 @@ export const scheduleCommand: Command = {
     async run(message: Message, { classroom, day }) {
         const scheduleEmbed = eiEmbed()
         let year: string
-
         ;[classroom, year] = classroom ? classroom.split('-') : []
         if (!year) {
             message.member?.roles.cache.forEach((role) => {

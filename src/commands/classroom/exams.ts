@@ -61,45 +61,45 @@ export const examsCommand: Command = {
             if (value.frequencies && !value.work) {
                 examsEmbed.addFields({
                     name: '📋 Frequências',
-                    value: `${value.frequencies.join('',)} \n〰️`,
+                    value: `${value.frequencies.join('')} \n〰️`,
                 })
             }
-            
+
             if (value.frequencies && value.work) {
-              examsEmbed.addFields({
-                  name: '📋 Frequências',
-                  value: value.frequencies,
-              })
-          }
+                examsEmbed.addFields({
+                    name: '📋 Frequências',
+                    value: value.frequencies,
+                })
+            }
 
             if (value.work) {
                 examsEmbed.addFields({
                     name: '📁 Trabalhos',
-                    value: `${value.work.join('',)} \n〰️`,
+                    value: `${value.work.join('')} \n〰️`,
                 })
             }
-        /*    
-          if (value.exams){
-            examsEmbed.addFields({
-              name: "📘 Exames",
-              value: value.exams
-            })
-          }
-         
-          if (value.resource){
-            examsEmbed.addFields({
-              name: "🆘 Recurso",
-              value: value.resource,
-            })
-          }
-             if (value.room){
-            examsEmbed.addFields({
-              name: "📍 Salas",
-              value: `${value.room.join('',)} \n〰️`,
-            })
-          }
-          */
-         })
+            /*
+        if (value.exams){
+          examsEmbed.addFields({
+            name: "📘 Exames",
+            value: value.exams
+          })
+        }
+
+        if (value.resource){
+          examsEmbed.addFields({
+            name: "🆘 Recurso",
+            value: value.resource,
+          })
+        }
+           if (value.room){
+          examsEmbed.addFields({
+            name: "📍 Salas",
+            value: `${value.room.join('',)} \n〰️`,
+          })
+        }
+        */
+        })
 
         examsEmbed.setFooter('🚨 As datas apresentadas requerem confirmação!')
         return examsEmbed

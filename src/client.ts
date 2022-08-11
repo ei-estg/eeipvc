@@ -6,10 +6,10 @@ import { ReactsHandler } from './handlers/reacts'
 
 export class BotClient extends Client {
     private config: any
-    public handlers: {[key: string]: any}
+    public handlers: { [key: string]: any }
 
     constructor(botConfig: any, options?: ClientOptions) {
-        super(options);
+        super(options)
 
         this.config = botConfig
         this.handlers = {
@@ -18,8 +18,6 @@ export class BotClient extends Client {
             reacts: new ReactsHandler(),
         }
     }
-
-
 
     login(token?: string): Promise<string> {
         let login = super.login(token)

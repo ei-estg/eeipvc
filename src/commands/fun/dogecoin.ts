@@ -12,7 +12,7 @@ export const dogecoin: Command = {
             'https://rest.coinapi.io/v1/exchangerate/DOGE/EUR',
             {
                 headers: {
-                    'X-CoinAPI-Key': <string> process.env.COINAPI_KEY,
+                    'X-CoinAPI-Key': <string>process.env.COINAPI_KEY,
                 },
             },
         )

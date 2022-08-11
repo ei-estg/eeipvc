@@ -1,756 +1,756 @@
 {
-    "ac":[
+  "ac": [
+    {
+      "id": 1,
+      "name": "CB",
+      "longName": "Ciências Básicas",
+      "co": 33,
+      "opt": 0
+    },
+    {
+      "id": 2,
+      "name": "CEI",
+      "longName": "Ciências de Engenharia Informática",
+      "co": 123,
+      "opt": 12
+    },
+    {
+      "id": 3,
+      "name": "CC",
+      "longName": "Ciências Complementares",
+      "co": 123,
+      "opt": 12
+    }
+  ],
+  "years": [
+    {
+      "id": 1,
+      "halfs": [
         {
-            "id":1,
-            "name":"CB",
-            "longName":"Ciências Básicas",
-            "co":33,
-            "opt":0
+          "id": 1,
+          "uc": [
+            {
+              "name": "AM",
+              "longName": "Análise Matemática",
+              "idAC": 1,
+              "etc": 6,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 40
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 24
+                }
+              ]
+            },
+            {
+              "name": "ALGA",
+              "longName": "Álgebra Linear e Geometria Analítica",
+              "idAC": 1,
+              "etc": 5,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 40
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 16
+                }
+              ]
+            },
+            {
+              "name": "ASC",
+              "longName": "Arquitetura e Sistemas de Computadores",
+              "idAC": 2,
+              "etc": 6,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 32
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 32
+                }
+              ]
+            },
+            {
+              "name": "AED",
+              "longName": "Algoritmos e Estruturas de Dados",
+              "idAC": 2,
+              "etc": 7,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 40
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 40
+                }
+              ]
+            },
+            {
+              "name": "MD1",
+              "longName": "Matemática Discreta 1",
+              "idAC": 1,
+              "etc": 6,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 40
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 16
+                }
+              ]
+            }
+          ]
         },
         {
-            "id":2,
-            "name":"CEI",
-            "longName":"Ciências de Engenharia Informática",
-            "co":123,
-            "opt":12
-        },
-        {
-            "id":3,
-            "name":"CC",
-            "longName":"Ciências Complementares",
-            "co":123,
-            "opt":12
+          "id": 2,
+          "uc": [
+            {
+              "name": "MD2",
+              "longName": "Matemática Discreta 2",
+              "idAC": 1,
+              "etc": 6,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 48
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 16
+                }
+              ]
+            },
+            {
+              "name": "P1",
+              "longName": "Programação 1",
+              "idAC": 2,
+              "etc": 7,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 32
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 40
+                }
+              ]
+            },
+            {
+              "name": "SO",
+              "longName": "Sistemas Operativos",
+              "idAC": 2,
+              "etc": 6,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 32
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 32
+                }
+              ]
+            },
+            {
+              "name": "E",
+              "longName": "Estatística",
+              "idAC": 1,
+              "etc": 5,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 40
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 16
+                }
+              ]
+            },
+            {
+              "name": "CSC1",
+              "longName": "Comportamento, Sociedade e Cidadania 1",
+              "idAC": 3,
+              "etc": 6,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 64
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 0
+                }
+              ]
+            }
+          ]
         }
-    ],
-    "years":[
+      ]
+    },
+    {
+      "id": 2,
+      "halfs": [
         {
-            "id":1,
-            "halfs":[
+          "id": 3,
+          "uc": [
+            {
+              "name": "IO",
+              "longName": "Investigação Operacional",
+              "idAC": 2,
+              "etc": 5,
+              "workHours": [
                 {
-                    "id":1,
-                    "uc":[
-                        {
-                            "name":"AM",
-                            "longName":"Análise Matemática",
-                            "idAC":1,
-                            "etc":6,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":40
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":24
-                                }
-                            ]
-                        },
-                        {
-                            "name":"ALGA",
-                            "longName":"Álgebra Linear e Geometria Analítica",
-                            "idAC":1,
-                            "etc":5,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":40
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":16
-                                }
-                            ]
-                        },
-                        {
-                            "name":"ASC",
-                            "longName":"Arquitetura e Sistemas de Computadores",
-                            "idAC":2,
-                            "etc":6,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":32
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":32
-                                }
-                            ]
-                        },
-                        {
-                            "name":"AED",
-                            "longName":"Algoritmos e Estruturas de Dados",
-                            "idAC":2,
-                            "etc":7,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":40
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":40
-                                }
-                            ]
-                        },
-                        {
-                            "name":"MD1",
-                            "longName":"Matemática Discreta 1",
-                            "idAC":1,
-                            "etc":6,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":40
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":16
-                                }
-                            ]
-                        }
-                    ]
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 24
                 },
                 {
-                    "id":2,
-                    "uc":[
-                        {
-                            "name":"MD2",
-                            "longName":"Matemática Discreta 2",
-                            "idAC":1,
-                            "etc":6,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":48
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":16
-                                }
-                            ]
-                        },
-                        {
-                            "name":"P1",
-                            "longName":"Programação 1",
-                            "idAC":2,
-                            "etc":7,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":32
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":40
-                                }
-                            ]
-                        },
-                        {
-                            "name":"SO",
-                            "longName":"Sistemas Operativos",
-                            "idAC":2,
-                            "etc":6,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":32
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":32
-                                }
-                            ]
-                        },
-                        {
-                            "name":"E",
-                            "longName":"Estatística",
-                            "idAC":1,
-                            "etc":5,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":40
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":16
-                                }
-                            ]
-                        },
-                        {
-                            "name":"CSC1",
-                            "longName":"Comportamento, Sociedade e Cidadania 1",
-                            "idAC":3,
-                            "etc":6,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":64
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":0
-                                }
-                            ]
-                        }
-                    ]
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 32
                 }
-            ]
+              ]
+            },
+            {
+              "name": "ES1",
+              "longName": "Engenharia de Software 1",
+              "idAC": 2,
+              "etc": 5,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 24
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 24
+                }
+              ]
+            },
+            {
+              "name": "P2",
+              "longName": "Programação 2",
+              "idAC": 2,
+              "etc": 5,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 24
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 32
+                }
+              ]
+            },
+            {
+              "name": "BD",
+              "longName": "Bases de Dados",
+              "idAC": 2,
+              "etc": 5,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 24
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 24
+                }
+              ]
+            },
+            {
+              "name": "RC",
+              "longName": "Redes Computadores",
+              "idAC": 2,
+              "etc": 5,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 24
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 24
+                }
+              ]
+            },
+            {
+              "name": "P1",
+              "longName": "Projeto 1",
+              "idAC": 2,
+              "etc": 5,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 0
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 64
+                }
+              ]
+            }
+          ]
         },
         {
-            "id":2,
-            "halfs":[
+          "id": 4,
+          "uc": [
+            {
+              "name": "ABD",
+              "longName": "Administração Bases de Dados",
+              "idAC": 2,
+              "etc": 5,
+              "workHours": [
                 {
-                    "id":3,
-                    "uc":[
-                        {
-                            "name":"IO",
-                            "longName":"Investigação Operacional",
-                            "idAC":2,
-                            "etc":5,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":24
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":32
-                                }
-                            ]
-                        },
-                        {
-                            "name":"ES1",
-                            "longName":"Engenharia de Software 1",
-                            "idAC":2,
-                            "etc":5,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":24
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":24
-                                }
-                            ]
-                        },
-                        {
-                            "name":"P2",
-                            "longName":"Programação 2",
-                            "idAC":2,
-                            "etc":5,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":24
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":32
-                                }
-                            ]
-                        },
-                        {
-                            "name":"BD",
-                            "longName":"Bases de Dados",
-                            "idAC":2,
-                            "etc":5,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":24
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":24
-                                }
-                            ]
-                        },
-                        {
-                            "name":"RC",
-                            "longName":"Redes Computadores",
-                            "idAC":2,
-                            "etc":5,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":24
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":24
-                                }
-                            ]
-                        },
-                        {
-                            "name":"P1",
-                            "longName":"Projeto 1",
-                            "idAC":2,
-                            "etc":5,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":0
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":64
-                                }
-                            ]
-                        }
-                    ]
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 24
                 },
                 {
-                    "id":4,
-                    "uc":[
-                        {
-                            "name":"ABD",
-                            "longName":"Administração Bases de Dados",
-                            "idAC":2,
-                            "etc":5,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":24
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":24
-                                }
-                            ]
-                        },
-                        {
-                            "name":"TM",
-                            "longName":"Tecnologias Multimédia",
-                            "idAC":2,
-                            "etc":5,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":24
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":24
-                                }
-                            ]
-                        },
-                        {
-                            "name":"IHM",
-                            "longName":"Interacção Homem-Máquina",
-                            "idAC":2,
-                            "etc":5,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":24
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":24
-                                }
-                            ]
-                        },
-                        {
-                            "name":"IA",
-                            "longName":"Inteligência Artificial",
-                            "idAC":2,
-                            "etc":5,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":24
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":24
-                                }
-                            ]
-                        },
-                        {
-                            "name":"ES",
-                            "longName":"Engenharia de Software 2",
-                            "idAC":2,
-                            "etc":5,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":24
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":24
-                                }
-                            ]
-                        },
-                        {
-                            "name":"P2",
-                            "longName":"Projeto 2",
-                            "idAC":2,
-                            "etc":5,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":0
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":64
-                                }
-                            ]
-                        }
-                    ]
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 24
                 }
-            ]
-        },
-        {
-            "id":3,
-            "halfs":[
+              ]
+            },
+            {
+              "name": "TM",
+              "longName": "Tecnologias Multimédia",
+              "idAC": 2,
+              "etc": 5,
+              "workHours": [
                 {
-                    "id":5,
-                    "uc":[
-                        {
-                            "name":"CSC2",
-                            "longName":"Comportamento, Sociedade e Cidadania 2",
-                            "idAC":3,
-                            "etc":3,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":32
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":0
-                                }
-                            ]
-                        },
-                        {
-                            "name":"SIR",
-                            "longName":"Sistemas de Informação em Rede",
-                            "idAC":2,
-                            "etc":6,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":32
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":32
-                                }
-                            ]
-                        },
-                        {
-                            "name":"IS",
-                            "longName":"Integração de Sistemas",
-                            "idAC":2,
-                            "etc":5,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":32
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":32
-                                }
-                            ]
-                        },
-                        {
-                            "name":"OPT 1 - IE",
-                            "longName":"Opção I – Integração da Empresa",
-                            "idAC":2,
-                            "etc":6,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":32
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":32
-                                }
-                            ]
-                        },
-                        {
-                            "name":"OPT 1 - DW",
-                            "longName":"Opção 1 – Datawarehouse",
-                            "idAC":2,
-                            "etc":6,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":32
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":32
-                                }
-                            ]
-                        },
-                        {
-                            "name":"OPT 1 - ST",
-                            "longName":"Opção 1 – Sistemas de Telecomunicações",
-                            "idAC":2,
-                            "etc":6,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":32
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":32
-                                }
-                            ]
-                        },
-                        {
-                            "name":"OPT 1 - GR",
-                            "longName":"Opção 1 – Gestão de Redes",
-                            "idAC":2,
-                            "etc":6,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":32
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":32
-                                }
-                            ]
-                        },
-                        {
-                            "name":"P3",
-                            "longName":"Projeto 3",
-                            "idAC":2,
-                            "etc":10,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":16
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":64
-                                }
-                            ]
-                        }
-                    ]
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 24
                 },
                 {
-                    "id":6,
-                    "uc":[
-                        {
-                            "name":"CSC 2",
-                            "longName":"Comportamento, Sociedade e Cidadania II",
-                            "idAC":3,
-                            "etc":3,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":32
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":0
-                                }
-                            ]
-                        },
-                        {
-                            "name":"CM",
-                            "longName":"Computação Móvel",
-                            "idAC":2,
-                            "etc":6,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":32
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":32
-                                }
-                            ]
-                        },
-                        {
-                            "name":"SRS",
-                            "longName":"Segurança de Redes e Sistemas",
-                            "idAC":2,
-                            "etc":5,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":32
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":32
-                                }
-                            ]
-                        },
-                        {
-                            "name":"OPT 2 - IFsi",
-                            "longName":"Opção 2 – Integração da Função SI",
-                            "idAC":2,
-                            "etc":6,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":32
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":32
-                                }
-                            ]
-                        },
-                        {
-                            "name":"OPT 2 - AO",
-                            "longName":"Opção 2 –Aprendizagem Organizacional",
-                            "idAC":2,
-                            "etc":6,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":32
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":32
-                                }
-                            ]
-                        },
-                        {
-                            "name":"OPT 2 - RSBD",
-                            "longName":"Opção 2 – Redes e Serviços de Banda Larga",
-                            "idAC":2,
-                            "etc":6,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":32
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":32
-                                }
-                            ]
-                        },
-                        {
-                            "name":"OPT 2 - SSR",
-                            "longName":"Opção 2 – Simulação de Sistemas e Redes",
-                            "idAC":2,
-                            "etc":6,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":32
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":32
-                                }
-                            ]
-                        },
-                        {
-                            "name":"P4",
-                            "longName":"Projeto 4",
-                            "idAC":2,
-                            "etc":6,
-                            "workHours":[
-                                {
-                                    "name":"TP",
-                                    "longName":"Teórico Prática",
-                                    "hours":32
-                                },
-                                {
-                                    "name":"PL",
-                                    "longName":"Prática Laboratorial",
-                                    "hours":32
-                                }
-                            ]
-                        }
-                    ]
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 24
                 }
-            ]
+              ]
+            },
+            {
+              "name": "IHM",
+              "longName": "Interacção Homem-Máquina",
+              "idAC": 2,
+              "etc": 5,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 24
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 24
+                }
+              ]
+            },
+            {
+              "name": "IA",
+              "longName": "Inteligência Artificial",
+              "idAC": 2,
+              "etc": 5,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 24
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 24
+                }
+              ]
+            },
+            {
+              "name": "ES",
+              "longName": "Engenharia de Software 2",
+              "idAC": 2,
+              "etc": 5,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 24
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 24
+                }
+              ]
+            },
+            {
+              "name": "P2",
+              "longName": "Projeto 2",
+              "idAC": 2,
+              "etc": 5,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 0
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 64
+                }
+              ]
+            }
+          ]
         }
-    ]
+      ]
+    },
+    {
+      "id": 3,
+      "halfs": [
+        {
+          "id": 5,
+          "uc": [
+            {
+              "name": "CSC2",
+              "longName": "Comportamento, Sociedade e Cidadania 2",
+              "idAC": 3,
+              "etc": 3,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 32
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 0
+                }
+              ]
+            },
+            {
+              "name": "SIR",
+              "longName": "Sistemas de Informação em Rede",
+              "idAC": 2,
+              "etc": 6,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 32
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 32
+                }
+              ]
+            },
+            {
+              "name": "IS",
+              "longName": "Integração de Sistemas",
+              "idAC": 2,
+              "etc": 5,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 32
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 32
+                }
+              ]
+            },
+            {
+              "name": "OPT 1 - IE",
+              "longName": "Opção I – Integração da Empresa",
+              "idAC": 2,
+              "etc": 6,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 32
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 32
+                }
+              ]
+            },
+            {
+              "name": "OPT 1 - DW",
+              "longName": "Opção 1 – Datawarehouse",
+              "idAC": 2,
+              "etc": 6,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 32
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 32
+                }
+              ]
+            },
+            {
+              "name": "OPT 1 - ST",
+              "longName": "Opção 1 – Sistemas de Telecomunicações",
+              "idAC": 2,
+              "etc": 6,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 32
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 32
+                }
+              ]
+            },
+            {
+              "name": "OPT 1 - GR",
+              "longName": "Opção 1 – Gestão de Redes",
+              "idAC": 2,
+              "etc": 6,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 32
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 32
+                }
+              ]
+            },
+            {
+              "name": "P3",
+              "longName": "Projeto 3",
+              "idAC": 2,
+              "etc": 10,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 16
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 64
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "uc": [
+            {
+              "name": "CSC 2",
+              "longName": "Comportamento, Sociedade e Cidadania II",
+              "idAC": 3,
+              "etc": 3,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 32
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 0
+                }
+              ]
+            },
+            {
+              "name": "CM",
+              "longName": "Computação Móvel",
+              "idAC": 2,
+              "etc": 6,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 32
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 32
+                }
+              ]
+            },
+            {
+              "name": "SRS",
+              "longName": "Segurança de Redes e Sistemas",
+              "idAC": 2,
+              "etc": 5,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 32
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 32
+                }
+              ]
+            },
+            {
+              "name": "OPT 2 - IFsi",
+              "longName": "Opção 2 – Integração da Função SI",
+              "idAC": 2,
+              "etc": 6,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 32
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 32
+                }
+              ]
+            },
+            {
+              "name": "OPT 2 - AO",
+              "longName": "Opção 2 –Aprendizagem Organizacional",
+              "idAC": 2,
+              "etc": 6,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 32
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 32
+                }
+              ]
+            },
+            {
+              "name": "OPT 2 - RSBD",
+              "longName": "Opção 2 – Redes e Serviços de Banda Larga",
+              "idAC": 2,
+              "etc": 6,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 32
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 32
+                }
+              ]
+            },
+            {
+              "name": "OPT 2 - SSR",
+              "longName": "Opção 2 – Simulação de Sistemas e Redes",
+              "idAC": 2,
+              "etc": 6,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 32
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 32
+                }
+              ]
+            },
+            {
+              "name": "P4",
+              "longName": "Projeto 4",
+              "idAC": 2,
+              "etc": 6,
+              "workHours": [
+                {
+                  "name": "TP",
+                  "longName": "Teórico Prática",
+                  "hours": 32
+                },
+                {
+                  "name": "PL",
+                  "longName": "Prática Laboratorial",
+                  "hours": 32
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

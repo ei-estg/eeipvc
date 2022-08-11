@@ -1,6 +1,7 @@
 import { Command } from '../Command'
 import { eiEmbed } from '../../defaults/embed'
 import fetch from 'node-fetch'
+
 export const dadJoke: Command = {
     name: 'dadjoke',
     description: 'Envia uma dad joke',

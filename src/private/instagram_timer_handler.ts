@@ -36,11 +36,8 @@ export const instagramTimerHandler = async (
                 )
             }
             await Promise.all(promises)
-
-
         }
-    }
-    catch (error) {
+    } catch (error) {
         // console.log("error in insta " + error)
     }
 }

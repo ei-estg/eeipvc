@@ -2,6 +2,7 @@ import { Message } from 'discord.js'
 import { Command } from '../Command'
 import { eiEmbed } from '../../defaults/embed'
 import userss from '../../../data/data.json'
+
 const fs = require('fs')
 const path = require('path')
 

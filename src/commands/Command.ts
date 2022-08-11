@@ -24,5 +24,7 @@ export interface Command {
     run(
         message?: Message,
         args?: any,
-    ): Promise<MessageEmbed | string | undefined> | AsyncGenerator<MessageEmbed | string | undefined>
+    ):
+        | Promise<MessageEmbed | string | undefined>
+        | AsyncGenerator<MessageEmbed | string | undefined>
 }
