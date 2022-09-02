@@ -1,5 +1,3 @@
-// import { lvl } from './commands/fun/lvl'
-// import { myLvl } from './commands/fun/myLvl'
 import { TextChannel } from 'discord.js'
 import { busCommand } from './commands/sas/bus'
 import { newsCommand } from './commands/campus/news'
@@ -39,7 +37,6 @@ import { minecraftTimmerHandler } from './private/minecraft_timmer_handler'
 import { instagramTimerHandler } from './private/instagram_timer_handler'
 import { weatherForecastCommand } from './commands/general/weatherForecast'
 
-// const fs = require('fs')
 import 'dotenv/config'
 import { AdventOfCodeCommand } from './commands/fun/adventOfCode'
 import { getGasPriceCommand } from './commands/general/combustiveis'
@@ -48,8 +45,6 @@ import { php } from './commands/fun/killMe'
 import { java } from './commands/fun/java'
 import { etron } from './commands/fun/bestcar'
 import { horoscopo } from './commands/fun/horoscope'
-// const path = require('path')
-// import users from '../data/data.json'
 
 const bot = new BotClient(botConfig, {
     partials: ['MESSAGE', 'CHANNEL', 'REACTION', 'GUILD_MEMBER'],
@@ -109,8 +104,6 @@ bot.handlers.commands.register(
     pisoCommand,
     dadJoke,
     servicesCommand,
-    // lvl,
-    // myLvl,
     stockCommand,
     weatherForecastCommand,
     AdventOfCodeCommand,
@@ -121,41 +114,6 @@ bot.handlers.commands.register(
     etron,
     horoscopo,
 )
-const updateData = (users, user) => {
-    if (!users[user.author.id]) {
-        users[user.author.id] = {}
-        users[user.author.id].experience = 0
-        users[user.author.id].level = 1
-        users[user.author.id].name =
-            user.member?.nickname || user.author.username
-    }
-}
-// const addExperience = (users, user, exp) => {
-//     users[user.id].experience += exp
-// }
-
-// const levelUp = async (users, user, channel, message) => {
-//     const experience = users[user.id].experience
-//     const lvlStart = users[user.id].level
-//     const lvlEnd = Math.floor(experience ** (1 / 4))
-
-//     if (lvlStart < lvlEnd) {
-//         users[user.id].level = lvlEnd
-//         //  await message.channel.send(`${user} chegou ao nivel ${lvlEnd} 🎉`)
-//     }
-// }
-
-// const add = (member) => {
-//     const users = JSON.parse(
-//         fs.readFileSync(path.join(__dirname, '../data', 'data.json'), 'utf8'),
-//     )
-//     updateData(users, member)
-//     fs.writeFileSync(
-//         path.join(__dirname, '../data', 'data.json'),
-//         JSON.stringify(users),
-//         'utf-8',
-//     )
-// }
 
 bot.on('guildMemberAdd', async (member: any) => {
     const channel = member.guild.channels.cache.find(
@@ -176,29 +134,6 @@ bot.on('guildMemberAdd', async (member: any) => {
             .toString()} para ficares a conhecer as regras e ainda acederes a diferentes áreas do servidor.`,
     )
 })
-
-// bot.on('message', async (message) => {
-//     try {
-//         if (message.author.id !== '771442069432434758') {
-//             // const users = JSON.parse(
-//             //     fs.readFileSync(
-//             //         path.join(__dirname, '../data', 'data.json'),
-//             //         'utf8',
-//             //     ),
-//             // )
-//             // updateData(users, message)
-//             // addExperience(users, message.author, 5)
-//             // levelUp(users, message.author, message.channel, message)
-//             // fs.writeFileSync(
-//             //     path.join(__dirname, '../data', 'data.json'),
-//             //     JSON.stringify(users),
-//             //     'utf-8',
-//             // )
-//         }
-//     } catch (error) {
-//         console.log(error)
-//     }
-// })
 
 bot.on('guildMemberRemove', async (member: any) => {
     const channel = member.guild.channels.cache.find(
