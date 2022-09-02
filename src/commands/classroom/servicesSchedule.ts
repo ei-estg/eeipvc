@@ -4,7 +4,7 @@ import { eiEmbed } from '../../defaults/embed'
 
 export const servicesCommand: Command = {
     name: 'servicos',
-    alias: ['servicos'],
+    alias: ['servicos', 'academicos', 'gac', 'bu', 'si'],
     description: 'Horário dos vários serviços no IPVC',
     async run() {
         const servicesEmbed = eiEmbed().setTitle(
