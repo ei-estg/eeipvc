@@ -66,7 +66,10 @@ export class CommandsHandler {
                     if (command.name != 'help')
                         helpEmbed.addFields({
                             name: this.prefix + command.name,
-                            value: command.description,
+                            value:
+                                command.description === ''
+                                    ? '\u200b'
+                                    : command.description,
                             inline: true,
                         })
                 })
