@@ -69,7 +69,7 @@ export const scheduleCommand: Command = {
         let schedule: any
         if (day) {
             schedule = await user.getScheduleByDate(
-                '202122',
+                '2022223',
                 'S2',
                 `EI-${year}-${classroom}`,
                 '2022',
@@ -78,7 +78,7 @@ export const scheduleCommand: Command = {
             )
         } else {
             schedule = await user.getScheduleByDate(
-                '202122',
+                '202223',
                 'S1',
                 `EI-${year}-${classroom}`,
                 '2021',
