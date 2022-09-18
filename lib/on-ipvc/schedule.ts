@@ -94,8 +94,8 @@ export const getScheduleByDate = async (
     const STATIC_DATE = 404
     const staticMomentTime = moment({
         year: 2022,
-        day: 21,
-        month: 1,
+        day: 19,
+        month: 9,
     })
 
     const requestTime = moment({
