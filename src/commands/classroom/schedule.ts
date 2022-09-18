@@ -72,7 +72,7 @@ export const scheduleCommand: Command = {
                 '2022223',
                 'S1',
                 `EI-${year}-${classroom}`,
-                '2022',
+                '2023',
                 currentMonth,
                 day,
             )
@@ -81,7 +81,7 @@ export const scheduleCommand: Command = {
                 '202223',
                 'S1',
                 `EI-${year}-${classroom}`,
-                '2021',
+                '2022',
                 currentMonth,
                 currentDay,
             )
