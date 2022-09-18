@@ -66,26 +66,14 @@ export const scheduleCommand: Command = {
             process.env.ON_AUTH_PASSWORD || '',
         )
 
-        let schedule: any
-        if (day) {
-            schedule = await user.getScheduleByDate(
-                '202223',
-                'S1',
-                `EI-${year}-${classroom}`,
-                '2023',
-                currentMonth,
-                day,
-            )
-        } else {
-            schedule = await user.getScheduleByDate(
-                '202223',
-                'S1',
-                `EI-${year}-${classroom}`,
-                '2022',
-                currentMonth,
-                currentDay,
-            )
-        }
+        let schedule = await user.getScheduleByDate(
+          '202223',
+          'S1',
+          `EI-${year}-${classroom}`,
+          '2022',
+          currentMonth,
+          day || currentDay,
+        )
 
         if (!schedule) {
             return 'A combinação turma/ano não existe. Ex: !horario A-2 27'
