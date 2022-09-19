@@ -73,7 +73,9 @@ export const stockCommand: Command = {
                 })
             }
 
-            embed.setFooter('To the moon! 🚀')
+            embed.setFooter({
+                text: 'To the moon! 🚀'
+            })
 
             return embed
         } catch (err) {

@@ -31,7 +31,7 @@ export const instagramTimerHandler = async (
 
                 promises.push(
                     channel.send({
-                        embed,
+                        embeds: [embed],
                     }),
                 )
             }

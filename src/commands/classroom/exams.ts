@@ -101,7 +101,9 @@ export const examsCommand: Command = {
         */
         })
 
-        examsEmbed.setFooter('🚨 As datas apresentadas requerem confirmação!')
+        examsEmbed.setFooter({
+            text: '🚨 As datas apresentadas requerem confirmação!'
+        })
         return examsEmbed
     },
 }

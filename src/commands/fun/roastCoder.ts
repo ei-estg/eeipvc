@@ -30,10 +30,6 @@ export const roastCoder: Command = {
             'Your code is so bad that when github copilot tries to help you he sends you to a hospice',
         ]
 
-        await message.channel.send(
-            urlPool[Math.floor(Math.random() * urlPool.length)],
-        )
-
-        return undefined
+        return urlPool[Math.floor(Math.random() * urlPool.length)]
     },
 }

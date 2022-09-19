@@ -13,13 +13,16 @@
     "author": "André Sousa <andrematodesousa@gmail.com>",
     "license": "MIT",
     "engines": {
-       "node": "16.x"
+        "node": "16.x"
     },
     "dependencies": {
+        "@discordjs/builders": "^1.2.0",
         "@discordjs/opus": "^0.8.0",
+        "@discordjs/rest": "^1.1.0",
         "cheerio": "^1.0.0-rc.9",
         "cron": "^1.8.2",
-        "discord.js": "^12.4.1",
+        "discord-api-types": "^0.37.10",
+        "discord.js": "^14.3.0",
         "dotenv": "^10.0.0",
         "fast-xml-parser": "^3.17.4",
         "ffmpeg-static": "^4.2.7",

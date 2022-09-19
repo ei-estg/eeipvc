@@ -1,10 +1,10 @@
 import { CronJob } from 'cron'
-import { MessageEmbed, TextChannel } from 'discord.js'
+import { Embed, EmbedBuilder, TextChannel } from "discord.js";
 
 interface Timmer {
     cronTime: string
     channel: Promise<TextChannel | undefined> | any
-    handler: () => Promise<string | MessageEmbed | undefined>
+    handler: () => Promise<string | Embed | undefined>
 }
 
 export class TimersHandler {
@@ -22,7 +22,7 @@ export class TimersHandler {
                 try {
                     if (typeof handler == 'string') {
                         await channel.send(handler)
-                    } else if (handler instanceof MessageEmbed) {
+                    } else if (handler instanceof EmbedBuilder) {
                         await channel.send({ embed: handler })
                     }
                 } catch (err) {

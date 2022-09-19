@@ -28,7 +28,9 @@ export const dogecoin: Command = {
             inline: true,
         })
         dogecoinEmbed.setImage('https://i.imgur.com/fxCT4mY.gif')
-        dogecoinEmbed.setFooter('To the moon! 🚀')
+        dogecoinEmbed.setFooter({
+            text: 'To the moon! 🚀'
+        })
         return dogecoinEmbed
     },
 }

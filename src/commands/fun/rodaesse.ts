@@ -1,4 +1,4 @@
-import { Message, MessageAttachment } from 'discord.js'
+import { Message, AttachmentBuilder } from "discord.js";
 
 import { Command } from '../Command'
 
@@ -23,10 +23,10 @@ export const rodaEsse: Command = {
             'https://c.tenor.com/hqpfoL3c5WwAAAAM/puss-pass.gif',
             'https://cdn.discordapp.com/attachments/853981264355786762/893126689410924544/Screenshot_20210930_142612.jpg',
         ]
-        const attachment = new MessageAttachment(
+        const attachmentBuilder = new AttachmentBuilder(
             urlPool[Math.floor(Math.random() * urlPool.length)],
         )
-        await message.channel.send(attachment)
+        await message.channel.send({ attachments: [attachmentBuilder.attachment] })
 
         return undefined
     },

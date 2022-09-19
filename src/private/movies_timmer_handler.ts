@@ -14,16 +14,16 @@ export const moviesTimmerHander = async (channel: TextChannel) => {
             const embed = eiEmbed()
             embed.setThumbnail(movie.imageUrl)
             embed.setTitle(movie.name)
-            embed.addFields({
+            embed.addFields([{
                 name: 'Horários',
                 value: movie.dateTimes.map(
                     (dateTime) =>
                         `${moment(dateTime.date, 'YYYY-MM-DD').format(
                             'DD MMM',
                         )} - ${dateTime.times.join(' | ')}`,
-                ),
-            })
-            channel.send({ embed })
+                ).join(' '),
+            }])
+            channel.send({ embeds: [embed] })
         })
 
         const currentMomentTime = moment()

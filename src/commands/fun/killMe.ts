@@ -1,8 +1,8 @@
-import { Command } from '../Command'
+import { Command, SlashCommand } from "../Command";
 import { eiEmbed } from '../../defaults/embed'
 import fetch from 'node-fetch'
 
-export const php: Command = {
+export const php: SlashCommand = {
     name: 'php',
     description: 'Mata-te só',
     alias: ['joomla', 'wordpress', 'drupal'],

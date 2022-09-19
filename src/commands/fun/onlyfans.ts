@@ -22,6 +22,8 @@ export const onlyfansCommand: Command = {
             .setImage(
                 'https://media1.tenor.com/images/e855b2e04d85071ffec096ad48d56dc1/tenor.gif',
             )
-            .setFooter('Donate me, quero comprar mais dynos', '')
+            .setFooter({
+                text: 'Donate me, quero comprar mais dynos'
+            })
     },
 }

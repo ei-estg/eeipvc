@@ -1,7 +1,9 @@
-import { Message, MessageEmbed } from 'discord.js'
-import { eiEmbed } from '../defaults/embed'
+import { BaseInteraction, ClientApplication, Embed, EmbedBuilder, Message } from "discord.js";
 
-import { Command } from '../commands/Command'
+import { Command, SlashCommand, SlashCommandExecution } from "../commands/Command";
+import { SlashCommandBuilder } from "@discordjs/builders";
+import { REST } from "@discordjs/rest";
+import { deployCommands } from "../rest/deploy-commands";
 
 export const isPrefixChar = (char: string) => {
     const charCode = char.charCodeAt(0)
@@ -40,49 +42,60 @@ export const messageParser = (content: string) => {
     }
 }
 
+interface RESTProps {
+    restClient: REST
+    clientApp: ClientApplication
+}
+
+interface SlashCommandInitialized {
+    data: SlashCommandBuilder
+    execute: SlashCommandExecution
+}
+
 export class CommandsHandler {
     private prefix = '!'
-    private commands: Command[] = []
-    private readonly configuration: any
+    private slashCommands: SlashCommandInitialized[] = []
+    private vanillaCommands: Command[] = []
+    private props!: RESTProps
 
-    constructor(configuration: any) {
-        this.configuration = configuration
-        this.register(this.getHelpCommand())
+    constructor(private configuration: any) {
+    }
+
+    setProps(props: RESTProps) {
+        this.props = props
     }
 
     private getCommandConfig(command: string) {
         return this.configuration[command]
     }
 
-    private getHelpCommand() {
-        const helpEvent: Command = {
-            name: 'help',
-            alias: ['ajuda'],
-            description: 'Lista de comandos',
-            run: async () => {
-                const helpEmbed = eiEmbed().setTitle('Comandos')
-
-                this.commands.forEach((command) => {
-                    if (command.name != 'help')
-                        helpEmbed.addFields({
-                            name: this.prefix + command.name,
-                            value:
-                                command.description === ''
-                                    ? '\u200b'
-                                    : command.description,
-                            inline: true,
-                        })
-                })
-                return helpEmbed
-            },
-        }
-
-        return helpEvent
+    private _registerSlashCommand({name, description, run}: SlashCommand) {
+        this.slashCommands.push({
+            data: new SlashCommandBuilder()
+              .setName(name)
+              .setDescription(description),
+            execute: run
+        })
     }
 
-    register(...commands: Command[]) {
-        this.commands.push(...commands)
+    private _registerVanillaCommand(command: Command) {
+        this.vanillaCommands.push(command)
     }
+
+    registerSlashCommands(...commands: SlashCommand[]) {
+        commands.forEach(command => this._registerSlashCommand(command))
+    }
+
+    registerVanillaCommands(...commands: Command[]) {
+        commands.forEach(command => this._registerVanillaCommand(command))
+    }
+
+
+
+    get interactionReadyCommandsJSONData() {
+        return this.slashCommands.map(command => command.data.toJSON())
+    }
+
 
     static areArgumentsRight(
         commandArgsLength: number,
@@ -95,6 +108,29 @@ export class CommandsHandler {
         )
     }
 
+    async onReady() {
+        await deployCommands({
+                client: this.props.restClient,
+                appId: this.props.clientApp.id,
+            },
+          this.interactionReadyCommandsJSONData
+        )
+    }
+
+    async onInteractionCreate(interaction: BaseInteraction) {
+        if (!interaction.isChatInputCommand()) return;
+
+        const calledCommand = this.slashCommands.find(command => command.data.name == interaction.commandName)
+        if (!calledCommand) return;
+
+        const ret = await calledCommand.execute(interaction)
+        if (ret instanceof EmbedBuilder) {
+            await interaction.reply({
+                embeds: [ret]
+            })
+        }
+    }
+
     onMessage(message: Message) {
         if (message.author.bot) return
 
@@ -102,7 +138,7 @@ export class CommandsHandler {
         command = command.toLowerCase()
         if (prefix !== this.prefix) return
 
-        this.commands.forEach(async (event) => {
+        this.vanillaCommands.forEach(async (event) => {
             if (event.name == command || event.alias?.includes(command)) {
                 let eventArgs = {}
 
@@ -139,8 +175,8 @@ export class CommandsHandler {
                     const r = await event.run(message, eventArgs)
                     if (typeof r == 'string') {
                         await message.channel.send(r)
-                    } else if (r instanceof MessageEmbed) {
-                        await message.channel.send({ embed: r })
+                    } else if (r instanceof Embed) {
+                        await message.channel.send({ embeds: [r]})
                     }
                 } catch (err) {
                     console.error(err)

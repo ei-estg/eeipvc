@@ -24,7 +24,10 @@ export const horoscopo: Command = {
             name: 'Previsão',
             value: horoscope.text,
         })
-        embed.setAuthor('Maya', horoscope.image)
+        embed.setAuthor({
+            name: 'Maya',
+            iconURL: horoscope.image
+        })
         return embed
     },
 }

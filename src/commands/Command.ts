@@ -1,4 +1,10 @@
-import { Message, MessageEmbed, PermissionString } from 'discord.js'
+import {
+    Channel,
+    ChatInputCommandInteraction,
+    Client,
+    CommandInteraction,
+    Message, Embed, EmbedBuilder
+} from "discord.js";
 
 export interface EventArgument {
     text: string
@@ -10,21 +16,29 @@ export interface EventArgument {
     check(content: string): boolean
 }
 
-export interface Command {
+type CommandMessageExecutionReturn = Promise<EmbedBuilder | string | undefined | void> | AsyncGenerator<EmbedBuilder | string | undefined> | void;
+export type CommandMessage = (message: Message, args?: any,) => CommandMessageExecutionReturn
+export type SlashCommandExecution = (ChatInputCommandInteraction) => CommandMessageExecutionReturn
+
+
+export interface BaseCommand {
     name: string
-    alias?: string[]
     description: string
-    permissions?: PermissionString[]
+    alias?: string[]
+}
+
+
+export interface Command extends BaseCommand {
+    alias?: string[]
     configuration?: any
 
     args?: {
         [key: string]: EventArgument
     }
 
-    run(
-        message?: Message,
-        args?: any,
-    ):
-        | Promise<MessageEmbed | string | undefined>
-        | AsyncGenerator<MessageEmbed | string | undefined>
+    run: CommandMessage
+}
+
+export interface SlashCommand extends BaseCommand {
+    run: SlashCommandExecution
 }

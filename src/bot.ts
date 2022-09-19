@@ -1,60 +1,60 @@
-import { TextChannel } from 'discord.js'
-import { busCommand } from './commands/sas/bus'
-import { newsCommand } from './commands/campus/news'
-import { mealsCommand } from './commands/sas/meals'
-import { pingCommand } from './commands/general/ping'
-import { calendarCommand } from './commands/classroom/calendar'
-import { subjectsCommand } from './commands/classroom/subjects'
+import { ActivityType, GatewayIntentBits, Partials, TextChannel } from "discord.js";
+import { busCommand } from "./commands/sas/bus";
+import { newsCommand } from "./commands/campus/news";
+import { mealsCommand } from "./commands/sas/meals";
+import { pingCommand } from "./commands/general/ping";
+import { calendarCommand } from "./commands/classroom/calendar";
+import { subjectsCommand } from "./commands/classroom/subjects";
 import {
-    playCommand,
-    stopCommand,
-    pauseCommand,
-    resumeCommand,
-    queueCommand,
     clearCommand,
-} from './commands/fun/music'
-import { covidPortugalCommand } from './commands/general/covidPortugal'
-import { moodleEventsCommand } from './commands/classroom/moodleEvents'
-import { scheduleCommand } from './commands/classroom/schedule'
-import { examsCommand } from './commands/classroom/exams'
-import { pisoCommand } from './commands/classroom/piso'
-import { ribasCommand } from './commands/fun/ribeiro'
-import { rodaEsse } from './commands/fun/rodaesse'
-import { roastCoder } from './commands/fun/roastCoder'
-import { servicesCommand } from './commands/classroom/servicesSchedule'
-import { dadJoke } from './commands/fun/dadJokes'
-import botConfig from './botConfig.json'
-import { BotClient } from './client'
-import { answerCommand } from './commands/fun/answer'
-import { stockCommand } from './commands/fun/stock'
-import { onlyfansCommand } from './commands/fun/onlyfans'
-import { dogecoin } from './commands/fun/dogecoin'
-import { verifyCommand } from './commands/security/verify'
-import moment from 'moment'
-import { moviesTimmerHander } from './private/movies_timmer_handler'
-import { minecraftCommand } from './commands/fun/minecraft'
-import { minecraftTimmerHandler } from './private/minecraft_timmer_handler'
-import { instagramTimerHandler } from './private/instagram_timer_handler'
-import { weatherForecastCommand } from './commands/general/weatherForecast'
+    pauseCommand,
+    playCommand,
+    queueCommand,
+    resumeCommand,
+    stopCommand
+} from "./commands/fun/music";
+import { covidPortugalCommand } from "./commands/general/covidPortugal";
+import { moodleEventsCommand } from "./commands/classroom/moodleEvents";
+import { scheduleCommand } from "./commands/classroom/schedule";
+import { examsCommand } from "./commands/classroom/exams";
+import { pisoCommand } from "./commands/classroom/piso";
+import { ribasCommand } from "./commands/fun/ribeiro";
+import { rodaEsse } from "./commands/fun/rodaesse";
+import { roastCoder } from "./commands/fun/roastCoder";
+import { servicesCommand } from "./commands/classroom/servicesSchedule";
+import { dadJoke } from "./commands/fun/dadJokes";
+import botConfig from "./botConfig.json";
+import { BotClient } from "./client";
+import { answerCommand } from "./commands/fun/answer";
+import { stockCommand } from "./commands/fun/stock";
+import { onlyfansCommand } from "./commands/fun/onlyfans";
+import { dogecoin } from "./commands/fun/dogecoin";
+import { verifyCommand } from "./commands/security/verify";
+import { moviesTimmerHander } from "./private/movies_timmer_handler";
+import { minecraftCommand } from "./commands/fun/minecraft";
+import { minecraftTimmerHandler } from "./private/minecraft_timmer_handler";
+import { instagramTimerHandler } from "./private/instagram_timer_handler";
+import { weatherForecastCommand } from "./commands/general/weatherForecast";
 
-import 'dotenv/config'
-import { AdventOfCodeCommand } from './commands/fun/adventOfCode'
-import { getGasPriceCommand } from './commands/general/combustiveis'
-import { getWeatherCommand } from './commands/general/weather'
-import { php } from './commands/fun/killMe'
-import { java } from './commands/fun/java'
-import { etron } from './commands/fun/bestcar'
-import { horoscopo } from './commands/fun/horoscope'
+import "dotenv/config";
+import { AdventOfCodeCommand } from "./commands/fun/adventOfCode";
+import { getGasPriceCommand } from "./commands/general/combustiveis";
+import { getWeatherCommand } from "./commands/general/weather";
+import { php } from "./commands/fun/killMe";
+import { java } from "./commands/fun/java";
+import { etron } from "./commands/fun/bestcar";
+import { horoscopo } from "./commands/fun/horoscope";
 
 const bot = new BotClient(botConfig, {
-    partials: ['MESSAGE', 'CHANNEL', 'REACTION', 'GUILD_MEMBER'],
+    intents: [GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMembers, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMessageReactions],
+    partials: [Partials.Message, Partials.Channel, Partials.Reaction, Partials.GuildMember]
 })
 
 let guildMembersCount = 0
 
 const updateStatus = async () => {
     await bot.user?.setActivity(`all ${guildMembersCount} members`, {
-        type: 'LISTENING',
+        type: ActivityType.Listening,
     })
 }
 
@@ -76,19 +76,18 @@ bot.on('guildMemberRemove', async () => {
 })
 
 // Commands
-bot.handlers.commands.register(
+bot.handlers.commands.registerVanillaCommands(
     busCommand,
     newsCommand,
     mealsCommand,
-    pingCommand,
     calendarCommand,
     subjectsCommand,
-    playCommand,
-    stopCommand,
-    pauseCommand,
-    resumeCommand,
-    queueCommand,
-    clearCommand,
+    // playCommand,
+    //stopCommand,
+    //pauseCommand,
+    //resumeCommand,
+    // queueCommand,
+    // clearCommand,
     covidPortugalCommand,
     moodleEventsCommand,
     scheduleCommand,
@@ -99,7 +98,7 @@ bot.handlers.commands.register(
     ribasCommand,
     rodaEsse,
     roastCoder,
-    verifyCommand,
+    // verifyCommand,
     minecraftCommand,
     pisoCommand,
     dadJoke,
@@ -109,10 +108,14 @@ bot.handlers.commands.register(
     AdventOfCodeCommand,
     getGasPriceCommand,
     getWeatherCommand,
-    php,
     java,
     etron,
     horoscopo,
+)
+
+bot.handlers.commands.registerSlashCommands(
+  pingCommand,
+  php,
 )
 
 bot.on('guildMemberAdd', async (member: any) => {
@@ -217,6 +220,6 @@ bot.handlers.timers.register({
 // Reactions
 bot.handlers.reacts.giveRoles(botConfig.reacts)
 
-bot.login(process.env.DISCORD_BOT_TOKEN)
+bot.login(process.env.DISCORD_BOT_TOKEN!)
     .then(() => console.log('Bot running'))
     .catch((err) => console.error(err))
