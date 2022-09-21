@@ -27,19 +27,6 @@ export const getBusStops = async () => {
     return reData
 }
 
-export interface New {
-    title: string
-    link: string
-    description: string
-}
-
-export const getNews = async () => {
-    let req = await fetch('http://www.ipvc.pt/noticias-rss')
-    let text = await req.text()
-    let data: New[] = parse(text).rss.channel.item
-    return data
-}
-
 export interface Meal {
     id: number
     name: string

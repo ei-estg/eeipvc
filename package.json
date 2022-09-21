@@ -27,6 +27,8 @@
         "fast-xml-parser": "^3.17.4",
         "ffmpeg-static": "^4.2.7",
         "form-data": "^3.0.1",
+        "i18next": "^21.9.2",
+        "i18next-fs-backend": "^1.1.5",
         "instagram-scraping": "^1.0.16",
         "minecraft-server-util": "^3.5.2",
         "moment": "^2.29.1",
@@ -34,6 +36,7 @@
         "ytdl-core": "^4.4.5"
     },
     "devDependencies": {
+        "@types/i18next-fs-backend": "^1.1.2",
         "@types/jest": "^26.0.19",
         "@types/node": "^14.14.19",
         "@types/node-fetch": "^2.5.7",

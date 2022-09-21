@@ -1,157 +1,103 @@
-import { ActivityType, GatewayIntentBits, Partials, TextChannel } from "discord.js";
-import { busCommand } from "./commands/sas/bus";
-import { newsCommand } from "./commands/campus/news";
-import { mealsCommand } from "./commands/sas/meals";
-import { pingCommand } from "./commands/general/ping";
-import { calendarCommand } from "./commands/classroom/calendar";
-import { subjectsCommand } from "./commands/classroom/subjects";
-import {
-    clearCommand,
-    pauseCommand,
-    playCommand,
-    queueCommand,
-    resumeCommand,
-    stopCommand
-} from "./commands/fun/music";
-import { covidPortugalCommand } from "./commands/general/covidPortugal";
-import { moodleEventsCommand } from "./commands/classroom/moodleEvents";
-import { scheduleCommand } from "./commands/classroom/schedule";
-import { examsCommand } from "./commands/classroom/exams";
-import { pisoCommand } from "./commands/classroom/piso";
-import { ribasCommand } from "./commands/fun/ribeiro";
-import { rodaEsse } from "./commands/fun/rodaesse";
-import { roastCoder } from "./commands/fun/roastCoder";
-import { servicesCommand } from "./commands/classroom/servicesSchedule";
-import { dadJoke } from "./commands/fun/dadJokes";
+import { GatewayIntentBits, Partials } from "discord.js";
+import { busCommand } from "./extensions/commands/groups/sas/bus";
+import { pingCommand } from "./extensions/commands/groups/general/ping";
+import { pisoCommand } from "./extensions/commands/groups/classroom/piso";
+import { ribasCommand } from "./extensions/commands/groups/fun/ribeiro";
+import { rodaEsse } from "./extensions/commands/groups/fun/rodaesse";
+import { roastCoder } from "./extensions/commands/groups/fun/roastCoder";
+import { servicesCommand } from "./extensions/commands/groups/classroom/servicesSchedule";
+import { dadJoke } from "./extensions/commands/groups/fun/dadJokes";
 import botConfig from "./botConfig.json";
-import { BotClient } from "./client";
-import { answerCommand } from "./commands/fun/answer";
-import { stockCommand } from "./commands/fun/stock";
-import { onlyfansCommand } from "./commands/fun/onlyfans";
-import { dogecoin } from "./commands/fun/dogecoin";
-import { verifyCommand } from "./commands/security/verify";
-import { moviesTimmerHander } from "./private/movies_timmer_handler";
-import { minecraftCommand } from "./commands/fun/minecraft";
-import { minecraftTimmerHandler } from "./private/minecraft_timmer_handler";
-import { instagramTimerHandler } from "./private/instagram_timer_handler";
-import { weatherForecastCommand } from "./commands/general/weatherForecast";
+import { ClientManager } from "./client";
+import { onlyfansCommand } from "./extensions/commands/groups/fun/onlyfans";
+import { dogeCoinCommand } from "./extensions/commands/groups/fun/dogecoinCommand";
+import { php } from "./extensions/commands/groups/fun/killMe";
+import { java } from "./extensions/commands/groups/fun/java";
+import { etron } from "./extensions/commands/groups/fun/bestcar";
 
 import "dotenv/config";
-import { AdventOfCodeCommand } from "./commands/fun/adventOfCode";
-import { getGasPriceCommand } from "./commands/general/combustiveis";
-import { getWeatherCommand } from "./commands/general/weather";
-import { php } from "./commands/fun/killMe";
-import { java } from "./commands/fun/java";
-import { etron } from "./commands/fun/bestcar";
-import { horoscopo } from "./commands/fun/horoscope";
+import { CommandsExtension } from "./extensions/commands";
+import { GuildExtension } from "./extensions/guild";
+import { ReactsHandler } from "./extensions/reacts";
+import { scheduleCommand } from "./extensions/commands/groups/classroom/schedule";
+import { mealsCommand } from "./extensions/commands/groups/sas/meals";
 
-const bot = new BotClient(botConfig, {
-    intents: [GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMembers, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMessageReactions],
-    partials: [Partials.Message, Partials.Channel, Partials.Reaction, Partials.GuildMember]
-})
+import i18next from "i18next";
+import FsBackend from 'i18next-fs-backend'
+import path from "path";
 
-let guildMembersCount = 0
 
-const updateStatus = async () => {
-    await bot.user?.setActivity(`all ${guildMembersCount} members`, {
-        type: ActivityType.Listening,
-    })
-}
+i18next
+  .use(FsBackend)
+  .init({
+    initImmediate: false,
+    debug: true,
+    backend: {
+      loadPath: path.join(__dirname, '../locales/{{lng}}/{{ns}}.json')
+    }
+  })
 
-bot.on('ready', async () => {
-    const guild = await bot.guilds.fetch(botConfig.guild.id)
-    guildMembersCount = guild.memberCount
-    await updateStatus()
-})
 
-bot.on('guildMemberAdd', async () => {
-    guildMembersCount++
-    await updateStatus()
-})
+console.log(i18next.t('abc'))
 
-bot.on('guildMemberRemove', async () => {
-    console.log('bye')
-    guildMembersCount--
-    await updateStatus()
-})
+const bot = new ClientManager(
+  botConfig,
+  {
+    intents: [
+      GatewayIntentBits.GuildMessages,
+      GatewayIntentBits.GuildMembers,
+      GatewayIntentBits.MessageContent,
+      GatewayIntentBits.GuildMessageReactions]
+    ,
+    partials: [
+      Partials.Message,
+      Partials.Channel,
+      Partials.Reaction,
+      Partials.GuildMember,
+      Partials.User
+    ]
+  });
 
-// Commands
-bot.handlers.commands.registerVanillaCommands(
-    busCommand,
-    newsCommand,
-    mealsCommand,
-    calendarCommand,
-    subjectsCommand,
-    // playCommand,
-    //stopCommand,
-    //pauseCommand,
-    //resumeCommand,
-    // queueCommand,
-    // clearCommand,
-    covidPortugalCommand,
-    moodleEventsCommand,
-    scheduleCommand,
-    examsCommand,
-    answerCommand,
-    onlyfansCommand,
-    dogecoin,
-    ribasCommand,
-    rodaEsse,
-    roastCoder,
-    // verifyCommand,
-    minecraftCommand,
-    pisoCommand,
-    dadJoke,
-    servicesCommand,
-    stockCommand,
-    weatherForecastCommand,
-    AdventOfCodeCommand,
-    getGasPriceCommand,
-    getWeatherCommand,
-    java,
-    etron,
-    horoscopo,
-)
+const [
+  commands,
+  reacts,
+  guild
+] = [
+  new CommandsExtension(bot),
+  new ReactsHandler(bot),
+  new GuildExtension(bot)
+]
 
-bot.handlers.commands.registerSlashCommands(
+commands.registerSlashCommands(
   pingCommand,
   php,
-)
+  etron,
+  dogeCoinCommand,
+  onlyfansCommand,
+  ribasCommand,
+  rodaEsse,
+  roastCoder,
+  dadJoke,
+  servicesCommand,
+  java,
+  pisoCommand,
+  busCommand,
+  scheduleCommand,
+  mealsCommand,
+);
 
-bot.on('guildMemberAdd', async (member: any) => {
-    const channel = member.guild.channels.cache.find(
-        (channel) => channel.id == '766278332500803610',
-    )
-    // add(member)
-    let string = ''
-    if (guildMembersCount === 200) {
-        string = 'Parabéns és o membro nº200 a ingressar no servidor.'
-    }
-    channel.send(
-        `${string}Boas ${
-            member.user
-        }. Dá uma olhadela nas salas ${member.guild.channels.cache
-            .get('779437283966189618')
-            .toString()} e ${member.guild.channels.cache
-            .get('779491420079259659')
-            .toString()} para ficares a conhecer as regras e ainda acederes a diferentes áreas do servidor.`,
-    )
-})
+commands.registerSlashCommandsAutomatically()
 
-bot.on('guildMemberRemove', async (member: any) => {
-    const channel = member.guild.channels.cache.find(
-        (channel) => channel.id == '766278332500803610',
-    )
 
-    channel.send(
-        `${member.user}, '${member.displayName}' abandonou a nossa jangada ⛵️. Seguimos com ${guildMembersCount} marujos <:FeelsBadMan:766306313663283241> `,
-    )
-})
 
-const getChannelById = async (guildId: string, channelId: string) => {
-    const guild = await bot.guilds.fetch(guildId)
-    return guild.channels.cache.get(channelId) as TextChannel
-}
+
+
+
+
+/*const getChannelById = async (guildId: string, channelId: string) => {
+  const guild = await bot.guilds.fetch(guildId);
+  return guild.channels.cache.get(channelId) as TextChannel;
+};
 
 // CronJobs
 /*
@@ -165,61 +111,64 @@ bot.handlers.timers.register({
     })
 });*/
 
+/*
 bot.handlers.timers.register({
-    cronTime: botConfig.timmers.cineplace.cronTime,
-    channel: () =>
-        getChannelById(
-            botConfig.guild.id,
-            botConfig.timmers.cineplace.channelId,
-        ),
-    handler: async () => {
-        return moviesTimmerHander(
-            await getChannelById(
-                botConfig.guild.id,
-                botConfig.timmers.cineplace.channelId,
-            ),
-        )
-    },
-})
+  cronTime: botConfig.timmers.cineplace.cronTime,
+  channel: () =>
+    getChannelById(
+      botConfig.guild.id,
+      botConfig.timmers.cineplace.channelId
+    ),
+  handler: async () => {
+    return moviesTimmerHander(
+      await getChannelById(
+        botConfig.guild.id,
+        botConfig.timmers.cineplace.channelId
+      )
+    );
+  }
+});
 
 bot.handlers.timers.register({
-    cronTime: botConfig.timmers.minecraft.cronTime,
-    channel: () =>
-        getChannelById(
-            botConfig.guild.id,
-            botConfig.timmers.minecraft.channelId,
-        ),
-    handler: async () => {
-        return minecraftTimmerHandler(
-            await getChannelById(
-                botConfig.guild.id,
-                botConfig.timmers.minecraft.channelId,
-            ),
-        )
-    },
-})
+  cronTime: botConfig.timmers.minecraft.cronTime,
+  channel: () =>
+    getChannelById(
+      botConfig.guild.id,
+      botConfig.timmers.minecraft.channelId
+    ),
+  handler: async () => {
+    return minecraftTimmerHandler(
+      await getChannelById(
+        botConfig.guild.id,
+        botConfig.timmers.minecraft.channelId
+      )
+    );
+  }
+});
 
 bot.handlers.timers.register({
-    cronTime: botConfig.timmers.vitenoipvc.cronTime,
-    channel: () =>
-        getChannelById(
-            botConfig.guild.id,
-            botConfig.timmers.vitenoipvc.channelId,
-        ),
-    handler: async () => {
-        return instagramTimerHandler(
-            await getChannelById(
-                botConfig.guild.id,
-                botConfig.timmers.vitenoipvc.channelId,
-            ),
-            botConfig.timmers.vitenoipvc.instagramAccount,
-        )
-    },
-})
+  cronTime: botConfig.timmers.vitenoipvc.cronTime,
+  channel: () =>
+    getChannelById(
+      botConfig.guild.id,
+      botConfig.timmers.vitenoipvc.channelId
+    ),
+  handler: async () => {
+    return instagramTimerHandler(
+      await getChannelById(
+        botConfig.guild.id,
+        botConfig.timmers.vitenoipvc.channelId
+      ),
+      botConfig.timmers.vitenoipvc.instagramAccount
+    );
+  }
+});
 
 // Reactions
-bot.handlers.reacts.giveRoles(botConfig.reacts)
+bot.handlers.reacts.giveRoles(botConfig.reacts);
 
-bot.login(process.env.DISCORD_BOT_TOKEN!)
-    .then(() => console.log('Bot running'))
-    .catch((err) => console.error(err))
+*/
+
+bot.run(process.env.DISCORD_BOT_TOKEN!)
+  .then(() => console.log("Bot running"))
+  .catch((err) => console.error(err));

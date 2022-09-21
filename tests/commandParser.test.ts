@@ -1,4 +1,4 @@
-import { messageParser, CommandsHandler } from '../src/handlers/commands'
+import { messageParser, CommandsExtension } from '../src/extensions/commands'
 
 test('command parser is working as it should', () => {
     expect(messageParser('!command arg1 arg2')).toEqual({
@@ -20,15 +20,15 @@ test('command parser is working as it should', () => {
     })
 })
 test('command parser arguments', () => {
-    expect(CommandsHandler.areArgumentsRight(0, 1, 1)).toBe(true)
-    expect(CommandsHandler.areArgumentsRight(2, 3, 1)).toBe(true)
-    expect(CommandsHandler.areArgumentsRight(3, 3, 1)).toBe(true)
-    expect(CommandsHandler.areArgumentsRight(3, 4, 1)).toBe(true)
-    expect(CommandsHandler.areArgumentsRight(0, 3, 3)).toBe(true)
-    expect(CommandsHandler.areArgumentsRight(0, 3, 3)).toBe(true)
-    expect(CommandsHandler.areArgumentsRight(3, 3, 1)).toBe(true)
+    expect(CommandsExtension.areArgumentsRight(0, 1, 1)).toBe(true)
+    expect(CommandsExtension.areArgumentsRight(2, 3, 1)).toBe(true)
+    expect(CommandsExtension.areArgumentsRight(3, 3, 1)).toBe(true)
+    expect(CommandsExtension.areArgumentsRight(3, 4, 1)).toBe(true)
+    expect(CommandsExtension.areArgumentsRight(0, 3, 3)).toBe(true)
+    expect(CommandsExtension.areArgumentsRight(0, 3, 3)).toBe(true)
+    expect(CommandsExtension.areArgumentsRight(3, 3, 1)).toBe(true)
 
-    expect(CommandsHandler.areArgumentsRight(2, 1, 0)).toBe(false)
-    expect(CommandsHandler.areArgumentsRight(0, 2, 1)).toBe(false)
-    expect(CommandsHandler.areArgumentsRight(0, 1, 0)).toBe(false)
+    expect(CommandsExtension.areArgumentsRight(2, 1, 0)).toBe(false)
+    expect(CommandsExtension.areArgumentsRight(0, 2, 1)).toBe(false)
+    expect(CommandsExtension.areArgumentsRight(0, 1, 0)).toBe(false)
 })
