@@ -2,62 +2,67 @@ import { SlashCommand } from '../../base/SlashCommand'
 import { getStock, Stock } from '../../../../requests/stock'
 import { Message } from 'discord.js'
 import { stockEmbed } from '../../../../defaults/embed'
-import { SlashCommandBuilder } from "@discordjs/builders";
+import { SlashCommandBuilder } from '@discordjs/builders'
 
 export const stockCommand: SlashCommand = {
     builder: new SlashCommandBuilder()
-      .setName('stock')
-      .setDescription('Preço atual de uma ação')
-      .addStringOption(option =>
-        option.setName('symbol')
-          .setDescription('Simbolo do stock')
-          .setRequired(true)
-      ),
-
+        .setName('stock')
+        .setDescription('Preço atual de uma ação')
+        .addStringOption((option) =>
+            option
+                .setName('symbol')
+                .setDescription('Simbolo do stock (ex: AAPL)')
+                .setRequired(true),
+        ),
 
     async run(it) {
         const symbol = it.options.get('symbol')
         try {
-            let stock = await getStock(symbol)
+            let stock = await getStock(symbol.value)
 
             if (!stock) {
                 return 'Este stock não existe!. Ex: !stock AAPL'
             }
             // Formatar Numero com virgulas
-            var marketCap = stock.marketCap
-                .toString()
-                .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+            let marketCap
+            console.log(stock.marketCap)
+            if (stock.marketCap) {
+                console.log('here')
+                marketCap = stock.marketCap
+                    .toString()
+                    .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+            }
             const embed = stockEmbed().setTitle(`📈 ${stock.longName}`)
 
             embed.addFields(
                 {
                     name: `Último Preço - ${stock.currency}`,
-                    value: stock.regularMarketPrice,
+                    value: stock.regularMarketPrice.toString(),
                     inline: true,
                 },
                 {
                     name: 'Market Cap',
-                    value: marketCap,
+                    value: marketCap ? marketCap : 'N/A',
                     inline: true,
                 },
                 {
                     name: 'Trailing Price-To-Earnings',
-                    value: stock.trailingPE,
+                    value: stock.trailingPE?.toString() || 'N/A',
                     inline: true,
                 },
                 {
                     name: 'Earnings Per Share (TTM)',
-                    value: stock.epsTrailingTwelveMonths,
+                    value: stock.epsTrailingTwelveMonths?.toString() || 'N/A',
                     inline: true,
                 },
                 {
                     name: 'Price-To-Book (P/B Ratio)',
-                    value: stock.priceToBook,
+                    value: stock.priceToBook?.toString() || 'N/A',
                     inline: true,
                 },
                 {
                     name: 'Avarage Analyst Rating',
-                    value: stock.averageAnalystRating,
+                    value: stock.averageAnalystRating?.toString() || 'N/A',
                     inline: true,
                 },
             )
@@ -73,7 +78,7 @@ export const stockCommand: SlashCommand = {
             }
 
             embed.setFooter({
-                text: 'To the moon! 🚀'
+                text: 'To the moon! 🚀',
             })
 
             return embed

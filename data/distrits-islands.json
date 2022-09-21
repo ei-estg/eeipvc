@@ -49,7 +49,7 @@
       "globalIdLocal": 1040200,
       "latitude": "41.8076",
       "idDistrito": 4,
-      "local": "Bragan\u00e7a",
+      "local": "Bragança",
       "longitude": "-6.7606"
     },
     {
@@ -79,7 +79,7 @@
       "globalIdLocal": 1070500,
       "latitude": "38.5701",
       "idDistrito": 7,
-      "local": "\u00c9vora",
+      "local": "Évora",
       "longitude": "-7.9104"
     },
     {
@@ -189,7 +189,7 @@
       "globalIdLocal": 1141600,
       "latitude": "39.2000",
       "idDistrito": 14,
-      "local": "Santar\u00e9m",
+      "local": "Santarém",
       "longitude": "-8.7400"
     },
     {
@@ -199,7 +199,7 @@
       "globalIdLocal": 1151200,
       "latitude": "38.5246",
       "idDistrito": 15,
-      "local": "Set\u00fabal",
+      "local": "Setúbal",
       "longitude": "-8.8856"
     },
     {
@@ -289,7 +289,7 @@
       "globalIdLocal": 3430100,
       "latitude": "38.6700",
       "idDistrito": 43,
-      "local": "Angra do Hero\u00edsmo",
+      "local": "Angra do Heroísmo",
       "longitude": "-27.2200"
     },
     {

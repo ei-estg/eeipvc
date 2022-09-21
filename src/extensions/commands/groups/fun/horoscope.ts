@@ -2,30 +2,24 @@ import { SlashCommand } from '../../base/SlashCommand'
 import { getHoroscope } from '../../../../requests/horoscope'
 import { eiEmbed } from '../../../../defaults/embed'
 import { SlashCommandBuilder } from '@discordjs/builders'
+import horoscope from '../../../../../data/horoscope.json'
 
 class CommandBuild {}
 
-export const horoscopo: SlashCommand = {
+export const horoscopeCommand: SlashCommand = {
     builder: new SlashCommandBuilder()
-        .setName(_.t('horoscope.name'))
-        .setDescription(_.t('horoscope.description'))
+        .setName('horoscopo')
+        .setDescription('Verifica o teu horóscopo')
         .addStringOption((option) =>
             option
                 .setRequired(true)
-                .setName('animal')
-                .setDescription('escolhe o teu animal'),
+                .setName('signo')
+                .setDescription('Exemplo: aquario/carneiro/capricornio')
+                .setChoices(...horoscope.signos),
         ),
 
-    data: {
-      name: 
-
-      builder() {
-
-      }
-    },
-
     async run(it) {
-        const sign = it.options.get('animal').value
+        const sign = it.options.get('signo').value
         const horoscope = await getHoroscope(sign)
 
         if (!horoscope) {

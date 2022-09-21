@@ -1,6 +1,6 @@
-import { Message, AttachmentBuilder } from "discord.js";
+import { Message, AttachmentBuilder } from 'discord.js'
 
-import { SlashCommand } from "../../base/SlashCommand";
+import { SlashCommand } from '../../base/SlashCommand'
 
 export const rodaEsse: SlashCommand = {
     name: 'rodaesse',
@@ -23,10 +23,7 @@ export const rodaEsse: SlashCommand = {
             'https://c.tenor.com/hqpfoL3c5WwAAAAM/puss-pass.gif',
             'https://cdn.discordapp.com/attachments/853981264355786762/893126689410924544/Screenshot_20210930_142612.jpg',
         ]
-        const attachmentBuilder = new AttachmentBuilder(
-            urlPool[Math.floor(Math.random() * urlPool.length)],
-        )
 
-        await it.reply({ attachments: [attachmentBuilder.attachment] })
+        return urlPool[Math.floor(Math.random() * urlPool.length)]
     },
 }

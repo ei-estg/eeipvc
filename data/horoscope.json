@@ -1,0 +1,52 @@
+{
+  "signos": [
+    {
+      "name": "Aquário",
+      "value": "aquario"
+    },
+    {
+      "name": "Peixes",
+      "value": "peixes"
+    },
+    {
+      "name": "Balança",
+      "value": "balanca"
+    },
+    {
+      "name": "Gémeos",
+      "value": "gemeos"
+    },
+    {
+      "name": "Capricórnio",
+      "value": "capricornio"
+    },
+    {
+      "name": "Leão",
+      "value": "leao"
+    },
+    {
+      "name": "Virgem",
+      "value": "virgem"
+    },
+    {
+      "name": "Touro",
+      "value": "touro"
+    },
+    {
+      "name": "Caranguejo",
+      "value": "caranguejo"
+    },
+    {
+      "name": "Escorpião",
+      "value": "escorpiao"
+    },
+    {
+      "name": "Sagitário",
+      "value": "sagitario"
+    },
+    {
+      "name": "Carneiro",
+      "value": "carneiro"
+    }
+  ]
+}
