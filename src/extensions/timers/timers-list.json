@@ -8,5 +8,10 @@
     "name": "cinema",
     "cronTime": "* * * * * *",
     "channelId": "865240499861454888"
+  },
+  {
+    "name": "testar",
+    "cronTime": "* * * * * *",
+    "channelId": "954502864930209843"
   }
 ]
