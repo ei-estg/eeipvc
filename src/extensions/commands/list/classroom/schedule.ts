@@ -1,35 +1,35 @@
-import { SlashCommand } from "../../base/SlashCommand";
+import { SlashCommand } from '../../base/SlashCommand'
 import { eiEmbed } from '../../../../defaults/embed'
 import moment from 'moment'
 import { login } from '../../../../../lib/on-ipvc'
-import { SlashCommandBuilder } from "@discordjs/builders";
+import { SlashCommandBuilder } from '@discordjs/builders'
 
 moment.locale('pt-pt')
 
 export const scheduleCommand: SlashCommand = {
     builder: new SlashCommandBuilder()
-      .setName('horario')
-      .setDescription('Horário de cada turma')
-      .addStringOption(option =>
-        option.setName('classroom')
-          .setDescription('Turma')
-      )
-      .addStringOption(option =>
-        option.setName('date')
-          .setDescription('Data')
-      ),
+        .setName('horario')
+        .setDescription('Horário de cada turma')
+        .addStringOption((option) =>
+            option.setName('year').setDescription('Ano'),
+        )
+        .addStringOption((option) =>
+            option.setName('classroom').setDescription('Turma'),
+        )
+
+        .addStringOption((option) =>
+            option.setName('day').setDescription('Dia'),
+        ),
 
     async run(it) {
         const { options } = it
         let classroom = options.get('classroom')?.value
-        let day = options.get('date')?.value
+        let day = options.get('day')?.value
+        let year = options.get('year')?.value
 
         const scheduleEmbed = eiEmbed()
-        let year: string
-        ;[classroom, year] = classroom ? classroom.split('-') : []
 
         const memberRoles = (await it.member.fetch())._roles
-
 
         console.log(this.config.commands)
         if (!year) {
@@ -43,8 +43,8 @@ export const scheduleCommand: SlashCommand = {
         }
 
         if (!classroom) {
-           memberRoles.forEach((role) => {
-               this.config.commands.schedule['class'].forEach((classRole) => {
+            memberRoles.forEach((role) => {
+                this.config.commands.schedule['class'].forEach((classRole) => {
                     if (role.id == classRole.roleId) {
                         classroom = classRole.content
                     }
@@ -69,12 +69,12 @@ export const scheduleCommand: SlashCommand = {
         )
 
         let schedule = await user.getScheduleByDate(
-          '202223',
-          'S1',
-          `EI-${year}-${classroom}`,
-          '2022',
-          currentMonth,
-          day || currentDay,
+            '202223',
+            'S1',
+            `EI-${year}-${classroom}`,
+            '2022',
+            currentMonth,
+            day || currentDay,
         )
 
         if (!schedule) {
