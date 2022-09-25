@@ -84,7 +84,13 @@ export class ReactsHandler<T> extends BaseExtension<T> {
                             await reaction.message.guild?.members.fetch(
                                 user.id,
                             ),
-                        roleId: r.roleId,
+                        roleId:
+                            reaction.message.guild?.roles.cache.find(
+                                (role) => role.id == r.roleId,
+                            )?.id ||
+                            (await reaction.message.guild?.roles
+                                .fetch(r.roleId)
+                                .then((role) => role?.id)),
                     }
                 }
             } catch (e) {
