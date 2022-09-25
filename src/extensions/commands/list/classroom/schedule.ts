@@ -95,7 +95,7 @@ export const scheduleCommand: SlashCommand = {
                 {
                     name: `${item.lesson.name}`,
                     value: `${item.lesson.shortName}${
-                        isCanceled ? ' - **Anulada/Substituida**' : ''
+                        isCanceled ? ' - **🚫 Anulada/Substituida** 🚫' : ''
                     }`,
                     inline: true,
                 },
