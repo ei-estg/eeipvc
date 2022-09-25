@@ -1,42 +1,55 @@
 import { CronJob } from 'cron'
-import { Embed, EmbedBuilder, TextChannel } from "discord.js";
-import { BaseExtension } from "../base/BaseExtension";
-import { ClientManager } from "../../client";
+import { BaseExtension } from '../base/BaseExtension'
+import { ClientManager } from '../../client'
+import { TimerCallable, TimerRegistry } from './base/TimerCallable'
+import TimersList from './timers-list.json'
 
-interface Timer {
-    cronTime: string
-    channel: Promise<TextChannel | undefined> | any
-    handler: () => Promise<string | Embed | undefined>
-}
+export class TimersExtension<T> extends BaseExtension<T> {
+    private readonly timers: TimerRegistry[] = []
+    private timersCallable: TimerCallable[] = []
 
-export class TimersHandler<T> extends BaseExtension<T> {
-  constructor(manager: ClientManager) {
-    super(manager)
+    constructor(manager: ClientManager) {
+        super(manager)
 
-    const { client } = manager
-    client.on('ready', this._setup)
-  }
-    private timer: Array<Timer> = []
-
-    register(...timers: Timer[]) {
-        this.timer.push(...timers)
+        this.timers = TimersList
     }
 
-    protected _setup() {
-        this.timer.forEach((timer) =>
+    register(...timers: TimerCallable[]) {
+        this.timersCallable.push(...timers)
+    }
+
+    private getCallablesForTimerName(timerName: string) {
+        return this.timersCallable.filter((timerCallable) =>
+            timerCallable.timerNames.includes(timerName),
+        )
+    }
+
+    private runCallablesForTimerName(timer: TimerRegistry) {
+        const callables = this.getCallablesForTimerName(timer.name)
+
+        callables.forEach(async (callable) => {
+            const channel = await this._manager.client.channels.fetch(
+                timer.channelId,
+            )
+
+            console.log(channel, timer.channelId)
+
+            if (!channel) throw new Error('channel was not found for timer')
+            callable.run(channel)
+        })
+    }
+
+    protected _setup() {}
+
+    protected _setupLater() {
+        this.timers.forEach((timer) =>
             new CronJob(timer.cronTime, async () => {
-                const handler = await timer.handler()
-                const channel = await timer.channel()
-                try {
-                    if (typeof handler == 'string') {
-                        await channel.send(handler)
-                    } else if (handler instanceof EmbedBuilder) {
-                        await channel.send({ embed: handler })
-                    }
-                } catch (err) {
-                    console.error(err)
-                }
+                this.runCallablesForTimerName(timer)
             }).start(),
         )
+    }
+
+    public start() {
+        this._manager.client.on('ready', this._setupLater.bind(this))
     }
 }

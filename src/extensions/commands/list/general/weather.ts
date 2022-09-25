@@ -23,6 +23,7 @@ const findEmoji = (type: number) => {
     })
     return returnEmoji
 }
+
 export const getWeatherCommand: SlashCommand = {
     builder: new SlashCommandBuilder()
         .setName('meteo')
@@ -31,15 +32,7 @@ export const getWeatherCommand: SlashCommand = {
             option
                 .setName('distrito')
                 .setDescription('Distrito')
-                .setRequired(true)
-                .setChoices(
-                    ...districtIslands.data.map((element) => {
-                        return {
-                            name: element.local,
-                            value: element.globalIdLocal,
-                        }
-                    }),
-                ),
+                .setRequired(true),
         ),
 
     async run(it) {

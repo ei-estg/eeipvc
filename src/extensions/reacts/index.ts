@@ -1,52 +1,30 @@
 import {
-    Client,
-    MessageReaction, PartialMessageReaction,
+    MessageReaction,
+    PartialMessageReaction,
     PartialUser,
-    Snowflake,
     TextChannel,
-    User
-} from "discord.js";
-import { ClientManager } from "../../client";
-import { BaseExtension } from "../base/BaseExtension";
-
-interface FileReacts {
-    [channelId: string]: FileReactsMessages
-}
-
-interface FileReactsMessages {
-    [messageId: string]: FileReactsMessageReact | FileReactsMessageReact[]
-}
-
-interface FileReactsMessageReact {
-    emoji: string
-    emojiId?: Snowflake
-    roleId: Snowflake
-    group?: string
-}
-
-interface React {
-    channelId: Snowflake
-    messageId: Snowflake
-    emoji: string
-    emojiId?: string
-    roleId: Snowflake
-    group?: string
-}
+    User,
+} from 'discord.js'
+import { ClientManager } from '../../client'
+import { BaseExtension } from '../base/BaseExtension'
+import ReactionsList from './reactions-list.json'
+import { FileReacts, React } from './types/reacts'
 
 export class ReactsHandler<T> extends BaseExtension<T> {
     public reacts: Array<React> = []
 
     constructor(manager: ClientManager) {
-        super(manager);
+        super(manager)
 
         const { client } = manager
 
-        client.on("messageReactionAdd", this.reactionAdded.bind(this))
-        client.on("messageReactionRemove", this.reactionRemoved.bind(this))
+        client.on('messageReactionAdd', this.reactionAdded.bind(this))
+        client.on('messageReactionRemove', this.reactionRemoved.bind(this))
 
+        this._giveRoles(ReactionsList)
     }
 
-    giveRoles(react: FileReacts) {
+    private _giveRoles(react: FileReacts) {
         Object.entries(react).forEach(([channelId, channel]) => {
             Object.entries(channel).forEach(([messageId, options]) => {
                 if (!(options instanceof Array)) {
@@ -115,7 +93,10 @@ export class ReactsHandler<T> extends BaseExtension<T> {
         }
     }
 
-    async reactionAdded(reaction: MessageReaction | PartialMessageReaction, user: User | PartialUser) {
+    async reactionAdded(
+        reaction: MessageReaction | PartialMessageReaction,
+        user: User | PartialUser,
+    ) {
         if (user.bot) return
         let check
         try {

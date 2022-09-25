@@ -1,43 +1,32 @@
 import { GatewayIntentBits, Partials } from 'discord.js'
-import { busCommand } from './extensions/commands/groups/sas/bus'
-import { pingCommand } from './extensions/commands/groups/general/ping'
-import { pisoCommand } from './extensions/commands/groups/classroom/piso'
-import { ribasCommand } from './extensions/commands/groups/fun/ribeiro'
-import { rodaEsse } from './extensions/commands/groups/fun/rodaesse'
-import { roastCoder } from './extensions/commands/groups/fun/roastCoder'
-import { servicesCommand } from './extensions/commands/groups/classroom/servicesSchedule'
-import { dadJoke } from './extensions/commands/groups/fun/dadJokes'
+import { busCommand } from './extensions/commands/list/sas/bus'
+import { pingCommand } from './extensions/commands/list/general/ping'
+import { pisoCommand } from './extensions/commands/list/classroom/piso'
+import { ribasCommand } from './extensions/commands/list/fun/ribeiro'
+import { rodaEsse } from './extensions/commands/list/fun/rodaesse'
+import { roastCoder } from './extensions/commands/list/fun/roastCoder'
+import { servicesCommand } from './extensions/commands/list/classroom/servicesSchedule'
+import { dadJoke } from './extensions/commands/list/fun/dadJokes'
 import botConfig from './botConfig.json'
 import { ClientManager } from './client'
-import { onlyfansCommand } from './extensions/commands/groups/fun/onlyfans'
-import { php } from './extensions/commands/groups/fun/killMe'
-import { java } from './extensions/commands/groups/fun/java'
-import { etron } from './extensions/commands/groups/fun/bestcar'
+import { onlyfansCommand } from './extensions/commands/list/fun/onlyfans'
+import { php } from './extensions/commands/list/fun/killMe'
+import { java } from './extensions/commands/list/fun/java'
+import { etron } from './extensions/commands/list/fun/bestcar'
 
 import 'dotenv/config'
 import { CommandsExtension } from './extensions/commands'
 import { GuildExtension } from './extensions/guild'
 import { ReactsHandler } from './extensions/reacts'
-import { scheduleCommand } from './extensions/commands/groups/classroom/schedule'
-import { mealsCommand } from './extensions/commands/groups/sas/meals'
+import { scheduleCommand } from './extensions/commands/list/classroom/schedule'
+import { mealsCommand } from './extensions/commands/list/sas/meals'
 
-import i18next from 'i18next'
-import FsBackend from 'i18next-fs-backend'
-import path from 'path'
-import { horoscopeCommand } from './extensions/commands/groups/fun/horoscope'
-import { stockCommand } from './extensions/commands/groups/fun/stock'
-import { getWeatherCommand } from './extensions/commands/groups/general/weather'
-/*
-i18next.use(FsBackend).init({
-    initImmediate: false,
-    debug: true,
-    backend: {
-        loadPath: path.join(__dirname, '../locales/{{lng}}/{{ns}}.json'),
-    },
-})
+import { horoscopeCommand } from './extensions/commands/list/fun/horoscope'
+import { stockCommand } from './extensions/commands/list/fun/stock'
+import { getWeatherCommand } from './extensions/commands/list/general/weather'
+import { TimersExtension } from './extensions/timers'
+import { mealsTimer } from './extensions/timers/list/meals'
 
-console.log(i18next.t('abc'))
-*/
 const bot = new ClientManager(botConfig, {
     intents: [
         GatewayIntentBits.GuildMessages,
@@ -54,10 +43,11 @@ const bot = new ClientManager(botConfig, {
     ],
 })
 
-const [commands, reacts, guild] = [
+const [commands, reacts, guild, timer] = [
     new CommandsExtension(bot),
     new ReactsHandler(bot),
     new GuildExtension(bot),
+    new TimersExtension(bot),
 ]
 
 commands.registerSlashCommands(
@@ -82,80 +72,9 @@ commands.registerSlashCommands(
 
 commands.registerSlashCommandsAutomatically()
 
-/*const getChannelById = async (guildId: string, channelId: string) => {
-  const guild = await bot.guilds.fetch(guildId);
-  return guild.channels.cache.get(channelId) as TextChannel;
-};
+timer.register(mealsTimer)
 
-// CronJobs
-
-bot.handlers.timers.register({
-  cronTime: botConfig.timmers.meals.cronTime,
-  channel: () =>
-    getChannelById(botConfig.guild.id, botConfig.timmers.meals.channelId),
-  handler: () =>
-    mealsCommand.run(undefined, {
-      date: moment().add(1, "day").format("YYYY-MM-DD")
-    })
-})
-*/
-/*
-bot.handlers.timers.register({
-  cronTime: botConfig.timmers.cineplace.cronTime,
-  channel: () =>
-    getChannelById(
-      botConfig.guild.id,
-      botConfig.timmers.cineplace.channelId
-    ),
-  handler: async () => {
-    return moviesTimmerHander(
-      await getChannelById(
-        botConfig.guild.id,
-        botConfig.timmers.cineplace.channelId
-      )
-    );
-  }
-});
-
-bot.handlers.timers.register({
-  cronTime: botConfig.timmers.minecraft.cronTime,
-  channel: () =>
-    getChannelById(
-      botConfig.guild.id,
-      botConfig.timmers.minecraft.channelId
-    ),
-  handler: async () => {
-    return minecraftTimmerHandler(
-      await getChannelById(
-        botConfig.guild.id,
-        botConfig.timmers.minecraft.channelId
-      )
-    );
-  }
-});
-
-bot.handlers.timers.register({
-  cronTime: botConfig.timmers.vitenoipvc.cronTime,
-  channel: () =>
-    getChannelById(
-      botConfig.guild.id,
-      botConfig.timmers.vitenoipvc.channelId
-    ),
-  handler: async () => {
-    return instagramTimerHandler(
-      await getChannelById(
-        botConfig.guild.id,
-        botConfig.timmers.vitenoipvc.channelId
-      ),
-      botConfig.timmers.vitenoipvc.instagramAccount
-    );
-  }
-});
-
-// Reactions
-bot.handlers.reacts.giveRoles(botConfig.reacts);
-
-*/
+timer.start()
 
 bot.run(process.env.DISCORD_BOT_TOKEN!)
     .then(() => console.log('Bot running'))
