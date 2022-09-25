@@ -9,7 +9,7 @@ const fetchMoodle = (wsFunction: string) => {
         domain +
             apiGateway +
             new URLSearchParams({
-                wstoken: process.env.MOODLE_AUTH_TOKEN,
+                wstoken: process.env.MOODLE_AUTH_TOKEN!,
                 wsfunction: wsFunction,
                 moodlewsrestformat: 'json',
             }).toString(),

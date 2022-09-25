@@ -1,4 +1,4 @@
-import { messageParser, CommandsExtension } from '../src/extensions/commands'
+/*import { messageParser, CommandsExtension } from '../src/extensions/commands'
 
 test('command parser is working as it should', () => {
     expect(messageParser('!command arg1 arg2')).toEqual({
@@ -32,3 +32,4 @@ test('command parser arguments', () => {
     expect(CommandsExtension.areArgumentsRight(0, 2, 1)).toBe(false)
     expect(CommandsExtension.areArgumentsRight(0, 1, 0)).toBe(false)
 })
+*/
