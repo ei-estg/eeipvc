@@ -9,6 +9,8 @@ export class GuildExtension<T> extends BaseExtension<T> {
         super(manager)
 
         const { client } = manager
+        client.on('guildMemberAdd', this._memberJoined.bind(this))
+        client.on('guildMemberRemove', this._memberLeft.bind(this))
     }
 
     private incrementMembersCount() {
@@ -23,6 +25,7 @@ export class GuildExtension<T> extends BaseExtension<T> {
         const guildId = this._manager.config.guild.id
         const guild = await this._manager.client.guilds.fetch(guildId)
         this._membersCount = guild.memberCount
+        await this._updateStatus()
     }
 
     private async _updateStatus() {
