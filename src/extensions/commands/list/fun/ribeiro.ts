@@ -6,9 +6,9 @@ export const ribasCommand: SlashCommand = {
 
     async run(it) {
         const emojis = [
-            'https://imgur.com/AU3VHzp',
             'https://imgur.com/q6jFAic',
             'https://imgur.com/OGDmDMr',
+            'https://imgur.com/AU3VHzp',
         ]
 
         await it.reply(emojis.pop())
