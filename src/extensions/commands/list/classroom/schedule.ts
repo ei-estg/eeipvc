@@ -31,7 +31,6 @@ export const scheduleCommand: SlashCommand = {
 
         const memberRoles = (await it.member.fetch())._roles
 
-        console.log(this.config.commands)
         if (!year) {
             memberRoles.forEach((role) => {
                 this.config.commands.schedule.year.forEach((yearRole) => {

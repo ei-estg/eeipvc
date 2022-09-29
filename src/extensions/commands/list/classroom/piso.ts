@@ -30,8 +30,6 @@ export const pisoCommand: SlashCommand = {
           `Piso ***${floorNumber}***. Não te percas novamente :D (Roda o telemóvel)`,
       )
 
-      console.log('here bruh')
-
       await it.followUp({
         files: [
           {
