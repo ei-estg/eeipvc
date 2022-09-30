@@ -13,6 +13,7 @@ import { onlyfansCommand } from './extensions/commands/list/fun/onlyfans'
 import { php } from './extensions/commands/list/fun/killMe'
 import { java } from './extensions/commands/list/fun/java'
 import { etron } from './extensions/commands/list/fun/bestcar'
+import { avminhoCommand} from "./extensions/commands/list/busSchedules/avminho"
 
 import 'dotenv/config'
 import { CommandsExtension } from './extensions/commands'
@@ -68,6 +69,7 @@ commands.registerSlashCommands(
     horoscopeCommand,
     stockCommand,
     getWeatherCommand,
+    avminhoCommand
 )
 
 commands.registerSlashCommandsAutomatically()
