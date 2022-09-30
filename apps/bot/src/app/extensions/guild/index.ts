@@ -44,8 +44,8 @@ export class GuildExtension<T> extends BaseExtension<T> {
         await this._updateStatus()
         const channel = await member.guild.channels.fetch('766278332500803610')
         let string = ''
-        if (this._membersCount === 300) {
-            string = 'Parabéns és o membro nº300 a ingressar no servidor.'
+        if (this._membersCount % 100 === 0) {
+            string = `Parabéns és o membro nº${this._membersCount} a ingressar no servidor.`
         }
         if (channel && channel.isTextBased()) {
             channel.send(
