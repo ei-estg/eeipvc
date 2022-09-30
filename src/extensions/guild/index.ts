@@ -47,8 +47,8 @@ export class GuildExtension<T> extends BaseExtension<T> {
             (channel) => channel.id == '766278332500803610',
         )
         let string = ''
-        if (this._membersCount === 300) {
-            string = 'Parabéns és o membro nº300 a ingressar no servidor.'
+        if (this._membersCount % 100 === 0) {
+            string = `Parabéns és o membro nº${this._membersCount} a ingressar no servidor.`
         }
         channel.send(
             `${string}Boas ${
