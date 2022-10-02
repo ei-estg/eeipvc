@@ -42,21 +42,24 @@ export class GuildExtension<T> extends BaseExtension<T> {
         this.incrementMembersCount()
         await this._updateStatus()
 
-        const channel = member.guild.channels.cache.find(
-            (channel) => channel.id == '766278332500803610',
-        )
+        const channel = await member.guild.channels.fetch('766278332500803610')
         let string = ''
         if (this._membersCount === 300) {
             string = 'Parabéns és o membro nº300 a ingressar no servidor.'
         }
-        channel.send(
+
+        let welcomeChannel = await member.guild.channels.fetch('779437283966189618')
+        welcomeChannel = welcomeChannel.toString()
+
+        let roleRequestChannel = await member.guild.channels.fetch('779491420079259659')
+        roleRequestChannel = roleRequestChannel.toString()
+
+        await channel.send(
             `${string}Boas ${
                 member.user
-            }. Dá uma olhadela nas salas ${member.guild.channels.cache
-                .get('779437283966189618')
-                .toString()} e ${member.guild.channels.cache
-                .get('779491420079259659')
-                .toString()} para ficares a conhecer as regras e ainda acederes a diferentes áreas do servidor.`,
+            }. Dá uma olhadela nas salas ${welcomeChannel} e ${
+                roleRequestChannel
+            } para ficares a conhecer as regras e ainda acederes a diferentes áreas do servidor.`,
         )
     }
 
@@ -64,9 +67,7 @@ export class GuildExtension<T> extends BaseExtension<T> {
         this.decrementMembersCount()
         await this._updateStatus()
 
-        const channel = member.guild.channels.cache.find(
-            (channel) => channel.id == '766278332500803610',
-        )
+        const channel = await member.guild.channels.fetch('766278332500803610')
 
         channel.send(
             `${member.user}, '${member.displayName}' abandonou a nossa jangada ⛵️. Seguimos com ${this._membersCount} marujos <:FeelsBadMan:766306313663283241> `,
