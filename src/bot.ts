@@ -24,6 +24,7 @@ import { mealsCommand } from './extensions/commands/list/sas/meals'
 import { horoscopeCommand } from './extensions/commands/list/fun/horoscope'
 import { stockCommand } from './extensions/commands/list/fun/stock'
 import { getWeatherCommand } from './extensions/commands/list/general/weather'
+import { getGasPriceCommand } from "./extensions/commands/list/general/combustiveis"
 import { TimersExtension } from './extensions/timers'
 import { mealsTimer } from './extensions/timers/list/meals'
 
@@ -68,6 +69,7 @@ commands.registerSlashCommands(
     horoscopeCommand,
     stockCommand,
     getWeatherCommand,
+    getGasPriceCommand,
 )
 
 commands.registerSlashCommandsAutomatically()

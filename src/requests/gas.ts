@@ -1,6 +1,6 @@
 import fetch, { Request, Response } from 'node-fetch'
 
-export const fetchGasPrice = async (type: String): Promise<any> => {
+export const fetchGasPrice = async (): Promise<any> => {
     const url =
         'https://precoscombustiveis.dgeg.gov.pt/api/PrecoComb/ListarDadosPostos?idsTiposComb=1120%2C3400%2C3205%2C3405%2C3201%2C2101&idMarca=&idTipoPosto=&idDistrito=16&idsMunicipios=242'
     const response = await fetch(url)
