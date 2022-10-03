@@ -26,6 +26,7 @@ import { stockCommand } from './extensions/commands/list/fun/stock'
 import { getWeatherCommand } from './extensions/commands/list/general/weather'
 import { TimersExtension } from './extensions/timers'
 import { mealsTimer } from './extensions/timers/list/meals'
+import {emailCommand} from "./extensions/commands/list/classroom/mail";
 
 const bot = new ClientManager(botConfig, {
     intents: [
@@ -68,6 +69,7 @@ commands.registerSlashCommands(
     horoscopeCommand,
     stockCommand,
     getWeatherCommand,
+    emailCommand
 )
 
 commands.registerSlashCommandsAutomatically()
