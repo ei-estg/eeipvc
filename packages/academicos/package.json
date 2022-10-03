@@ -1,0 +1,4 @@
+{
+  "name": "academicos",
+  "main": "./src/index.ts"
+}

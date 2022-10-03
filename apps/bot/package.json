@@ -1,0 +1,16 @@
+{
+  "name": "bot",
+  "scripts": {
+    "dev": "ts-node-dev ./src/app/bot.ts",
+    "build": "tsc -p .",
+    "start:build": "node build/src/bot.js",
+    "start": "npm run build && npm run start:build"
+  },
+  "dependencies": {
+    "@discordjs/builders": "^1.2.0",
+    "@discordjs/opus": "^0.8.0",
+    "@discordjs/rest": "^1.1.0",
+    "discord-api-types": "^0.37.10",
+    "minecraft-server-util": "^5.3.1"
+  }
+}

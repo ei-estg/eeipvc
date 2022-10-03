@@ -1,0 +1,4 @@
+{
+  "name": "on",
+  "main": "./src/index.ts"
+}
