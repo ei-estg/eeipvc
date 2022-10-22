@@ -2,7 +2,7 @@
 
 [![GitHub Stars](https://img.shields.io/github/stars/sousa-andre/ipvcEI-Bot)](https://github.com/sousa-andre/ipvcEI-Bot/stargazers) [![GitHub Issues](https://img.shields.io/github/issues/sousa-andre/ipvcEI-Bot)](https://github.com/sousa-andre/ipvcEI-Bot/issues) [![GitHub Forks](https://img.shields.io/github/forks/sousa-andre/ipvcEI-Bot)](https://github.com/sousa-andre/ipvcEI-Bot) [![GitHub License](https://img.shields.io/github/license/sousa-andre/ipvcEI-Bot)](https://github.com/sousa-andre/ipvcEI-Bot/blob/main/LICENSE)
 
-This is a discord bot, powered by [discord.js](https://discord.js.org/#/) that provides usefull commands to our discord college server, such as class schedules, information about meals, semester calendar, etc.
+This is a discord main, powered by [discord.js](https://discord.js.org/#/) that provides usefull commands to our discord college server, such as class schedules, information about meals, semester calendar, etc.
 
 ### Available Commands
 
@@ -21,7 +21,7 @@ This is a discord bot, powered by [discord.js](https://discord.js.org/#/) that p
 -   **Schedule** - Schedule for a given class
 -   **Exams** - List of exam dates
 -   **Responde** - Randomly select a person to answer
--   **Onlyfans** - Sends a message with the bot onlyfans page link
+-   **Onlyfans** - Sends a message with the main onlyfans page link
 -   **Dogecoin** - Current dogecoin price
 -   **Rodaesse** - Send a virtual cigar to those who need to decompress
 -   **Roastcoder** - Roast an Engineer every time he messes up.

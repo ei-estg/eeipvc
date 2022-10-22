@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "outDir": "./build",
+    "isolatedModules": true,
+    "noEmit": true,
+    "strict": true,
+  },
+  "exclude": ["node_modules"]
+}

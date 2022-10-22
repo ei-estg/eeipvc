@@ -1,0 +1,7 @@
+{
+  "name": "@geei/academicos",
+  "dependencies": {
+    "node-fetch": "^2.6.1",
+    "cheerio": "^1.0.0-rc.12"
+  }
+}
