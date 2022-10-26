@@ -1,4 +1,4 @@
-import { SlashCommand } from "../../base/SlashCommand";
+import { SlashCommand } from '../../base/SlashCommand'
 import { getBusStops } from '../../../../requests/sas'
 import { sasEmbed } from '../../../../defaults/embed'
 

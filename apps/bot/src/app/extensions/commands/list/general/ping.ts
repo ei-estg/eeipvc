@@ -1,4 +1,4 @@
-import { CommandMessage, SlashCommand } from "../../base/SlashCommand";
+import { CommandMessage, SlashCommand } from '../../base/SlashCommand'
 
 export const pingCommand: SlashCommand = {
     name: 'ping',

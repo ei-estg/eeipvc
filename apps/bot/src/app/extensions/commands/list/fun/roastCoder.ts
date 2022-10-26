@@ -1,4 +1,4 @@
-import { SlashCommand } from "../../base/SlashCommand";
+import { SlashCommand } from '../../base/SlashCommand'
 
 export const roastCoder: SlashCommand = {
     name: 'roastcoder',

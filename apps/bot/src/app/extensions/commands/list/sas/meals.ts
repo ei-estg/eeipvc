@@ -1,21 +1,22 @@
-import { SlashCommand } from "../../base/SlashCommand";
+import { SlashCommand } from '../../base/SlashCommand'
 import { getMealsNew } from '../../../../requests/sas'
 import { sasEmbed } from '../../../../defaults/embed'
 import { getISODate } from '../../../../utils/time'
 import { normalize } from '../../../../utils/string'
-import { SlashCommandBuilder } from "@discordjs/builders";
+import { SlashCommandBuilder } from '@discordjs/builders'
 
 export const mealsCommand: SlashCommand = {
     builder: new SlashCommandBuilder()
-      .setName('ementas')
-      .setDescription('Ementas para a cantina da ESTG')
-      .addStringOption(option =>
-        option.setName('data')
-          .setDescription('Dia da ementa. Exemplo: 2022-12-01')
-      ),
+        .setName('ementas')
+        .setDescription('Ementas para a cantina da ESTG')
+        .addStringOption((option) =>
+            option
+                .setName('data')
+                .setDescription('Dia da ementa. Exemplo: 2022-12-01'),
+        ),
 
     async run(it) {
-        const date  = it.options.get('data')?.value || getISODate()
+        const date = it.options.get('data')?.value || getISODate()
 
         if (date == 'gabs') {
             return '<:pepesneakyevil:958133599679443014>'

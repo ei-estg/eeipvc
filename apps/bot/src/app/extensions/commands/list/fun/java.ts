@@ -1,4 +1,4 @@
-import { SlashCommand } from "../../base/SlashCommand";
+import { SlashCommand } from '../../base/SlashCommand'
 import { eiEmbed } from '../../../../defaults/embed'
 
 export const java: SlashCommand = {

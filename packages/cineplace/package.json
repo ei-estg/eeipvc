@@ -1,0 +1,4 @@
+{
+  "name": "cineplace",
+  "main": "./src/index.ts"
+}

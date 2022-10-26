@@ -25,9 +25,8 @@ export const stockCommand: SlashCommand = {
             }
             // Formatar Numero com virgulas
             let marketCap
-            console.log(stock.marketCap)
+
             if (stock.marketCap) {
-                console.log('here')
                 marketCap = stock.marketCap
                     .toString()
                     .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')

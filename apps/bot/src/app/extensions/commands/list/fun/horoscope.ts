@@ -22,8 +22,8 @@ export const horoscopeCommand: SlashCommand = {
         const sign = it.options.get('signo').value
         const horoscope = await getHoroscope(sign)
 
-        if (!horoscope) {
-            return 'Não foi possível encontrar o signo'
+        if (!horoscope || !horoscope.text || !horoscope.zodiac) {
+            return 'Não existe previsão diária para este signo'
         }
         const embed = eiEmbed()
         embed.setTitle(`Horóscopo de ${horoscope.zodiac}`)

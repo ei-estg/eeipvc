@@ -1,4 +1,4 @@
-import { SlashCommand } from "../../base/SlashCommand";
+import { SlashCommand } from '../../base/SlashCommand'
 import { eiEmbed } from '../../../../defaults/embed'
 
 export const onlyfansCommand: SlashCommand = {
@@ -15,7 +15,7 @@ export const onlyfansCommand: SlashCommand = {
                 'https://media1.tenor.com/images/e855b2e04d85071ffec096ad48d56dc1/tenor.gif',
             )
             .setFooter({
-                text: 'Donate me, quero comprar mais dynos'
+                text: 'Donate me, quero comprar mais dynos',
             })
     },
 }
