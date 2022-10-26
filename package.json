@@ -22,7 +22,10 @@
     },
     "dependencies": {
         "dotenv": "^16.0.3",
-        "turbo": "^1.5.5"
+        "turbo": "1.5.5"
+    },
+    "optionalDependencies": {
+        "turbo-linux-arm64": "1.5.5"
     },
     "devDependencies": {
         "@types/node": "^14.14.19",
