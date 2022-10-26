@@ -26,7 +26,8 @@ import { stockCommand } from './app/extensions/commands/list/fun/stock'
 import { getWeatherCommand } from './app/extensions/commands/list/general/weather'
 import { TimersExtension } from './app/extensions/timers'
 import { mealsTimer } from './app/extensions/timers/list/meals'
-import { environmentSchema } from "./config/environment.schema";
+import { emailCommand } from "./app/extensions/commands/list/classroom/mail";
+import { environmentSchema } from "./config/environment.schema"
 
 dotenv.config({
     path: '../../.env'
@@ -77,6 +78,7 @@ commands.registerSlashCommands(
     horoscopeCommand,
     stockCommand,
     getWeatherCommand,
+    emailCommand
 )
 
 commands.registerSlashCommandsAutomatically()
