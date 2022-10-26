@@ -13,6 +13,9 @@
     },
     "dev": {
       "cache": false
+    },
+    "test": {
+      "dependsOn": ["build"]
     }
   },
   "globalDependencies": [
