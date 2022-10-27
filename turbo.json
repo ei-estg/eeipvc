@@ -8,8 +8,8 @@
     "start": {
       "dependsOn": ["build"]
     },
-    "lint": {
-
+    "lint": {},
+    "lint:check": {
     },
     "dev": {
       "cache": false

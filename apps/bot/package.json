@@ -7,6 +7,7 @@
         "lint": "prettier --write ./src/**/*.ts",
         "dev": "ts-node-dev ./src/main.ts",
         "test": "jest",
+        "lint:check": "prettier --check ./src/**/*.ts && eslint  ./src/**/*.ts",
         "build": "tsc -p .",
         "start": "npm run build && node ./build/main.js"
     },

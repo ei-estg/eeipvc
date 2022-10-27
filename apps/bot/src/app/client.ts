@@ -6,7 +6,7 @@ export class ClientManager {
     readonly restClient: REST
     readonly client: Client
 
-    constructor(public config: any, options: ClientOptions) {
+    constructor(public config, options: ClientOptions) {
         this.restClient = new REST({ version: '10' })
         this.client = new Client(options)
     }
