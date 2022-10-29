@@ -35,7 +35,8 @@ export interface Meal {
     time: string
     englishTime: string
     price?: number
-    stockQuantity?: number
+    stockQuantity?: number,
+    available: boolean
 }
 
 export interface Meals {
@@ -65,6 +66,7 @@ export const getMeals = async (startDate: string, endDate: string) => {
                 time: meal.altura_AlturaDia,
                 englishTime:
                     meal.altura_AlturaDia == 'Almoço' ? 'Lunch' : 'Dinner',
+                available: meal.available
             })
         })
     })
@@ -163,6 +165,7 @@ export const getMealsNew = async (date: string) => {
                     price.description == 'Preço Aluno' && price.meal == 'lunch',
             ).price,
             stockQuantity: innerMeal.stockQuantity,
+            available: innerMeal.available
         })
     })
     dinnerData.data.forEach((innerMeal) => {
@@ -193,6 +196,7 @@ export const getMealsNew = async (date: string) => {
                     price.meal == 'dinner',
             ).price,
             stockQuantity: innerMeal.stockQuantity,
+            available: innerMeal.available
         })
     })
     return reData

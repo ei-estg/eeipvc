@@ -45,20 +45,30 @@ export const mealsCommand: SlashCommand = {
                     value: `🍴 **${lunchMeals[0].time}**`,
                 })
             lunchMeals.forEach((meal) => {
-                mealsEmbed.addFields({
-                    name: `${meal.type} - ${meal.price?.toFixed(2) ?? '--'}€`,
-                    value: normalize(meal.name),
-                })
+                let name = `${meal.type} - ${meal.price?.toFixed(2) ?? '--'}€`
+                let value = normalize(meal.name)
+
+                if (!meal.available) {
+                    name = `~~${name}~~`
+                    value = normalize(`~~${meal.name}~~`)
+                }
+
+                mealsEmbed.addFields({ name, value })
             })
             mealsEmbed.addFields({
                 name: '\u200B',
                 value: `🍴 **${dinnerMeals[0].time}**`,
             })
             dinnerMeals.forEach((meal) => {
-                mealsEmbed.addFields({
-                    name: `${meal.type} - ${meal.price?.toFixed(2) ?? '--'}€`,
-                    value: normalize(meal.name),
-                })
+                let name = `${meal.type} - ${meal.price?.toFixed(2) ?? '--'}€`
+                let value = normalize(meal.name)
+
+                if (!meal.available) {
+                    name = `~~${name}~~`
+                    value = normalize(`~~${meal.name}~~`)
+                }
+
+                mealsEmbed.addFields({ name, value })
             })
             return mealsEmbed
         } catch (err) {
