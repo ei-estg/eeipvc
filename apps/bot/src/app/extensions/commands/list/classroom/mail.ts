@@ -14,6 +14,8 @@ export const emailCommand: SlashCommand = {
                 .setRequired(true),
         ),
     async run(it) {
+        await it.reply('Por favor aguarde...')
+
         const teacherName = it.options.get('nome').value
 
         const teachers = await getMailByTeacherName(teacherName)
@@ -27,6 +29,6 @@ export const emailCommand: SlashCommand = {
             }),
         )
 
-        return embed
+        await it.editReply({ content: '', embeds: [embed] })
     },
 }
