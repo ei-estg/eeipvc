@@ -47,15 +47,17 @@ export class GuildExtension<T> extends BaseExtension<T> {
         if (this._membersCount === 300) {
             string = 'Parabéns és o membro nº300 a ingressar no servidor.'
         }
+        const rulesChannel = await member.guild.channels.fetch(
+            '779437283966189618',
+        )
+        const rolesChannel = await member.guild.channels.fetch(
+            '779491420079259659',
+        )
         if (channel && channel.isTextBased()) {
             channel.send(
                 `${string}Boas ${
                     member.user
-                }. Dá uma olhadela nas salas ${await member.guild.channels
-                    ?.fetch('779437283966189618')
-                    ?.toString()} e ${await member.guild.channels
-                    ?.fetch('779491420079259659')
-                    ?.toString()} para ficares a conhecer as regras e ainda acederes a diferentes áreas do servidor.`,
+                }. Dá uma olhadela nas salas ${rulesChannel?.toString()} e ${rolesChannel?.toString()} para ficares a conhecer as regras e ainda acederes a diferentes áreas do servidor.`,
             )
         }
     }
