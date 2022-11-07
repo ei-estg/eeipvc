@@ -43,7 +43,7 @@ export class GuildExtension<T> extends BaseExtension<T> {
         this.incrementMembersCount()
         await this._updateStatus()
 
-        const channel = member.guild.channels.cache.find(
+        const channel = member.guild.channels.find(
             (channel) => channel.id == '766278332500803610',
         )
         let string = ''
@@ -53,9 +53,9 @@ export class GuildExtension<T> extends BaseExtension<T> {
         channel.send(
             `${string}Boas ${
                 member.user
-            }. Dá uma olhadela nas salas ${member.guild.channels.cache
+            }. Dá uma olhadela nas salas ${member.guild.channels
                 .get('779437283966189618')
-                .toString()} e ${member.guild.channels.cache
+                .toString()} e ${member.guild.channels
                 .get('779491420079259659')
                 .toString()} para ficares a conhecer as regras e ainda acederes a diferentes áreas do servidor.`,
         )
@@ -65,7 +65,7 @@ export class GuildExtension<T> extends BaseExtension<T> {
         this.decrementMembersCount()
         await this._updateStatus()
 
-        const channel = member.guild.channels.cache.find(
+        const channel = member.guild.channels.find(
             (channel) => channel.id == '766278332500803610',
         )
 
