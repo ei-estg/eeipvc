@@ -1,6 +1,6 @@
 import { BaseExtension } from '../base/BaseExtension'
 import { ClientManager } from '../../client'
-import { ActivityType, GuildMember } from "discord.js";
+import { ActivityType, GuildMember, PartialGuildMember } from "discord.js";
 
 export class GuildExtension<T> extends BaseExtension<T> {
     private _membersCount: number = 0
@@ -42,8 +42,7 @@ export class GuildExtension<T> extends BaseExtension<T> {
     private async _memberJoined(member: GuildMember) {
         this.incrementMembersCount()
         await this._updateStatus()
-
-        const channel = member.guild.channels.cache.get('766278332500803610')
+        const channel = await member.guild.channels.fetch('766278332500803610')
         let string = ''
         if (this._membersCount === 300) {
             string = 'Parabéns és o membro nº300 a ingressar no servidor.'
@@ -52,25 +51,24 @@ export class GuildExtension<T> extends BaseExtension<T> {
             channel.send(
                 `${string}Boas ${
                     member.user
-                }. Dá uma olhadela nas salas ${member.guild.channels.cache
-                    .get('779437283966189618')
-                    ?.toString()} e ${member.guild.channels.cache
-                    .get('779491420079259659')
+                }. Dá uma olhadela nas salas ${await member.guild.channels
+                    ?.fetch('779437283966189618')
+                    ?.toString()} e ${await member.guild.channels
+                    ?.fetch('779491420079259659')
                     ?.toString()} para ficares a conhecer as regras e ainda acederes a diferentes áreas do servidor.`,
             )
         }
     }
 
-    private async _memberLeft(member: any) {
+    private async _memberLeft(member: GuildMember | PartialGuildMember) {
         this.decrementMembersCount()
         await this._updateStatus()
 
-        const channel = member.guild.channels.find(
-            (channel) => channel.id == '766278332500803610',
-        )
-
-        channel.send(
-            `${member.user}, '${member.displayName}' abandonou a nossa jangada ⛵️. Seguimos com ${this._membersCount} marujos <:FeelsBadMan:766306313663283241> `,
-        )
+        const channel = await member.guild.channels.fetch('766278332500803610')
+        if (channel && channel.isTextBased()) {
+            channel.send(
+                `${member.user}, '${member.displayName}' abandonou a nossa jangada ⛵️. Seguimos com ${this._membersCount} marujos <:FeelsBadMan:766306313663283241> `,
+            )
+        }
     }
 }
