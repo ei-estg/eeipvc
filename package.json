@@ -9,7 +9,8 @@
         "start": "turbo run start",
         "dev": "turbo run dev",
         "build": "turbo run build",
-        "lint:check": "turbo run lint:check"
+        "lint:check": "turbo run lint:check",
+        "start:graph": "turbo run start --graph"
     },
     "workspaces": [
         "apps/*",
@@ -18,8 +19,8 @@
     "author": "André Sousa <andrematodesousa@gmail.com>",
     "license": "MIT",
     "engines": {
-        "node": "16.x",
-        "npm": "8.15.x"
+        "node": ">=16",
+        "npm": ">=8.15"
     },
     "dependencies": {
         "dotenv": "^16.0.3",
