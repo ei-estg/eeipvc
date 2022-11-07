@@ -1,6 +1,6 @@
 import { BaseExtension } from '../base/BaseExtension'
 import { ClientManager } from '../../client'
-import { ActivityType } from 'discord.js'
+import { ActivityType, GuildMember } from "discord.js";
 
 export class GuildExtension<T> extends BaseExtension<T> {
     private _membersCount: number = 0
@@ -39,26 +39,26 @@ export class GuildExtension<T> extends BaseExtension<T> {
         )
     }
 
-    private async _memberJoined(member: any) {
+    private async _memberJoined(member: GuildMember) {
         this.incrementMembersCount()
         await this._updateStatus()
 
-        const channel = member.guild.channels.find(
-            (channel) => channel.id == '766278332500803610',
-        )
+        const channel = member.guild.channels.cache.get('766278332500803610')
         let string = ''
         if (this._membersCount === 300) {
             string = 'Parabéns és o membro nº300 a ingressar no servidor.'
         }
-        channel.send(
-            `${string}Boas ${
-                member.user
-            }. Dá uma olhadela nas salas ${member.guild.channels
-                .get('779437283966189618')
-                .toString()} e ${member.guild.channels
-                .get('779491420079259659')
-                .toString()} para ficares a conhecer as regras e ainda acederes a diferentes áreas do servidor.`,
-        )
+        if (channel && channel.isTextBased()) {
+            channel.send(
+                `${string}Boas ${
+                    member.user
+                }. Dá uma olhadela nas salas ${member.guild.channels.cache
+                    .get('779437283966189618')
+                    ?.toString()} e ${member.guild.channels.cache
+                    .get('779491420079259659')
+                    ?.toString()} para ficares a conhecer as regras e ainda acederes a diferentes áreas do servidor.`,
+            )
+        }
     }
 
     private async _memberLeft(member: any) {
