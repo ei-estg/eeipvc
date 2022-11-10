@@ -30,13 +30,11 @@ export const pisoCommand: SlashCommand = {
           `Piso ***${floorNumber}***. Não te percas novamente :D (Roda o telemóvel)`,
       )
 
-      console.log('here bruh')
-
       await it.followUp({
         files: [
           {
             attachment: path.resolve(
-              `assets/floor_${floorNumber}_blueprint.png`,
+              `src/assets/floor_${floorNumber}_blueprint.png`,
             ),
             name: `floor${floorNumber}.png`,
           },
