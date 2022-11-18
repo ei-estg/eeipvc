@@ -1,0 +1,17 @@
+{
+  "name": "@geei/calendar",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w"
+  },
+  "dependencies": {
+    "@google-cloud/local-auth": "^2.1.0",
+    "googleapis": "^105.0.0",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
+}

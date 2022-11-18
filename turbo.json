@@ -12,7 +12,8 @@
     "lint:check": {
     },
     "dev": {
-      "cache": false
+      "cache": false,
+      "dependsOn": ["^dev"]
     },
     "test": {
       "dependsOn": ["build"]

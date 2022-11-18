@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "estg-calendar",
+  "private_key_id": "9307321fecf22b6725b16f78860b4774cc2586cc",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCaI3Oyt7BTi2kM\nBpeF4oUgbGF2LuHfm9MczSpPdDXhecT99j6UrRKvrF+MjOh1F9Kz04cvkqCVNe7r\nMun3f3qPxBet4C1l8EnvXD1d//XtkIxVDfzXKl9nkTPOsiX2vQQzQi4yNozx/7wS\nVVcdV5Xvw/s9TEAvQT6Qf1bNIYVXDQ/NF6pMYTZYmuVB46jpj+SySx55NOO3s2vU\nNtVrHVIVSyTuzsxgkrBfN3SiGwSve8sSZGinr/hTOALlCxgnu0WWnGjRnBAAy8La\nU+xRhXiVHWbD6UbSSJWgWZJfRAS9ayAsK+5teO/WeoEYkJOqYZgkUMCAPjDnMx/w\ncYHrE4BTAgMBAAECggEAShF0JPLA//xzb6xxPoxx5Xk/Qj/YGZAzG9l5FfIlfCJ8\nJ3+fZelfG9zMk2kYwT+/59rjUNh4YwsmMo5mQKDY/+G+cTbTCfO0S5m7AYMgpdZ6\noNqWX7zEWKu9Rft0Y8NDk/Ae69Er3JRDx1mMAZUXfz5hafzMsQh8rIoMZ4lOnlvx\nAQHrOsSvNkMO7zmmQ+8t0LeYYC0AO3fnGdQDUhYPTwPYmV2+vFGryzLv1qZmZkhe\n7O8rb5KxdlxDkNglFUT6HYZFbHQhcQf4IZ+axuYWk4I+ebtzaJL9FsE9ScgJxbkZ\nfhDe8BB/H3vyLqzP/7t292y7FqQOJP6iTF7GJ4g3hQKBgQDLFhiXuxpW5YLxVa5y\nue5/eh6lk6GQXZLPKMSc8eB5ZI0hUXIZ3VKJQw+HAY+6Ai2s3tGuXHD72CIgxVdZ\nYw7y0cGXq0nfbK+uuB7T7Yhz6V+lVU1iRQNbDvelPuOqgvfUnEAGc1YnPX+ySUHY\nQf4M39SIPGRGCBwES6jJBbA4DwKBgQDCTIZAHtSa01/V075B151yX3QRJB/c+Ini\nj27YjCaMt4dUd57sPFKNOf3Fdyp88dmd3iMvCRJPNmLaQhsnXR9WFeaoPTQZ9mvr\naTpUw5f65BelM1Veg42acUVHlLLVBID7hgR87H7/HDqLnHDdLdMH0M8hbpRpss04\ny0DrmgzPfQKBgQCnK9IknCyrWRO3itslry3Gm4S8sVCuIIinpBxsQKKR6pZN1dhB\nuDCnsp8Gd9+SsxZcFbKuf4O1m41EQo2LlAILGWTtb19I3hOjlAY0V3QaTgGgfB5O\nBRclDqYFzUXk5xgQWGpPpQNHG9WQscLUvEXe3ST63BOCnkxJsOoIR3luOwKBgGOL\n42hso06jp0EdWCfRuUgE4al6kZyb9cEO7aKiw4lq6jn7g3/TNBRJNtx5vln/axg3\n3FzXz/qniaP7JIBZdJmdZOyjVtNKbmZRJmKRR4dyXy7zivR+gAk1qWIQLEN5KEA1\nnI0IedRoeRJYV3bqaGljsQuW5RD2W7CSajOLXK7dAoGBAI2q01XLk4OdXDIyMohG\nm/5TYHL/nFN/a3zhiaXeSE5mNxonZNWCBw0UM5spu6DfN2oZ+sVfNmy21e77Sd5L\nbYvpTOsngjpnI6D5L5WIBBll5pbgI8he9UwlJsgx0ddcWBYaXlRLK77H6Ej3gjLO\nNGMb2L2EHBtYZOxZgq9FNeBF\n-----END PRIVATE KEY-----\n",
+  "client_email": "ei-bot@estg-calendar.iam.gserviceaccount.com",
+  "client_id": "115140665055101710591",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/ei-bot%40estg-calendar.iam.gserviceaccount.com"
+}
