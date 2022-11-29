@@ -2,10 +2,9 @@ import { SlashCommand } from '../../base/SlashCommand'
 import { eiEmbed } from '../../../../defaults/embed'
 import { getAoCLeaderboard } from '../../../../requests/adventofcode'
 
-export const AdventOfCodeCommand: SlashCommand = {
+export const adventOfCodeCommand: SlashCommand = {
     description: '',
     name: 'aoc',
-    alias: ['advent-of-code', 'aoc-leaderboard'],
     async run() {
         const embed = eiEmbed()
         const aocData = await getAoCLeaderboard()

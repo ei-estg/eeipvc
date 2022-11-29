@@ -11,7 +11,7 @@ interface Participant {
 
 export const getAoCLeaderboard = async (): Promise<Participant[]> => {
     const req = await fetch(
-        'https://adventofcode.com/2021/leaderboard/private/view/661887.json',
+        'https://adventofcode.com/2022/leaderboard/private/view/661887.json',
         {
             headers: {
                 cookie: process.env.AOC_SESSION_COOKIE || '',

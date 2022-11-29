@@ -26,16 +26,20 @@ import { stockCommand } from './app/extensions/commands/list/fun/stock'
 import { getWeatherCommand } from './app/extensions/commands/list/general/weather'
 import { TimersExtension } from './app/extensions/timers'
 import { mealsTimer } from './app/extensions/timers/list/meals'
-import { emailCommand } from "./app/extensions/commands/list/classroom/mail";
-import { environmentSchema } from "./config/environment.schema"
+import { emailCommand } from './app/extensions/commands/list/classroom/mail'
+import { environmentSchema } from './config/environment.schema'
+import { adventOfCodeCommand } from './app/extensions/commands/list/fun/adventOfCode'
 
 dotenv.config({
-    path: '../../.env'
+    path: '../../.env',
 })
 
 const config = environmentSchema.validate(process.env)
 
-if (config.error) throw new Error(config.error.details.map(detail => detail.message).join('\n'))
+if (config.error)
+    throw new Error(
+        config.error.details.map((detail) => detail.message).join('\n'),
+    )
 
 const main = new ClientManager(botConfig, {
     intents: [
@@ -78,7 +82,8 @@ commands.registerSlashCommands(
     horoscopeCommand,
     stockCommand,
     getWeatherCommand,
-    emailCommand
+    emailCommand,
+    adventOfCodeCommand,
 )
 
 commands.registerSlashCommandsAutomatically()
@@ -90,4 +95,3 @@ timer.start()
 main.run(config.value.DISCORD_BOT_TOKEN)
     .then(() => console.log('Bot running'))
     .catch((err) => console.error(err))
-
