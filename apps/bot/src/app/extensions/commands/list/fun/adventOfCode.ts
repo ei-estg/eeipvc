@@ -3,8 +3,8 @@ import { eiEmbed } from '../../../../defaults/embed'
 import { getAoCLeaderboard } from '../../../../requests/adventofcode'
 
 export const adventOfCodeCommand: SlashCommand = {
-    description: '',
     name: 'aoc',
+    description: 'Advent of Code leaderboard',
     async run() {
         const embed = eiEmbed()
         const aocData = await getAoCLeaderboard()
