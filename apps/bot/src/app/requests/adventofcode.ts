@@ -9,22 +9,24 @@ interface Participant {
     lastStarTs: string
 }
 
-export const getAoCLeaderboard = async (): Promise<Participant[]> => {
-    const req = await fetch(
-        'https://adventofcode.com/2022/leaderboard/private/view/661887.json',
-        {
-            headers: {
-                cookie: process.env.AOC_SESSION_COOKIE || '',
-            },
+export const getAoCLeaderboard = async (
+    year: number,
+): Promise<{ url: string; data: Participant[] }> => {
+    const LEADERBOARD_ID = 661887
+    const leaderboardUrl = `https://adventofcode.com/${year}/leaderboard/private/view/${LEADERBOARD_ID}`
+
+    const req = await fetch(`${leaderboardUrl}.json`, {
+        headers: {
+            cookie: process.env.AOC_SESSION_COOKIE || '',
         },
-    )
+    })
     const data: any = await req.json()
     const reData: Participant[] = []
 
     Object.values(data.members).forEach((member: any) => {
         reData.push({
-            lastStarTs: member['lastStarTs'],
-            localScore: member['localScore'],
+            lastStarTs: member['last_star_ts'],
+            localScore: member['local_score'],
             id: member['id'],
             globalScore: member['global_score'],
             name: member['name'],
@@ -32,5 +34,8 @@ export const getAoCLeaderboard = async (): Promise<Participant[]> => {
         })
     })
 
-    return reData
+    return {
+        url: leaderboardUrl,
+        data: reData,
+    }
 }
