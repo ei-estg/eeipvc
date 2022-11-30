@@ -40,6 +40,6 @@ jobs:
           push: true
           tags: | 
             sousandre/eibot:latest
-            sousandre/eibot:${{ github.sha }}
+            sousandre/eibot:${{ github.sha::7 }}
 
 
