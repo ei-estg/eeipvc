@@ -17,7 +17,12 @@ export const adventOfCodeCommand: SlashCommand = {
         .setName('aoc')
         .setDescription('Advent of Code leaderboard')
         .addIntegerOption((option) =>
-            option.setName('ano').setDescription('Ano da leaderboard'),
+            option
+                .setRequired(true)
+                .setName('ano')
+                .setDescription('Ano Referente ao Advent of Code')
+                .setMinValue(2021)
+                .setMaxValue(2022),
         ),
 
     async run(it: CommandInteraction) {
