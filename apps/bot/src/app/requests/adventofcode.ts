@@ -13,9 +13,9 @@ export const getAoCLeaderboard = async (
     year: number,
 ): Promise<{ url: string; data: Participant[] }> => {
     const LEADERBOARD_ID = 661887
-    const leaderboardUrl = `https://adventofcode.com/${year}/leaderboard/private/view/${LEADERBOARD_ID}`
+    const leaderboardUrl = `https://adventofcode.com/${year}/leaderboard/private/view/${LEADERBOARD_ID}.json`
 
-    const req = await fetch(`${leaderboardUrl}.json`, {
+    const req = await fetch(`${leaderboardUrl}`, {
         headers: {
             cookie: process.env.AOC_SESSION_COOKIE || '',
         },
