@@ -39,6 +39,7 @@ export const adventOfCodeCommand: SlashCommand = {
         embed.setDescription(
             `**Ano:** ${year}\r\n**Link:** ${aocData.url}\r\nㅤ`,
         )
+        console.log(aocData.data)
 
         aocData.data
             .sort((a, b) => {
