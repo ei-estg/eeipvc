@@ -1,8 +1,8 @@
 name: Test, build and push
 
-on: |
-  push
-  pull_request
+on:
+  push:
+  pull_request:
 
 env:
   FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
