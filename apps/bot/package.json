@@ -1,0 +1,53 @@
+{
+    "name": "bot",
+    "private": true,
+    "version": "2.0.0-alpha",
+    "description": "",
+    "scripts": {
+        "lint": "prettier --write ./src/**/*.ts",
+        "dev": "ts-node-dev ./src/main.ts",
+        "test": "jest --passWithNoTests",
+        "lint:check": "prettier --check ./src/**/*.ts && eslint  ./src/**/*.ts",
+        "build": "tsc",
+        "start": "node ./build/main.js"
+    },
+    "author": "André Sousa <andrematodesousa@gmail.com>",
+    "license": "MIT",
+    "engines": {
+        "node": "16.x"
+    },
+    "dependencies": {
+        "@discordjs/builders": "^1.2.0",
+        "@discordjs/opus": "^0.8.0",
+        "@discordjs/rest": "^1.1.0",
+        "@geei/on": "*",
+        "cheerio": "^1.0.0-rc.9",
+        "cron": "^1.8.2",
+        "discord-api-types": "^0.37.10",
+        "discord.js": "^14.3.0",
+        "fast-xml-parser": "^3.17.4",
+        "ffmpeg-static": "^4.2.7",
+        "form-data": "^3.0.1",
+        "i18next": "^21.9.2",
+        "i18next-fs-backend": "^1.1.5",
+        "instagram-scraping": "^1.0.16",
+        "joi": "^17.6.4",
+        "minecraft-server-util": "^3.5.2",
+        "moment": "^2.29.1",
+        "node-fetch": "^2.6.1",
+        "normalize-strings": "^1.1.1",
+        "ytdl-core": "^4.4.5"
+    },
+    "devDependencies": {
+        "@types/i18next-fs-backend": "^1.1.2",
+        "@types/jest": "^26.0.19",
+        "@types/node": "^14.14.19",
+        "@types/node-fetch": "^2.5.7",
+        "eslint": "^7.14.0",
+        "eslint-config-prettier": "^6.15.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "prettier": "^2.1.2",
+        "ts-node-dev": "^2.0.0",
+        "typescript": "^4.7.4"
+    }
+}
