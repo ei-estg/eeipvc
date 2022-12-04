@@ -47,6 +47,7 @@ export const adventOfCodeCommand: SlashCommand = {
             })
             .slice(0, 21)
             .forEach((participant, pos) => {
+                if (!participant.name) return
                 const participantFirstPartPadded = shortify(
                     participant.name,
                     25,
