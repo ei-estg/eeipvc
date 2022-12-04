@@ -35,7 +35,7 @@ export const scheduleCommand: SlashCommand = {
         if (!year) {
             memberRoles.forEach((role) => {
                 this.config.commands.schedule.year.forEach((yearRole) => {
-                    if (role.id == yearRole.roleId) {
+                    if (role == yearRole.roleId) {
                         year = yearRole.content
                     }
                 })
@@ -45,7 +45,7 @@ export const scheduleCommand: SlashCommand = {
         if (!classroom) {
             memberRoles.forEach((role) => {
                 this.config.commands.schedule['class'].forEach((classRole) => {
-                    if (role.id == classRole.roleId) {
+                    if (role == classRole.roleId) {
                         classroom = classRole.content
                     }
                 })
