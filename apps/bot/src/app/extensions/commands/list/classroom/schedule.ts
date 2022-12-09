@@ -26,7 +26,7 @@ export const scheduleCommand: SlashCommand = {
         let classroom = options.get('classroom')?.value
         let day = options.get('day')?.value
         let year = options.get('year')?.value
-        if (day < 1 && day > 31) return 'Dia inválido'
+        if (+day < 1 && +day > 31) return 'Dia inválido'
         if (day < 10) day = `0${day}`
 
         const scheduleEmbed = eiEmbed()
@@ -77,10 +77,9 @@ export const scheduleCommand: SlashCommand = {
             currentMonth,
             day || currentDay,
         )
-        console.log(schedule)
 
         if (!schedule) {
-            return 'A combinação turma/ano não existe. Ex: !horario A-2 27'
+            return 'A combinação turma/ano não existe.'
         }
         if (schedule.length == 0) {
             return 'Sem horário disponível para o dia selecionado.'
