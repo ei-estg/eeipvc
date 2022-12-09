@@ -26,12 +26,13 @@ export const scheduleCommand: SlashCommand = {
         let classroom = options.get('classroom')?.value
         let day = options.get('day')?.value
         let year = options.get('year')?.value
+        if (day < 1 && day > 31) return 'Dia inválido'
+        if (day < 10) day = `0${day}`
 
         const scheduleEmbed = eiEmbed()
 
         const memberRoles = (await it.member.fetch())._roles
 
-        console.log(this.config.commands)
         if (!year) {
             memberRoles.forEach((role) => {
                 this.config.commands.schedule.year.forEach((yearRole) => {
@@ -63,12 +64,12 @@ export const scheduleCommand: SlashCommand = {
         const currentDay = moment().format('DD')
         const currentMonth = moment().format('MM')
 
-        let user = await login(
+        const user = await login(
             process.env.ON_AUTH_USERNAME || '',
             process.env.ON_AUTH_PASSWORD || '',
         )
 
-        let schedule = await user.getScheduleByDate(
+        const schedule = await user.getScheduleByDate(
             '202223',
             'S1',
             `EI-${year}-${classroom}`,
@@ -76,6 +77,7 @@ export const scheduleCommand: SlashCommand = {
             currentMonth,
             day || currentDay,
         )
+        console.log(schedule)
 
         if (!schedule) {
             return 'A combinação turma/ano não existe. Ex: !horario A-2 27'
@@ -85,7 +87,7 @@ export const scheduleCommand: SlashCommand = {
         }
 
         schedule.forEach((item) => {
-            let isCanceled = ['REPLACED', 'CANCELED'].includes(item.status)
+            const isCanceled = ['REPLACED', 'CANCELED'].includes(item.status)
             let strike = ''
             if (isCanceled) {
                 strike = '~~'
