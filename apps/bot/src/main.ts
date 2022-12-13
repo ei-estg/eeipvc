@@ -48,6 +48,7 @@ const main = new ClientManager(botConfig, {
         GatewayIntentBits.GuildMembers,
         GatewayIntentBits.MessageContent,
         GatewayIntentBits.GuildMessageReactions,
+        GatewayIntentBits.Guilds,
     ],
     partials: [
         Partials.Message,

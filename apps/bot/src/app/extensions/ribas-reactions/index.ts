@@ -10,17 +10,18 @@ export class RibeiroReact<T> extends BaseExtension<T> {
     }
 
     async ribasEmoji(message: Message) {
-        if (
-            message.content.includes('ribas') ||
-            message.content.includes('ribeiro')
-        ) {
-            await message.react('🇷')
-            await message.react('🇮')
-            await message.react('🇧')
-            await message.react('🇪')
-            await message.react('🇮')
-            await message.react('🇷')
-            await message.react('🇴')
+        const possibleCombinations = ['ribeiro', 'ribas', 'nosso lider']
+        if (possibleCombinations.includes(message.content.toLowerCase())) {
+            const emojis = [
+                '🇷',
+                '🇮',
+                '🇧',
+                '🇦',
+                '🇸',
+                '🐐',
+                ':ribeiro3:855147982110457877',
+            ]
+            emojis.forEach(async (emoji) => await message.react(emoji))
         }
     }
     //TODO: Gozar com o André @sousa-andre
