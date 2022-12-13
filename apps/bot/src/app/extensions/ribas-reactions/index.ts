@@ -11,7 +11,10 @@ export class RibeiroReact<T> extends BaseExtension<T> {
 
     async ribasEmoji(message: Message) {
         const possibleCombinations = ['ribeiro', 'ribas', 'nosso lider']
-        if (possibleCombinations.includes(message.content.toLowerCase())) {
+        const contains = possibleCombinations.some((elem) =>
+            message.content.toLowerCase().includes(elem),
+        )
+        if (contains) {
             const emojis = [
                 '🇷',
                 '🇮',
