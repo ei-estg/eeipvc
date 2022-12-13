@@ -1,6 +1,7 @@
 # EI Community Discord Bot
 
 [![GitHub Stars](https://img.shields.io/github/stars/sousa-andre/ipvcEI-Bot)](https://github.com/sousa-andre/ipvcEI-Bot/stargazers) [![GitHub Issues](https://img.shields.io/github/issues/sousa-andre/ipvcEI-Bot)](https://github.com/sousa-andre/ipvcEI-Bot/issues) [![GitHub Forks](https://img.shields.io/github/forks/sousa-andre/ipvcEI-Bot)](https://github.com/sousa-andre/ipvcEI-Bot) [![GitHub License](https://img.shields.io/github/license/sousa-andre/ipvcEI-Bot)](https://github.com/sousa-andre/ipvcEI-Bot/blob/main/LICENSE)
+[![Test, build and push](https://github.com/sousa-andre/eeipvc/actions/workflows/test_deploy.yml/badge.svg)](https://github.com/sousa-andre/eeipvc/actions/workflows/test_deploy.yml)
 
 This is a discord main, powered by [discord.js](https://discord.js.org/#/) that provides usefull commands to our discord college server, such as class schedules, information about meals, semester calendar, etc.
 
