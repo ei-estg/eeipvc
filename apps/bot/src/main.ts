@@ -29,6 +29,7 @@ import { mealsTimer } from './app/extensions/timers/list/meals'
 import { emailCommand } from './app/extensions/commands/list/classroom/mail'
 import { environmentSchema } from './config/environment.schema'
 import { adventOfCodeCommand } from './app/extensions/commands/list/fun/adventOfCode'
+import { RibeiroReact } from './app/extensions/ribas-reactions'
 
 dotenv.config({
     path: '../../.env',
@@ -62,6 +63,7 @@ const [commands, reacts, guild, timer] = [
     new ReactsHandler(main),
     new GuildExtension(main),
     new TimersExtension(main),
+    new RibeiroReact(main),
 ]
 
 commands.registerSlashCommands(
