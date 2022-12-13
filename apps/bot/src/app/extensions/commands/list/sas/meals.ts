@@ -5,6 +5,56 @@ import { getISODate } from '../../../../utils/time'
 import { normalize } from '../../../../utils/string'
 import { SlashCommandBuilder } from '@discordjs/builders'
 
+export async function getMealsEmbed(date) {
+    const meals = await getMealsNew(date)
+
+    if (!meals) {
+        return 'Erro desconhecido'
+    }
+
+    if (!meals[date]) {
+        return 'Sem ementas diponíveis para o dia.'
+    }
+
+    const lunchMeals = meals[date].filter((meal) => meal.englishTime == 'Lunch')
+    const dinnerMeals = meals[date].filter(
+        (meal) => meal.englishTime == 'Dinner',
+    )
+    const mealsEmbed = sasEmbed()
+        .setTitle(`Ementa dia ${date}`)
+        .addFields({
+            name: '\u200B',
+            value: `🍴 **${lunchMeals[0].time}**`,
+        })
+    lunchMeals.forEach((meal) => {
+        let name = `${meal.type} - ${meal.price?.toFixed(2) ?? '--'}€`
+        let value = normalize(meal.name)
+
+        if (!meal.available) {
+            name = `~~${name}~~`
+            value = normalize(`~~${meal.name}~~`)
+        }
+
+        mealsEmbed.addFields({ name, value })
+    })
+    mealsEmbed.addFields({
+        name: '\u200B',
+        value: `🍴 **${dinnerMeals[0].time}**`,
+    })
+    dinnerMeals.forEach((meal) => {
+        let name = `${meal.type} - ${meal.price?.toFixed(2) ?? '--'}€`
+        let value = normalize(meal.name)
+
+        if (!meal.available) {
+            name = `~~${name}~~`
+            value = normalize(`~~${meal.name}~~`)
+        }
+
+        mealsEmbed.addFields({ name, value })
+    })
+    return mealsEmbed
+}
+
 export const mealsCommand: SlashCommand = {
     builder: new SlashCommandBuilder()
         .setName('ementas')
@@ -22,55 +72,7 @@ export const mealsCommand: SlashCommand = {
             return '<:pepesneakyevil:958133599679443014>'
         }
         try {
-            let meals = await getMealsNew(date)
-
-            if (!meals) {
-                return 'Erro desconhecido'
-            }
-
-            if (!meals[date]) {
-                return 'Sem ementas diponíveis para o dia.'
-            }
-
-            let lunchMeals = meals[date].filter(
-                (meal) => meal.englishTime == 'Lunch',
-            )
-            let dinnerMeals = meals[date].filter(
-                (meal) => meal.englishTime == 'Dinner',
-            )
-            const mealsEmbed = sasEmbed()
-                .setTitle(`Ementa dia ${date}`)
-                .addFields({
-                    name: '\u200B',
-                    value: `🍴 **${lunchMeals[0].time}**`,
-                })
-            lunchMeals.forEach((meal) => {
-                let name = `${meal.type} - ${meal.price?.toFixed(2) ?? '--'}€`
-                let value = normalize(meal.name)
-
-                if (!meal.available) {
-                    name = `~~${name}~~`
-                    value = normalize(`~~${meal.name}~~`)
-                }
-
-                mealsEmbed.addFields({ name, value })
-            })
-            mealsEmbed.addFields({
-                name: '\u200B',
-                value: `🍴 **${dinnerMeals[0].time}**`,
-            })
-            dinnerMeals.forEach((meal) => {
-                let name = `${meal.type} - ${meal.price?.toFixed(2) ?? '--'}€`
-                let value = normalize(meal.name)
-
-                if (!meal.available) {
-                    name = `~~${name}~~`
-                    value = normalize(`~~${meal.name}~~`)
-                }
-
-                mealsEmbed.addFields({ name, value })
-            })
-            return mealsEmbed
+            return await getMealsEmbed(date)
         } catch (err) {
             console.error(err)
         }
