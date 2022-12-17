@@ -10,7 +10,7 @@ export class RibeiroReact<T> extends BaseExtension<T> {
     }
 
     async ribasEmoji(message: Message) {
-        const possibleCombinations = ['ribeiro', 'ribas', 'nosso lider', 'ribeirinho', 'astronauta', 'máchine', 'ia', 'ai']
+        const possibleCombinations = ['ribeiro', 'ribas', 'nosso lider', 'ribeirinho', 'astronauta', 'máchine', 'ia']
         const contains = possibleCombinations.some((elem) =>
             message.content.toLowerCase().includes(elem),
         )
