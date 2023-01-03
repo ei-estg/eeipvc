@@ -63,6 +63,8 @@ export const scheduleCommand: SlashCommand = {
 
         const currentDay = moment().format('DD')
         const currentMonth = moment().format('MM')
+        const currentYear = moment().format('YYYY')
+        console.log(currentYear)
 
         const user = await login(
             process.env.ON_AUTH_USERNAME || '',
@@ -73,7 +75,7 @@ export const scheduleCommand: SlashCommand = {
             '202223',
             'S1',
             `EI-${year}-${classroom}`,
-            '2022',
+            currentYear,
             currentMonth,
             day || currentDay,
         )
