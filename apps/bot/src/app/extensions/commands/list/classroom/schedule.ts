@@ -64,7 +64,6 @@ export const scheduleCommand: SlashCommand = {
         const currentDay = moment().format('DD')
         const currentMonth = moment().format('MM')
         const currentYear = moment().format('YYYY')
-        console.log(currentYear)
 
         const user = await login(
             process.env.ON_AUTH_USERNAME || '',
