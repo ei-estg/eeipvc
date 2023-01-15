@@ -17,7 +17,6 @@ export class RibeiroReact<T> extends BaseExtension<T> {
             'ribeirinho',
             'astronauta',
             'máchine',
-            'ia',
         ]
         const contains = possibleCombinations.some((elem) =>
             message.content.toLowerCase().split(' ').includes(elem),
