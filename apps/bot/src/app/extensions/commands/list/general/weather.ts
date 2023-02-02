@@ -24,49 +24,64 @@ const findEmoji = (type: number) => {
     return returnEmoji
 }
 
+const findLocationName = (idLocation: string) => {
+    let location = ''
+    districtIslands.data.forEach((local) => {
+        if (local.globalIdLocal === +idLocation) {
+            location = local.local
+        }
+    })
+    return location
+}
+
 export const getWeatherCommand: SlashCommand = {
     builder: new SlashCommandBuilder()
         .setName('meteo')
         .setDescription('Previsão meterológica para 3 dias')
-        .addIntegerOption((option) =>
+        .addStringOption((option) =>
             option
+                .setRequired(true)
                 .setName('distrito')
-                .setDescription('Distrito')
-                .setRequired(true),
+                .setDescription('Exemplo: aquario/carneiro/capricornio')
+                .setChoices(
+                    ...districtIslands.data.map((location) => {
+                        return {
+                            name: location.local,
+                            value: location.globalIdLocal.toString(),
+                        }
+                    }),
+                ),
         ),
 
     async run(it) {
-        const location = it.options.get('distrito').value
+        const locationID = it.options.get('distrito').value
+
+        const locationName = findLocationName(locationID)
 
         if (
-            location === 'japao' ||
-            location === 'japan' ||
-            location === 'japão'
+            locationID === 'japao' ||
+            locationID === 'japan' ||
+            locationID === 'japão'
         ) {
-            return 'Vai te foder Bruno, não há paciência'
+            return 'Vai te foder Bruno, não há paciência.'
         }
-        const weather = await fetchWeather(location)
+        const weather = await fetchWeather(locationID)
 
         if (weather == null) {
-            return 'Não foi possível encontrar a localização. Escreve apenas o distrito.'
+            return 'Não existe previsão disponível.'
         }
         const [day1, day2, day3] = weather.data
 
-        let day1type: string = findType(day1.idWeatherType)
-        let day2type: string = findType(day2.idWeatherType)
-        let day3type: string = findType(day3.idWeatherType)
+        const day1type: string = findType(day1.idWeatherType)
+        const day2type: string = findType(day2.idWeatherType)
+        const day3type: string = findType(day3.idWeatherType)
 
-        let day1emoji: string = findEmoji(day1.idWeatherType)
-        let day2emoji: string = findEmoji(day2.idWeatherType)
-        let day3emoji: string = findEmoji(day3.idWeatherType)
-
-        function capitalize(word) {
-            const lower = word.toLowerCase()
-            return word.charAt(0).toUpperCase() + lower.slice(1)
-        }
+        const day1emoji: string = findEmoji(day1.idWeatherType)
+        const day2emoji: string = findEmoji(day2.idWeatherType)
+        const day3emoji: string = findEmoji(day3.idWeatherType)
 
         const embed = eiEmbed()
-        embed.setTitle('Previsão meteorológica para ' + capitalize(location))
+        embed.setTitle(`Previsão meterológica para ${locationName}`)
 
         embed.addFields(
             {
