@@ -1,29 +1,54 @@
-import { SlashCommand } from "../../base/SlashCommand";
+import { SlashCommand } from '../../base/SlashCommand'
+import { SlashCommandBuilder } from '@discordjs/builders'
 import ServicesSchedule from '../../../../../assets/data/services-schedule.json'
 import { eiEmbed } from '../../../../defaults/embed'
 
 export const servicesCommand: SlashCommand = {
-    name: 'servicos',
-    alias: ['servicos', 'academicos', 'gac', 'bu', 'si'],
-    description: 'Horário dos vários serviços no IPVC',
-    async run() {
-        const servicesEmbed = eiEmbed().setTitle(
-            '⏰ Horários dos Serviços IPVC',
-        )
+    builder: new SlashCommandBuilder()
+        .setName('servicos')
+        .setDescription('Horário de cada serviço do IPVC')
+        .addStringOption((option) =>
+            option
+                .setRequired(true)
+                .setName('servico')
+                .setDescription('Serviço do IPVC')
+                .setChoices(
+                    ...ServicesSchedule.service.map((service) => ({
+                        name: service.name,
+                        value: service.value,
+                    })),
+                ),
+        ),
 
-        ServicesSchedule.service.forEach((service) => {
-            servicesEmbed.addFields({
-                name: `**${service.name}**`,
-                value: `\t${service.schedule.join(
-                    '',
-                )}\n **Contactos**\n \tEmail: ${service.email} \n \tTelefone: ${
-                    service.phone
-                }`,
-            })
+    async run(it) {
+        const service = it.options.get('servico').value
+        const serviceObj = ServicesSchedule.service.find(
+            (s) => s.value == service,
+        )
+        console.log(serviceObj)
+        if (!serviceObj) {
+            return 'Serviço inexistente.'
+        }
+        const embed = eiEmbed()
+        embed.setTitle(`Horário de ${serviceObj.name}`)
+        embed.addFields(
+            {
+                name: 'Horário',
+                value: serviceObj.schedule.join(''),
+            },
+            {
+                name: 'Telefone',
+                value: serviceObj.phone,
+            },
+            {
+                name: 'Email',
+                value: serviceObj.email,
+            },
+        )
+        embed.setFooter({
+            text: '⚠️ Horário sujeito a alterações ⚠️',
         })
-        servicesEmbed.setFooter({
-            text: 'Poderão ocorrer alterações nos hórarios'
-        })
-        return servicesEmbed
+
+        return embed
     },
 }

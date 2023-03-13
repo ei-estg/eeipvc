@@ -2,6 +2,7 @@
   "service": [
     {
       "name": "Gabinete de Apoio aos Cursos",
+      "value": "gac",
       "schedule": [
         "Segunda - 14h30 às 16h30 \n",
         "Terça - 14h30 às 16h30 e 17h às 19h \n",
@@ -14,6 +15,7 @@
     },
     {
       "name": "Serviços Informáticos",
+      "value": "si",
       "schedule": [
         "Segunda - 10h às 12h e 14h  às 16h \n",
         "Terça - 9h às 12h \n ",
@@ -26,6 +28,7 @@
     },
     {
       "name": "Balcão Único",
+      "value": "bu",
       "schedule": [
         "Segunda - 14h30 às 16h30 \n",
         "Terça - 14h30 às 16h30 e 17h às 19h \n",
@@ -38,6 +41,7 @@
     },
     {
       "name": "Serviços Académicos",
+      "value": "sa",
       "schedule": [
         "Segunda - 14h30 às 16h30 \n",
         "Terça - 14h30 às 16h30 \n",
