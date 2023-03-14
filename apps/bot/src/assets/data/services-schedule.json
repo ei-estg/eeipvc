@@ -59,7 +59,7 @@
       "updated_at": "14/03/2023"
     },
     {
-      "name": "BiBlioteca",
+      "name": "Biblioteca",
       "value": "bib",
       "schedule": [
         "Segunda a Quinta: 9h00 às 20h00 \n",
@@ -77,7 +77,8 @@
       ],
       "exceptions": "Em período de férias as Salas de Estudo estão encerradas.",
       "phone": "258 819 710",
-      "email": "sdi@estg.ipvc.pt"
+      "email": "sdi@estg.ipvc.pt",
+      "updated_at": "14/03/2023"
     }
   ]
 }
