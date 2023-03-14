@@ -43,14 +43,15 @@
       "name": "Serviços Académicos",
       "value": "sa",
       "schedule": [
-        "Segunda - 14h30 às 16h30 \n",
-        "Terça - 14h30 às 16h30 \n",
-        "Quarta - 10h às 12h \n",
-        "Quinta - 14h30 às 16h30 \n",
-        "Sexta - 10h às 12h \n"
+        "Segunda - Fechado \n",
+        "Terça - 17h00 às 19h00 \n",
+        "Quarta - Fechado \n",
+        "Quinta - 17h00 às 19h00 \n",
+        "Sexta - Fechado \n"
       ],
       "phone": "258 819 700 / 712",
-      "email": "academicos@estg.ipvc.pt"
+      "email": "academicos@estg.ipvc.pt",
+      "updated_at": "14/03/2023"
     }
   ]
 }
