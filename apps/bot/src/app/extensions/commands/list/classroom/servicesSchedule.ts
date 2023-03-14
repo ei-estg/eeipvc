@@ -46,7 +46,7 @@ export const servicesCommand: SlashCommand = {
             },
         )
         embed.setFooter({
-            text: '⚠️ Horário sujeito a alterações ⚠️',
+            text: `⚠️ Horário sujeito a alterações ⚠️ | 📅 Atualizado em ${serviceObj.updated_at} 📅`,
         })
 
         return embed
