@@ -25,16 +25,25 @@ export const servicesCommand: SlashCommand = {
         const serviceObj = ServicesSchedule.service.find(
             (s) => s.value == service,
         )
-        console.log(serviceObj)
         if (!serviceObj) {
             return 'Serviço inexistente.'
         }
-        const embed = eiEmbed()
-        embed.setTitle(`Horário de ${serviceObj.name}`)
-        embed.addFields(
+        const fields = [
             {
                 name: 'Horário',
                 value: serviceObj.schedule.join(''),
+            },
+            {
+                name: 'Horário excepcional',
+                value: serviceObj.exceptionalSchedule?.join('') || 'Nenhum',
+            },
+            {
+                name: 'Paragens Lectivas',
+                value: serviceObj.breaks?.join('') || 'Nenhuma',
+            },
+            {
+                name: 'Excepções',
+                value: serviceObj.exceptions || 'Nenhuma',
             },
             {
                 name: 'Telefone',
@@ -44,7 +53,11 @@ export const servicesCommand: SlashCommand = {
                 name: 'Email',
                 value: serviceObj.email,
             },
-        )
+        ]
+
+        const embed = eiEmbed()
+        embed.setTitle(`Horário de ${serviceObj.name}`)
+        embed.addFields(...fields)
         embed.setFooter({
             text: `⚠️ Horário sujeito a alterações ⚠️ | 📅 Atualizado em ${serviceObj.updated_at} 📅`,
         })
