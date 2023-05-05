@@ -21,6 +21,5 @@ export const getStock = async (stockTicker: string) => {
     )
 
     let response = await req.json()
-    console.log(response.quoteResponse.result[0])
     return await response.quoteResponse.result[0]
 }

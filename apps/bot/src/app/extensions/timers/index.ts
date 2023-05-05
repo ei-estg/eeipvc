@@ -32,7 +32,6 @@ export class TimersExtension<T> extends BaseExtension<T> {
                 timer.channelId,
             )
 
-            console.log(channel, timer.channelId)
 
             if (!channel) throw new Error('channel was not found for timer')
             callable.run(channel)
