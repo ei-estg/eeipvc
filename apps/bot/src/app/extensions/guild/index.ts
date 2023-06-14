@@ -23,6 +23,7 @@ export class GuildExtension<T> extends BaseExtension<T> {
 
     protected async _setup() {
         const guildId = this._manager.config.guild.id
+        console.log(guildId)
         const guild = await this._manager.client.guilds.fetch(guildId)
         const members = await guild.members.fetch()
         this._membersCount = members.size

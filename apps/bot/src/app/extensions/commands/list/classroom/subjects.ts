@@ -19,6 +19,7 @@ export const subjectsCommand: SlashCommand = {
         ),
 
     async run(it) {
+        console.log('oláááá')
         const year = it.options.get('ano').value
 
         const semestersEmbed = eiEmbed().setTitle('🔍 Disciplinas')
