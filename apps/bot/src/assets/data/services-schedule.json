@@ -2,7 +2,6 @@
   "service": [
     {
       "name": "Gabinete de Apoio aos Cursos",
-      "value": "gac",
       "schedule": [
         "Segunda - 14h30 às 16h30 \n",
         "Terça - 14h30 às 16h30 e 17h às 19h \n",
@@ -10,28 +9,23 @@
         "Quinta - 14h30 às 16h30 e 17h às 19h \n",
         "Sexta - 10h às 12h \n"
       ],
-      "exceptions": "De 01 de Julho a 31 de Agosto, nas paragens letivas e semana académica, não há atendimento das 17h00 às 19h00.",
       "phone": "258 819 700",
-      "email": "gac@estg.ipvc.pt",
-      "updated_at": "14/03/2023"
+      "email": "gac@estg.ipvc.pt"
     },
     {
       "name": "Serviços Informáticos",
-      "value": "si",
       "schedule": [
-        "Segunda - 14h às 16h \n",
-        "Terça - 9h às 12h e 14h às 19h \n ",
-        "Quarta - 10h às 12h \n",
-        "Quinta - 9h às 12h e 14h às 19h \n",
-        "Sexta - 10h às 13h \n"
+        "Segunda - 10h às 12h e 14h  às 16h \n",
+        "Terça - 9h às 12h \n ",
+        "Quarta - 10h às 11h \n",
+        "Quinta - 9h às 13h e 14h às 17h \n",
+        "Sexta - 9h às 13h \n"
       ],
       "phone": "258 819 700",
-      "email": "si@estg.ipvc.pt",
-      "updated_at": "14/03/2023"
+      "email": "si@estg.ipvc.pt"
     },
     {
       "name": "Balcão Único",
-      "value": "bu",
       "schedule": [
         "Segunda - 14h30 às 16h30 \n",
         "Terça - 14h30 às 16h30 e 17h às 19h \n",
@@ -39,46 +33,20 @@
         "Quinta - 14h30 às 16h30 e 17h às 19h \n",
         "Sexta - 10h às 12h \n"
       ],
-      "exceptions": "Nas férias escolares e na Semana Académica, não há atendimento das 17h00 às 19h00.",
       "phone": "258 819 700",
-      "email": "bu@estg.ipvc.pt",
-      "updated_at": "14/03/2023"
+      "email": "bu@estg.ipvc.pt"
     },
     {
       "name": "Serviços Académicos",
-      "value": "sa",
       "schedule": [
         "Segunda - 14h30 às 16h30 \n",
-        "Terça - 14h30 às 16h30 & 17h00 às 19h00 \n",
-        "Quarta - 10h00 às 12h00 \n",
-        "Quinta - 14h30 às 16h30 & 17h00 às 19h00 \n",
-        "Sexta - 10h00 às 12h00 \n"
+        "Terça - 14h30 às 16h30 \n",
+        "Quarta - 10h às 12h \n",
+        "Quinta - 14h30 às 16h30 \n",
+        "Sexta - 10h às 12h \n"
       ],
       "phone": "258 819 700 / 712",
-      "email": "academicos@estg.ipvc.pt",
-      "updated_at": "14/03/2023"
-    },
-    {
-      "name": "Biblioteca",
-      "value": "bib",
-      "schedule": [
-        "Segunda a Quinta: 9h00 às 20h00 \n",
-        "Sexta: 9h00 às 19h00 \n"
-      ],
-      "exceptionalSchedule": [
-        "Cimeira IPVC \n",
-        "Semana Académica \n",
-        "Véspera de feriado \n",
-        "Exame de Recurso e Época Especial \n",
-        "Segunda a Sexta: 9h00 às 19h00 \n"
-      ],
-      "breaks": [
-        "Segunda a Sexta: 9h00 às 17h00"
-      ],
-      "exceptions": "Em período de férias as Salas de Estudo estão encerradas.",
-      "phone": "258 819 710",
-      "email": "sdi@estg.ipvc.pt",
-      "updated_at": "14/03/2023"
+      "email": "academicos@estg.ipvc.pt"
     }
   ]
 }
