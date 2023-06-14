@@ -31,6 +31,7 @@ import { environmentSchema } from './config/environment.schema'
 import { adventOfCodeCommand } from './app/extensions/commands/list/fun/adventOfCode'
 import { onedriveCommand } from "./app/extensions/commands/list/classroom/onedrive"
 import { RibeiroReact } from './app/extensions/ribas-reactions'
+import { subjectsCommand } from "./app/extensions/commands/list/classroom/subjects";
 
 dotenv.config({
     path: '../../.env',
@@ -88,6 +89,7 @@ commands.registerSlashCommands(
     getWeatherCommand,
     emailCommand,
     adventOfCodeCommand,
+    subjectsCommand,
     onedriveCommand,
 )
 
