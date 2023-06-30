@@ -24,7 +24,7 @@
     ],
     "license": "MIT",
     "engines": {
-        "node": ">=16",
+        "node": "18.x",
         "npm": ">=8.15"
     },
     "dependencies": {
