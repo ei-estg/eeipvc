@@ -20,8 +20,6 @@ export class ReactsHandler<T> extends BaseExtension<T> {
 
         client.on('messageReactionAdd', this.reactionAdded.bind(this))
         client.on('messageReactionRemove', this.reactionRemoved.bind(this))
-
-        this._giveRoles(ReactionsList)
     }
 
     private _giveRoles(react: FileReacts) {
