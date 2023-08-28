@@ -29,8 +29,9 @@ import { mealsTimer } from './app/extensions/timers/list/meals'
 import { emailCommand } from './app/extensions/commands/list/classroom/mail'
 import { environmentSchema } from './config/environment.schema'
 import { adventOfCodeCommand } from './app/extensions/commands/list/fun/adventOfCode'
-import { onedriveCommand } from "./app/extensions/commands/list/classroom/onedrive"
+import { onedriveCommand } from './app/extensions/commands/list/classroom/onedrive'
 import { RibeiroReact } from './app/extensions/ribas-reactions'
+import { calendarCommand } from './app/extensions/commands/list/classroom/calendar'
 
 dotenv.config({
     path: '../../.env',
@@ -89,6 +90,7 @@ commands.registerSlashCommands(
     emailCommand,
     adventOfCodeCommand,
     onedriveCommand,
+    calendarCommand,
 )
 
 commands.registerSlashCommandsAutomatically()

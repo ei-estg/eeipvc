@@ -1,4 +1,4 @@
-import { SlashCommand } from "../../base/SlashCommand";
+import { SlashCommand } from '../../base/SlashCommand'
 import IPVCCalendar from '../../../../../assets/data/ipvc-calendar.json'
 import { eiEmbed } from '../../../../defaults/embed'
 import { normalize } from '../../../../utils/string'
@@ -11,7 +11,7 @@ export const calendarCommand: SlashCommand = {
 
         IPVCCalendar.half.forEach((half) => {
             calendarEmbed.addFields({
-                name: '⠀',
+                name: '*------------------*',
                 value: `**${half.id}º Semestre** (de ${half.begin} a ${half.end})`,
             })
 
@@ -20,6 +20,13 @@ export const calendarCommand: SlashCommand = {
                     name: normalize(int.type),
                     value: `de ${int.begin} a ${int.end}`,
                 })
+            })
+            calendarEmbed.addFields({
+                name: 'Feriados',
+                value: half.holydays.reduce((previous, current, index) => {
+                    current = previous + '\n' + current
+                    return current
+                }),
             })
         })
         return calendarEmbed
