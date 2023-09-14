@@ -91,10 +91,10 @@ export const getScheduleByDate = async (
     month: string,
     day: string,
 ) => {
-    const STATIC_DATE = 403
+    const STATIC_DATE = 452
     const staticMomentTime = moment({
-        year: 2022,
-        day: 12,
+        year: 2023,
+        day: 18,
         month: 8,
     })
 
