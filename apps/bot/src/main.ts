@@ -32,6 +32,7 @@ import { adventOfCodeCommand } from './app/extensions/commands/list/fun/adventOf
 import { onedriveCommand } from './app/extensions/commands/list/classroom/onedrive'
 import { RibeiroReact } from './app/extensions/ribas-reactions'
 import { calendarCommand } from './app/extensions/commands/list/classroom/calendar'
+import { justNo } from './app/extensions/commands/list/fun/justNo'
 
 dotenv.config({
     path: '../../.env',
@@ -91,6 +92,7 @@ commands.registerSlashCommands(
     adventOfCodeCommand,
     onedriveCommand,
     calendarCommand,
+    justNo,
 )
 
 commands.registerSlashCommandsAutomatically()
