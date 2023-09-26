@@ -45,11 +45,11 @@ export class GuildExtension<T> extends BaseExtension<T> {
         const channel = await member.guild.channels.fetch('766278332500803610')
         let string = ''
         if (this._membersCount % 100 === 0) {
-            string = `Parabéns és o membro nº${this._membersCount} a ingressar no servidor.`
+            string = `És o membro nº**${this._membersCount}** a ingressar no servidor, parabéns! <:poggies:917745075948228618>🎉🎉`
         }
         if (channel && channel.isTextBased()) {
             channel.send(
-                `${string}Boas ${member.user}. Sê bem-vindo ao discord de Engenharia Informática do IPVC!`,
+                `Boas ${member.user}! Sê bem-vindo ao discord de Engenharia Informática do IPVC 👋\n${string}`,
             )
         }
     }
@@ -61,7 +61,7 @@ export class GuildExtension<T> extends BaseExtension<T> {
         const channel = await member.guild.channels.fetch('766278332500803610')
         if (channel && channel.isTextBased()) {
             channel.send(
-                `${member.user}, '${member.displayName}' abandonou a nossa jangada ⛵️. Seguimos com ${this._membersCount} marujos <:FeelsBadMan:766306313663283241> `,
+                `${member.user}, '${member.displayName}' abandonou a nossa jangada ⛵️. Seguimos com ${this._membersCount} marujos <:FeelsBadMan:766306313663283241>`,
             )
         }
     }
