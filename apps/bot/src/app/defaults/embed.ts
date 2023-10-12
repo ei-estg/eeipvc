@@ -5,7 +5,7 @@ export const sasEmbed = () =>
         .setColor(16777215)
         .setAuthor({
                 name: 'SAS IPVC',
-                iconURL: 'https://cdn.discordapp.com/attachments/795686232700878858/840518374801932288/untitled.png?size=256\''
+                iconURL: 'https://cdn.discordapp.com/attachments/859892341430550558/1157220665150148648/untitled.png'
         })
 
 
