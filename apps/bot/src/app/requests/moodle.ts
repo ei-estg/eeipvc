@@ -31,10 +31,10 @@ interface MoodleCourse {
 }
 
 export const getMoodleCalendarEvents = async () => {
-    let req = await fetchMoodle('core_calendar_get_calendar_upcoming_view')
+    const req = await fetchMoodle('core_calendar_get_calendar_upcoming_view')
 
-    let data = await req.json()
-    let reData: MoodleCalendarEvent[] = []
+    const data = await req.json()
+    const reData: MoodleCalendarEvent[] = []
 
     data.events.forEach((event) =>
         reData.push({

@@ -45,7 +45,7 @@ export class ReactsHandler<T> extends BaseExtension<T> {
     protected async _setup() {
         const { client: bot } = this._manager
 
-        let tasks: Array<Promise<void>> = []
+        const tasks: Array<Promise<void>> = []
         for (const react of this.reacts) {
             const task = async () => {
                 const channel = (await bot.channels.fetch(
@@ -105,7 +105,7 @@ export class ReactsHandler<T> extends BaseExtension<T> {
         let check
         try {
             if ((check = await this.handleCheck(reaction, user))) {
-                let { guildMember, roleId } = check
+                const { guildMember, roleId } = check
                 await guildMember?.roles.add(roleId)
             }
         } catch (e) {
@@ -120,7 +120,7 @@ export class ReactsHandler<T> extends BaseExtension<T> {
         let check
         try {
             if ((check = await this.handleCheck(reaction, user))) {
-                let { guildMember, roleId } = check
+                const { guildMember, roleId } = check
                 await guildMember?.roles.remove(roleId)
             }
         } catch (e) {

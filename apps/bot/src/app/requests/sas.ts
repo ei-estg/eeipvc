@@ -9,11 +9,11 @@ export interface BusStop {
 }
 
 export const getBusStops = async () => {
-    let req = await fetch(
+    const req = await fetch(
         'http://apps.sas.ipvc.pt/sas-ws/mobile/getLocaisBus.php',
     )
-    let data = await req.json()
-    let reData: BusStop[] = []
+    const data = await req.json()
+    const reData: BusStop[] = []
 
     data.forEach((v) => {
         reData.push({
@@ -35,7 +35,7 @@ export interface Meal {
     time: string
     englishTime: string
     price?: number
-    stockQuantity?: number,
+    stockQuantity?: number
     available: boolean
 }
 
@@ -44,13 +44,13 @@ export interface Meals {
 }
 
 export const getMeals = async (startDate: string, endDate: string) => {
-    let req = await fetch(
+    const req = await fetch(
         `http://apps.sas.ipvc.pt/sas-ws/mobileV2/obtempordata4.php?datai=${startDate}&dataf=${
             endDate ? endDate : startDate
         }`,
     )
-    let data = await req.json()
-    let reData: Meals = {}
+    const data = await req.json()
+    const reData: Meals = {}
 
     Object.values(data.posts).forEach((dayMeals: any) => {
         dayMeals.forEach(({ post: meal }) => {
@@ -66,7 +66,7 @@ export const getMeals = async (startDate: string, endDate: string) => {
                 time: meal.altura_AlturaDia,
                 englishTime:
                     meal.altura_AlturaDia == 'Almoço' ? 'Lunch' : 'Dinner',
-                available: meal.available
+                available: meal.available,
             })
         })
     })
@@ -134,10 +134,10 @@ export const getMealsNew = async (date: string) => {
         },
     )
 
-    let data = await req.json()
-    let dinnerData = await reqDinner.json()
+    const data = await req.json()
+    const dinnerData = await reqDinner.json()
 
-    let reData: Meals = {}
+    const reData: Meals = {}
     data.data.forEach((innerMeal) => {
         // time change
         innerMeal.date = moment(innerMeal.date).add(1, 'h').toISOString()
@@ -165,7 +165,7 @@ export const getMealsNew = async (date: string) => {
                     price.description == 'Preço Aluno' && price.meal == 'lunch',
             ).price,
             stockQuantity: innerMeal.stockQuantity,
-            available: innerMeal.available
+            available: innerMeal.available,
         })
     })
     dinnerData.data.forEach((innerMeal) => {
@@ -196,7 +196,7 @@ export const getMealsNew = async (date: string) => {
                     price.meal == 'dinner',
             ).price,
             stockQuantity: innerMeal.stockQuantity,
-            available: innerMeal.available
+            available: innerMeal.available,
         })
     })
     return reData

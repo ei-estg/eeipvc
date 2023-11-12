@@ -1,13 +1,11 @@
-import { BaseInteraction, EmbedBuilder } from "discord.js";
+import { BaseInteraction, EmbedBuilder } from 'discord.js'
 
-import { SlashCommand } from "./base/SlashCommand";
-import { SlashCommandBuilder } from "@discordjs/builders";
-import { deployCommands } from "../../rest/deploy-commands";
-import { ClientManager } from "../../client";
-import { BaseExtension } from "../base/BaseExtension";
-import { getCommandFilesPath } from "../../utils/file";
-
-
+import { SlashCommand } from './base/SlashCommand'
+import { SlashCommandBuilder } from '@discordjs/builders'
+import { deployCommands } from '../../rest/deploy-commands'
+import { ClientManager } from '../../client'
+import { BaseExtension } from '../base/BaseExtension'
+import { getCommandFilesPath } from '../../utils/file'
 
 export class CommandsExtension<T> extends BaseExtension<T> {
     private slashCommands: SlashCommand[] = []
@@ -17,33 +15,34 @@ export class CommandsExtension<T> extends BaseExtension<T> {
 
         const { client } = _manager
 
-        client.on("interactionCreate", this._interactionCreate.bind(this));
+        client.on('interactionCreate', this._interactionCreate.bind(this))
     }
 
-
     protected async _setup() {
-
         const { client, restClient } = this._manager
-        const clientApp = await client.application!;
+        const clientApp = await client.application!
 
-        await deployCommands({
-              client: restClient,
-              appId: clientApp.id,
-          },
-          this.interactionReadyCommandsJSONData
+        await deployCommands(
+            {
+                client: restClient,
+                appId: clientApp.id,
+            },
+            this.interactionReadyCommandsJSONData,
         )
     }
 
     async _interactionCreate(interaction: BaseInteraction) {
-        if (!interaction.isChatInputCommand()) return;
+        if (!interaction.isChatInputCommand()) return
 
-        const calledCommand = this.slashCommands.find(command => command.builder!.name == interaction.commandName)
-        if (!calledCommand) return;
+        const calledCommand = this.slashCommands.find(
+            (command) => command.builder!.name == interaction.commandName,
+        )
+        if (!calledCommand) return
 
         const ret = await calledCommand.run(interaction)
         if (ret instanceof EmbedBuilder) {
             await interaction.reply({
-                embeds: [ret]
+                embeds: [ret],
             })
         } else if (typeof ret == 'string') {
             await interaction.reply(ret)
@@ -53,28 +52,32 @@ export class CommandsExtension<T> extends BaseExtension<T> {
     }
 
     private _registerSlashCommand(slashCommand: SlashCommand) {
-        slashCommand.builder = slashCommand.builder || new SlashCommandBuilder()
-          .setName(slashCommand.name!)
-          .setDescription(slashCommand.description!)
+        slashCommand.builder =
+            slashCommand.builder ||
+            new SlashCommandBuilder()
+                .setName(slashCommand.name!)
+                .setDescription(slashCommand.description!)
         slashCommand.config = this._manager.config
         this.slashCommands.push(slashCommand)
     }
 
     registerSlashCommands(...commands: SlashCommand[]) {
-        commands.forEach(command => this._registerSlashCommand(command))
+        commands.forEach((command) => this._registerSlashCommand(command))
     }
 
     registerSlashCommandsAutomatically() {
-        getCommandFilesPath().forEach(commandFilePath => {
+        getCommandFilesPath().forEach((commandFilePath) => {
             const command = require(commandFilePath)
-                Object.values(command).forEach(exportedCommand => {
-                    if (exportedCommand instanceof SlashCommand)
+            Object.values(command).forEach((exportedCommand) => {
+                if (exportedCommand instanceof SlashCommand)
                     this._registerSlashCommand(exportedCommand)
-                });
+            })
         })
     }
 
     get interactionReadyCommandsJSONData() {
-        return this.slashCommands.map(command => command.builder!.toJSON()) || []
+        return (
+            this.slashCommands.map((command) => command.builder!.toJSON()) || []
+        )
     }
 }

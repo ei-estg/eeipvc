@@ -1,9 +1,9 @@
 import { BaseExtension } from '../base/BaseExtension'
 import { ClientManager } from '../../client'
-import { ActivityType, GuildMember, PartialGuildMember } from "discord.js";
+import { ActivityType, GuildMember, PartialGuildMember } from 'discord.js'
 
 export class GuildExtension<T> extends BaseExtension<T> {
-    private _membersCount: number = 0
+    private _membersCount = 0
 
     constructor(manager: ClientManager) {
         super(manager)

@@ -3,20 +3,20 @@ import { eiEmbed } from '../../../../defaults/embed'
 import { SlashCommand } from '../../base/SlashCommand'
 
 import IPVCUCList from '../../../../../assets/data/ipvc-uc-list.json'
-import { SlashCommandBuilder } from "@discordjs/builders";
+import { SlashCommandBuilder } from '@discordjs/builders'
 
 export const subjectsCommand: SlashCommand = {
     builder: new SlashCommandBuilder()
-      .setName('disciplinas')
-      .setDescription('Disciplinas a lecionar durante o decorrer do curso')
-      .addIntegerOption(option =>
-        option.setName('ano')
-          .setDescription('Ano letivo')
-          .setRequired(true)
-          .setMaxValue(3)
-          .setMinValue(1)
+        .setName('disciplinas')
+        .setDescription('Disciplinas a lecionar durante o decorrer do curso')
+        .addIntegerOption((option) =>
+            option
+                .setName('ano')
+                .setDescription('Ano letivo')
+                .setRequired(true)
+                .setMaxValue(3)
+                .setMinValue(1),
         ),
-
 
     async run(it) {
         console.log('oláááá')

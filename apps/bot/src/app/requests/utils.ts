@@ -22,15 +22,15 @@ interface CovidEntry {
 }
 
 export const getCovidInPortugalForDate = async (date1: string) => {
-    let req = await fetch(
+    const req = await fetch(
         `https://covid19-api.vost.pt/Requests/get_entry/${date1}`,
     )
     if (!req.ok) return null
 
-    let data = await req.json()
-    let key: number = parseInt(Object.keys(data.data)[0])
+    const data = await req.json()
+    const key: number = parseInt(Object.keys(data.data)[0])
 
-    let reData: CovidEntry = {
+    const reData: CovidEntry = {
         confirmed: {
             total: data['confirmados'][key],
             new: data['confirmados_novos'][key],

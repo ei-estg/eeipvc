@@ -7,7 +7,7 @@ export interface Stock {
 }
 
 export const getStock = async (stockTicker: string) => {
-    let req = await fetch(
+    const req = await fetch(
         `https://stock-data-yahoo-finance-alternative.p.rapidapi.com/v6/finance/quote?symbols=${stockTicker}`,
         {
             method: 'GET',
@@ -20,7 +20,7 @@ export const getStock = async (stockTicker: string) => {
         },
     )
 
-    let response = await req.json()
+    const response = await req.json()
     console.log(response.quoteResponse.result[0])
     return await response.quoteResponse.result[0]
 }

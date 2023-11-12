@@ -18,7 +18,7 @@ export const stockCommand: SlashCommand = {
     async run(it) {
         const symbol = it.options.get('symbol')
         try {
-            let stock = await getStock(symbol.value)
+            const stock = await getStock(symbol.value)
 
             if (!stock) {
                 return 'Este stock não existe!. Ex: !stock AAPL'

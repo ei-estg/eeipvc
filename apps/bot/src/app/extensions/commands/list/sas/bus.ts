@@ -8,7 +8,7 @@ export const busCommand: SlashCommand = {
 
     async run() {
         try {
-            let stops = await getBusStops()
+            const stops = await getBusStops()
             const busStopsEmbed = sasEmbed().setTitle(
                 '🚌 Paragens Bus Académico',
             )

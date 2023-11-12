@@ -8,7 +8,7 @@ export interface Prediction {
 }
 
 export const getHoroscope = async (
-    sign: String,
+    sign: string,
 ): Promise<Prediction | null> => {
     const url = `https://lifestyle.sapo.pt/astral/previsoes/maya?signo=${sign}`
     const response = await fetch(url)
