@@ -1,9 +1,9 @@
-import { SlashCommand } from '../../base/SlashCommand'
-import { eiEmbed } from '../../../../defaults/embed'
-import { getAoCLeaderboard } from '../../../../requests/adventofcode'
-import { shortify } from '../../../../utils/string'
-import { SlashCommandBuilder } from '@discordjs/builders'
-import { CommandInteraction } from 'discord.js'
+import {SlashCommand} from '../../base/SlashCommand'
+import {eiEmbed} from '../../../../defaults/embed'
+import {getAoCLeaderboard} from '../../../../requests/adventofcode'
+import {shortify} from '../../../../utils/string'
+import {SlashCommandBuilder} from '@discordjs/builders'
+import {CommandInteraction} from 'discord.js'
 
 const getMedal = (pos: number) =>
     ({
@@ -22,8 +22,9 @@ export const adventOfCodeCommand: SlashCommand = {
                 .setName('ano')
                 .setDescription('Ano Referente ao Advent of Code')
                 .addChoices(
-                    { name: '2021', value: 2021 },
-                    { name: '2022', value: 2022 },
+                    {name: '2021', value: 2021},
+                    {name: '2022', value: 2022},
+                    {name: '2023', value: 2023},
                 ),
         ),
 
