@@ -72,7 +72,7 @@ export const scheduleCommand: SlashCommand = {
 
         const schedule = await user.getScheduleByDate(
             '202324',
-            'S1',
+            'S2',
             `EI-${year}-${classroom}`,
             currentYear,
             currentMonth,
