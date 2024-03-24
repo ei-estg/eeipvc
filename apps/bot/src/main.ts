@@ -33,6 +33,7 @@ import { onedriveCommand } from './app/extensions/commands/list/classroom/onedri
 import { RibeiroReact } from './app/extensions/ribas-reactions'
 import { calendarCommand } from './app/extensions/commands/list/classroom/calendar'
 import { justNo } from './app/extensions/commands/list/fun/justNo'
+import { minecraftCommand } from './app/extensions/commands/list/fun/minecraft'
 
 dotenv.config({
     path: '../../.env',
@@ -93,6 +94,7 @@ commands.registerSlashCommands(
     onedriveCommand,
     calendarCommand,
     justNo,
+    minecraftCommand,
 )
 
 commands.registerSlashCommandsAutomatically()
