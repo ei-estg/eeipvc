@@ -19,6 +19,15 @@ export const minecraftCommand: SlashCommand = {
                 name: 'Utilizadores',
                 value: `Online: ${data.onlinePlayers}`,
             },
+            {
+                name: 'Download do Fabric',
+                value: '[Clica aqui](https://fabricmc.net/use/installer/)',
+                inline: false,
+            },
+            {
+                name: 'Download do Modpack',
+                value: '[Clica aqui](https://drive.google.com/file/d/1oYDptV5TxUNFkLakPFGxvC4dHkARGoJY)',
+            }
         )
         return embed
     },
