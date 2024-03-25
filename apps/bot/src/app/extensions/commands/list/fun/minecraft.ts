@@ -13,16 +13,18 @@ export const minecraftCommand: SlashCommand = {
         embed.addFields(
             {
                 name: 'Servidor',
-                value: `${data.host}:${data.port}`,
+                value: `${data.host}`,
+                inline: true,
             },
             {
-                name: 'Utilizadores',
-                value: `Online: ${data.onlinePlayers}`,
+                name: 'Jogadores Online',
+                value: data.onlinePlayers === 0 ? "0 <:feelsBadMan:766306313663283241>" : data.onlinePlayers.toString(),
                 inline: true,
             },
             {
                 name: 'Download do Fabric',
                 value: '[Clica aqui](https://fabricmc.net/use/installer/)',
+                inline: false,
             },
             {
                 name: 'Download do Modpack',
